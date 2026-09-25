@@ -76,6 +76,96 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "west-palm-point-tent-site-delay-2029-2026-09-25",
+    "slug": "west-palm-point-tent-site-delay-2029-2026-09-25",
+    "title": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward",
+    "sourceName": "City of West Palm Beach CRA",
+    "sourceUrl": "https://www.wpb.org/Departments/Community-Redevelopment-Agency/DowntownCity-Center/Okeechobee-Corridor",
+    "canonicalUrl": "https://www.wpb.org/Departments/Community-Redevelopment-Agency/DowntownCity-Center/Okeechobee-Corridor",
+    "sourceTitle": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward",
+    "publishedAt": "2026-09-25T20:16:53.550Z",
+    "sourcePublishedAt": "2026-09-24",
+    "sourcePublishedDate": "2026-09-24",
+    "eventDate": "2026-09-25",
+    "dateDiscovered": "2026-09-25",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-25T20:16:53.550Z",
+    "deck": "The long-delayed gateway tower is seeking a new January 2029 completion deadline as West Palm Beach officials weigh frustration with the developer against a proposed $350 million investment that could finally put the project on firmer footing.",
+    "description": "West Palm Point's developer is seeking until January 2029 to complete the long-delayed Tent Site tower as West Palm Beach weighs a proposed $350 million investment and new financial protections.",
+    "summary": "The long-delayed gateway tower is seeking a new January 2029 completion deadline as West Palm Beach officials weigh frustration with the developer against a proposed $350 million investment that could finally put the project on firmer footing.",
+    "bodySections": [
+      {
+        "heading": "Introduction",
+        "body": "One of downtown West Palm Beach’s most prominent development sites is facing another major delay.\n\nWest Palm Point, the glass office tower rising on the long-vacant “Tent Site” at Okeechobee Boulevard and South Dixie Highway, was supposed to be completed by August 2027. Developer Cohen Brothers Realty is now asking the city for an additional 17 months, pushing the deadline to January 2029.\n\nThe request has not gone over quietly at City Hall. Mayor Keith James and members of the West Palm Beach Community Redevelopment Agency expressed considerable frustration during a September meeting after years of slow progress at the city-owned property. The city had already notified the developer that it was in default under its 49-year ground lease.\n\nBut there is now a significant reason the city may agree to give West Palm Point more time: approximately $350 million in new investment could be tied to the extension."
+      },
+      {
+        "heading": "A $350 Million Reason to Keep Going",
+        "body": "According to the CRA's attorney, Lendlease is prepared to partner on the project and commit approximately $350 million, but wants the city's lease amendment in place before making that commitment.\n\nThat changes the equation considerably.\n\nWest Palm Point has spent years caught between ambitious plans, permitting delays and financial uncertainty. A capital commitment of that scale could provide a much clearer path toward completing one of downtown's longest-running development sagas.\n\nThe proposed extension also comes with something West Palm Beach has been missing during much of the delay: financial consequences for taking longer.\n\nUnder the proposed agreement, approximately $1 million in annual ground rent would begin in September 2027 — whether or not the building is finished.\n\nBeginning in January 2028, the developer would also begin making estimated tax-equivalent payments of approximately $400,000 per month, according to the CRA's attorney.\n\nIn other words, extending the deadline would no longer mean simply extending the period before the city gets paid."
+      },
+      {
+        "heading": "Why the ‘Tent Site’ Matters",
+        "body": "The controversy surrounding West Palm Point isn't just about a late construction project.\n\nThe roughly 2.4-acre property occupies one of the most visible entrances into downtown West Palm Beach, where Okeechobee Boulevard meets South Dixie Highway.\n\nThe CRA has described the city-owned parcel as a prime entryway into downtown, and the property was appraised at approximately $25.7 million when the current redevelopment effort was established. The CRA entered into its development agreement with Cohen Brothers Realty in 2020, and the project's site plan received City Commission approval in January 2022.\n\nThe city has been attempting to redevelop the site in various forms for roughly three decades.\n\nThat history explains some of the frustration now coming from City Hall."
+      },
+      {
+        "heading": "What Is Planned for West Palm Point?",
+        "body": "West Palm Point is envisioned as a major Class A office and retail development centered around a distinctive elliptical glass tower.\n\nThe project occupies an especially important position at the western entrance to the downtown core, immediately east of the rapidly developing Okeechobee corridor.\n\nAnd unlike some West Palm Beach proposals that remain largely conceptual, West Palm Point has moved into construction. The city's own current road-and-construction updates list the project as active, although city materials have referenced a spring 2028 timeframe that now appears increasingly difficult to reconcile with the developer's requested January 2029 completion deadline.\n\nThe West Palm Beach Residents Coalition's development tracker currently lists West Palm Point as under construction with a foundation permit issued.",
+        "image": "/assets/editorial/west-palm-point-tent-site-delay-2029-2026-09-25-body-1.jpg",
+        "imageAlt": "Architectural rendering of the planned West Palm Point office tower and surrounding buildings.",
+        "imageCaption": "Rendering of the planned West Palm Point development; it does not show current site conditions.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "Years of Financial Trouble Complicated the Project",
+        "body": "The delays have unfolded alongside broader financial problems involving developer Charles Cohen and his real estate holdings.\n\nIn 2024, Cohen's company defaulted on a $535 million loan from Fortress Investment Group, ultimately losing several properties.\n\nWest Palm Point encountered its own financing trouble in 2025 when a lender filed a foreclosure lawsuit alleging that the project's ownership entity had failed to repay a $10 million preconstruction loan. That case was subsequently dismissed.\n\nMeanwhile, the City of West Palm Beach eventually determined that the developer itself was in default under requirements of the Tent Site lease.\n\nCohen has maintained that the project remains firmly on track despite those setbacks. In a statement provided to the Palm Beach Post, he acknowledged the delays but said his team remains committed to delivering the development and pointed to visible construction progress at the site."
+      },
+      {
+        "heading": "A Very Different Downtown Than the One West Palm Point Started In",
+        "body": "There is some irony in how long West Palm Point has taken.\n\nWhen Cohen Brothers secured the Tent Site in 2020, West Palm Beach's transformation into a major destination for financial firms and corporate offices was still accelerating.\n\nSix years later, West Palm Point is entering a dramatically different market.\n\nNew office towers have reshaped the Okeechobee corridor, billions of dollars of residential development are underway across downtown and the waterfront, and competition for tenants at the top end of the office market has increased substantially.\n\nThat makes West Palm Point arguably more important architecturally — but also means it can no longer rely simply on being one of the newest premium office buildings downtown.\n\nIt has to arrive."
+      },
+      {
+        "heading": "What Happens Next",
+        "body": "The CRA has scheduled a special meeting for September 28 to consider the proposed amendment. As of September 25, no final extension has been approved.\n\nThe decision puts city commissioners in an unusual position.\n\nThey are dealing with a developer whose performance on the property has generated obvious frustration and whose existing agreement has already fallen into default.\n\nAt the same time, the project is under construction, the proposed agreement would begin generating substantial revenue for the city before completion, and a reported $350 million investment is contingent on getting the amendment resolved.\n\nFor a parcel West Palm Beach has spent decades trying to develop, walking away and starting over would carry its own costs and delays.\n\nThat may ultimately be the most important context surrounding the latest West Palm Point deadline.\n\nJanuary 2029 is considerably later than West Palm Beach expected. But after decades of plans for the Tent Site, the more consequential question is whether this extension finally comes with enough capital — and enough financial pressure — to make West Palm Point a reality."
+      }
+    ],
+    "whyItMatters": "",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward",
+    "newsletterBlurb": "The long-delayed gateway tower is seeking a new January 2029 completion deadline as West Palm Beach officials weigh frustration with the developer against a proposed $350 million investment that could finally put the project on firmer footing.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/west-palm-point-tent-site-delay-2029-2026-09-25-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach CRA — Okeechobee Corridor",
+        "url": "https://www.wpb.org/Departments/Community-Redevelopment-Agency/DowntownCity-Center/Okeechobee-Corridor",
+        "type": "city planning material"
+      },
+      {
+        "label": "West Palm Point official site",
+        "url": "https://www.westpalmpoint.com/",
+        "type": "official project site"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "palm-beach-county-data-center-moratorium-project-tango-2026-09-24",
     "slug": "palm-beach-county-data-center-moratorium-project-tango-2026-09-24",
     "title": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection",

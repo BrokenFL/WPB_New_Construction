@@ -4741,6 +4741,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/west-palm-point-tent-site-delay-2029-2026-09-25/",
+    "title": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward | WPB Updates",
+    "description": "West Palm Point's developer is seeking until January 2029 to complete the long-delayed Tent Site tower as West Palm Beach weighs a proposed $350 million investment and new financial protections.",
+    "ogImage": "/assets/editorial/west-palm-point-tent-site-delay-2029-2026-09-25-hero.jpg"
+  },
+  {
     "path": "/updates/palm-beach-county-data-center-moratorium-project-tango-2026-09-24/",
     "title": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection | WPB Updates",
     "description": "Palm Beach County’s data center pause follows Project Tango’s rejection. Learn what it covers, what remains approved and what nearby homebuyers should watch.",
