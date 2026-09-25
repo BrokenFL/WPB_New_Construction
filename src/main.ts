@@ -6448,7 +6448,11 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
 }
 
 function renderResolvedContentImage(image: ResolvedContentImage, className = "", options: { caption?: boolean } = {}) {
-  const caption = image.source === "imported" ? `${image.caption} · ${image.credit}` : image.caption;
+  const caption = image.source === "imported"
+    ? `${image.caption} · ${image.credit}`
+    : image.source === "explicit" && image.caption && image.credit && image.caption !== image.credit
+      ? `${image.caption} · Credit: ${image.credit}`
+      : image.caption;
   return `
     <figure class="${["content-image-panel", className].filter(Boolean).join(" ")}" data-image-source="${image.source}">
       <img src="${safeHref(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async" />
