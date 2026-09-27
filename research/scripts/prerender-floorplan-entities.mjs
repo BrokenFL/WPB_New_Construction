@@ -77,7 +77,13 @@ export async function prerenderFloorplanEntities(root = process.cwd()) {
     }
   }
   // Standalone postbuild reruns must also remove a formerly emitted pending page.
-  for (const plan of reviewed.filter((item) => !plans.some((live) => live.path === item.path))) {
+  // Preserve paths now served by the per-plan floor-plan page system
+  // (src/data/floorplanPlanPages.ts) so the new SEO pages are not deleted.
+  const siteDataSource = await fs.readFile(path.join(root, "src/generated/siteData.ts"), "utf8").catch(() => "");
+  const planPagePaths = new Set(
+    [...siteDataSource.matchAll(/"path": "\/floorplans\/[^"]+\/[^"]+\/"/g)].map((m) => m[0].slice(9, -1)),
+  );
+  for (const plan of reviewed.filter((item) => !plans.some((live) => live.path === item.path) && !planPagePaths.has(item.path))) {
     await fs.rm(path.join(dist, plan.path.slice(1)), { recursive: true, force: true });
   }
   for (const plan of plans) {
