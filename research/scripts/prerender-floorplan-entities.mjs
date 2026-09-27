@@ -9,6 +9,16 @@ import {
 
 const e = escapeFloorplanHtml;
 
+// Paths served by the dedicated per-plan page system (src/data/floorplanPlanPages.ts).
+async function siteDataPlanPagePaths(root) {
+  try {
+    const src = await fs.readFile(path.join(root, "src/generated/siteData.ts"), "utf8");
+    return [...src.matchAll(/"path": "\/floorplans\/[^"]+\/[^"]+\/"/g)].map((m) => m[0].slice(9, -1));
+  } catch {
+    return [];
+  }
+}
+
 export function renderEntityDocument(template, plan) {
   let html = template;
   const replaceExactlyOnce = (pattern, replacement, label) => {
@@ -47,9 +57,13 @@ export function addDiscovery(html, route) {
   return html.replace("</main>", `${block}</main>`);
 }
 
-export function addSitemapEntities(xml, plans) {
+export function addSitemapEntities(xml, plans, extraCanonicals = []) {
   const selected = new Set(plans.map((plan) => plan.canonical));
-  const paths = new Set([...selected, ...buildFloorplanEntities().map((plan) => plan.canonical)]);
+  const extra = new Set(extraCanonicals);
+  // Entity canonicals are removed so they can be re-added with fresh dates,
+  // but never remove a URL owned by the per-plan page system (path collision,
+  // e.g. Alba residence-d exists in both systems).
+  const paths = new Set([...selected, ...buildFloorplanEntities().map((plan) => plan.canonical)].filter((c) => !extra.has(c)));
   if (selected.size !== plans.length) throw new Error("Duplicate entity canonicals");
   if (!xml.includes("</urlset>")) throw new Error("Expected sitemap urlset");
   const clean = xml.replace(/\s*<url>[\s\S]*?<\/url>/g, (block) => {
@@ -96,7 +110,8 @@ export async function prerenderFloorplanEntities(root = process.cwd()) {
     await fs.writeFile(file, addDiscovery(await fs.readFile(file, "utf8"), route));
   }
   const sitemap = path.join(dist, "sitemap.xml");
-  await fs.writeFile(sitemap, addSitemapEntities(await fs.readFile(sitemap, "utf8"), plans));
+  const planPageCanonicals = [...(await siteDataPlanPagePaths(root))].map((p) => `${floorplanSiteUrl}${p}`);
+  await fs.writeFile(sitemap, addSitemapEntities(await fs.readFile(sitemap, "utf8"), plans, planPageCanonicals));
   console.log(JSON.stringify({ floorplanEntitiesPrerendered: plans.map((plan) => plan.path) }, null, 2));
 }
 

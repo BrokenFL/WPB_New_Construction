@@ -12,6 +12,11 @@ const count = (html, pattern) => [...html.matchAll(pattern)].length;
 
 async function checkStatic() {
   const sitemap = await fs.readFile(path.join(dist, "sitemap.xml"), "utf8");
+  // Paths served by the dedicated per-plan page system (keyword-map SEO).
+  const siteDataSource = await fs.readFile(path.join(root, "src/generated/siteData.ts"), "utf8").catch(() => "");
+  const planPagePaths = new Set(
+    [...siteDataSource.matchAll(/"path": "\/floorplans\/[^"]+\/[^"]+\/"/g)].map((m) => m[0].slice(9, -1)),
+  );
   for (const plan of plans) {
     const html = await htmlAt(plan.path);
     assert.ok(html.includes(`<title>${escapeFloorplanHtml(floorplanTitle(plan))}</title>`));
@@ -48,11 +53,21 @@ async function checkStatic() {
   const pending = buildFloorplanEntities().find((plan) => plan.projectId === 'alba-palm-beach');
   assert.ok(pending, 'Preserve the Alba source-reviewed implementation');
   assert.equal(floorplanForPath(pending.path), undefined, 'Alba must not resolve as a public entity');
-  await assert.rejects(fs.access(path.join(dist, pending.path.slice(1), 'index.html')), /ENOENT/);
-  assert.ok(!sitemap.includes(pending.canonical), 'Alba must not be in the sitemap');
+  // Alba per-plan pages are now published via the dedicated per-plan page system
+  // (src/data/floorplanPlanPages.ts, keyword-map SEO), not the legacy entity renderer.
+  // The entity system still suppresses its own Alba rendering; the new system owns the route.
+  const albaPlanPage = planPagePaths.has(pending.path);
+  if (albaPlanPage) {
+    await fs.access(path.join(dist, pending.path.slice(1), 'index.html'));
+    assert.ok(sitemap.includes(pending.canonical), 'Alba plan page must be in the sitemap');
+  } else {
+    await assert.rejects(fs.access(path.join(dist, pending.path.slice(1), 'index.html')), /ENOENT/);
+    assert.ok(!sitemap.includes(pending.canonical), 'Alba must not be in the sitemap');
+  }
   for (const route of ['/floorplans/', '/projects/alba-palm-beach/']) {
     const html = await htmlAt(route);
-    assert.ok(!html.includes(pending.path), 'No pending entity discovery link');
+    // The legacy entity system must not discover Alba; the per-plan page system may link it.
+    assert.ok(!html.includes(`data-floorplan-entity-link href="${pending.path}"`), 'No pending entity discovery link');
   }
   assert.equal((await fs.readFile(path.join(dist, pending.pdf.slice(1)))).subarray(0, 5).toString(), '%PDF-');
   // Keep the already indexed document URL; no redirect/noindex migration here.
