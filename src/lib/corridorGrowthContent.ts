@@ -12,9 +12,9 @@ const approvedProjectCardImage = (projectId:string): string => homepageProjectCa
 export const corridorGrowthPages: Record<GrowthCorridor, CorridorCopy> = {
   downtown: {
     path: '/corridors/downtown-west-palm-beach/', label: 'Downtown West Palm Beach',
-    title: 'Downtown West Palm Beach New Condos | Locations & Buyer Guide',
+    title: 'Downtown West Palm Beach Condos | Locations & Buyer Guide',
     heading: 'Downtown West Palm Beach New Construction Condos',
-    description: 'Compare downtown West Palm Beach new condos by city-core, NORA and Clear Lake location. Review project stages, layouts and questions before requesting availability.',
+    description: 'Compare downtown West Palm Beach new condos by city-core, NORA, and Clear Lake location. Review project stages and layouts before requesting availability.',
     intro: 'Downtown West Palm Beach is not one interchangeable condo location. Compare the city core, the NORA District and the Clear Lake edge by the places you use, the layout you need and the project’s actual stage—not just a skyline view.',
     image: '/assets/home/downtown-corridor-bridge-night-v01.jpg', imageAlt: 'Downtown West Palm Beach skyline beside the Intracoastal at night', imageCaption: 'Downtown waterfront context; individual project settings differ.',
     geography: 'This guide includes downtown and its adjoining NORA and Clear Lake locations. Clear Lake frontage is not Intracoastal frontage, and an ocean view from West Palm Beach does not make a residence oceanfront. Check each building’s address and your actual walking route.',
@@ -36,7 +36,7 @@ export const corridorGrowthPages: Record<GrowthCorridor, CorridorCopy> = {
     path:'/corridors/south-flagler/', label:'South Flagler',
     title:'South Flagler New Construction Condos | Plans & Buyer Guide',
     heading:'South Flagler Waterfront Condos & New Construction',
-    description:'Compare South Flagler new construction condos, South Flagler House floor plans and completed waterfront alternatives. Build a buyer shortlist before a sales-gallery visit.',
+    description:'Compare South Flagler new construction condos, South Flagler House floor plans, and completed waterfront alternatives before a sales-gallery visit.',
     intro:'South Flagler is the West Palm Beach side of the Intracoastal, facing Palm Beach island. Start by separating marketed new developments from completed-building alternatives, then compare residence scale, privacy, services and your preferred stretch of the waterfront.',
     image:'/assets/home/south-flagler-corridor-hero-main-wide-v01.jpg', imageAlt:'South Flagler waterfront corridor with Palm Beach across the Intracoastal', imageCaption:'South Flagler waterfront context, on the West Palm Beach side.',
     geography:'South Flagler Drive extends beyond the downtown waterfront. Compare the individual site’s surroundings and bridge approach; proximity to Palm Beach is not the same as a Palm Beach address, ocean frontage or guaranteed beach access.',
@@ -56,9 +56,9 @@ export const corridorGrowthPages: Record<GrowthCorridor, CorridorCopy> = {
   },
   'palm-beach':{
     path:'/corridors/palm-beach/',label:'Palm Beach island',
-    title:'Palm Beach Island New Condos | Ocean & Lagoon Development Guide',
+    title:'Palm Beach Island Condos | Ocean & Lagoon Guide',
     heading:'Palm Beach Island New Construction Condos',
-    description:'Explore Palm Beach island condo developments and distinguish ocean-to-lagoon offerings from planning proposals. Compare location, layouts, approvals and buyer questions.',
+    description:'Explore Palm Beach island condo developments; distinguish ocean-to-lagoon offerings from planning proposals. Compare location, layouts and buyer questions.',
     intro:'Palm Beach island is a different market from West Palm Beach’s towers. The projects covered here are on the island’s South End: compare an ocean-to-lagoon condominium offering with a smaller redevelopment proposal, keeping sales status and planning approvals separate.',
     image:'/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp',imageAlt:'Project rendering of OLIN Palm Beach’s ocean-to-lagoon residential setting',imageCaption:'OLIN Palm Beach project rendering—not a completed-condition photograph.',
     geography:'Palm Beach is east of the Intracoastal; West Palm Beach is on the mainland. The island’s South End is also distinct from the separate Town of South Palm Beach. A Palm Beach mailing address, lagoon view and deeded ocean access are different facts to verify.',

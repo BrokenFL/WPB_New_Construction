@@ -179,7 +179,7 @@ export function renderFloorplanPage(plan: FloorplanEntity): string {
     <main id="floorplan-main" class="fp-main">
       <nav class="fp-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/floorplans/">Floor plans</a><span>/</span><a href="/projects/${plan.projectId}/">${e(plan.projectName)}</a><span>/</span><span aria-current="page">${e(plan.planName)}</span></nav>
       <p class="fp-kicker">Released residence plan · North Flagler</p>
-      <h1>${e(fullName(plan))}<br><span>Floor plan</span></h1>
+      <h1>${e(fullName(plan))} <br><span>Floor plan</span></h1>
       <p class="fp-intro">${e(plan.summary)}</p>
       <div class="fp-intro-action"><a class="fp-button" href="/inquire/" data-fp-action="availability" data-fp-placement="intro">Request current availability</a><p class="fp-small">Ask about ${e(fullName(plan))} and the latest floor-plan packet.</p></div>
       <p class="fp-review">Source reviewed <time datetime="${plan.reviewedOn}">${plan.reviewedOn}</time> · Availability requires confirmation</p>

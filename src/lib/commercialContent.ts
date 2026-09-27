@@ -7,14 +7,14 @@ export const commercialPages = {
     path: '/',
     title: 'West Palm Beach New Construction Condos | Buildings & Plans',
     heading: 'West Palm Beach, with perspective.',
-    description: 'Research West Palm Beach new construction condos across the market. Compare buildings, floor plans, corridors, and development updates with independent buyer guidance.',
+    description: 'Research West Palm Beach new construction condos across the market. Compare buildings, floor plans, corridors, and development updates.',
     intro: 'A citywide view of the buildings, floor plans, corridors, and development news—organized for buyers who want to compare before they commit.',
   },
   buildings: {
     path: '/buildings/',
     title: 'West Palm Beach Condo Buildings | New Development Directory',
     heading: 'The building collection.',
-    description: 'Browse West Palm Beach condo developments by corridor and project stage. Review building guides, compare layouts and request a current pricing and floor-plan packet.',
+    description: 'Browse West Palm Beach condo developments by corridor and project stage. Review building guides, compare layouts, and request a pricing and floor-plan packet.',
     intro: 'A closer look at West Palm Beach new construction. Filter by location and project stage, then compare the details that matter to you.',
   },
 } as const;

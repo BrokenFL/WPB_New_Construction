@@ -37,7 +37,7 @@ const marketNoteRoutes = [
   },
   {
     slug: "nora-district-downtown-transformation",
-    title: "NORA District's Downtown Impact Explained | Buyer Intelligence",
+    title: "NORA District's Downtown Impact | Buyer Intelligence",
     description:
       "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
   },
@@ -99,9 +99,9 @@ const downtownSpotlightRoutes = [
   },
   {
     slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
-    title: "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
+    title: "Fuku at CityPlace: easy downtown draw | Downtown Spotlight",
     description:
-      "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+      "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work and into the late shift.",
   },
   {
     slug: "nora-hotel-countdown",
@@ -242,7 +242,7 @@ const siteMeta = {
   baseUrl: productionBaseUrl,
   title: "West Palm Beach New Construction Condos | Buyer Guide",
   description:
-    "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
+    "Research West Palm Beach new-construction condos. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
   publisher: {
     name: "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
     type: "RealEstateAgent",
@@ -2830,7 +2830,7 @@ function buildPrerenderRoutes() {
     {
       path: "/about/",
       title: "About The Scott Gordon Group | Douglas Elliman Palm Beach",
-      description: "Meet The Scott Gordon Group at Douglas Elliman, Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers with decades of local experience.",
+      description: "Meet The Scott Gordon Group at Douglas Elliman — Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers.",
       ogImage: "/assets/team/scott-gordon-group-team-v01.jpg",
     },
     {
@@ -2847,7 +2847,7 @@ function buildPrerenderRoutes() {
     })),
     {
       path: "/updates/",
-      title: "West Palm Beach Condo Updates | Construction, Sales & Planning",
+      title: "West Palm Beach Condo Updates | Sales & Construction",
       description: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
       ogImage: siteMeta.defaultImage,
     },
@@ -2885,8 +2885,8 @@ function buildPrerenderRoutes() {
     )),
     {
       path: "/corridors/north-flagler/",
-      title: "North Flagler New Construction Condos | Compare & Floor Plans",
-      description: "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
+      title: "North Flagler New Condos | Compare & Floor Plans",
+      description: "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: floor plans, waterfront settings, active sales and buyer guidance.",
       ogImage: siteMeta.defaultImage,
     },
     {
@@ -2976,7 +2976,8 @@ function projectTitle(projectId) {
 function renderSitemap(projects) {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
-  const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
+  // The legacy market-notes NORA article is canonicalized to its downtown-spotlight twin; keep it out of the sitemap.
+  const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer").filter((note) => note.slug !== "nora-district-downtown-transformation");
   const publishedProjects = readPublishedProjectRecords();
   const copyByProjectId = new Map(
     readProjectCopyPackage().flatMap((record) => [

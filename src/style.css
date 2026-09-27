@@ -10709,7 +10709,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   .site-nav {
     right: 0;
     left: 0;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: 1fr auto auto;
     gap: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -10720,7 +10720,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   .site-shell[data-active-route="inquire"] .site-nav {
     right: 0;
     left: 0;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: 1fr auto auto;
     width: 100%;
     box-sizing: border-box;
     padding: 14px 18px;
@@ -10737,10 +10737,6 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   .brand-copy,
   .nav-phone {
     color: var(--ink);
-  }
-
-  .nav-phone {
-    display: none;
   }
 
   .nav-cta {
@@ -11866,4 +11862,8 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   .mobile-cta-action {
     transition: none;
   }
+}
+
+.market-note-hero-image {
+  margin: 18px 0;
 }
