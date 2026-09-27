@@ -2986,6 +2986,8 @@ app.innerHTML = `
               ${featuredProjects.map((project) => `<option value="${project.id}">${project.name}</option>`).join("")}
             </select>
           </label>
+          <details class="inquiry-optional-details">
+            <summary><span>More detail</span><em>optional</em></summary>
           <label>
             <span>Inquiry type</span>
             <select name="interest">
@@ -2997,19 +2999,19 @@ app.innerHTML = `
             </select>
           </label>
           <label>
-            <span>Budget range optional</span>
+            <span>Budget range</span>
             <input type="text" name="budget" autocomplete="off" placeholder="Example: $2M-$4M" />
           </label>
           <label>
-            <span>Residence size optional</span>
+            <span>Residence size</span>
             <input type="text" name="residence_size" autocomplete="off" placeholder="Example: 2-3 bedrooms" />
           </label>
           <label>
-            <span>Timeline optional</span>
+            <span>Timeline</span>
             <input type="text" name="timeline" autocomplete="off" placeholder="Example: 6-18 months" />
           </label>
           <label>
-            <span>Are you represented by an agent?</span>
+            <span>Represented by an agent?</span>
             <select name="represented_by_agent">
               <option value="">Prefer not to say</option>
               <option>Yes</option>
@@ -3017,6 +3019,7 @@ app.innerHTML = `
               <option>I am an agent</option>
             </select>
           </label>
+          </details>
           <label class="inquiry-message">
             <span>Message</span>
             <textarea name="message" rows="4" placeholder="Buildings you are considering, timing, budget range, or questions you want answered"></textarea>
@@ -3123,6 +3126,18 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   }
   if (target.dataset.submitting === "true") return;
   target.dataset.submitting = "true";
+  const submitButton = target.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const submitButtonLabel = submitButton?.innerHTML;
+  const restoreSubmitButton = () => {
+    if (submitButton) {
+      submitButton.disabled = false;
+      if (submitButtonLabel !== undefined) submitButton.innerHTML = submitButtonLabel;
+    }
+  };
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+  }
 
   const phone = String(form.get("phone") ?? "").trim();
   const project = String(form.get("project") ?? "").trim();
@@ -3145,6 +3160,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       status.textContent = "Please name a building you are considering or add a short message.";
     }
     target.dataset.submitting = "false";
+    restoreSubmitButton();
     return;
   }
 
@@ -3169,6 +3185,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   const submission = await buildLeadSubmission(target, "inquiry");
   if (!submission) {
     target.dataset.submitting = "false";
+    restoreSubmitButton();
     return;
   }
   const result = await submitLeadForm(submission);
@@ -3195,6 +3212,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     if (projectControl) projectControl.value = project;
     if (interestControl) interestControl.value = interest;
     target.dataset.submitting = "false";
+    restoreSubmitButton();
     return;
   }
 
@@ -3214,6 +3232,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     status.textContent = result.message ?? "We could not securely save your request. Please try again.";
   }
   target.dataset.submitting = "false";
+  restoreSubmitButton();
 });
 
 document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signupForm) => {
