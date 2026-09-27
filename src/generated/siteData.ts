@@ -4753,6 +4753,36 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/answers/best-new-condos-west-palm-beach-for-boaters/",
+    "title": "Best New Condos in West Palm Beach for Boaters | WPB Answers",
+    "description": "A boater's guide to West Palm Beach new condos — waterfront position, marina context, and what to verify about dockage before buying.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/most-affordable-new-construction-condos-west-palm-beach/",
+    "title": "Most Affordable New Condos in West Palm Beach | WPB Answers",
+    "description": "Where sub-$2M new construction actually exists in West Palm Beach — honest price-band guidance and what to verify.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/west-palm-beach-new-condo-delivery-timeline/",
+    "title": "West Palm Beach New Condo Delivery Timeline | WPB Answers",
+    "description": "Delivery timing across West Palm Beach new condos — what's completed, under construction, and pipeline, and how to verify dates.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/west-palm-beach-vs-fort-lauderdale-new-condos/",
+    "title": "West Palm Beach vs Fort Lauderdale New Condos | WPB Answers",
+    "description": "A decision framework for choosing between West Palm Beach and Fort Lauderdale new condos — with an honest note on what this site tracks.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/pet-friendly-new-construction-condos-west-palm-beach/",
+    "title": "Pet-Friendly New Condos in West Palm Beach | WPB Answers",
+    "description": "How to evaluate pet policies in West Palm Beach new condos — what the catalog confirms and the exact questions to ask sales teams.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",

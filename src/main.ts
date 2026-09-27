@@ -1076,6 +1076,126 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
   },
+  {
+    slug: "best-new-condos-west-palm-beach-for-boaters",
+    shortLabel: "Boaters",
+    title: "Best New Condos in West Palm Beach for Boaters",
+    question: "Which new West Palm Beach condos are best for boaters?",
+    description: "A boater's guide to West Palm Beach new condos — waterfront position, marina context, and what to verify about dockage before buying.",
+    bluf:
+      "Boaters should start on the North Flagler waterfront: Olara (275 residences, under construction, 2028) describes marina access in its project materials, and the Rybovich Marina Redevelopment is a planned 19-acre marina district with residential towers in the pipeline. No boat-slip availability is confirmed in the project catalog — dockage, slip ownership versus rental, and waitlists must be verified directly for every project.",
+    explanation:
+      "A waterfront address is not the same as a boating program. Compare actual marina access, slip arrangements, channel depth and bridge clearance on the buyer's route, and whether dockage is deeded, leased, or waitlisted. Projects earlier in the pipeline may describe marina context without finalized dockage terms — treat every dockage claim as a verification item.",
+    projectIds: ["olara", "rybovich-marina-redevelopment", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb"],
+    corridorKeys: ["north-flagler"],
+    tableRows: [
+      { label: "Olara", bestUse: "Boaters who want an under-construction waterfront program whose project materials describe marina access.", links: ["/projects/olara/", "/corridors/north-flagler/"], verify: "Confirm exactly what 'marina access' includes — slip availability, ownership structure, fees, and vessel limits." },
+      { label: "Rybovich Marina Redevelopment", bestUse: "Boaters tracking a future marina-district option rather than buying now.", links: ["/projects/rybovich-marina-redevelopment/", "/corridors/north-flagler/"], verify: "Confirm residential timing, pricing releases, and how marina operations relate to the residential towers." },
+      { label: "North Flagler waterfront set", bestUse: "Boaters comparing waterfront exposure across the corridor's active projects.", links: ["/corridors/north-flagler/", "/projects/shorecrest/", "/projects/alba-palm-beach/", "/projects/ritz-carlton-wpb/"], verify: "Confirm Intracoastal frontage, nearby marina options, and dockage terms — none are confirmed in the catalog." },
+    ],
+    faqs: [
+      { question: "Can I get a boat slip with a new West Palm Beach condo?", answer: "Maybe, but no slip availability is confirmed in the project catalog. Ask each sales team whether slips are deeded, leased, or waitlisted, plus vessel size limits and fees — and get it in writing." },
+      { question: "Which projects mention marina access?", answer: "Olara's project materials describe marina access, and Rybovich is planned as a marina district. For every other project, marina proximity is a question for the sales team, not an advertised feature." },
+      { question: "Is Rybovich residential available now?", answer: "No — it is pipeline watch. Initial approvals cover 259 units across two towers within a larger contemplated program, with pricing not released." },
+    ],
+    sourceNotes: ["Marina references come from the existing WPB New Construction source catalog.", "Dockage availability, slip terms, and marina operations are verification items — none are confirmed in the catalog."],
+  },
+  {
+    slug: "most-affordable-new-construction-condos-west-palm-beach",
+    shortLabel: "Affordable",
+    title: "Most Affordable New Condos in West Palm Beach",
+    question: "What are the most affordable new construction condos in West Palm Beach?",
+    description: "Where sub-$2M new construction actually exists in West Palm Beach — honest price-band guidance and what to verify.",
+    bluf:
+      "True sub-$2M new construction is thin in West Palm Beach. The honest anchor is Olara (from $1.7M developer-published, 275 residences, under construction, 2028). NORA House starts from the low $2Ms and The Berkeley is reported from $2M to over $10M — everything else in the catalog is request-current-pricing or higher. Treat every figure as a starting point to verify against live availability.",
+    explanation:
+      "Most West Palm Beach new-construction inventory sits above $2M, and many projects publish no starting price at all. Compare developer-published guidance where it exists, ask for the current released price list rather than press figures, and confirm which residence lines the starting price actually applies to — entry pricing often reflects a limited set of plans.",
+    projectIds: ["olara", "nora-house", "berkeley", "mr-c", "banyan-tree"],
+    corridorKeys: ["north-flagler", "downtown"],
+    tableRows: [
+      { label: "Sub-$2M anchor", bestUse: "Buyers who need a genuine under-$2M starting point.", links: ["/projects/olara/"], verify: "Confirm the $1.7M figure against current availability and which plans it applies to." },
+      { label: "Low-$2M lane", bestUse: "Buyers who can stretch just past $2M for downtown positioning.", links: ["/projects/nora-house/", "/projects/berkeley/"], verify: "Confirm NORA House's low-$2Ms guidance and Berkeley's reported $2M entry against live price lists." },
+      { label: "Request-pricing projects", bestUse: "Buyers comparing newer programs where pricing is released selectively.", links: ["/projects/mr-c/", "/projects/banyan-tree/"], verify: "Request the current released price list — no starting guidance is published for these." },
+    ],
+    faqs: [
+      { question: "Are there new condos under $2M in West Palm Beach?", answer: "Olara's developer-published starting price of $1.7M is the clearest sub-$2M anchor, subject to current availability. Beyond that, the new-construction market is thin under $2M — most projects start higher or publish no pricing." },
+      { question: "Why do so many projects say 'request current pricing'?", answer: "Developers release pricing in phases and adjust with sales velocity. A public starting figure goes stale fast, so the catalog treats pricing as a verification item rather than printing unconfirmed numbers." },
+      { question: "Do starting prices reflect typical residences?", answer: "Not always. Entry pricing often applies to a limited set of plans, lower floors, or less premium exposures. Ask which specific residences the starting price covers." },
+    ],
+    sourceNotes: ["Pricing guidance comes from the existing WPB New Construction source catalog.", "All prices are verification items — confirm against current released price lists and availability."],
+  },
+  {
+    slug: "west-palm-beach-new-condo-delivery-timeline",
+    shortLabel: "Delivery timeline",
+    title: "West Palm Beach New Condo Delivery Timeline",
+    question: "When will West Palm Beach's new condos deliver?",
+    description: "Delivery timing across West Palm Beach new condos — what's completed, under construction, and pipeline, and how to verify dates.",
+    bluf:
+      "Three projects are completed or near it: Alba Palm Beach (immediate occupancy), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). The under-construction wave targets 2028 — Olara and The Ritz-Carlton Residences among them — while Maison d'Or targets late 2028 and several branded projects remain pipeline. Every date is a verification item: confirm the live construction schedule before planning around it.",
+    explanation:
+      "Delivery timing is the highest-risk number in new construction. Press dates go stale, phased projects deliver tower by tower, and 'targeted' is not 'guaranteed.' Sort first by status — completed, under construction, pre-construction sales, pipeline — then compare the current schedule language for the specific tower and stack under consideration.",
+    projectIds: ["alba-palm-beach", "olara", "ritz-carlton-wpb", "maison-dor", "mr-c", "shorecrest", "south-flagler-house", "forte-on-flagler", "la-clara"],
+    corridorKeys: ["north-flagler", "south-flagler", "downtown"],
+    tableRows: [
+      { label: "Completed now", bestUse: "Buyers who want a delivery date of today, not a target.", links: ["/projects/alba-palm-beach/", "/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm specific residence availability — completed inventory moves, and Forté/La Clara trade on resale." },
+      { label: "Under construction — 2028 wave", bestUse: "Buyers comparing the large active programs on schedule and scale.", links: ["/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/", "/projects/south-flagler-house/"], verify: "Confirm the current construction schedule and what 2028 means for the specific stack — estimates move." },
+      { label: "Pre-construction and pipeline", bestUse: "Buyers tracking later timelines for future decisions.", links: ["/projects/maison-dor/", "/projects/mr-c/"], verify: "Confirm Maison d'Or's late-2028 target and Mr. C's varying completion estimates against the latest guidance." },
+    ],
+    faqs: [
+      { question: "Which new West Palm Beach condos are completed?", answer: "Alba Palm Beach is completed with the developer offering immediate occupancy; La Clara opened to residents in 2023; Forté on Flagler is recently completed. Confirm the specific residence — completed inventory moves." },
+      { question: "What does 'targeted' delivery mean?", answer: "It means the developer's current aim, not a contractual guarantee. Construction schedules shift with permitting, labor, and sales velocity — always confirm the live schedule." },
+      { question: "How should buyers plan around a 2028 delivery?", answer: "Treat it as a range, not a date. Ask for the current schedule in writing, understand the contract's outside delivery date and remedies, and keep housing flexibility until keys are real." },
+    ],
+    sourceNotes: ["Status and delivery guidance come from the existing WPB New Construction source catalog.", "All delivery dates are verification items — confirm the live construction schedule with each sales team."],
+  },
+  {
+    slug: "west-palm-beach-vs-fort-lauderdale-new-condos",
+    shortLabel: "WPB vs Ft Lauderdale",
+    title: "West Palm Beach vs Fort Lauderdale New Condos",
+    question: "Should I buy a new condo in West Palm Beach or Fort Lauderdale?",
+    description: "A decision framework for choosing between West Palm Beach and Fort Lauderdale new condos — with an honest note on what this site tracks.",
+    bluf:
+      "This site tracks West Palm Beach new-construction inventory only — it holds no Fort Lauderdale project data, so it cannot rank the two markets head to head. Use this page as a decision framework: commute and daily routine, waterfront character, price band, and brand depth differ by market, and both sides need independent verification before a buyer commits.",
+    explanation:
+      "Cross-market comparisons fail when one side's data is missing, so this page stays honest about its limit. West Palm Beach's new-construction story is concentrated: a North Flagler waterfront corridor, a downtown district lane, and South Flagler privacy positioning, with developer-published guidance from $1.7M (Olara) to $7.98M advertised (South Flagler House). Compare that against independently verified Fort Lauderdale figures on the same dimensions — price per square foot, fees, delivery timing, and waterfront access — rather than marketing claims from either side.",
+    projectIds: ["olara", "maison-dor", "nora-house", "alba-palm-beach"],
+    corridorKeys: ["north-flagler", "downtown", "south-flagler"],
+    tableRows: [
+      { label: "West Palm Beach waterfront", bestUse: "Buyers comparing Flagler Drive new construction on scale and timing.", links: ["/corridors/north-flagler/", "/projects/olara/", "/projects/maison-dor/"], verify: "Confirm current pricing, availability, and delivery against WPB project materials." },
+      { label: "West Palm Beach downtown", bestUse: "Buyers weighing walkability and district energy against Fort Lauderdale's urban core.", links: ["/corridors/downtown-west-palm-beach/", "/projects/nora-house/"], verify: "Confirm district phasing, parking, and fees — then verify the Fort Lauderdale equivalent independently." },
+      { label: "Completed WPB options", bestUse: "Buyers who want to compare immediate-occupancy inventory across markets.", links: ["/projects/alba-palm-beach/"], verify: "Confirm the specific residence, then verify comparable completed Fort Lauderdale inventory separately." },
+    ],
+    faqs: [
+      { question: "Does this site track Fort Lauderdale condos?", answer: "No. It tracks West Palm Beach new-construction projects only. Any Fort Lauderdale comparison needs its own verified sources — this page is a framework, not a ranking." },
+      { question: "How should buyers compare prices across the two markets?", answer: "Use price per square foot on comparable residence types, plus monthly fees and tax context, from current verified listings in each market — not press starting prices from one side." },
+      { question: "What actually differs between the markets?", answer: "Daily routine is the real divider: commute patterns, waterfront character, dining and district energy, and airport access. Visit both, drive the routine, then compare verified numbers." },
+    ],
+    sourceNotes: ["West Palm Beach facts come from the existing WPB New Construction source catalog.", "No Fort Lauderdale inventory is tracked here — verify that market independently."],
+  },
+  {
+    slug: "pet-friendly-new-construction-condos-west-palm-beach",
+    shortLabel: "Pet friendly",
+    title: "Pet-Friendly New Condos in West Palm Beach",
+    question: "Which new West Palm Beach condos are pet friendly?",
+    description: "How to evaluate pet policies in West Palm Beach new condos — what the catalog confirms and the exact questions to ask sales teams.",
+    bluf:
+      "No pet policies are confirmed in the project catalog, so no building here is labeled pet friendly. Treat pet rules as a due-diligence checklist: weight limits, breed restrictions, number of pets, pet amenities, deposits and monthly pet fees, and HOA enforcement — and get the answers in the purchase documents, not just from a sales conversation.",
+    explanation:
+      "Pet policy lives in HOA documents and house rules, which change between the sales gallery and move-in. A building can market pet amenities while restricting breeds, sizes, or counts. Start with amenity-rich programs, then verify the written pet policy for the specific building before assuming a pet is welcome.",
+    projectIds: ["olara", "nora-house", "mr-c", "berkeley"],
+    corridorKeys: ["north-flagler", "downtown"],
+    tableRows: [
+      { label: "Large amenity programs", bestUse: "Buyers who want to start with full-service buildings, then verify pet rules.", links: ["/projects/olara/", "/projects/berkeley/"], verify: "Request the written pet policy — weight limits, breed restrictions, and pet counts." },
+      { label: "Downtown programs", bestUse: "Buyers comparing downtown buildings on pet rules and nearby green space.", links: ["/projects/nora-house/", "/projects/mr-c/"], verify: "Confirm pet deposits, monthly pet fees, and designated pet areas in writing." },
+      { label: "Policy checklist", bestUse: "Buyers who want the exact questions before touring.", links: ["/inquire/"], verify: "Ask for weight and breed rules, pet count limits, amenity access, fees, and HOA enforcement history." },
+    ],
+    faqs: [
+      { question: "Which new West Palm Beach condos allow dogs?", answer: "The project catalog confirms no pet policies, so none can be labeled pet friendly here. Ask each sales team for the written pet policy covering weight limits, breed restrictions, and pet counts." },
+      { question: "What pet costs should buyers expect?", answer: "Common structures include a pet deposit, monthly pet rent or fees, and HOA fines for violations. Confirm the exact amounts in the purchase and HOA documents." },
+      { question: "Can pet policies change after purchase?", answer: "HOA rules can be amended, so review the declaration's amendment provisions and ask about the building's enforcement history before relying on a verbal assurance." },
+    ],
+    sourceNotes: ["No pet policies are confirmed in the WPB New Construction source catalog.", "All pet rules are verification items — confirm the written HOA pet policy for each building."],
+  },
 ];
 
 const answerTopicSections: AnswerTopicSection[] = [
