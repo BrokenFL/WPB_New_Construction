@@ -8,7 +8,7 @@ const maxEditorialBytes = 750 * 1024;
 const maxPublicImageBytes = 1.5 * 1024 * 1024;
 const maxFloorplanPreviewBytes = 1.25 * 1024 * 1024;
 const maxJsBytes = 650 * 1024; // main chunk currently ~613 KB (2026-06-19); raise if bundle grows further
-const maxCssBytes = 185 * 1024;
+const maxCssBytes = 186 * 1024; // main chunk ~185.6 KB (2026-09-27, inquiry-form details styles); raise if bundle grows further
 const preExistingLargeImageAllowlist = [
   /^public\/projects\//,
   /^public\/concepts\//,
