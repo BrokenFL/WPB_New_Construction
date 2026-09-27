@@ -1004,6 +1004,78 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["Lifestyle framing uses existing corridor and project positioning.", "Amenity and service claims should be verified in current project materials."],
   },
+  {
+    slug: "maison-dor-vs-south-flagler-house",
+    shortLabel: "Flagship compare",
+    title: "Maison d'Or vs South Flagler House",
+    question: "Should I buy at Maison d'Or or South Flagler House?",
+    description: "Compare Maison d'Or and South Flagler House on South Flagler — scale, delivery timing, pricing guidance, and which buyer each flagship fits.",
+    bluf:
+      "Maison d'Or (39 residences, pre-construction sales, late-2028 targeted delivery, from $5.7M published guidance) and South Flagler House (about 105 residences, under construction, from $7.98M advertised) are the two South Flagler waterfront flagships. Maison d'Or suits buyers who want a smaller, newer project and can wait for delivery; South Flagler House suits buyers who want an under-construction building with a larger residence program.",
+    explanation:
+      "Both sit on the South Flagler waterfront, so the choice is not corridor but project: boutique scale and a longer timeline versus a larger under-construction program. Compare residence count, delivery timing, published pricing guidance, view exposure, privacy, and service structure — then verify current availability, fees, and contract terms directly before deciding.",
+    projectIds: ["maison-dor", "south-flagler-house"],
+    corridorKeys: ["south-flagler"],
+    tableRows: [
+      { label: "Maison d'Or", bestUse: "Buyers who want a boutique 39-residence project and can work with a late-2028 targeted delivery.", links: ["/projects/maison-dor/", "/corridors/south-flagler/"], verify: "Confirm current pricing, availability, delivery language, and residence features in the latest packet." },
+      { label: "South Flagler House", bestUse: "Buyers who prefer an under-construction building with a larger residence program.", links: ["/projects/south-flagler-house/", "/corridors/south-flagler/"], verify: "Confirm construction progress, current availability, fees, and advertised pricing against live documents." },
+      { label: "South Flagler corridor", bestUse: "Buyers deciding whether the quieter South Flagler waterfront lane fits before picking a building.", links: ["/corridors/south-flagler/"], verify: "Confirm Palm Beach access, daily drive pattern, and how each building's position affects views and privacy." },
+    ],
+    faqs: [
+      { question: "Which is more expensive, Maison d'Or or South Flagler House?", answer: "Published guidance points to South Flagler House from $7.98M advertised and Maison d'Or from $5.7M published guidance, but both figures need verification against current availability — request the live packet for each before comparing." },
+      { question: "Which will deliver first?", answer: "South Flagler House is under construction while Maison d'Or targets late 2028. Confirm the current construction schedule for each with the sales teams, since timelines move." },
+      { question: "Are both on the waterfront?", answer: "Yes — both are South Flagler waterfront projects. Compare the specific view exposure, privacy, and Intracoastal frontage of the actual residence lines under consideration." },
+    ],
+    sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are treated as verification items — confirm against current project materials."],
+  },
+  {
+    slug: "branded-residences-west-palm-beach",
+    shortLabel: "Branded residences",
+    title: "Branded Residences in West Palm Beach",
+    question: "Which branded residences are coming to West Palm Beach?",
+    description: "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
+    bluf:
+      "Five branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences, announced, from $3.5M published guidance), and Rosewood Residences (90 residences, pipeline, pricing not released). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
+    explanation:
+      "A brand on the building is a service and positioning promise, not a guarantee of delivery timing or resale performance. Compare each project's construction status, residence count, published pricing guidance, corridor, and what the brand actually operates — then verify fees, availability, and contract terms in current documents.",
+    projectIds: ["ritz-carlton-wpb", "rosewood-residences-west-palm-beach", "mandarin-oriental", "mr-c", "banyan-tree"],
+    corridorKeys: ["north-flagler", "downtown"],
+    tableRows: [
+      { label: "Under construction now", bestUse: "Buyers who want brand association with visible construction progress.", links: ["/projects/ritz-carlton-wpb/", "/projects/mr-c/"], verify: "Confirm construction schedule, current availability, fees, and what the brand operates day to day." },
+      { label: "Sales open / announced", bestUse: "Buyers comparing earlier-stage branded options on guidance pricing and positioning.", links: ["/projects/banyan-tree/", "/projects/mandarin-oriental/", "/projects/rosewood-residences-west-palm-beach/"], verify: "Confirm delivery timing, pricing releases, and deposit structure — earlier stage means more verification." },
+      { label: "North Flagler branded set", bestUse: "Buyers who want brand plus waterfront on Flagler Drive.", links: ["/corridors/north-flagler/", "/projects/ritz-carlton-wpb/", "/projects/mandarin-oriental/"], verify: "Confirm waterfront exposure, view corridors, and construction context for each tower." },
+    ],
+    faqs: [
+      { question: "Do branded residences cost more than non-branded new condos?", answer: "They often carry a premium tied to the service program and positioning, but the premium varies by project and market cycle. Compare published guidance per project and verify against current availability rather than assuming a brand markup." },
+      { question: "Which branded project will deliver first?", answer: "The Ritz-Carlton Residences and Mr. C Residences are under construction; Mandarin Oriental and Rosewood are earlier stage. Confirm live construction schedules — timelines move and press dates go stale." },
+      { question: "Is the brand the same as the developer?", answer: "Not always. The brand typically licenses its name and operating standards while a separate developer builds. Verify who develops, who operates, and what the brand agreement covers." },
+    ],
+    sourceNotes: ["Project status, scale, and pricing guidance come from the existing WPB New Construction source catalog.", "Delivery timing and pricing are verification items — confirm against current project materials."],
+  },
+  {
+    slug: "north-flagler-new-condos-compared",
+    shortLabel: "North Flagler compare",
+    title: "North Flagler New Condos Compared",
+    question: "How do North Flagler's new condos compare?",
+    description: "Compare North Flagler new condos — Olara, Shorecrest, Alba, Ritz-Carlton, Mandarin Oriental, Rosewood — on status, scale, timing, and buyer fit.",
+    bluf:
+      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, immediate occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences, announced, from $3.5M guidance), and Rosewood Residences (90 residences, pipeline). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
+    explanation:
+      "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and earlier-stage branded pipeline (Mandarin Oriental, Rosewood). Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
+    projectIds: ["olara", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb", "mandarin-oriental", "rosewood-residences-west-palm-beach"],
+    corridorKeys: ["north-flagler"],
+    tableRows: [
+      { label: "Completed now", bestUse: "Buyers who want immediate occupancy on North Flagler.", links: ["/projects/alba-palm-beach/", "/corridors/north-flagler/"], verify: "Confirm specific residence availability — completed inventory moves." },
+      { label: "Under construction", bestUse: "Buyers comparing the large active programs on delivery timeline and scale.", links: ["/projects/olara/", "/projects/shorecrest/", "/projects/ritz-carlton-wpb/"], verify: "Confirm construction schedule, stack exposure, current pricing, and fee structure." },
+      { label: "Branded pipeline", bestUse: "Buyers tracking earlier-stage branded options for future decisions.", links: ["/projects/mandarin-oriental/", "/projects/rosewood-residences-west-palm-beach/"], verify: "Confirm entitlement status, timing guidance, and when pricing releases." },
+    ],
+    faqs: [
+      { question: "Which North Flagler condo can I move into now?", answer: "Alba Palm Beach is completed with the developer offering immediate occupancy — confirm the specific residence. The rest are under construction or earlier stage." },
+      { question: "Which North Flagler project has the most residences?", answer: "Olara at 275 residences is the largest program on the corridor, followed by The Ritz-Carlton Residences at 138. Larger programs mean more plan variety and more construction context." },
+      { question: "How do prices compare across North Flagler?", answer: "Developer-published guidance ranges from $1.7M at Olara to just under $3M at Alba to $3.5M at Mandarin Oriental, with other projects on request-current-pricing. Verify every figure against live availability before comparing." },
+    ],
+    sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
+  },
 ];
 
 const answerTopicSections: AnswerTopicSection[] = [

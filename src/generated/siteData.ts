@@ -4735,6 +4735,24 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/answers/maison-dor-vs-south-flagler-house/",
+    "title": "Maison d'Or vs South Flagler House | WPB Answers",
+    "description": "Compare Maison d'Or and South Flagler House on South Flagler — scale, delivery timing, pricing guidance, and which buyer each flagship fits.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/branded-residences-west-palm-beach/",
+    "title": "Branded Residences in West Palm Beach | WPB Answers",
+    "description": "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/north-flagler-new-condos-compared/",
+    "title": "North Flagler New Condos Compared | WPB Answers",
+    "description": "Compare North Flagler new condos — Olara, Shorecrest, Alba, Ritz-Carlton, Mandarin Oriental, Rosewood — on status, scale, timing, and buyer fit.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
