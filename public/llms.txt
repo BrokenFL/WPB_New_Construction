@@ -72,6 +72,75 @@ The site is built to help buyers understand which West Palm Beach condo building
 
 - West Palm Beach New Construction Condos | Buyer Guide: /
 - West Palm Beach Condo Floor Plans | New Construction Guide: /floorplans/
+- Lake Home 07 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-07/
+- Lake Home 08 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-08/
+- Lake Home 09 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-09/
+- Lake Home 10 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-10/
+- Lake Home 11 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-11/
+- Lake Home 12 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-12/
+- Residence 01 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-01/
+- Residence 02 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-02/
+- Residence 03 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-03/
+- Residence 04 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-04/
+- Residence 05 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-05/
+- Residence 06 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/residence-06/
+- Residence 301 Floor Plan | Shorecrest: /floorplans/shorecrest/residence-301/
+- Residence 1602 Floor Plan | Shorecrest: /floorplans/shorecrest/residence-1602/
+- Shorecrest 1153 0303 Floor Plan | Shorecrest: /floorplans/shorecrest/shorecrest-1153-0303/
+- Shorecrest 1153 0704 Floor Plan | Shorecrest: /floorplans/shorecrest/shorecrest-1153-0704/
+- Tier 1 N Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-1-n-residence/
+- Tier 1 S Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-1-s-residence/
+- Tier 1 W Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-1-w-residence/
+- Tier 2 N Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-2-n-residence/
+- Tier 2 S Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-2-s-residence/
+- Tier 2 W Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-2-w-residence/
+- Tier 3 N Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-3-n-residence/
+- Tier 3 S Residence Floor Plan | South Flagler House: /floorplans/south-flagler-house/tier-3-s-residence/
+- Residence 01-L Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-01-l/
+- Residence 01-U Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-01-u/
+- Residence 02 Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-02/
+- Residence 03 Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-03/
+- Residence 04-L Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-04-l/
+- Residence 04-U Floor Plan | Mandarin Oriental WPB: /floorplans/mandarin-oriental/residence-04-u/
+- Residence 01 Floor Plan | NORA House: /floorplans/nora-house/residence-01/
+- Residence 02 Floor Plan | NORA House: /floorplans/nora-house/residence-02/
+- Residence 03 Floor Plan | NORA House: /floorplans/nora-house/residence-03/
+- Residence 04 Floor Plan | NORA House: /floorplans/nora-house/residence-04/
+- Residence 05 Floor Plan | NORA House: /floorplans/nora-house/residence-05/
+- Residence 06 Floor Plan | NORA House: /floorplans/nora-house/residence-06/
+- Residence 07 Floor Plan | NORA House: /floorplans/nora-house/residence-07/
+- Residence 08 Floor Plan | NORA House: /floorplans/nora-house/residence-08/
+- Residence 09 Floor Plan | NORA House: /floorplans/nora-house/residence-09/
+- Residence 10 Floor Plan | NORA House: /floorplans/nora-house/residence-10/
+- Residence 11 Floor Plan | NORA House: /floorplans/nora-house/residence-11/
+- Residence 12 Floor Plan | NORA House: /floorplans/nora-house/residence-12/
+- Residence 13 Floor Plan | NORA House: /floorplans/nora-house/residence-13/
+- Residence 14 Floor Plan | NORA House: /floorplans/nora-house/residence-14/
+- Residence 15 Floor Plan | NORA House: /floorplans/nora-house/residence-15/
+- Residence 16 Floor Plan | NORA House: /floorplans/nora-house/residence-16/
+- Residence 17 Floor Plan | NORA House: /floorplans/nora-house/residence-17/
+- Terrace 401 Floor Plan | NORA House: /floorplans/nora-house/terrace-401/
+- Terrace 402 Floor Plan | NORA House: /floorplans/nora-house/terrace-402/
+- Terrace 403 Floor Plan | NORA House: /floorplans/nora-house/terrace-403/
+- Terrace 404 Floor Plan | NORA House: /floorplans/nora-house/terrace-404/
+- Terrace 405 Floor Plan | NORA House: /floorplans/nora-house/terrace-405/
+- Terrace 406 Floor Plan | NORA House: /floorplans/nora-house/terrace-406/
+- Terrace 407 Floor Plan | NORA House: /floorplans/nora-house/terrace-407/
+- Terrace 409 Floor Plan | NORA House: /floorplans/nora-house/terrace-409/
+- Terrace 410 Floor Plan | NORA House: /floorplans/nora-house/terrace-410/
+- Terrace 412 Floor Plan | NORA House: /floorplans/nora-house/terrace-412/
+- Terrace 413 Floor Plan | NORA House: /floorplans/nora-house/terrace-413/
+- Terrace 414 Floor Plan | NORA House: /floorplans/nora-house/terrace-414/
+- Terrace 415 Floor Plan | NORA House: /floorplans/nora-house/terrace-415/
+- Terrace 416 Floor Plan | NORA House: /floorplans/nora-house/terrace-416/
+- Terrace 417 Floor Plan | NORA House: /floorplans/nora-house/terrace-417/
+- Residence A Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-a/
+- Residence B Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-b/
+- Residence C Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-c/
+- Residence D Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-d/
+- Residence LPH A Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-lph-a/
+- Residence LPH B Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-lph-b/
+- Townhouse C Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/townhouse-c/
 - West Palm Beach New Construction Buildings | Buyer Guide: /buildings/
 - West Palm Beach Condo Map | New Construction Corridors: /map/
 - West Palm Beach Condo Corridors | Buyer Guide: /corridors/

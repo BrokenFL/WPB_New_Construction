@@ -83,6 +83,7 @@ async function loadStaticPayload(siteData) {
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
     floorplanLibrary: parseExport(siteData, "floorplanLibrary"),
+    floorplanPlanPages: parseExport(siteData, "floorplanPlanPages"),
     answerFaq: parseExport(siteData, "answerEngineFaq"),
     buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
@@ -250,6 +251,7 @@ function renderStaticRouteContent(route, payload) {
   if (routeKind.type === "update") return renderUpdateRoute(route, payload, routeKind.slug);
   if (routeKind.type === "market-note") return renderMarketNoteRoute(route, payload, routeKind.slug);
   if (routeKind.type === "downtown-spotlight") return renderMarketNoteRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "floorplan-plan") return renderFloorplanPlanRoute(route, payload, routeKind.projectId, routeKind.planSlug);
   if (route.path === "/") return renderHomeRoute(route, payload);
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
@@ -303,6 +305,8 @@ function routeKindForPath(routePath) {
   if (note) return { type: "market-note", slug: note[1] };
   const spotlight = routePath.match(/^\/downtown-spotlight\/([^/]+)\/$/);
   if (spotlight) return { type: "downtown-spotlight", slug: spotlight[1] };
+  const planPage = routePath.match(/^\/floorplans\/([^/]+)\/([^/]+)\/$/);
+  if (planPage) return { type: "floorplan-plan", projectId: planPage[1], planSlug: planPage[2] };
   return { type: "page" };
 }
 
@@ -508,7 +512,11 @@ function renderFloorplansRoute(route, payload) {
             <p>${project.count} floorplan records currently tracked. ${publicText(project.missingNote || "Request the current buyer packet before relying on any public floorplan record.")}</p>
             <p><a href="/floorplans/#floorplans-${escapeHtml(project.projectId)}">Open ${publicText(project.name)} in the interactive floorplan library</a></p>
             <ul>
-              ${project.plans.slice(0, 8).map((plan) => `<li>${publicText(plan.displayName || plan.title)} - ${publicText(String(plan.planType || "individual").replace(/-/g, " "))}</li>`).join("")}
+              ${project.plans.slice(0, 8).map((plan) => {
+                const planPage = (payload.floorplanPlanPages || []).find((item) => item.projectId === project.projectId && item.planTitle === plan.title);
+                const label = `${publicText(plan.displayName || plan.title)} - ${publicText(String(plan.planType || "individual").replace(/-/g, " "))}`;
+                return planPage ? `<li><a href="/floorplans/${escapeHtml(project.projectId)}/${escapeHtml(planPage.planSlug)}/">${label}</a></li>` : `<li>${label}</li>`;
+              }).join("")}
             </ul>
           </article>
         `).join("")}
@@ -588,6 +596,52 @@ function renderBuyerIntentAnswerRoute(route, payload, slug) {
       <section>
         <h2>FAQ</h2>
         ${answer.faqs.map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderFloorplanPlanRoute(route, payload, projectId, planSlug) {
+  const plan = (payload.floorplanPlanPages || []).find(
+    (item) => item.projectId === projectId && item.planSlug === planSlug,
+  );
+  if (!plan) return renderSimpleRoute(route);
+  const project = projectForSlug(payload, projectId);
+  const projectHref = project ? projectPath(project) : "/buildings/";
+  const corridorKey = plan.corridorSlug === "downtown-west-palm-beach" ? "downtown" : plan.corridorSlug;
+  const corridorHref = plan.corridorSlug ? corridorPathForKey(corridorKey) : "/corridors/";
+  const metricRows = [
+    plan.bedrooms ? ["Bedrooms", plan.bedrooms] : null,
+    plan.bathrooms ? ["Bathrooms", plan.bathrooms] : null,
+    plan.interiorSqFt ? ["Interior", `${plan.interiorSqFt} sq ft`] : null,
+    plan.terraceSqFt ? ["Terrace", `${plan.terraceSqFt} sq ft`] : null,
+    plan.totalSqFt ? ["Total", `${plan.totalSqFt} sq ft`] : null,
+    plan.planDetail ? ["Placement", plan.planDetail] : null,
+  ].filter(Boolean);
+  const bedBath = [plan.bedrooms ? `${plan.bedrooms} bedroom${plan.bedrooms === "1" ? "" : "s"}` : "", plan.bathrooms ? `${plan.bathrooms} bathroom${plan.bathrooms === "1" ? "" : "s"}` : ""].filter(Boolean).join(" and ");
+  const sqft = plan.totalSqFt ? `${plan.totalSqFt} total square feet` : plan.interiorSqFt ? `${plan.interiorSqFt} interior square feet` : "";
+  return pageShell(
+    `floorplan-plan-${projectId}-${planSlug}`,
+    `${plan.planTitle} floor plan`,
+    route.description,
+    `
+      <section>
+        <p><a href="/floorplans/">Floor plans</a> / <a href="${projectHref}">${publicText(plan.projectName)}</a> / ${publicText(plan.planTitle)}</p>
+        <h2>Plan facts</h2>
+        ${metricRows.length ? `<dl>${metricRows.map(([term, value]) => `<div><dt>${publicText(term)}</dt><dd>${publicText(value)}</dd></div>`).join("")}</dl>` : `<p>Detailed plan metrics are being confirmed. Request the current packet for the latest drawing.</p>`}
+        ${plan.pdfHref ? `<p><a href="${safeHref(plan.pdfHref)}">Open the released ${publicText(plan.planTitle)} floor plan PDF</a></p>` : ""}
+        <p>Drawings and dimensions are approximate and subject to change. Request the latest drawing and current availability before relying on any figure.</p>
+      </section>
+      <section>
+        <h2>About this building</h2>
+        <p>${publicText(plan.planTitle)} is a released floor plan at <a href="${projectHref}">${publicText(plan.projectName)}</a>${plan.status && plan.status !== "Unknown" ? `, currently ${publicText(plan.status.toLowerCase())}` : ""}${plan.delivery && plan.delivery !== "Unknown" ? ` with delivery ${publicText(plan.delivery)}` : ""}. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${publicText(plan.projectName)} plan set</a> and the <a href="${corridorHref}">${publicText(corridorLabelForKey(corridorKey))} corridor</a>.</p>
+        <p><a href="/inquire/">Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
+      </section>
+      <section>
+        <h2>FAQ</h2>
+        ${bedBath ? `<article><h3>How many bedrooms and bathrooms does ${publicText(plan.planTitle)} have?</h3><p>The released drawing shows ${publicText(bedBath)}. Confirm the current configuration in the buyer packet, since released plans can change by stack and phase.</p></article>` : ""}
+        ${sqft ? `<article><h3>What is the square footage of ${publicText(plan.planTitle)}?</h3><p>The released plan lists ${publicText(sqft)}. Terrace and balcony areas are outdoor space, not interior living area.</p></article>` : ""}
+        <article><h3>How do I check current availability for ${publicText(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/">Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
       </section>
     `,
   );

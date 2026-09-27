@@ -123,6 +123,13 @@ const downtownSpotlightRoutes = [
   },
 ];
 const buyerIntentAnswerRoutes = loadBuyerIntentAnswerRoutes();
+const floorplanPlanPageRoutes = loadFloorplanPlanPageRoutes();
+
+function loadFloorplanPlanPageRoutes() {
+  const dataPath = path.join(workspace, "src/data/floorplanPlanPages.ts");
+  const source = fsSync.readFileSync(dataPath, "utf8");
+  return readTsArray(source, "floorplanPlanPages");
+}
 
 function loadBuyerIntentAnswerRoutes() {
   const appSourcePath = path.join(workspace, "src/main.ts");
@@ -2582,7 +2589,7 @@ function toUrlPath(filePath) {
 }
 
 function renderSiteDataTs({ floorplans, newsFeed, projectFacts, answerBlocks }) {
-  return `export const siteMeta = ${JSON.stringify(siteMeta, null, 2)} as const;\n\nexport const floorplanLibrary = ${JSON.stringify(floorplans.projects, null, 2)} as const;\n\nexport const answerEngineFaq = ${JSON.stringify(answerBlocks, null, 2)} as const;\n\nexport const researchNewsFeed = ${JSON.stringify(newsFeed.items, null, 2)} as const;\n\nexport const projectFacts = ${JSON.stringify(projectFacts, null, 2)} as const;\n\nexport const prerenderRoutes = ${JSON.stringify(buildPrerenderRoutes(), null, 2)} as const;\n`;
+  return `export const siteMeta = ${JSON.stringify(siteMeta, null, 2)} as const;\n\nexport const floorplanLibrary = ${JSON.stringify(floorplans.projects, null, 2)} as const;\n\nexport const answerEngineFaq = ${JSON.stringify(answerBlocks, null, 2)} as const;\n\nexport const researchNewsFeed = ${JSON.stringify(newsFeed.items, null, 2)} as const;\n\nexport const projectFacts = ${JSON.stringify(projectFacts, null, 2)} as const;\n\nexport const floorplanPlanPages = ${JSON.stringify(floorplanPlanPageRoutes, null, 2)} as const;\n\nexport const prerenderRoutes = ${JSON.stringify(buildPrerenderRoutes(), null, 2)} as const;\n`;
 }
 
 function renderFloorplanMd(floorplans) {
@@ -2803,6 +2810,12 @@ function buildPrerenderRoutes() {
       description: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
       ogImage: siteMeta.defaultImage,
     },
+    ...floorplanPlanPageRoutes.map((plan) => ({
+      path: `/floorplans/${plan.projectId}/${plan.planSlug}/`,
+      title: plan.seoTitle,
+      description: plan.seoDescription,
+      ogImage: siteMeta.defaultImage,
+    })),
     {
       path: "/buildings/",
       title: "West Palm Beach New Construction Buildings | Buyer Guide",
@@ -3003,6 +3016,7 @@ function renderSitemap(projects) {
   const urls = [
     { pathPart: "", priority: "1.0", lastmod: maxDate(allProjectDate, allArticleDate) },
     { pathPart: "floorplans/", priority: "0.9", lastmod: allProjectDate },
+    ...floorplanPlanPageRoutes.map((plan) => ({ pathPart: `floorplans/${plan.projectId}/${plan.planSlug}/`, priority: "0.7", lastmod: allProjectDate })),
     { pathPart: "buildings/", priority: "0.9", lastmod: allProjectDate },
     { pathPart: "map/", priority: "0.8", lastmod: allProjectDate },
     { pathPart: "corridors/", priority: "0.9", lastmod: allProjectDate },

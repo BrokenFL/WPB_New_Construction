@@ -3,10 +3,12 @@ import "./style.css";
 import {
   answerEngineFaq,
   floorplanLibrary,
+  floorplanPlanPages,
   projectFacts,
   researchNewsFeed,
   siteMeta,
 } from "./generated/siteData";
+import type { FloorplanPlanPage } from "./data/floorplanPlanPages";
 import { approvedFloorplanLibrary, type ApprovedFloorplanPlan, type ApprovedFloorplanProject } from "./data/floorplanApprovedLibrary";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
@@ -130,6 +132,7 @@ type Route =
   | { type: "floorplans"; projectId?: undefined }
   | { type: "answers"; projectId?: undefined }
   | { type: "answer-detail"; answerSlug: string; projectId?: undefined }
+  | { type: "floorplan-plan-detail"; projectId: string; planSlug: string }
   | { type: "methodology"; projectId?: undefined }
   | { type: "privacy"; projectId?: undefined }
   | { type: "terms"; projectId?: undefined }
@@ -2836,6 +2839,7 @@ app.innerHTML = `
       </div>
 
       <div class="route-view route-view-market-note-detail" data-route-view="market-note-detail" hidden></div>
+      <div class="route-view route-view-floorplan-plan-detail" data-route-view="floorplan-plan-detail" hidden></div>
 
       <div class="route-view route-view-downtown-spotlight" data-route-view="downtown-spotlight" hidden>
         ${renderDowntownSpotlightIndex()}
@@ -4170,19 +4174,20 @@ function applyRoute() {
   const activeMarketNote = route.type === "market-note-detail" ? marketNoteForSlug(route.articleSlug) : undefined;
   const activeNewsItem = route.type === "news-detail" ? updateForId(route.articleId) : undefined;
   const activeAnswer = route.type === "answer-detail" ? buyerIntentAnswerForSlug(route.answerSlug) : undefined;
+  const activePlanPage = route.type === "floorplan-plan-detail" ? floorplanPlanPageForSlugs(route.projectId, route.planSlug) : undefined;
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
-  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote, activeNewsItem, activeAnswer);
+  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote, activeNewsItem, activeAnswer, activePlanPage);
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
   if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
-  updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
+  updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer, activePlanPage);
   updateSocialMetadata(routeSeo);
-  updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
+  updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer, activePlanPage);
 
   views.forEach((view) => {
     const viewType = view.dataset.routeView;
@@ -4193,6 +4198,8 @@ function applyRoute() {
           ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
           : route.type === "market-note-detail"
             ? viewType === "market-note-detail"
+          : route.type === "floorplan-plan-detail"
+            ? viewType === "floorplan-plan-detail"
           : route.type === "answer-detail"
             ? viewType === "answer-detail" && view.dataset.answerSlug === route.answerSlug
           : route.type === "news-detail"
@@ -4204,6 +4211,7 @@ function applyRoute() {
     view.hidden = !isActive;
   });
   syncMarketNoteDetail(activeMarketNote);
+  syncFloorplanPlanDetail(activePlanPage);
   if (import.meta.env.DEV && route.type === "news-detail" && route.articleId === "__preview__") {
     void syncNewsPreviewDraft();
   } else {
@@ -4270,6 +4278,7 @@ function routeSeoDetails(
   activeMarketNote?: MarketNote,
   activeNewsItem?: ExternalNewsItem,
   activeAnswer?: BuyerIntentAnswerPage,
+  activePlanPage?: FloorplanPlanPage,
 ) {
   const path =
     activeProject ? projectPath(activeProject) :
@@ -4277,6 +4286,7 @@ function routeSeoDetails(
     activeMarketNote ? marketNotePath(activeMarketNote) :
     activeNewsItem ? updatePath(activeNewsItem) :
     activeAnswer ? buyerIntentAnswerPath(activeAnswer) :
+    activePlanPage ? floorplanPlanPagePath(activePlanPage) :
     ({
       home: "/",
       buildings: "/buildings/",
@@ -4344,8 +4354,10 @@ function routeSeoDetails(
         ? activeNewsItem.titleTag || `${activeNewsItem.title} | WPB Updates`
       : activeAnswer
         ? `${activeAnswer.title} | WPB Answers`
+      : activePlanPage
+        ? activePlanPage.seoTitle
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
+  const description = activePlanPage?.seoDescription ?? activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title: buyerSeo?.seoTitle || title,
@@ -4365,6 +4377,9 @@ function getActiveNavItem(route: Route) {
   }
   if (route.type === "market-note-detail") {
     return "market-notes";
+  }
+  if (route.type === "floorplan-plan-detail") {
+    return "floorplans";
   }
   if (route.type === "downtown-spotlight") {
     return "market-notes";
@@ -4575,6 +4590,11 @@ function getCurrentRoute(): Route {
     return { type: "answer-detail", answerSlug: answerPathMatch[1] };
   }
 
+  const planPageMatch = window.location.pathname.match(/^\/floorplans\/([^/]+)\/([^/]+)\/?$/);
+  if (planPageMatch && floorplanPlanPageForSlugs(planPageMatch[1], planPageMatch[2])) {
+    return { type: "floorplan-plan-detail", projectId: planPageMatch[1], planSlug: planPageMatch[2] };
+  }
+
   const corridorKey = corridorRoutePaths[window.location.pathname];
   if (corridorKey) {
     return { type: "corridor", corridorKey };
@@ -4640,7 +4660,7 @@ function canonicalAliasTarget(pathname: string) {
   return "";
 }
 
-function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
+function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage, activePlanPage?: FloorplanPlanPage) {
   const pathByRoute: Record<string, string> = {
     home: "/",
     buildings: "/buildings/",
@@ -4674,6 +4694,9 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
   }
   if (route.type === "answer-detail" && activeAnswer) {
     path = buyerIntentAnswerPath(activeAnswer);
+  }
+  if (route.type === "floorplan-plan-detail" && activePlanPage) {
+    path = floorplanPlanPagePath(activePlanPage);
   }
   let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!canonical) {
@@ -4750,7 +4773,7 @@ function setMetaName(name: string, content: string) {
   meta.content = content;
 }
 
-function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
+function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage, activePlanPage?: FloorplanPlanPage) {
   const baseGraph = [
     {
       "@type": "Organization",
@@ -4841,6 +4864,16 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
               ? [
                   buildWebPageSchema(routeType),
                   buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "About Us", path: "/about/" }]),
+                ]
+            : routeType === "floorplan-plan-detail" && activePlanPage
+              ? [
+                  buildWebPageSchema(routeType),
+                  buildBreadcrumbSchema([
+                    { name: "Home", path: "/" },
+                    { name: "Floor Plans", path: "/floorplans/" },
+                    { name: activePlanPage.projectName, path: `/projects/${activePlanPage.projectId}/` },
+                    { name: activePlanPage.planTitle, path: floorplanPlanPagePath(activePlanPage) },
+                  ]),
                 ]
             : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
             ? [buildLegalPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: pageSchemaName(routeType), path: `/${routeType}/` }])]
@@ -6331,8 +6364,60 @@ function publicGuidanceLabel(category: string) {
   return "Guidance";
 }
 
-function syncMarketNoteDetail(note?: MarketNote) {
-  const detailView = document.querySelector<HTMLElement>('[data-route-view="market-note-detail"]');
+function syncFloorplanPlanDetail(plan?: FloorplanPlanPage) {
+  const detailView = document.querySelector<HTMLElement>('[data-route-view="floorplan-plan-detail"]');
+  if (!detailView) return;
+  detailView.innerHTML = plan ? renderFloorplanPlanDetail(plan) : `<p>Floor plan not found. <a href="/floorplans/">Browse all floor plans</a>.</p>`;
+  if (plan) {
+    track("floorplan_plan_view", {
+      project_id: plan.projectId,
+      plan_slug: plan.planSlug,
+    });
+  }
+}
+
+function renderFloorplanPlanDetail(plan: FloorplanPlanPage) {
+  const metricRows: Array<[string, string]> = [
+    plan.bedrooms ? ["Bedrooms", plan.bedrooms] : null,
+    plan.bathrooms ? ["Bathrooms", plan.bathrooms] : null,
+    plan.interiorSqFt ? ["Interior", `${plan.interiorSqFt} sq ft`] : null,
+    plan.terraceSqFt ? ["Terrace", `${plan.terraceSqFt} sq ft`] : null,
+    plan.totalSqFt ? ["Total", `${plan.totalSqFt} sq ft`] : null,
+    plan.planDetail ? ["Placement", plan.planDetail] : null,
+  ].filter((row): row is [string, string] => Boolean(row));
+  const bedBath = [plan.bedrooms ? `${plan.bedrooms} bedroom${plan.bedrooms === "1" ? "" : "s"}` : "", plan.bathrooms ? `${plan.bathrooms} bathroom${plan.bathrooms === "1" ? "" : "s"}` : ""].filter(Boolean).join(" and ");
+  const sqft = plan.totalSqFt ? `${plan.totalSqFt} total square feet` : plan.interiorSqFt ? `${plan.interiorSqFt} interior square feet` : "";
+  const corridorKey: CorridorKey = plan.corridorSlug === "downtown-west-palm-beach" ? "downtown" : (plan.corridorSlug as CorridorKey);
+  const corridorSection = corridorSections.find((section) => section.key === corridorKey);
+  const corridorHref = corridorSection ? corridorPath(corridorSection.key) : "/corridors/";
+  const corridorLabel = corridorSection ? corridorSection.label : "corridor";
+  return `
+    <article class="floorplan-plan-detail">
+      <p><a href="/floorplans/">Floor plans</a> / <a href="/projects/${escapeHtml(plan.projectId)}/">${escapeHtml(plan.projectName)}</a> / ${escapeHtml(plan.planTitle)}</p>
+      <h1>${escapeHtml(plan.planTitle)} floor plan</h1>
+      <p>${escapeHtml(plan.seoDescription)}</p>
+      <section>
+        <h2>Plan facts</h2>
+        ${metricRows.length ? `<dl>${metricRows.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>` : `<p>Detailed plan metrics are being confirmed. Request the current packet for the latest drawing.</p>`}
+        ${plan.pdfHref ? `<p><a href="${escapeHtml(plan.pdfHref)}">Open the released ${escapeHtml(plan.planTitle)} floor plan PDF</a></p>` : ""}
+        <p>Drawings and dimensions are approximate and subject to change. Request the latest drawing and current availability before relying on any figure.</p>
+      </section>
+      <section>
+        <h2>About this building</h2>
+        <p>${escapeHtml(plan.planTitle)} is a released floor plan at <a href="/projects/${escapeHtml(plan.projectId)}/">${escapeHtml(plan.projectName)}</a>. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${escapeHtml(plan.projectName)} plan set</a>${corridorSection ? ` and the <a href="${escapeHtml(corridorHref)}">${escapeHtml(corridorLabel)} corridor</a>` : ""}.</p>
+        <p><a href="/inquire/">Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
+      </section>
+      <section>
+        <h2>FAQ</h2>
+        ${bedBath ? `<article><h3>How many bedrooms and bathrooms does ${escapeHtml(plan.planTitle)} have?</h3><p>The released drawing shows ${escapeHtml(bedBath)}. Confirm the current configuration in the buyer packet, since released plans can change by stack and phase.</p></article>` : ""}
+        ${sqft ? `<article><h3>What is the square footage of ${escapeHtml(plan.planTitle)}?</h3><p>The released plan lists ${escapeHtml(sqft)}. Terrace and balcony areas are outdoor space, not interior living area.</p></article>` : ""}
+        <article><h3>How do I check current availability for ${escapeHtml(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/">Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
+      </section>
+    </article>
+  `;
+}
+
+function syncMarketNoteDetail(note?: MarketNote) {  const detailView = document.querySelector<HTMLElement>('[data-route-view="market-note-detail"]');
   if (!detailView) return;
   detailView.innerHTML = note ? renderMarketNoteArticle(note) : renderMissingMarketNote();
   if (note) {
@@ -7924,6 +8009,8 @@ function renderGeneratedFloorplanLink(
   const planDetailMarkup = planDetail ? `<small>${escapeHtml(planDetail)}</small>` : "";
   const preview = renderFloorplanPreview(plan, title);
   const metrics = renderFloorplanMetrics(plan);
+  const planPage = project?.projectId ? floorplanPlanPageForPlan(project.projectId, plan.title) : undefined;
+  const planPageLink = planPage ? `<a class="floorplan-plan-link" href="${floorplanPlanPagePath(planPage)}">View ${escapeHtml(title)} plan details</a>` : "";
   if (!plan.href) {
     return `
       <article class="floorplan-link floorplan-link-static">
@@ -7931,6 +8018,7 @@ function renderGeneratedFloorplanLink(
         <span>${escapeHtml(title)}</span>
         ${planDetailMarkup}
         ${metrics}
+        ${planPageLink}
       </article>
     `;
   }
@@ -7952,6 +8040,7 @@ function renderGeneratedFloorplanLink(
       ${planDetailMarkup}
       ${metrics}
     </button>
+    ${planPageLink}
   `;
   }
 
@@ -7972,6 +8061,7 @@ function renderGeneratedFloorplanLink(
       ${planDetailMarkup}
       ${metrics}
     </button>
+    ${planPageLink}
   `;
 }
 
@@ -8081,6 +8171,22 @@ function buyerIntentAnswerPath(answer: BuyerIntentAnswerPage) {
 
 function buyerIntentAnswerForSlug(slug: string) {
   return buyerIntentAnswerPages.find((answer) => answer.slug === slug);
+}
+
+function floorplanPlanPageForSlugs(projectId: string, planSlug: string): FloorplanPlanPage | undefined {
+  return (floorplanPlanPages as unknown as FloorplanPlanPage[]).find(
+    (plan) => plan.projectId === projectId && plan.planSlug === planSlug,
+  );
+}
+
+function floorplanPlanPageForPlan(projectId: string, planTitle: string): FloorplanPlanPage | undefined {
+  return (floorplanPlanPages as unknown as FloorplanPlanPage[]).find(
+    (plan) => plan.projectId === projectId && plan.planTitle === planTitle,
+  );
+}
+
+function floorplanPlanPagePath(plan: FloorplanPlanPage) {
+  return `/floorplans/${plan.projectId}/${plan.planSlug}/`;
 }
 
 function renderBuyerIntentAnswerCard(answer: BuyerIntentAnswerPage) {
