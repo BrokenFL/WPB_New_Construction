@@ -183,7 +183,7 @@ export const publicProjectModel = {
       "status": "Under Construction",
       "delivery": "Request current delivery guidance",
       "residences": "98 in earlier sources; 100 on Related Ross",
-      "price": "Request current pricing",
+      "price": "From about $3.69M (current official floorplans; Feb 2026 coverage cited from $3M)",
       "reviewedFields": {
         "status": "Under Construction"
       },

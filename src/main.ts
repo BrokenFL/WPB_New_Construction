@@ -2272,7 +2272,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "NORA District",
     title: "NORA House",
     intro:
-      "NORA House is the lifestyle-counterpoint to the waterfront towers: a walkable district condominium shaped around restaurants, retail, social energy, and the daily convenience of living inside an emerging neighborhood.",
+      "NORA House is the residential anchor of the NORA District — the adaptive-reuse warehouse district north of downtown West Palm Beach being redeveloped into walkable streets, restaurants, retail, and hospitality. The condominium is shaped around district living: social energy, daily convenience, and downtown access without the waterfront-tower premium.",
     image: noraHouseUserHero,
     imageAlt: "NORA House exterior rendering",
     stage: "Sales launched / details to verify",
@@ -2699,7 +2699,7 @@ app.innerHTML = `
           </div>
           <div class="home-spotlight-copy">
             <h2>Why the NORA District could reshape Downtown.</h2>
-            <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
+            <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward. See <a href="/projects/nora-house/">NORA House</a>, the district condominium, for the residential angle.</p>
           </div>
           <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
         </div>
@@ -5075,6 +5075,26 @@ function buildMarketNoteSchema(note: MarketNote) {
   };
 }
 
+const projectStartingPrices: Record<string, { amount: number; label: string }> = {
+  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
+  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
+  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
+  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
+  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
+};
+
+function projectStartingOffer(projectId: string) {
+  const entry = projectStartingPrices[projectId];
+  if (!entry) return null;
+  return {
+    "@type": "Offer",
+    price: entry.amount,
+    priceCurrency: "USD",
+    description: entry.label,
+    availability: "https://schema.org/LimitedAvailability",
+  };
+}
+
 function buildProjectSchema(project: FeaturedProject) {
   const schemaFacts = getSchemaSafeProjectFacts(project.id);
   const structuredDetails = batch1ProjectCopyByProjectId.get(project.id)?.structuredDetails ?? [];
@@ -5113,6 +5133,7 @@ function buildProjectSchema(project: FeaturedProject) {
     } : {}),
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     ...(schemaFacts.safeFields.status ? { status: schemaFacts.safeFields.status } : {}),
+    ...(projectStartingOffer(project.id) ? { offers: projectStartingOffer(project.id) } : {}),
     subjectOf: [
       {
         "@type": "WebPage",

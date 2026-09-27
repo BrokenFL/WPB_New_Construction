@@ -1617,8 +1617,29 @@ function projectSchema(project, payload) {
       additionalProperty: structuredDetails.map((detail) => ({ "@type": "PropertyValue", name: detail.name, value: detail.value })),
     } : {}),
     ...(safeFields.status ? { status: safeFields.status } : {}),
+    ...(projectStartingOffer(project.projectId) ? { offers: projectStartingOffer(project.projectId) } : {}),
     subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
     reviewedBy: { "@id": `${baseUrl}/#brooke-snader` },
+  };
+}
+
+const projectStartingPrices = {
+  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
+  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
+  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
+  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
+  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
+};
+
+function projectStartingOffer(projectId) {
+  const entry = projectStartingPrices[projectId];
+  if (!entry) return null;
+  return {
+    "@type": "Offer",
+    price: entry.amount,
+    priceCurrency: "USD",
+    description: entry.label,
+    availability: "https://schema.org/LimitedAvailability",
   };
 }
 

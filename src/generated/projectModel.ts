@@ -157,7 +157,7 @@ export const canonicalProjectModel = {
       "status": "Under Construction",
       "delivery": "Request current delivery guidance",
       "residences": "98 in earlier sources; 100 on Related Ross",
-      "price": "Request current pricing",
+      "price": "From about $3.69M (current official floorplans; Feb 2026 coverage cited from $3M)",
       "address": "1901 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "active_sales_under_construction",
       "pageType": "main_building_page",

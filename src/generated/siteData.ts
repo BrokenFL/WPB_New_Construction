@@ -3783,7 +3783,7 @@ export const projectFacts = [
       "residences": "98 in earlier sources; 100 on Related Ross",
       "stories": "27–28 reported; confirm current plans",
       "completion": "Request current delivery guidance",
-      "pricing": "Request current pricing",
+      "pricing": "From about $3.69M (current official floorplans; Feb 2026 coverage cited from $3M)",
       "team": "Related Ross; Roger Ferris + Partners; Rottet Studio",
       "amenities": "The official amenity program includes a rooftop pool, fitness, yoga and Pilates spaces, spa facilities, a golf simulator, private dining and work spaces. Related Life and concierge services are described separately; confirm which services are included and which are charged individually.",
       "residenceFeatures": [
