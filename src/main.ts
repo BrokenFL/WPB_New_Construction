@@ -386,7 +386,7 @@ const fullTeamCtaCopy =
 const shortTeamCtaCopy =
   "Need help comparing West Palm Beach new construction? Contact The Scott Gordon Group at Douglas Elliman Palm Beach.";
 const aboutPageDescription =
-  "Meet The Scott Gordon Group at Douglas Elliman, Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers with decades of local experience.";
+  "Meet The Scott Gordon Group at Douglas Elliman \u2014 Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers.";
 
 function homepageOverride(sectionId: string) {
   return homepageOverrides.sections?.[sectionId];
@@ -826,7 +826,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "best-new-construction-condos-west-palm-beach",
     shortLabel: "Best condos",
-    title: "Best New Construction Condos in West Palm Beach",
+    title: "Best New Condos in West Palm Beach",
     question: "What are the best new construction condos in West Palm Beach?",
     description: "A buyer-first answer for comparing West Palm Beach new-construction condo options by corridor, readiness, floorplan depth, and verification needs.",
     bluf:
@@ -849,7 +849,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "closest-new-condos-to-palm-beach",
     shortLabel: "Palm Beach",
-    title: "Which West Palm Beach New Condos Are Closest to Palm Beach?",
+    title: "Which New Condos Are Closest to Palm Beach?",
     question: "Which West Palm Beach new condos are closest to Palm Beach?",
     description: "A corridor-based answer for buyers comparing West Palm Beach new-construction condos by Palm Beach proximity and verification needs.",
     bluf:
@@ -893,7 +893,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "downtown-vs-waterfront-new-construction-condos",
     shortLabel: "Downtown vs water",
-    title: "Downtown West Palm Beach vs Waterfront New Construction Condos",
+    title: "Downtown vs Waterfront West Palm Beach Condos",
     question: "How should buyers compare Downtown West Palm Beach vs waterfront new construction condos?",
     description: "A buyer-facing comparison of Downtown West Palm Beach condo projects and Flagler Drive waterfront new construction.",
     bluf:
@@ -915,7 +915,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "compare-floor-plans-west-palm-beach-new-construction-condos",
     shortLabel: "Floorplans",
-    title: "How to Compare Floor Plans in West Palm Beach New Construction Condos",
+    title: "Compare Floor Plans in West Palm Beach",
     question: "How should buyers compare floor plans in West Palm Beach new construction condos?",
     description: "A practical buyer answer for comparing West Palm Beach new-construction condo floor plans, stacks, exposure, and current packet details.",
     bluf:
@@ -938,7 +938,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "west-palm-beach-new-construction-condo-fees-verify",
     shortLabel: "Fees",
-    title: "West Palm Beach New Construction Condo Fees: What Buyers Should Verify",
+    title: "West Palm Beach New Condo Fees: What to Verify",
     question: "What fees should buyers verify in West Palm Beach new construction condos?",
     description: "A cautious buyer checklist for West Palm Beach new-construction condo fees, carrying costs, and association questions.",
     bluf:
@@ -961,7 +961,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "preconstruction-vs-completed-new-construction-condos-west-palm-beach",
     shortLabel: "Pre vs done",
-    title: "Preconstruction vs Completed New Construction Condos in West Palm Beach",
+    title: "Preconstruction vs Completed WPB Condos",
     question: "How should buyers compare preconstruction vs completed new construction condos in West Palm Beach?",
     description: "A buyer guide to comparing preconstruction, under-construction, pipeline, and completed/newly delivered West Palm Beach condo options.",
     bluf:
@@ -984,7 +984,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
   {
     slug: "strongest-lifestyle-fit-west-palm-beach-new-condos",
     shortLabel: "Lifestyle fit",
-    title: "Which West Palm Beach New Condos Have the Strongest Lifestyle Fit for Buyers?",
+    title: "West Palm Beach Condos for Your Lifestyle",
     question: "Which West Palm Beach new condos have the strongest lifestyle fit for buyers?",
     description: "A buyer-lifestyle answer for comparing West Palm Beach new-construction condos by corridor, daily routine, service model, and verification needs.",
     bluf:
@@ -2406,7 +2406,7 @@ app.innerHTML = `
         <a href="/compare/" data-nav-item="compare">Compare</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floor plans</a>
       </nav>
-      <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">Call</a>
+      <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group at ${advisorProfile.mobile}">${advisorProfile.mobile}</a>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire" ${renderCtaTrackingAttrs("header", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
     </header>
 
@@ -2932,6 +2932,7 @@ app.innerHTML = `
           <p class="eyebrow">The Buyer Research Desk</p>
           <h1>Start with a better brief.</h1>
           <p>Tell us which buildings or residence lines you are considering. We can check current availability and pricing, compare plans and carrying costs, clarify delivery questions, and plan tours around your priorities.</p>
+          <p style="margin:0;font-size:clamp(1rem,1.1vw,1.12rem);font-weight:700">Prefer to talk? <a href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group at ${advisorProfile.mobile}" style="color:#102d43;text-decoration:underline;text-underline-offset:3px;white-space:nowrap">Call ${advisorProfile.mobile}</a></p>
           <div class="inquiry-proof-strip" aria-label="What the team will review">
             <span>Availability</span>
             <span>Residence lines</span>
@@ -4083,30 +4084,30 @@ function routeSeoDetails(
       inquire: "/inquire/",
     } as Record<string, string>)[route.type] ?? "/";
   const corridorTitles: Record<CorridorKey, string> = {
-    "north-flagler": "North Flagler New Construction Condos | Compare & Floor Plans",
+    "north-flagler": "North Flagler New Construction Condos | Floor Plans",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
     "south-flagler": "South Flagler New Construction Condos | Plans & Buyer Guide",
     "south-end": "South End West Palm Beach Developments | Area Guide",
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
-    "north-flagler": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
+    "north-flagler": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: floor plans, waterfront settings, active sales and buyer guidance.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
-    "south-flagler": "Compare South Flagler new construction condos, South Flagler House floor plans and completed waterfront alternatives. Build a buyer shortlist before a sales-gallery visit.",
+    "south-flagler": "Compare South Flagler new construction condos, South Flagler House floor plans, and completed waterfront alternatives before a sales-gallery visit.",
     "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
     "palm-beach": "Track Palm Beach island condo projects by coastal setting, low-density scale, approval status, and current buyer-verification needs.",
   };
   const routeTitles: Record<string, string> = {
     home: siteMeta.title,
-    news: "West Palm Beach Luxury Condo Updates | Construction, Sales & Planning",
+    news: "West Palm Beach Luxury Condo Updates | Sales & Construction",
     "downtown-spotlight": "Downtown Spotlight | West Palm Beach Condo District Notes",
-    buildings: "West Palm Beach Luxury New Construction Buildings | Buyer Guide",
+    buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
     corridors: "West Palm Beach Luxury Condo Corridors | Buyer Guide",
     compare: "Compare West Palm Beach New Construction Condos",
     about: "About The Scott Gordon Group | Douglas Elliman Palm Beach",
     "market-notes": "West Palm Beach Luxury Condo Guidance | Buyer Intelligence",
-    floorplans: "West Palm Beach Luxury Condo Floor Plans | New Construction Guide",
+    floorplans: "West Palm Beach Condo Floor Plans | New Construction Guide",
     answers: "West Palm Beach Luxury New Construction Condo Answers",
     methodology: "How We Verify West Palm Beach Condo Project Facts",
     privacy: "Privacy | WPB New Construction",
@@ -4419,6 +4420,7 @@ function canonicalAliasTarget(pathname: string) {
   if (pathname === "/guidance/" || pathname === "/guidance") return "/market-notes/";
   if (pathname === "/about-us/" || pathname === "/about-us") return "/about/";
   if (pathname === "/contact/" || pathname === "/contact") return "/inquire/";
+  if (pathname === "/market-notes/nora-district-downtown-transformation/" || pathname === "/market-notes/nora-district-downtown-transformation") return "/downtown-spotlight/nora-district-downtown-transformation/";
   if (pathname === "/floor-plans/" || pathname === "/floor-plans") return "/floorplans/";
   const blogMatch = pathname.match(/^\/blog\/([^/]+)\/?$/);
   if (blogMatch) return `/market-notes/${blogMatch[1]}/`;
@@ -4486,13 +4488,13 @@ function metaDescriptionForRoute(routeType: string) {
     home: "Research West Palm Beach new-construction condos by building, released floor plan, corridor, and development update with independent buyer guidance.",
     buildings: "Compare West Palm Beach luxury new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
     map: "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
-    corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach luxury new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
+    corridors: "Choose between South Flagler, North Flagler, and Downtown WPB luxury new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
     compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     about: aboutPageDescription,
     news: "Track West Palm Beach luxury condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
     "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, local perspective, and the original source link.",
-    "market-notes": "Read evergreen guidance for West Palm Beach luxury new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+    "market-notes": "Read evergreen guidance for West Palm Beach luxury new-construction condos: active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach luxury new-construction condo floor plans and request current sales packets before comparing available residences.",
     answers: "Concise answers to West Palm Beach luxury new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
     "answer-detail": "Buyer-intent answer for comparing West Palm Beach luxury new-construction condos with source-backed links and verification notes.",
@@ -7436,9 +7438,10 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
       </header>
       <section class="market-note-meta-strip" aria-label="Update metadata">
+        <div><span>Author</span><strong>Brooke Snader</strong></div>
         <div><span>Category</span><strong>${publicText(item.category)}</strong></div>
         <div><span>Published</span><strong>${publicText(formatNewsDate(newsDisplayDate(item)))}</strong></div>
-        <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
+        <div><span>Updated</span><strong>${publicText(formatNewsDate(item.fetchedAt))}</strong></div>
         <div><span>${relatedCount ? "Related" : "Research path"}</span><strong>${relatedCount || "All areas"}</strong></div>
       </section>
       <section class="section market-note-body" style="grid-template-columns:minmax(0,1fr);max-width:940px">

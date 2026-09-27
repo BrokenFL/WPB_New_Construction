@@ -34,14 +34,23 @@ function readTag(html, pattern) {
   return html.match(pattern)?.[1]?.trim() ?? "";
 }
 
+function decodeEntities(value) {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'");
+}
+
 for (const route of requiredRoutes) {
   const html = await fs.readFile(routeFile(route), "utf8").catch(() => "");
   if (!html) {
     findings.push(`${route}: missing prerendered HTML`);
     continue;
   }
-  const title = readTag(html, /<title>([\s\S]*?)<\/title>/);
-  const description = readTag(html, /<meta name="description" content="([^"]+)"/);
+  const title = decodeEntities(readTag(html, /<title>([\s\S]*?)<\/title>/));
+  const description = decodeEntities(readTag(html, /<meta name="description" content="([^"]+)"/));
   const canonical = readTag(html, /<link rel="canonical" href="([^"]+)"/);
   const ogTitle = readTag(html, /<meta property="og:title" content="([^"]+)"/);
   const ogDescription = readTag(html, /<meta property="og:description" content="([^"]+)"/);
@@ -50,8 +59,8 @@ for (const route of requiredRoutes) {
   const twitterDescription = readTag(html, /<meta name="twitter:description" content="([^"]+)"/);
   const twitterImage = readTag(html, /<meta name="twitter:image" content="([^"]+)"/);
 
-  if (!title || title.length > 75) findings.push(`${route}: missing or overlong title`);
-  if (!description || description.length < 80 || description.length > 180) findings.push(`${route}: missing or weak meta description`);
+  if (!title || title.length > 60) findings.push(`${route}: missing or overlong title`);
+  if (!description || description.length < 80 || description.length > 160) findings.push(`${route}: missing or weak meta description`);
   if (canonical !== `https://www.wpbnewconstruction.com${route}`) findings.push(`${route}: incorrect canonical ${canonical}`);
   if (!ogTitle || !ogDescription || !ogImage) findings.push(`${route}: missing Open Graph metadata`);
   if (!twitterTitle || !twitterDescription || !twitterImage) findings.push(`${route}: missing Twitter card metadata`);

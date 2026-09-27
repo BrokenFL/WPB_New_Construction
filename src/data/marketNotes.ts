@@ -72,7 +72,7 @@ export const marketNotes = [
     "id": "rivian-cityplace-downtown-street-2026-08-28",
     "status": "published",
     "category": "Downtown Spotlight",
-    "title": "Rivian gives CityPlace another reason to feel like a downtown street",
+    "title": "Rivian adds downtown feel to CityPlace",
     "slug": "rivian-cityplace-downtown-street-2026-08-28",
     "excerpt": "The electric-vehicle showroom is open at 729 S. Rosemary Ave., adding a car brand to CityPlace’s walkable retail strip and widening the district’s daytime use.",
     "buyerThesis": "The electric-vehicle showroom is open at 729 S. Rosemary Ave., adding a car brand to CityPlace’s walkable retail strip and widening the district’s daytime use.",
@@ -148,10 +148,10 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "Rivian gives CityPlace another reason to feel like a downtown street",
+      "primaryQuery": "Rivian adds downtown feel to CityPlace",
       "secondaryQueries": [],
       "suggestedSlug": "rivian-cityplace-downtown-street-2026-08-28",
-      "titleTag": "Rivian gives CityPlace another reason to feel like a downtown street | Downtown Spotlight",
+      "titleTag": "Rivian adds downtown feel to CityPlace | Downtown Spotlight",
       "metaDescription": "Rivian's CityPlace showroom is now open on Rosemary Avenue, adding a new kind of retail stop to downtown West Palm Beach."
     }
   },
@@ -160,7 +160,7 @@ export const marketNotes = [
     "id": "wpb-content-scout-safe-daily-publish-south-flagler-house-selection-mode",
     "status": "published",
     "category": "general",
-    "title": "South Flagler House keeps West Palm Beach luxury buyers line-shopping",
+    "title": "South Flagler House line-shopping guide",
     "slug": "south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping",
     "excerpt": "The official sales packet spans $7.98 million to $70 million, while the latest downtown report still shows only a small active pool at the top end. Buyers are choosing lines, exposures, and timing, not waiting for a broad reset.",
     "buyerThesis": "Useful for buyers comparing South Flagler House against other Flagler waterfront towers and deciding whether the top end is a selective buy or a wait-for-better-pricing play.",
@@ -242,10 +242,10 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "South Flagler House keeps West Palm Beach luxury buyers line-shopping",
+      "primaryQuery": "South Flagler House line-shopping guide",
       "secondaryQueries": [],
       "suggestedSlug": "south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping",
-      "titleTag": "South Flagler House keeps West Palm Beach luxury buyers line-shopping | Buyer Intelligence",
+      "titleTag": "South Flagler House line-shopping guide | Buyer Intelligence",
       "metaDescription": "South Flagler House's official pricing ladder and the latest downtown condo report show a luxury market that still rewards line-by-line comparison."
     }
   },
@@ -254,7 +254,7 @@ export const marketNotes = [
     "id": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
     "status": "published",
     "category": "Downtown Spotlight",
-    "title": "Fuku gives CityPlace another reason to linger on Rosemary",
+    "title": "Fuku gives CityPlace a Rosemary draw",
     "slug": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
     "excerpt": "David Chang’s fried-chicken concept is now open at 407 South Rosemary Avenue, adding another fast-casual stop to CityPlace’s growing daily-use strip.",
     "buyerThesis": "Most useful for downtown buyers comparing walkability, dining convenience, and how much the CityPlace/Rosemary corridor feels like part of everyday life.",
@@ -330,11 +330,11 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "Fuku gives CityPlace another reason to linger on Rosemary",
+      "primaryQuery": "Fuku gives CityPlace a Rosemary draw",
       "secondaryQueries": [],
       "suggestedSlug": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
-      "titleTag": "Fuku gives CityPlace another reason to linger on Rosemary | Downtown Spotlight",
-      "metaDescription": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace and pushes Rosemary Avenue a little farther from mall frontage and a little closer to an actual downtown street."
+      "titleTag": "Fuku gives CityPlace a Rosemary draw | Downtown Spotlight",
+      "metaDescription": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace, pushing Rosemary Avenue closer to an actual downtown street."
     }
   },
 
@@ -342,7 +342,7 @@ export const marketNotes = [
     "id": "nora-house-turns-the-district-into-a-buyer-decision",
     "status": "published",
     "category": "general",
-    "title": "NORA House turns the district into a buyer decision",
+    "title": "NORA House: a district buyer decision",
     "slug": "nora-house-turns-the-district-into-a-buyer-decision",
     "excerpt": "The district is open, the sales gallery is active, and the condo entry point starts in the low $2 millions. Buyers now have to decide whether walkable district living is worth the construction timeline.",
     "buyerThesis": "Useful for buyers comparing downtown-adjacent walkability against waterfront towers, and for anyone trying to decide whether district momentum is enough to justify a 2029 delivery window.",
@@ -426,11 +426,11 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "NORA House turns the district into a buyer decision",
+      "primaryQuery": "NORA House: a district buyer decision",
       "secondaryQueries": [],
       "suggestedSlug": "nora-house-turns-the-district-into-a-buyer-decision",
-      "titleTag": "NORA House turns the district into a buyer decision | Buyer Intelligence",
-      "metaDescription": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later."
+      "titleTag": "NORA House: a district buyer decision | Buyer Intelligence",
+      "metaDescription": "NORA House gives West Palm Beach buyers a real choice: live in an open, walkable neighborhood now, or keep waiting for a waterfront tower later."
     }
   },
 
@@ -438,7 +438,7 @@ export const marketNotes = [
     "id": "nora-house-turns-the-district-into-a-buyer-decision",
     "status": "published",
     "category": "general",
-    "title": "NORA House turns the district into a buyer decision",
+    "title": "NORA House: a district buyer decision",
     "slug": "nora-house-turns-the-district-into-a-buyer-decision",
     "excerpt": "The district is open, the sales gallery is active, and the condo entry point starts in the low $2 millions. Buyers now have to decide whether walkable district living is worth the construction timeline.",
     "buyerThesis": "Useful for buyers comparing downtown-adjacent walkability against waterfront towers, and for anyone trying to decide whether district momentum is enough to justify a 2029 delivery window.",
@@ -522,11 +522,11 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "NORA House turns the district into a buyer decision",
+      "primaryQuery": "NORA House: a district buyer decision",
       "secondaryQueries": [],
       "suggestedSlug": "nora-house-turns-the-district-into-a-buyer-decision",
-      "titleTag": "NORA House turns the district into a buyer decision | Buyer Intelligence",
-      "metaDescription": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later."
+      "titleTag": "NORA House: a district buyer decision | Buyer Intelligence",
+      "metaDescription": "NORA House gives West Palm Beach buyers a real choice: live in an open, walkable neighborhood now, or keep waiting for a waterfront tower later."
     }
   },
 
@@ -534,7 +534,7 @@ export const marketNotes = [
     "id": "alba-s-finish-changes-the-north-flagler-buyer-test",
     "status": "published",
     "category": "general",
-    "title": "Alba's finish changes the North Flagler buyer test",
+    "title": "Alba's finish resets the buyer test",
     "slug": "alba-s-finish-changes-the-north-flagler-buyer-test",
     "excerpt": "The 55-unit tower is complete, 95% sold, and welcoming residents while West Palm Beach still shows 106 active new-construction listings citywide.",
     "buyerThesis": "Alba's completion turns North Flagler into a certainty-versus-optionality decision: one finished waterfront building is nearly sold out while the broader new-construction shelf still has room to compare.",
@@ -616,11 +616,11 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "Alba's finish changes the North Flagler buyer test",
+      "primaryQuery": "Alba's finish resets the buyer test",
       "secondaryQueries": [],
       "suggestedSlug": "alba-s-finish-changes-the-north-flagler-buyer-test",
-      "titleTag": "Alba's finish changes the North Flagler buyer test | Buyer Intelligence",
-      "metaDescription": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler, giving buyers a live example of delivered waterfront inventory while West Palm Beach still shows a broad new-construction shelf."
+      "titleTag": "Alba's finish resets the buyer test | Buyer Intelligence",
+      "metaDescription": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler — a live example of delivered waterfront inventory."
     }
   },
 
@@ -628,7 +628,7 @@ export const marketNotes = [
     "id": "wpb-content-scout-safe-daily-publish-west-palm-move-2026-08-18",
     "status": "published",
     "category": "Downtown Spotlight",
-    "title": "West Palm Move is about to change downtown's daily rhythm",
+    "title": "West Palm Move's downtown rhythm shift",
     "slug": "west-palm-move-downtown-mobility",
     "excerpt": "West Palm Beach's new mobility service will replace RideWPB with a faster fixed-route and on-demand system that reaches from the Norton Museum to Northwood Village.",
     "buyerThesis": "For downtown buyers, the signal is practical: walkability gets stronger when the city makes it easier to move between the core, Northwood Village and the Norton corridor without a car. That does not replace a good parking plan, but it does make the day-to-day livability argument harder to ignore.",
@@ -698,10 +698,10 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "West Palm Move is about to change downtown's daily rhythm",
+      "primaryQuery": "West Palm Move's downtown rhythm shift",
       "secondaryQueries": [],
       "suggestedSlug": "west-palm-move-downtown-mobility",
-      "titleTag": "West Palm Move is about to change downtown's daily rhythm | Downtown Spotlight",
+      "titleTag": "West Palm Move's downtown rhythm shift | Downtown Spotlight",
       "metaDescription": "West Palm Move is the city's new mobility layer for downtown West Palm Beach, pairing a 10-minute fixed route with on-demand rides and a wider service zone."
     }
   },
@@ -710,7 +710,7 @@ export const marketNotes = [
     "id": "mr-c-shows-downtown-branded-condos-still-move",
     "status": "published",
     "category": "general",
-    "title": "Mr. C shows downtown branded condos still move",
+    "title": "Mr. C shows branded condos still move",
     "slug": "mr-c-shows-downtown-branded-condos-still-move",
     "excerpt": "Construction is advancing on the Lakeview Avenue tower, and recent coverage says the project is already more than 85% sold. For buyers weighing downtown walkability against Flagler waterfront pricing, that is the useful signal.",
     "buyerThesis": "Construction is advancing on the Lakeview Avenue tower, and recent coverage says the project is already more than 85% sold. For buyers weighing downtown walkability against Flagler waterfront pricing, that is the useful signal.",
@@ -789,11 +789,11 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "Mr. C shows downtown branded condos still move",
+      "primaryQuery": "Mr. C shows branded condos still move",
       "secondaryQueries": [],
       "suggestedSlug": "mr-c-shows-downtown-branded-condos-still-move",
-      "titleTag": "Mr. C shows downtown branded condos still move | Buyer Intelligence",
-      "metaDescription": "Mr. C Hotel & Residences is still climbing at 320 Lakeview Avenue, and the current sales pace says downtown branded residences can still clear when the product and location are tight."
+      "titleTag": "Mr. C shows branded condos still move | Buyer Intelligence",
+      "metaDescription": "Mr. C is still climbing at 320 Lakeview Avenue; the sales pace says downtown branded residences can still clear when product and location are tight."
     }
   },
 
@@ -801,7 +801,7 @@ export const marketNotes = [
     "id": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
     "status": "published",
     "category": "Downtown Spotlight",
-    "title": "The RealReal's CityPlace move deepens downtown's luxury retail lane",
+    "title": "RealReal deepens downtown luxury retail",
     "slug": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
     "excerpt": "The resale brand opens Aug. 13 at 700 S. Rosemary Ave., leaving Palm Beach for a larger CityPlace space and adding a different kind of daytime use to downtown West Palm Beach.",
     "buyerThesis": "For buyers comparing downtown West Palm Beach, CityPlace, and nearby waterfront or north-end options, the signal is simple: the district keeps adding practical walkable uses, not just dining buzz. That improves the case for everyday convenience around Rosemary Avenue and helps the area feel more lived in on normal weekdays.",
@@ -871,10 +871,10 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     "seo": {
-      "primaryQuery": "The RealReal's CityPlace move deepens downtown's luxury retail lane",
+      "primaryQuery": "RealReal deepens downtown luxury retail",
       "secondaryQueries": [],
       "suggestedSlug": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
-      "titleTag": "The RealReal's CityPlace move deepens downtown's luxury retail lane | Downtown Spotlight",
+      "titleTag": "RealReal deepens downtown luxury retail | Downtown Spotlight",
       "metaDescription": "The RealReal is opening at CityPlace on Aug. 13, relocating from Palm Beach into a larger downtown West Palm Beach space."
     }
   },
@@ -883,7 +883,7 @@ export const marketNotes = [
     id: "urban-roast-opens-on-datura-street",
     status: "published",
     category: "Downtown Spotlight",
-    title: "Urban Roast opens on Datura Street and gives downtown another late-night stop",
+    title: "Urban Roast brings late nights downtown",
     slug: "urban-roast-opens-on-datura-street",
     excerpt: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
     buyerThesis: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
@@ -961,10 +961,10 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     seo: {
-      primaryQuery: "Urban Roast opens on Datura Street and gives downtown another late-night stop",
+      primaryQuery: "Urban Roast brings late nights downtown",
       secondaryQueries: [],
       suggestedSlug: "urban-roast-opens-on-datura-street",
-      titleTag: "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
+      titleTag: "Urban Roast brings late nights downtown | Downtown Spotlight",
       metaDescription: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight."
     }
   },
@@ -972,10 +972,10 @@ export const marketNotes = [
     id: "olara-special-pricing-keeps-north-flagler-in-play",
     status: "published",
     category: "general",
-    title: "Olara's special pricing keeps North Flagler in play",
+    title: "Olara pricing keeps Flagler in play",
     slug: "olara-special-pricing-keeps-north-flagler-in-play",
-    excerpt: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
-    buyerThesis: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+    excerpt: "Olara still advertises pre-construction inventory and special pricing; West Palm Beach's broad shelf means buyers should compare lines, fees and timing.",
+    buyerThesis: "Olara still advertises pre-construction inventory and special pricing; West Palm Beach's broad shelf means buyers should compare lines, fees and timing.",
     buyerTakeaway: "Treat Olara's special pricing as a line-level opportunity, not proof that North Flagler has gone soft. Compare the remaining inventory, fees, and closing path before assuming there will be better leverage later.",
     marketSignal: "Olara's live sales page says pre-construction inventory and special pricing are available, while West Palm Beach new-construction directories still show more than 100 active listings and a long average time on market.",
     bestFor: "Buyers who want North Flagler water views, can compare stacks line by line, and care more about matching the ownership fit than chasing a headline discount.",
@@ -1049,21 +1049,21 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     seo: {
-      primaryQuery: "Olara's special pricing keeps North Flagler in play",
+      primaryQuery: "Olara pricing keeps Flagler in play",
       secondaryQueries: [],
       suggestedSlug: "olara-special-pricing-keeps-north-flagler-in-play",
-      titleTag: "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
-      metaDescription: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset."
+      titleTag: "Olara pricing keeps Flagler in play | Buyer Intelligence",
+      metaDescription: "Olara still advertises pre-construction inventory and special pricing; West Palm Beach's broad shelf means buyers should compare lines, fees and timing."
     }
   },
   {
     id: "nora-hotel-countdown",
     status: "published",
     category: "Downtown Spotlight",
-    title: "The Nora Hotel gives NORA a real opening date",
+    title: "The Nora Hotel's real opening date",
     slug: "nora-hotel-countdown",
-    excerpt: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
-    buyerThesis: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+    excerpt: "NORA's first wave of tenants is open and the 201-key hotel is scheduled to welcome guests on Oct. 19 — North Railroad Avenue is moving from promise to calendar.",
+    buyerThesis: "NORA's first wave of tenants is open and the 201-key hotel is scheduled to welcome guests on Oct. 19 — North Railroad Avenue is moving from promise to calendar.",
     buyerTakeaway: "Use this note as buyer context, then verify building-specific availability, pricing, fees, documents, and timing.",
     marketSignal: "",
     bestFor: "",
@@ -1138,21 +1138,21 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     seo: {
-      primaryQuery: "The Nora Hotel gives NORA a real opening date",
+      primaryQuery: "The Nora Hotel's real opening date",
       secondaryQueries: [],
       suggestedSlug: "nora-hotel-countdown",
-      titleTag: "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
-      metaDescription: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar."
+      titleTag: "The Nora Hotel's real opening date | Downtown Spotlight",
+      metaDescription: "NORA's first wave of tenants is open and the 201-key hotel is scheduled to welcome guests on Oct. 19 — North Railroad Avenue is moving from promise to calendar."
     }
   },
   {
     id: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
     status: "published",
     category: "general",
-    title: "A Ritz-Carlton penthouse resets the North Flagler ceiling",
+    title: "Ritz-Carlton penthouse resets ceiling",
     slug: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
-    excerpt: "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
-    buyerThesis: "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
+    excerpt: "Penthouse A went under contract for $16.95M; remaining Ritz-Carlton residences still start at $3M, keeping North Flagler focused on line, view, service.",
+    buyerThesis: "Penthouse A went under contract for $16.95M; remaining Ritz-Carlton residences still start at $3M, keeping North Flagler focused on line, view, service.",
     buyerTakeaway: "If you want North Flagler exposure, the high-end penthouse says the top end is still liquid; the better question is whether your line and fee profile justify the premium.",
     marketSignal: "A $16.95 million contract at The Ritz-Carlton Residences, plus remaining units that still start at $3 million, shows buyers are stepping up for waterfront product even as the citywide market remains active.",
     bestFor: "Full-time residents who want waterfront service living, buyers comparing North Flagler against Palm Beach Island, and purchasers who care more about views and privacy than the lowest entry price.",
@@ -1234,21 +1234,21 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     seo: {
-      primaryQuery: "A Ritz-Carlton penthouse resets the North Flagler ceiling",
+      primaryQuery: "Ritz-Carlton penthouse resets ceiling",
       secondaryQueries: [],
       suggestedSlug: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
-      titleTag: "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
-      metaDescription: "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service."
+      titleTag: "Ritz-Carlton penthouse resets ceiling | Buyer Intelligence",
+      metaDescription: "Penthouse A went under contract for $16.95M; remaining Ritz-Carlton residences still start at $3M, keeping North Flagler focused on line, view, service."
     }
   },
   {
     id: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
     status: "published",
     category: "Downtown Spotlight",
-    title: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City",
+    title: "Why WPB is a serious restaurant city",
     slug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
-    excerpt: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
-    buyerThesis: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+    excerpt: "West Palm Beach dining has moved from convenient to destination. Chef-driven concepts and walkable mixed-use districts are reshaping how buyers view downtown.",
+    buyerThesis: "West Palm Beach dining has moved from convenient to destination. Chef-driven concepts and walkable mixed-use districts are reshaping how buyers view downtown.",
     buyerTakeaway: "For buyers comparing downtown West Palm Beach, CityPlace, Flagler Drive, Nora, and nearby new construction, restaurants now matter as much as views, finishes, and amenities. Dining helps define daily convenience, evening activity, resale perception, and the overall maturity of each neighborhood.",
     image: {
       path: "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-hero.jpg",
@@ -1453,18 +1453,18 @@ export const marketNotes = [
       "Confirm source links and dates before relying on this note in a buyer recommendation."
     ],
     seo: {
-      primaryQuery: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City",
+      primaryQuery: "Why WPB is a serious restaurant city",
       secondaryQueries: [],
       suggestedSlug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
-      titleTag: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
-      metaDescription: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living."
+      titleTag: "Why WPB is a serious restaurant city | Downtown Spotlight",
+      metaDescription: "West Palm Beach dining has moved from convenient to destination. Chef-driven concepts and walkable mixed-use districts are reshaping how buyers view downtown."
     }
   },
   {
     id: "west-palm-beach-new-dining-map",
     status: "published",
     category: "Downtown Spotlight",
-    title: "Downtown Dining Is Becoming a Condo-Buyer Signal",
+    title: "Downtown dining as a buyer signal",
     slug: "west-palm-beach-new-dining-map",
     excerpt: "Eataly, rooftop restaurants, Greek seafood, sushi counters, and a deeper NORA tenant mix are changing how some buyers compare Downtown West Palm Beach. The signal is useful, but it still has to be tested against the building, parking, noise, and daily routine.",
     buyerThesis: "Downtown's restaurant wave matters when it changes daily use: where buyers walk, entertain, host guests, park, and spend evenings. It is lifestyle context, not a stand-alone reason to pay a premium.",
@@ -1578,7 +1578,7 @@ export const marketNotes = [
         "Top of the Rox West Palm Beach"
       ],
       suggestedSlug: "west-palm-beach-new-dining-map",
-      titleTag: "Downtown WPB Dining and Condo Buyers | Downtown Spotlight",
+      titleTag: "Downtown dining as a buyer signal | Downtown Spotlight",
       metaDescription: "Downtown West Palm Beach dining is changing how buyers compare buildings. See what Eataly, NORA, rooftops, sushi, and waterfront restaurants really mean."
     }
   },
@@ -1586,7 +1586,7 @@ export const marketNotes = [
     id: "west-palm-beach-institutional-growth",
     status: "published",
     category: "Downtown Spotlight",
-    title: "Downtown WPB's Institutional Wave: What Buyers Should Watch",
+    title: "Downtown WPB's institutional wave",
     slug: "west-palm-beach-institutional-growth",
     excerpt: "Vanderbilt, NYU Langone, Cleveland Clinic, and 10 and 15 CityPlace are adding a new layer to Downtown West Palm Beach. Buyers should separate near-term access from long-term institutional signals before treating proximity as a premium.",
     buyerThesis: "Institutional growth can make Downtown West Palm Beach feel more complete and year-round, but buyers should evaluate timelines, delivered access, traffic, and project-level fit before relying on the broader momentum story.",
@@ -1701,7 +1701,7 @@ export const marketNotes = [
         "10 and 15 CityPlace West Palm Beach"
       ],
       suggestedSlug: "west-palm-beach-institutional-growth",
-      titleTag: "Downtown WPB Institutional Growth | Downtown Spotlight",
+      titleTag: "Downtown WPB's institutional wave | Downtown Spotlight",
       metaDescription: "Vanderbilt, NYU Langone, Cleveland Clinic, and 10 and 15 CityPlace are reshaping Downtown West Palm Beach. Learn what condo buyers should track."
     }
   },
@@ -1709,7 +1709,7 @@ export const marketNotes = [
     id: "nora-district-downtown-transformation",
     status: "published",
     category: "Downtown Spotlight",
-    title: "Why the NORA District Could Reshape Downtown West Palm Beach",
+    title: "How NORA Could Reshape Downtown WPB",
     slug: "nora-district-downtown-transformation",
     excerpt: "NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.",
     buyerThesis: "NORA matters because it adds a neighborhood layer to the condo conversation. Buyers should evaluate how the district changes daily life, walkability, nearby demand, and construction-phase tradeoffs before treating proximity as an automatic premium.",
@@ -1809,7 +1809,7 @@ export const marketNotes = [
         "West Palm Beach walkable neighborhoods"
       ],
       suggestedSlug: "nora-district-downtown-transformation",
-      titleTag: "NORA District's Downtown Impact Explained | Downtown Spotlight",
+      titleTag: "How NORA Could Reshape Downtown WPB | Downtown Spotlight",
       metaDescription: "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify."
     }
   },
@@ -1817,7 +1817,7 @@ export const marketNotes = [
     id: "are-branded-residences-worth-it-west-palm-beach",
     status: "published",
     category: "Buyer Intelligence",
-    title: "Are Branded Residences Worth It? What Buyers Should Know Before Paying the Premium",
+    title: "Are branded residences worth it?",
     slug: "are-branded-residences-worth-it-west-palm-beach",
     excerpt: "Branded residences can deliver real service value, but the name alone is not enough. Buyers should understand the operating model, fees, brand agreement, and resale logic before paying the premium.",
     buyerThesis: "A branded residence is worth the premium only when the service infrastructure, location, design, governance, and long-term ownership costs work for the buyer independently of the logo.",
@@ -1909,7 +1909,7 @@ export const marketNotes = [
         "Ritz-Carlton Residences West Palm Beach"
       ],
       suggestedSlug: "are-branded-residences-worth-it-west-palm-beach",
-      titleTag: "Are Branded Residences Worth It? West Palm Beach Guide",
+      titleTag: "Are branded residences worth it? | Buyer Intelligence",
       metaDescription: "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market."
     }
   },
@@ -1917,7 +1917,7 @@ export const marketNotes = [
     id: "pre-construction-condo-due-diligence",
     status: "published",
     category: "Buyer Intelligence",
-    title: "Pre-Construction Condo Due Diligence: What to Review Before Signing",
+    title: "Pre-construction condo due diligence",
     slug: "pre-construction-condo-due-diligence",
     excerpt: "A West Palm Beach buyer checklist for reviewing deposits, disclosures, timelines, budgets, financing, and contract flexibility before signing a pre-construction condominium agreement.",
     buyerThesis: "A pre-construction condo contract is not a brochure. Buyers should understand the reservation path, statutory review window, escrow treatment, disclosure package, assignment rights, rental rules, financing risk, and long-term carrying costs before deposit exposure increases.",
@@ -2031,15 +2031,15 @@ export const marketNotes = [
         "pre construction condo rescission period Florida"
       ],
       suggestedSlug: "pre-construction-condo-due-diligence",
-      titleTag: "Pre-Construction Condo Due Diligence | WPB",
-      metaDescription: "Review deposits, disclosures, timelines, budgets, financing, assignment rights, and buyer protections before signing a West Palm Beach pre-construction condo contract."
+      titleTag: "Pre-construction condo due diligence | Buyer Intelligence",
+      metaDescription: "Review deposits, disclosures, timelines, budgets, financing, and assignment rights before signing a West Palm Beach pre-construction condo contract."
     }
   },
   {
     id: "west-palm-beach-wall-street-south-condos",
     status: "published",
     category: "Buyer Intelligence",
-    title: "The Money Is Moving South: How West Palm Beach Became a New Luxury Real Estate Power Center",
+    title: "How WPB became a luxury power center",
     slug: "west-palm-beach-wall-street-south-condos",
     excerpt: "West Palm Beach's Wall Street South momentum is reshaping office demand, Palm Beach adjacency, and the luxury condo pipeline. Buyers should understand what is real, what is still developing, and what to verify before betting on the boom.",
     buyerThesis: "Corporate relocation and Palm Beach wealth are real demand signals, but they do not make every new-construction condo an automatic winner. The better buyer move is to connect office leasing, bridge access, project timing, supply risk, and carrying costs before choosing a building.",
@@ -2151,7 +2151,7 @@ export const marketNotes = [
         "West Palm Beach new construction condos Palm Beach"
       ],
       suggestedSlug: "west-palm-beach-wall-street-south-condos",
-      titleTag: "West Palm Beach Wall Street South Condo Insight",
+      titleTag: "How WPB became a luxury power center | Buyer Intelligence",
       metaDescription: "West Palm Beach is drawing finance, wealth, and new luxury condo development. Learn what Wall Street South means for buyers and what to verify."
     }
   },
@@ -2159,7 +2159,7 @@ export const marketNotes = [
     id: "active-sales-vs-pipeline-watch",
     status: "published",
     category: "Buyer Education",
-    title: "Active Sales vs Pipeline Watch: How to Read the West Palm Beach Condo Market",
+    title: "Active sales vs. pipeline watch",
     slug: "active-sales-vs-pipeline-watch",
     excerpt: "A buyer-friendly way to separate buildings you can underwrite now from pipeline projects that may matter later.",
     buyerThesis: "The cleanest West Palm Beach search starts by separating active sales from early-stage projects to monitor. They answer different buyer questions and should not be compared as if they carry the same certainty.",
@@ -2213,7 +2213,7 @@ export const marketNotes = [
         "Downtown West Palm Beach condos"
       ],
       suggestedSlug: "active-sales-vs-pipeline-watch",
-      titleTag: "Active Sales vs Pipeline Watch | WPB New Construction",
+      titleTag: "Active sales vs. pipeline watch | Buyer Intelligence",
       metaDescription: "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing."
     }
   },
@@ -2221,7 +2221,7 @@ export const marketNotes = [
     id: "olara-vs-shorecrest",
     status: "published",
     category: "Building Comparisons",
-    title: "Olara vs Shorecrest: Two Different Waterfront Buyer Profiles",
+    title: "Olara vs. Shorecrest buyer profiles",
     slug: "olara-vs-shorecrest-waterfront-buyer-profiles",
     excerpt: "Both sit in the North Flagler waterfront conversation, but they should not be evaluated as interchangeable tower choices.",
     buyerThesis: "Olara and Shorecrest both belong in the North Flagler comparison set, but the buyer profile is different. The better shortlist asks what kind of waterfront ownership you want before treating price or delivery as the only filter.",
@@ -2273,7 +2273,7 @@ export const marketNotes = [
         "West Palm Beach waterfront condos"
       ],
       suggestedSlug: "olara-vs-shorecrest-waterfront-buyer-profiles",
-      titleTag: "Olara vs Shorecrest | WPB Guidance",
+      titleTag: "Olara vs. Shorecrest buyer profiles | Buyer Intelligence",
       metaDescription: "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps."
     }
   },
@@ -2281,7 +2281,7 @@ export const marketNotes = [
     id: "why-published-floor-plans-matter",
     status: "published",
     category: "Floor Plan Notes",
-    title: "Why Published Floor Plans Matter Before You Tour",
+    title: "Why published floor plans matter",
     slug: "why-published-floor-plans-matter",
     excerpt: "Floor plans are not just pretty PDFs. They tell you whether a building can solve your life before you spend time in a presentation room.",
     buyerThesis: "Published floor plans let a buyer compare function before emotion takes over. They reveal the difference between real fit and marketing momentum.",
@@ -2333,7 +2333,7 @@ export const marketNotes = [
         "condo stack plans West Palm Beach"
       ],
       suggestedSlug: "why-published-floor-plans-matter",
-      titleTag: "Why Published Floor Plans Matter | WPB",
+      titleTag: "Why published floor plans matter | Buyer Intelligence",
       metaDescription: "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos."
     }
   },
@@ -2341,7 +2341,7 @@ export const marketNotes = [
     id: "verify-new-construction-pricing",
     status: "published",
     category: "Buyer Education",
-    title: "What Buyers Should Verify Before Trusting New Construction Pricing",
+    title: "Verifying new-construction pricing",
     slug: "what-buyers-should-verify-before-trusting-pricing",
     excerpt: "Published price ranges are only the opening frame. The useful number is line-specific, date-specific, and tied to real terms.",
     buyerThesis: "New-construction pricing changes too quickly to treat public ranges as a decision. A serious comparison verifies the actual line, floor, exposure, incentives, fees, and contract assumptions.",
@@ -2394,7 +2394,7 @@ export const marketNotes = [
         "West Palm Beach new construction condos"
       ],
       suggestedSlug: "what-buyers-should-verify-before-trusting-pricing",
-      titleTag: "Verify New Construction Pricing | WPB",
+      titleTag: "Verifying new-construction pricing | Buyer Intelligence",
       metaDescription: "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability."
     }
   },
@@ -2402,7 +2402,7 @@ export const marketNotes = [
     id: "downtown-condo-corridors-explained",
     status: "published",
     category: "Neighborhood Guides",
-    title: "Downtown West Palm Beach Condo Corridors Explained",
+    title: "Downtown WPB condo corridors explained",
     slug: "downtown-west-palm-beach-condo-corridors-explained",
     excerpt: "Downtown is not one single market. North Flagler, the core, The Square/Rosemary, and NORA each answer a different lifestyle question.",
     buyerThesis: "The downtown West Palm Beach condo search gets clearer when you pick the corridor first. Each area has a different rhythm, buyer profile, and diligence path.",
@@ -2457,7 +2457,7 @@ export const marketNotes = [
         "North Flagler condos"
       ],
       suggestedSlug: "downtown-west-palm-beach-condo-corridors-explained",
-      titleTag: "Downtown WPB Condo Corridors Explained",
+      titleTag: "Downtown WPB condo corridors explained | Buyer Intelligence",
       metaDescription: "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA."
     }
   }

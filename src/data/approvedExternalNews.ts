@@ -440,7 +440,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
     "slug": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
-    "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map",
+    "title": "$40M Swap Redraws South Flagler Map",
     "sourceName": "The Real Deal",
     "sourceUrl": "https://therealdeal.com/miami/2026/09/21/related-ross-fort-partners-swap-west-palm-beach-properties/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/09/21/related-ross-fort-partners-swap-west-palm-beach-properties/",
@@ -560,7 +560,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "tideline-fort-partners-150m-2026-09-20",
     "slug": "fort-partners-buys-tideline-four-seasons-residences-2026-09-20",
-    "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next?",
+    "title": "Fort Partners Buys Tideline for $150M",
     "sourceName": "The Real Deal / Palm Beach Daily News",
     "sourceUrl": "https://therealdeal.com/miami/2026/09/17/jeff-greene-sells-tideline-palm-beach-ocean-resort/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/09/17/jeff-greene-sells-tideline-palm-beach-ocean-resort/",
@@ -573,7 +573,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-09-21T03:21:21.960Z",
     "deck": "The $150 million acquisition puts the nearly three-acre Tideline Palm Beach Ocean Resort directly beside Fort Partners’ Four Seasons Resort Palm Beach. No redevelopment plan has been announced, but the buyer’s record with Four Seasons-branded residences makes the newly assembled oceanfront footprint one to watch.",
-    "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
+    "description": "Fort Partners acquired the Tideline Palm Beach Ocean Resort for $150M next to its Four Seasons Resort Palm Beach, expanding its South Ocean Boulevard footprint.",
     "summary": "The Real Deal reported that an affiliate of Fort Partners bought the 134-room Tideline Palm Beach Ocean Resort & Spa for $150 million, giving the owner of the adjacent Four Seasons Resort Palm Beach control of another nearly three-acre oceanfront property.",
     "bodySections": [
       {
@@ -649,7 +649,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-7e8443a31a1b3fbb",
     "slug": "terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15",
-    "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "title": "Terra, Frisbie Add $20M Parcel",
     "sourceName": "The Real Deal",
     "sourceUrl": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
@@ -662,7 +662,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-09-15T04:50:01.037Z",
     "deck": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
-    "description": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "description": "Terra and Frisbie Group acquired another parcel of the former Palm Beach Kennel Club site for $20M, expanding their master-planned West Palm Beach footprint.",
     "summary": "A $20 million land acquisition expands the Terra-Frisbie assemblage at the former Palm Beach Kennel Club site, where large-scale mixed-use and residential development is planned.",
     "bodySections": [
       {
@@ -720,7 +720,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-26c1c72f59519b2e",
     "slug": "unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15",
-    "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    "title": "Unicorp in $200M La Fontana Buyout",
     "sourceName": "The Real Deal / Discover South Florida",
     "sourceUrl": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
@@ -795,7 +795,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-544ca384b5f936f2",
     "slug": "alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14",
-    "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "title": "Alba Palm Beach Complete on North Flagler",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
     "canonicalUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
@@ -870,7 +870,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-021fb59946a118d4",
     "slug": "shorecrest-breaks-ground-157m-financing-2026-09-14",
-    "title": "Shorecrest Breaks Ground with $157M Construction Financing",
+    "title": "Shorecrest Breaks Ground with $157M Financing",
     "sourceName": "South Florida Agent Magazine",
     "sourceUrl": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
     "canonicalUrl": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
@@ -945,7 +945,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-fad9e4204ed36dae",
     "slug": "banyan-tree-residences-unanimous-dac-approval-2026-09-14",
-    "title": "Banyan Tree Residences Wins Unanimous DAC Approval",
+    "title": "Banyan Tree Wins Unanimous DAC Approval",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
     "canonicalUrl": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
@@ -1020,7 +1020,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-6509ddad48c25f5c",
     "slug": "andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14",
-    "title": "Andreessen Horowitz Leases Office at CityPlace Tower",
+    "title": "Andreessen Horowitz Leases at CityPlace",
     "sourceName": "Commercial Observer",
     "sourceUrl": "https://commercialobserver.com/2026/09/andreessen-horowitz-a16z-stephen-related-ross-cityplace-tower-west-palm-beach/",
     "canonicalUrl": "https://commercialobserver.com/2026/09/andreessen-horowitz-a16z-stephen-related-ross-cityplace-tower-west-palm-beach/",
@@ -1086,7 +1086,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-03ccad51e240cf82",
     "slug": "534-datura-25-story-tower-west-palm-beach-2026-09-14",
-    "title": "25-Story 534 Datura Tower Planned in West Palm Beach",
+    "title": "25-Story 534 Datura Tower Planned",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/09/two-developers-plan-25-story-534-datura-for-534-datura-st-west-palm-beach-fl.html",
     "canonicalUrl": "https://floridayimby.com/2026/09/two-developers-plan-25-story-534-datura-for-534-datura-st-west-palm-beach-fl.html",
@@ -1157,7 +1157,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "intel-story-d3bca9259771220e",
     "slug": "alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14",
-    "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",
+    "title": "Alida Residences, Tribute Hotel Break Ground",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
     "canonicalUrl": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
@@ -1307,7 +1307,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "downtown-plan-advances-without-waterfront-height-incentive-2026-09-14",
     "slug": "downtown-plan-advances-without-waterfront-height-incentive-2026-09-14",
-    "title": "West Palm’s downtown plan advances without the 25-story waterfront incentive",
+    "title": "Downtown Plan Advances Without Tower Incentive",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/Departments/Development-Services/Planning-Division/Downtown-Master-Plan",
     "canonicalUrl": "https://www.wpb.org/Departments/Development-Services/Planning-Division/Downtown-Master-Plan",
@@ -1410,7 +1410,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "related-ross-files-25-story-464-fern-plan-2026-08-20",
     "slug": "related-ross-files-25-story-464-fern-plan-2026-08-20",
-    "title": "Related Ross files a 25-story plan for 464 Fern",
+    "title": "Related Ross Files 25-Story 464 Fern Plan",
     "sourceName": "Related Ross",
     "sourceUrl": "https://www.relatedross.com/news-articles",
     "canonicalUrl": "https://www.relatedross.com/news-articles",
@@ -1514,7 +1514,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "banyan-tree-400-hibiscus-approval",
     "slug": "banyan-tree-400-hibiscus-approval-2026-08-23",
-    "title": "Banyan Tree gets unanimous downtown approval at 400 Hibiscus",
+    "title": "Banyan Tree Approved at 400 Hibiscus",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/Events-Folder/2026/081226-DAC",
     "canonicalUrl": "https://www.wpb.org/Events-Folder/2026/081226-DAC",
@@ -1527,7 +1527,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-08-23T17:20:22.307Z",
     "deck": "West Palm Beach’s Downtown Action Committee signed off on Banyan Tree Residences on August 12, moving the brand’s first U.S. residential address one step deeper into the city’s development pipeline.",
-    "description": "West Palm Beach’s Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus Street, adding another branded condo project to downtown’s active pipeline.",
+    "description": "West Palm Beach's Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus, adding a branded condo project to downtown's pipeline.",
     "summary": "The August 12 approval gives Banyan Tree more planning certainty at 400 Hibiscus Street and sharpens downtown’s branded-residence comparison set.",
     "bodySections": [
       {
@@ -1622,7 +1622,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-08-23T17:11:36.883Z",
     "deck": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
-    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17 but moved the final city vote to Aug. 31 and deferred the district rewrite.",
     "summary": "West Palm Beach moved the second convention center hotel package to an Aug. 31 second reading after a new city meeting, keeping the 18-story, 400-room proposal alive while the district rewrite waits for a final vote.",
     "bodySections": [
       {
@@ -1691,7 +1691,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "wpb-content-scout-safe-daily-publish-district-pointe-2026-08-13",
     "slug": "west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23",
-    "title": "West Palm Beach locks in District Pointe's workforce housing mix",
+    "title": "District Pointe Workforce Housing Locked In",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
     "canonicalUrl": "https://bocapost.com/west-palm-beach-news/west-palm-beach-commission-pine-crest-land-sale-south-flagler-zoning-pause-july-2026/",
@@ -1704,7 +1704,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "recent_30d",
     "fetchedAt": "2026-08-23T17:10:17.167Z",
     "deck": "The city approved a restrictive covenant for the 280-unit Belvedere Road project, fixing 71 homes as affordable or workforce housing and keeping the long-running plan moving.",
-    "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking in 71 affordable or workforce units inside a 280-unit rental project.",
+    "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking 71 affordable/workforce units into the 280-unit project.",
     "summary": "District Pointe's covenant adds 71 affordable/workforce units to a 280-unit Belvedere Road project and shows West Palm Beach still using inland sites to add supply.",
     "bodySections": [
       {
@@ -1775,7 +1775,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10",
     "slug": "west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10",
-    "title": "West Palm Beach clears a tax hurdle for the second convention center hotel",
+    "title": "West Palm Clears Convention Center Tax Hurdle",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/080426-Mayor-CC-CRA-Approvals",
     "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/080426-Mayor-CC-CRA-Approvals",
@@ -1788,7 +1788,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-08-10T13:27:06.499Z",
     "deck": "The Aug. 3 CRA vote keeps the hotel PILOT formula intact while loosening the garage-land rules around the Related Ross plan.",
-    "description": "West Palm Beach approved a first amendment to the convention center hotel agreement, removing the requirement that the garage land stay taxable and allowing parking to move elsewhere.",
+    "description": "West Palm Beach amended the convention center hotel agreement, removing the taxable-garage-land requirement and allowing parking to move elsewhere.",
     "summary": "The city and CRA loosened one of the sharpest tax constraints on the second convention center hotel, but the county still has to act.",
     "bodySections": [
       {
@@ -1870,7 +1870,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "west-palm-beach-coleman-park-habitat-lots",
     "slug": "west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03",
-    "title": "West Palm Beach sets two Coleman Park lots on Habitat's path",
+    "title": "Coleman Park Lots Set on Habitat's Path",
     "sourceName": "City of West Palm Beach Community Redevelopment Agency",
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
     "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
@@ -1953,7 +1953,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "broadway-currie-park-zoning-2026-07-06",
     "slug": "broadway-currie-park-zoning-2026-07-06",
-    "title": "West Palm Beach rewrites Broadway and Currie Park rules",
+    "title": "Broadway, Currie Park Rules Rewritten",
     "sourceName": "City of West Palm Beach City Commission Agenda",
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-07-jul-pfa/pf-07_06_26_city-commission-agenda.pdf",
     "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-07-jul-pfa/pf-07_06_26_city-commission-agenda.pdf",
@@ -1966,7 +1966,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "recent_30d",
     "fetchedAt": "2026-07-30T13:26:41.241Z",
     "deck": "The city approved a zoning text amendment that trims Broadway townhouse friction and reshapes the Currie Park height bonus while downtown planning politics stay heated.",
-    "description": "West Palm Beach approved Ordinance 5173-26, clarifying townhouse rules in the Broadway Mixed-Use District and changing how Currie Park improvements can support future height bonuses.",
+    "description": "West Palm Beach approved Ordinance 5173-26, clarifying Broadway Mixed-Use townhouse rules and how Currie Park improvements support future height bonuses.",
     "summary": "West Palm Beach is changing two small but consequential pieces of its development code: Broadway townhouse language and the Currie Park height bonus.",
     "bodySections": [
       {
@@ -2047,7 +2047,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "berkeley-breaks-ground-clear-lake-edge-2026-07-23",
     "slug": "berkeley-breaks-ground-clear-lake-edge-2026-07-23",
-    "title": "The Berkeley breaks ground on West Palm Beach's Clear Lake edge",
+    "title": "The Berkeley Breaks Ground on Clear Lake",
     "sourceName": "The Berkeley Palm Beach",
     "sourceUrl": "https://www.theberkeleypalmbeach.com/berkeley-25-story-condo-breaks-ground-starts-sales-on-west-palms-other-waterfront/",
     "canonicalUrl": "https://www.theberkeleypalmbeach.com/berkeley-25-story-condo-breaks-ground-starts-sales-on-west-palms-other-waterfront/",
@@ -2060,7 +2060,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "recent_30d",
     "fetchedAt": "2026-07-23T13:23:04.519Z",
     "deck": "The 25-story, 193-unit tower is now under construction at 550 South Australian Avenue, extending downtown's luxury map west of the Intracoastal and showing where full-time buyer demand is still landing.",
-    "description": "Construction has started on The Berkeley Palm Beach at 550 South Australian Avenue, a 25-story, 193-unit tower on Clear Lake that is already more than $120 million sold.",
+    "description": "Construction has started on The Berkeley Palm Beach at 550 South Australian Avenue, a 25-story, 193-unit Clear Lake tower already more than $120 million sold.",
     "summary": "The Berkeley's breakground pushes West Palm Beach luxury west of the Intracoastal and adds another live data point for buyers comparing downtown product.",
     "bodySections": [
       {
@@ -2144,7 +2144,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
     "slug": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
-    "title": "Alida breaks ground beside Brightline in downtown West Palm Beach",
+    "title": "Alida Breaks Ground by Brightline Downtown",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://experience.arcgis.com/experience/874aaf576de9400499141ec424802dde/page/Under-Construction",
     "canonicalUrl": "https://experience.arcgis.com/experience/874aaf576de9400499141ec424802dde/page/Under-Construction",
@@ -2157,7 +2157,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-07-20T14:21:06.119Z",
     "deck": "After years of assemblage, rezoning, a pandemic pause and a redesign, the Datura Street site has moved from paper to construction on one of downtown's most watched blocks.",
-    "description": "Construction has started at 506 Datura Street, where Alida Residences and a Tribute Portfolio hotel are rising beside the Brightline station in downtown West Palm Beach.",
+    "description": "Construction has started at 506 Datura Street: Alida Residences and a Tribute Portfolio hotel rising beside the Brightline station in downtown West Palm Beach.",
     "summary": "A long-delayed Datura Street project has moved into construction, adding another rail-adjacent mixed-use block to downtown West Palm Beach.",
     "bodySections": [
       {
@@ -2232,7 +2232,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "west-palm-beach-waterfront-development-freeze-2026-07-19",
     "slug": "west-palm-beach-waterfront-development-freeze-2026-07-19",
-    "title": "West Palm Beach Moves to Freeze Waterfront Development Applications for Six Months",
+    "title": "West Palm Moves to Freeze Waterfront Plans",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
     "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
@@ -2245,7 +2245,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-07-19T03:44:26.827Z",
     "deck": "The city has moved a South Flagler waterfront zoning pause into the final hearing process, creating a six-month window to study whether the corridor needs new rules before more planned development applications land.",
-    "description": "West Palm Beach has moved a six-month waterfront zoning pause into the final hearing process for the South Flagler corridor, signaling a deliberate reset before more planned development applications move forward.",
+    "description": "West Palm Beach moved a six-month waterfront zoning pause into final hearings for South Flagler, signaling a reset before more development applications advance.",
     "summary": "West Palm Beach is moving toward a six-month freeze on new planned development applications in a South Flagler waterfront zone while it studies whether the corridor needs new zoning rules.",
     "bodySections": [
       {
@@ -2314,7 +2314,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "project-tango-july-15-zoning-decision-2026-2026-07-13",
     "slug": "project-tango-july-15-zoning-decision-2026-2026-07-13",
-    "title": "Project Tango heads to a July 15 decision as Palm Beach County weighs a larger AI campus",
+    "title": "Project Tango Heads to July 15 Decision",
     "sourceName": "Palm Beach County Zoning Division",
     "sourceUrl": "https://discover.pbc.gov/pzb/zoning/Pages/Project_Tango.aspx",
     "canonicalUrl": "https://discover.pbc.gov/pzb/zoning/Pages/Project_Tango.aspx",
@@ -2327,7 +2327,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-07-13T13:31:31.981Z",
     "deck": "The proposed Central Park Commerce Center expansion is facing a zoning denial recommendation as the county moves toward new rules for large-scale AI data centers.",
-    "description": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a new freeze on future large-scale AI data-center applications.",
+    "description": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a freeze on future large-scale AI data-center applications.",
     "summary": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a new freeze on future large-scale AI data-center applications.",
     "bodySections": [
       {
@@ -2397,7 +2397,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "sound-apartments-right-of-way-maintenance-2026-07-12",
     "slug": "sound-apartments-right-of-way-maintenance-2026-07-12",
-    "title": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie",
+    "title": "West Palm Approves Sound Apartments Pacts",
     "sourceName": "City of West Palm Beach",
     "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
     "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
@@ -2410,7 +2410,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-07-12T13:21:39.008Z",
     "deck": "The city commission approved FDOT right-of-way maintenance tied to the 8111 South Dixie Highway project, where Woodfield and Flagler Realty say delivery is still targeted for later this year.",
-    "description": "West Palm Beach approved right-of-way maintenance agreements for The Sound Apartments, the mixed-use South Dixie project with 358 apartments, workforce housing, and a Trader Joe’s lease.",
+    "description": "West Palm Beach approved right-of-way pacts for The Sound Apartments: 358 apartments, workforce housing, and a Trader Joe's lease on South Dixie.",
     "summary": "The city commission approved FDOT right-of-way maintenance tied to the 8111 South Dixie Highway project, where Woodfield and Flagler Realty say delivery is still targeted for later this year.",
     "bodySections": [
       {
@@ -2490,7 +2490,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "west-palm-point-back-in-motion-2026-07-11",
     "slug": "west-palm-point-back-in-motion-2026-07-11",
-    "title": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor",
+    "title": "West Palm Point Back in Motion",
     "sourceName": "The Real Deal",
     "sourceUrl": "https://therealdeal.com/miami/2026/07/10/charles-cohen-restarts-downtown-west-palm-office-project/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/07/10/charles-cohen-restarts-downtown-west-palm-office-project/",
@@ -2503,7 +2503,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-07-11T13:20:10.169Z",
     "deck": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
-    "description": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "description": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again toward Q1 2028 occupancy.",
     "summary": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
     "bodySections": [
       {
@@ -2568,7 +2568,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "currie-park-waterfront-restaurant-west-palm-beach-2026-06-10",
     "slug": "currie-park-waterfront-restaurant-west-palm-beach-2026-06-10",
-    "title": "Currie Park Restaurant Proposals Add Another Lifestyle Layer to North Flagler",
+    "title": "Currie Park Restaurant Proposals Add Lifestyle",
     "sourceName": "CBS12",
     "sourceUrl": "https://cbs12.com/news/morning-show/west-palm-beach-reviews-proposals-for-first-ever-waterfront-restaurant-at-currie-park",
     "canonicalUrl": "https://cbs12.com/news/morning-show/west-palm-beach-reviews-proposals-for-first-ever-waterfront-restaurant-at-currie-park",
@@ -2581,7 +2581,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-06-12T13:17:53.404Z",
     "deck": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a move that could turn the renovated park into a stronger lifestyle anchor for the North Flagler corridor near Olara, Shorecrest, and the planned Ritz-Carlton Residences.",
-    "description": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a move that could turn the renovated park into a stronger lifestyle anchor for the North Flagler corridor near Olara, Shorecrest, and the planned Ritz-Carlton Residences.",
+    "description": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a potential lifestyle anchor for the North Flagler corridor.",
     "summary": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a move that could turn the renovated park into a stronger lifestyle anchor for the North Flagler corridor near Olara, Shorecrest, and the planned Ritz-Carlton Residences.",
     "bodySections": [
       {
@@ -2644,7 +2644,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
     "slug": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
-    "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
+    "title": "Private Racquet Club Signals Lifestyle Wave",
     "sourceName": "Palm Beach Post",
     "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/09/court-club-near-west-palm-beach-courts-members-as-wait-list-hits-700/90360392007/",
     "canonicalUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/09/court-club-near-west-palm-beach-courts-members-as-wait-list-hits-700/90360392007/",
@@ -2657,7 +2657,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-06-12T02:28:37.520Z",
     "deck": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
-    "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "description": "The Court Club, a private racquet and wellness club near West Palm Beach, signals the luxury shift: buyers want curated social, athletic, and family settings.",
     "summary": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
     "bodySections": [
       {
@@ -2720,7 +2720,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
     "slug": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
-    "title": "Frisbie Group Hits Turbulence as Palm Beach County Ambitions Keep Growing",
+    "title": "Frisbie Group Hits Palm Beach Turbulence",
     "sourceName": "The Real Deal",
     "sourceUrl": "https://therealdeal.com/miami/2026/06/08/frisbie-group-navigates-setbacks-in-palm-beach-county/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/06/08/frisbie-group-navigates-setbacks-in-palm-beach-county/",
@@ -2733,7 +2733,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-06-11T04:14:46.168Z",
     "deck": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
-    "description": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
+    "description": "After a rejected Boca Raton plan and a Palm Beach assemblage sale, Frisbie Group faces a tougher climate as it lines up a major South Florida investment push.",
     "summary": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "bodySections": [
       {
@@ -2817,7 +2817,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "pine-crest-west-palm-beach-campus-2026-06-08",
     "slug": "pine-crest-west-palm-beach-campus-2026-06-08",
-    "title": "Pine Crest's West Palm Beach campus adds another family-infrastructure signal",
+    "title": "Pine Crest Adds Family Infrastructure",
     "sourceName": "Palm Beach Post and Pine Crest School",
     "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
     "canonicalUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
@@ -2899,7 +2899,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "trd-jeff-greene-live-local-120-s-dixie-2026-06-05",
     "slug": "trd-jeff-greene-live-local-120-s-dixie-2026-06-05",
-    "title": "Jeff Greene’s latest downtown West Palm proposal would bring workforce housing and mass-timber construction to Dixie and Datura",
+    "title": "Jeff Greene's Downtown Workforce Proposal",
     "sourceName": "The Real Deal",
     "sourceUrl": "https://therealdeal.com/miami/2026/05/28/jeff-greene-plans-live-local-act-project-in-west-palm-beach/",
     "canonicalUrl": "https://therealdeal.com/miami/2026/05/28/jeff-greene-plans-live-local-act-project-in-west-palm-beach/",
@@ -2912,7 +2912,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "breaking_14d",
     "fetchedAt": "2026-06-05",
     "deck": "A new Greene proposal at 120 South Dixie Highway would pair 366 apartments, 148 workforce units, a preserved historic facade, and prefabricated mass-timber construction in one of downtown West Palm Beach’s most visible redevelopment zones.",
-    "description": "Jeff Greene is pursuing a Live Local Act apartment tower at 120 South Dixie Highway, adding a workforce-housing and mass-timber angle to downtown West Palm Beach’s development pipeline.",
+    "description": "Jeff Greene is pursuing a Live Local Act apartment tower at 120 S. Dixie Highway, adding workforce housing and a mass-timber angle to downtown's pipeline.",
     "summary": "The proposal shifts the downtown conversation beyond trophy condos, combining workforce housing, historic-preservation elements, and a faster-build construction system on a long-watched site near Datura Street.",
     "bodySections": [
       {
@@ -2964,7 +2964,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "rosewood-north-flagler-planning-board-2026-06-05",
     "slug": "rosewood-north-flagler-planning-board-2026-06-05",
-    "title": "Rosewood adds another branded-residence signal to North Flagler as 2001 North Flagler moves through review",
+    "title": "Rosewood Adds Branded-Residence Signal",
     "sourceName": "City of West Palm Beach Planning Board, The Real Deal, and Florida YIMBY",
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
     "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
@@ -2977,7 +2977,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "freshnessLane": "recent_30d",
     "fetchedAt": "2026-06-05",
     "deck": "A Rosewood-branded condominium plan at 2001 North Flagler Drive is now supported by both developer reporting and a May 19 city agenda entry, giving North Flagler another high-end name in its expanding waterfront comparison set.",
-    "description": "Rosewood has been tied to the planned 2001 North Flagler tower, and a May 19 city board agenda confirms the 90-unit project is moving through formal review in West Palm Beach.",
+    "description": "Rosewood is tied to the planned 2001 North Flagler tower, and a May 19 city board agenda confirms the 90-unit project is moving through formal review.",
     "summary": "The North Flagler corridor continues to deepen its branded-luxury pipeline, with Rosewood now joining the conversation around Ritz-Carlton, Mandarin Oriental, Shorecrest, and other waterfront projects buyers are already tracking.",
     "bodySections": [
       {
@@ -3038,7 +3038,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "florida-yimby-mandarin-interiors-2026-05-18",
     "slug": "florida-yimby-mandarin-interiors-2026-05-18",
-    "title": "New renderings show inside Mandarin Oriental’s planned West Palm Beach residences",
+    "title": "Inside Mandarin Oriental's Planned Residences",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
     "canonicalUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",

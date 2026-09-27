@@ -3,7 +3,7 @@ export const siteMeta = {
   "alternateName": "West Palm Beach New Construction",
   "baseUrl": "https://www.wpbnewconstruction.com",
   "title": "West Palm Beach New Construction Condos | Buyer Guide",
-  "description": "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
+  "description": "Research West Palm Beach new-construction condos. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
   "publisher": {
     "name": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
     "type": "RealEstateAgent",
@@ -3482,9 +3482,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "",
-      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
+      "path": "/maps/wpb-atlas-map-editorial.svg",
+      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
+      "credit": "Source: WPB New Construction map"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -4641,7 +4641,7 @@ export const prerenderRoutes = [
   {
     "path": "/",
     "title": "West Palm Beach New Construction Condos | Buyer Guide",
-    "description": "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
+    "description": "Research West Palm Beach new-construction condos. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -4677,7 +4677,7 @@ export const prerenderRoutes = [
   {
     "path": "/about/",
     "title": "About The Scott Gordon Group | Douglas Elliman Palm Beach",
-    "description": "Meet The Scott Gordon Group at Douglas Elliman, Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers with decades of local experience.",
+    "description": "Meet The Scott Gordon Group at Douglas Elliman — Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers.",
     "ogImage": "/assets/team/scott-gordon-group-team-v01.jpg"
   },
   {
@@ -4688,13 +4688,13 @@ export const prerenderRoutes = [
   },
   {
     "path": "/answers/best-new-construction-condos-west-palm-beach/",
-    "title": "Best New Construction Condos in West Palm Beach | WPB Answers",
+    "title": "Best New Condos in West Palm Beach | WPB Answers",
     "description": "A buyer-first answer for comparing West Palm Beach new-construction condo options by corridor, readiness, floorplan depth, and verification needs.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/answers/closest-new-condos-to-palm-beach/",
-    "title": "Which West Palm Beach New Condos Are Closest to Palm Beach? | WPB Answers",
+    "title": "Which New Condos Are Closest to Palm Beach? | WPB Answers",
     "description": "A corridor-based answer for buyers comparing West Palm Beach new-construction condos by Palm Beach proximity and verification needs.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
@@ -4706,37 +4706,37 @@ export const prerenderRoutes = [
   },
   {
     "path": "/answers/downtown-vs-waterfront-new-construction-condos/",
-    "title": "Downtown West Palm Beach vs Waterfront New Construction Condos | WPB Answers",
+    "title": "Downtown vs Waterfront West Palm Beach Condos | WPB Answers",
     "description": "A buyer-facing comparison of Downtown West Palm Beach condo projects and Flagler Drive waterfront new construction.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/answers/compare-floor-plans-west-palm-beach-new-construction-condos/",
-    "title": "How to Compare Floor Plans in West Palm Beach New Construction Condos | WPB Answers",
+    "title": "Compare Floor Plans in West Palm Beach | WPB Answers",
     "description": "A practical buyer answer for comparing West Palm Beach new-construction condo floor plans, stacks, exposure, and current packet details.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/answers/west-palm-beach-new-construction-condo-fees-verify/",
-    "title": "West Palm Beach New Construction Condo Fees: What Buyers Should Verify | WPB Answers",
+    "title": "West Palm Beach New Condo Fees: What to Verify | WPB Answers",
     "description": "A cautious buyer checklist for West Palm Beach new-construction condo fees, carrying costs, and association questions.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/answers/preconstruction-vs-completed-new-construction-condos-west-palm-beach/",
-    "title": "Preconstruction vs Completed New Construction Condos in West Palm Beach | WPB Answers",
+    "title": "Preconstruction vs Completed WPB Condos | WPB Answers",
     "description": "A buyer guide to comparing preconstruction, under-construction, pipeline, and completed/newly delivered West Palm Beach condo options.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/answers/strongest-lifestyle-fit-west-palm-beach-new-condos/",
-    "title": "Which West Palm Beach New Condos Have the Strongest Lifestyle Fit for Buyers? | WPB Answers",
+    "title": "West Palm Beach Condos for Your Lifestyle | WPB Answers",
     "description": "A buyer-lifestyle answer for comparing West Palm Beach new-construction condos by corridor, daily routine, service model, and verification needs.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/updates/",
-    "title": "West Palm Beach Condo Updates | Construction, Sales & Planning",
+    "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
@@ -4760,61 +4760,61 @@ export const prerenderRoutes = [
   },
   {
     "path": "/updates/related-ross-fort-partners-south-flagler-property-swap-2026-09-22/",
-    "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map | WPB Updates",
+    "title": "$40M Swap Redraws South Flagler Map | WPB Updates",
     "description": "Related Ross and Fort Partners completed two $20 million South Flagler property transactions, clarifying control around Harbor Towers and Southbridge.",
     "ogImage": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-hero.jpg"
   },
   {
     "path": "/updates/fort-partners-buys-tideline-four-seasons-residences-2026-09-20/",
-    "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next? | WPB Updates",
-    "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
+    "title": "Fort Partners Buys Tideline for $150M | WPB Updates",
+    "description": "Fort Partners acquired the Tideline Palm Beach Ocean Resort for $150M next to its Four Seasons Resort Palm Beach, expanding its South Ocean Boulevard footprint.",
     "ogImage": "/assets/editorial/fort-partners-buys-tideline-four-seasons-residences-2026-09-20-hero.jpg"
   },
   {
     "path": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
-    "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage | WPB Updates",
-    "description": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "title": "Terra, Frisbie Add $20M Parcel | WPB Updates",
+    "description": "Terra and Frisbie Group acquired another parcel of the former Palm Beach Kennel Club site for $20M, expanding their master-planned West Palm Beach footprint.",
     "ogImage": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg"
   },
   {
     "path": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
-    "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler | WPB Updates",
+    "title": "Unicorp in $200M La Fontana Buyout | WPB Updates",
     "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
     "ogImage": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg"
   },
   {
     "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
-    "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+    "title": "Alba Palm Beach Complete on North Flagler | WPB Updates",
     "description": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
     "ogImage": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp"
   },
   {
     "path": "/updates/shorecrest-breaks-ground-157m-financing-2026-09-14/",
-    "title": "Shorecrest Breaks Ground with $157M Construction Financing | WPB Updates",
+    "title": "Shorecrest Breaks Ground with $157M Financing | WPB Updates",
     "description": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",
     "ogImage": "/assets/home/shorecrest-project-card-main-v01.jpg"
   },
   {
     "path": "/updates/banyan-tree-residences-unanimous-dac-approval-2026-09-14/",
-    "title": "Banyan Tree Residences Wins Unanimous DAC Approval | WPB Updates",
+    "title": "Banyan Tree Wins Unanimous DAC Approval | WPB Updates",
     "description": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
     "ogImage": "/assets/home/banyan-tree-project-card-main-v01.jpg"
   },
   {
     "path": "/updates/andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14/",
-    "title": "Andreessen Horowitz Leases Office at CityPlace Tower | WPB Updates",
+    "title": "Andreessen Horowitz Leases at CityPlace | WPB Updates",
     "description": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
     "ogImage": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg"
   },
   {
     "path": "/updates/534-datura-25-story-tower-west-palm-beach-2026-09-14/",
-    "title": "25-Story 534 Datura Tower Planned in West Palm Beach | WPB Updates",
+    "title": "25-Story 534 Datura Tower Planned | WPB Updates",
     "description": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
     "ogImage": "/assets/editorial/downtown-core-corridor.jpg"
   },
   {
     "path": "/updates/alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14/",
-    "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline | WPB Updates",
+    "title": "Alida Residences, Tribute Hotel Break Ground | WPB Updates",
     "description": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
     "ogImage": "/assets/editorial/downtown-core-corridor.jpg"
   },
@@ -4826,127 +4826,127 @@ export const prerenderRoutes = [
   },
   {
     "path": "/updates/downtown-plan-advances-without-waterfront-height-incentive-2026-09-14/",
-    "title": "West Palm’s downtown plan advances without the 25-story waterfront incentive | WPB Updates",
+    "title": "Downtown Plan Advances Without Tower Incentive | WPB Updates",
     "description": "West Palm Beach’s downtown plan advances after a waterfront-height revision. The Planning Board hearing is scheduled for September 15.",
     "ogImage": "/assets/editorial/downtown-plan-advances-without-waterfront-height-incentive-2026-09-14-hero.jpg"
   },
   {
     "path": "/updates/related-ross-files-25-story-464-fern-plan-2026-08-20/",
-    "title": "Related Ross files a 25-story plan for 464 Fern | WPB Updates",
+    "title": "Related Ross Files 25-Story 464 Fern Plan | WPB Updates",
     "description": "Related Ross has filed a 25-story residential plan for 464 Fern Street, shifting one of downtown West Palm Beach's last large blocks back into review.",
     "ogImage": "/assets/editorial/related-ross-files-25-story-464-fern-plan-2026-08-20-hero.jpg"
   },
   {
     "path": "/updates/banyan-tree-400-hibiscus-approval-2026-08-23/",
-    "title": "Banyan Tree gets unanimous downtown approval at 400 Hibiscus | WPB Updates",
-    "description": "West Palm Beach’s Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus Street, adding another branded condo project to downtown’s active pipeline.",
+    "title": "Banyan Tree Approved at 400 Hibiscus | WPB Updates",
+    "description": "West Palm Beach's Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus, adding a branded condo project to downtown's pipeline.",
     "ogImage": "/assets/projects/banyan-tree/residences/banyan-tree-residences-living-room-v01.jpg"
   },
   {
     "path": "/updates/cityplace-hotel-package-pushed-to-aug-31-2026-08-23/",
     "title": "CityPlace hotel package gets pushed to Aug. 31 | WPB Updates",
-    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17 but moved the final city vote to Aug. 31 and deferred the district rewrite.",
     "ogImage": "/assets/editorial/cityplace-hotel-package-pushed-to-aug-31-2026-08-23-hero.jpg"
   },
   {
     "path": "/updates/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23/",
-    "title": "West Palm Beach locks in District Pointe's workforce housing mix | WPB Updates",
-    "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking in 71 affordable or workforce units inside a 280-unit rental project.",
+    "title": "District Pointe Workforce Housing Locked In | WPB Updates",
+    "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking 71 affordable/workforce units into the 280-unit project.",
     "ogImage": "/assets/editorial/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23-hero.jpg"
   },
   {
     "path": "/updates/west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10/",
-    "title": "West Palm Beach clears a tax hurdle for the second convention center hotel | WPB Updates",
-    "description": "West Palm Beach approved a first amendment to the convention center hotel agreement, removing the requirement that the garage land stay taxable and allowing parking to move elsewhere.",
+    "title": "West Palm Clears Convention Center Tax Hurdle | WPB Updates",
+    "description": "West Palm Beach amended the convention center hotel agreement, removing the taxable-garage-land requirement and allowing parking to move elsewhere.",
     "ogImage": "/assets/editorial/west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10-hero.jpg"
   },
   {
     "path": "/updates/west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03/",
-    "title": "West Palm Beach sets two Coleman Park lots on Habitat's path | WPB Updates",
+    "title": "Coleman Park Lots Set on Habitat's Path | WPB Updates",
     "description": "West Palm Beach CRA agenda items for August 3 would convey 631 6th Street and 639 4th Street to Habitat for Humanity for affordable housing.",
     "ogImage": "/assets/editorial/west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03-hero.jpg"
   },
   {
     "path": "/updates/broadway-currie-park-zoning-2026-07-06/",
-    "title": "West Palm Beach rewrites Broadway and Currie Park rules | WPB Updates",
-    "description": "West Palm Beach approved Ordinance 5173-26, clarifying townhouse rules in the Broadway Mixed-Use District and changing how Currie Park improvements can support future height bonuses.",
+    "title": "Broadway, Currie Park Rules Rewritten | WPB Updates",
+    "description": "West Palm Beach approved Ordinance 5173-26, clarifying Broadway Mixed-Use townhouse rules and how Currie Park improvements support future height bonuses.",
     "ogImage": "/assets/editorial/broadway-currie-park-zoning-2026-07-06-hero.jpg"
   },
   {
     "path": "/updates/berkeley-breaks-ground-clear-lake-edge-2026-07-23/",
-    "title": "The Berkeley breaks ground on West Palm Beach's Clear Lake edge | WPB Updates",
-    "description": "Construction has started on The Berkeley Palm Beach at 550 South Australian Avenue, a 25-story, 193-unit tower on Clear Lake that is already more than $120 million sold.",
+    "title": "The Berkeley Breaks Ground on Clear Lake | WPB Updates",
+    "description": "Construction has started on The Berkeley Palm Beach at 550 South Australian Avenue, a 25-story, 193-unit Clear Lake tower already more than $120 million sold.",
     "ogImage": "/assets/editorial/berkeley-breaks-ground-clear-lake-edge-2026-07-23-hero.jpg"
   },
   {
     "path": "/updates/alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20/",
-    "title": "Alida breaks ground beside Brightline in downtown West Palm Beach | WPB Updates",
-    "description": "Construction has started at 506 Datura Street, where Alida Residences and a Tribute Portfolio hotel are rising beside the Brightline station in downtown West Palm Beach.",
+    "title": "Alida Breaks Ground by Brightline Downtown | WPB Updates",
+    "description": "Construction has started at 506 Datura Street: Alida Residences and a Tribute Portfolio hotel rising beside the Brightline station in downtown West Palm Beach.",
     "ogImage": "/assets/editorial/alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20-hero.jpg"
   },
   {
     "path": "/updates/west-palm-beach-waterfront-development-freeze-2026-07-19/",
-    "title": "West Palm Beach Moves to Freeze Waterfront Development Applications for Six Months | WPB Updates",
-    "description": "West Palm Beach has moved a six-month waterfront zoning pause into the final hearing process for the South Flagler corridor, signaling a deliberate reset before more planned development applications move forward.",
+    "title": "West Palm Moves to Freeze Waterfront Plans | WPB Updates",
+    "description": "West Palm Beach moved a six-month waterfront zoning pause into final hearings for South Flagler, signaling a reset before more development applications advance.",
     "ogImage": "/assets/editorial/west-palm-beach-waterfront-development-freeze-2026-07-19-hero.jpg"
   },
   {
     "path": "/updates/project-tango-july-15-zoning-decision-2026-2026-07-13/",
-    "title": "Project Tango heads to a July 15 decision as Palm Beach County weighs a larger AI campus | WPB Updates",
-    "description": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a new freeze on future large-scale AI data-center applications.",
+    "title": "Project Tango Heads to July 15 Decision | WPB Updates",
+    "description": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a freeze on future large-scale AI data-center applications.",
     "ogImage": "/assets/editorial/project-tango-july-15-zoning-decision-2026-2026-07-13-hero.jpg"
   },
   {
     "path": "/updates/sound-apartments-right-of-way-maintenance-2026-07-12/",
-    "title": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie | WPB Updates",
-    "description": "West Palm Beach approved right-of-way maintenance agreements for The Sound Apartments, the mixed-use South Dixie project with 358 apartments, workforce housing, and a Trader Joe’s lease.",
+    "title": "West Palm Approves Sound Apartments Pacts | WPB Updates",
+    "description": "West Palm Beach approved right-of-way pacts for The Sound Apartments: 358 apartments, workforce housing, and a Trader Joe's lease on South Dixie.",
     "ogImage": "/assets/editorial/preconstruction-condo-document-review.jpg"
   },
   {
     "path": "/updates/west-palm-point-back-in-motion-2026-07-11/",
-    "title": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor | WPB Updates",
-    "description": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "title": "West Palm Point Back in Motion | WPB Updates",
+    "description": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again toward Q1 2028 occupancy.",
     "ogImage": "/assets/editorial/wall-street-south-office-arrival.jpg"
   },
   {
     "path": "/updates/currie-park-waterfront-restaurant-west-palm-beach-2026-06-10/",
-    "title": "Currie Park Restaurant Proposals Add Another Lifestyle Layer to North Flagler | WPB Updates",
-    "description": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a move that could turn the renovated park into a stronger lifestyle anchor for the North Flagler corridor near Olara, Shorecrest, and the planned Ritz-Carlton Residences.",
+    "title": "Currie Park Restaurant Proposals Add Lifestyle | WPB Updates",
+    "description": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a potential lifestyle anchor for the North Flagler corridor.",
     "ogImage": "/assets/editorial/currie-park-waterfront-restaurant-west-palm-beach-2026-06-10-hero.jpg"
   },
   {
     "path": "/updates/court-club-private-racquet-club-west-palm-beach-2026-06-09/",
-    "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand | WPB Updates",
-    "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "title": "Private Racquet Club Signals Lifestyle Wave | WPB Updates",
+    "description": "The Court Club, a private racquet and wellness club near West Palm Beach, signals the luxury shift: buyers want curated social, athletic, and family settings.",
     "ogImage": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-hero.jpg"
   },
   {
     "path": "/updates/frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08/",
-    "title": "Frisbie Group Hits Turbulence as Palm Beach County Ambitions Keep Growing | WPB Updates",
-    "description": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
+    "title": "Frisbie Group Hits Palm Beach Turbulence | WPB Updates",
+    "description": "After a rejected Boca Raton plan and a Palm Beach assemblage sale, Frisbie Group faces a tougher climate as it lines up a major South Florida investment push.",
     "ogImage": "/assets/editorial/frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08-hero.jpg"
   },
   {
     "path": "/updates/pine-crest-west-palm-beach-campus-2026-06-08/",
-    "title": "Pine Crest's West Palm Beach campus adds another family-infrastructure signal | WPB Updates",
+    "title": "Pine Crest Adds Family Infrastructure | WPB Updates",
     "description": "Pine Crest's planned West Palm Beach campus adds another family-infrastructure signal for buyers tracking the city's long-term residential demand.",
     "ogImage": "/assets/editorial/pine-crest-west-palm-beach-campus-hero.jpg"
   },
   {
     "path": "/updates/trd-jeff-greene-live-local-120-s-dixie-2026-06-05/",
-    "title": "Jeff Greene’s latest downtown West Palm proposal would bring workforce housing and mass-timber construction to Dixie and Datura | WPB Updates",
-    "description": "Jeff Greene is pursuing a Live Local Act apartment tower at 120 South Dixie Highway, adding a workforce-housing and mass-timber angle to downtown West Palm Beach’s development pipeline.",
+    "title": "Jeff Greene's Downtown Workforce Proposal | WPB Updates",
+    "description": "Jeff Greene is pursuing a Live Local Act apartment tower at 120 S. Dixie Highway, adding workforce housing and a mass-timber angle to downtown's pipeline.",
     "ogImage": "/assets/editorial/jeff-greene-downtown-timber-proposal-120-s-dixie-v01.jpg"
   },
   {
     "path": "/updates/rosewood-north-flagler-planning-board-2026-06-05/",
-    "title": "Rosewood adds another branded-residence signal to North Flagler as 2001 North Flagler moves through review | WPB Updates",
-    "description": "Rosewood has been tied to the planned 2001 North Flagler tower, and a May 19 city board agenda confirms the 90-unit project is moving through formal review in West Palm Beach.",
+    "title": "Rosewood Adds Branded-Residence Signal | WPB Updates",
+    "description": "Rosewood is tied to the planned 2001 North Flagler tower, and a May 19 city board agenda confirms the 90-unit project is moving through formal review.",
     "ogImage": "/assets/home/rosewood-project-card-main-v01.jpg"
   },
   {
     "path": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
-    "title": "New renderings show inside Mandarin Oriental’s planned West Palm Beach residences | WPB Updates",
+    "title": "Inside Mandarin Oriental's Planned Residences | WPB Updates",
     "description": "Newly published renderings show the first interior look at Mandarin Oriental Residences, the planned branded waterfront tower at 5400 North Flagler Drive.",
     "ogImage": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg"
   },
@@ -4958,67 +4958,67 @@ export const prerenderRoutes = [
   },
   {
     "path": "/downtown-spotlight/urban-roast-opens-on-datura-street/",
-    "title": "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
+    "title": "Urban Roast brings late nights downtown | Downtown Spotlight",
     "description": "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
     "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
   },
   {
     "path": "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/",
-    "title": "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
-    "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+    "title": "Fuku at CityPlace: easy downtown draw | Downtown Spotlight",
+    "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work and into the late shift.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/downtown-spotlight/nora-hotel-countdown/",
-    "title": "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
-    "description": "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+    "title": "The Nora Hotel's real opening date | Downtown Spotlight",
+    "description": "NORA's first wave of tenants is open and the 201-key hotel is scheduled to welcome guests on Oct. 19 — North Railroad Avenue is moving from promise to calendar.",
     "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
   },
   {
     "path": "/downtown-spotlight/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city/",
-    "title": "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
-    "description": "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+    "title": "Why WPB is a serious restaurant city | Downtown Spotlight",
+    "description": "West Palm Beach dining has moved from convenient to destination. Chef-driven concepts and walkable mixed-use districts are reshaping how buyers view downtown.",
     "ogImage": "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/nora-district-downtown-transformation/",
-    "title": "Why the NORA District Could Reshape Downtown West Palm Beach | Downtown Spotlight",
+    "title": "How NORA Could Reshape Downtown WPB | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/rivian-cityplace-downtown-street-2026-08-28/",
-    "title": "Rivian gives CityPlace another reason to feel like a downtown street | Downtown Spotlight",
+    "title": "Rivian adds downtown feel to CityPlace | Downtown Spotlight",
     "description": "Rivian's CityPlace showroom is now open on Rosemary Avenue, adding a new kind of retail stop to downtown West Palm Beach.",
     "ogImage": "/assets/editorial/rivian-cityplace-downtown-street-2026-08-28-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/fuku-gives-cityplace-another-reason-to-linger-on-rosemary/",
-    "title": "Fuku gives CityPlace another reason to linger on Rosemary | Downtown Spotlight",
-    "description": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace and pushes Rosemary Avenue a little farther from mall frontage and a little closer to an actual downtown street.",
+    "title": "Fuku gives CityPlace a Rosemary draw | Downtown Spotlight",
+    "description": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace, pushing Rosemary Avenue closer to an actual downtown street.",
     "ogImage": "/assets/editorial/fuku-gives-cityplace-another-reason-to-linger-on-rosemary-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/west-palm-move-downtown-mobility/",
-    "title": "West Palm Move is about to change downtown's daily rhythm | Downtown Spotlight",
+    "title": "West Palm Move's downtown rhythm shift | Downtown Spotlight",
     "description": "West Palm Move is the city's new mobility layer for downtown West Palm Beach, pairing a 10-minute fixed route with on-demand rides and a wider service zone.",
     "ogImage": "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane/",
-    "title": "The RealReal's CityPlace move deepens downtown's luxury retail lane | Downtown Spotlight",
+    "title": "RealReal deepens downtown luxury retail | Downtown Spotlight",
     "description": "The RealReal is opening at CityPlace on Aug. 13, relocating from Palm Beach into a larger downtown West Palm Beach space.",
     "ogImage": "/assets/editorial/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/west-palm-beach-new-dining-map/",
-    "title": "Downtown Dining Is Becoming a Condo-Buyer Signal | Downtown Spotlight",
+    "title": "Downtown dining as a buyer signal | Downtown Spotlight",
     "description": "Downtown West Palm Beach dining is changing how buyers compare buildings. See what Eataly, NORA, rooftops, sushi, and waterfront restaurants really mean.",
     "ogImage": "/assets/editorial/downtown-dining-rooftop-pool.jpg"
   },
   {
     "path": "/downtown-spotlight/west-palm-beach-institutional-growth/",
-    "title": "Downtown WPB's Institutional Wave: What Buyers Should Watch | Downtown Spotlight",
+    "title": "Downtown WPB's institutional wave | Downtown Spotlight",
     "description": "Vanderbilt, NYU Langone, Cleveland Clinic, and 10 and 15 CityPlace are reshaping Downtown West Palm Beach. Learn what condo buyers should track.",
     "ogImage": "/assets/editorial/institutional-cleveland-clinic-campus.jpg"
   },
@@ -5030,98 +5030,98 @@ export const prerenderRoutes = [
   },
   {
     "path": "/market-notes/olara-special-pricing-keeps-north-flagler-in-play/",
-    "title": "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
-    "description": "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+    "title": "Olara pricing keeps Flagler in play | Buyer Intelligence",
+    "description": "Olara still advertises pre-construction inventory and special pricing; West Palm Beach's broad shelf means buyers should compare lines, fees and timing.",
     "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
   },
   {
     "path": "/market-notes/ritz-carlton-penthouse-resets-north-flagler-ceiling/",
-    "title": "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
-    "description": "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
+    "title": "Ritz-Carlton penthouse resets ceiling | Buyer Intelligence",
+    "description": "Penthouse A went under contract for $16.95M; remaining Ritz-Carlton residences still start at $3M, keeping North Flagler focused on line, view, service.",
     "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
   },
   {
     "path": "/market-notes/nora-district-downtown-transformation/",
-    "title": "NORA District's Downtown Impact Explained | Buyer Intelligence",
+    "title": "NORA District's Downtown Impact | Buyer Intelligence",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/are-branded-residences-worth-it-west-palm-beach/",
-    "title": "Are Branded Residences Worth It? What Buyers Should Know Before Paying the Premium | Buyer Intelligence",
+    "title": "Are branded residences worth it? | Buyer Intelligence",
     "description": "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
     "ogImage": "/assets/editorial/branded-residences-buyer-review-hero.jpg"
   },
   {
     "path": "/market-notes/pre-construction-condo-due-diligence/",
-    "title": "Pre-Construction Condo Due Diligence: What to Review Before Signing | Buyer Intelligence",
-    "description": "Review deposits, disclosures, timelines, budgets, financing, assignment rights, and buyer protections before signing a West Palm Beach pre-construction condo contract.",
+    "title": "Pre-construction condo due diligence | Buyer Intelligence",
+    "description": "Review deposits, disclosures, timelines, budgets, financing, and assignment rights before signing a West Palm Beach pre-construction condo contract.",
     "ogImage": "/assets/editorial/preconstruction-condo-deposit-schedule-hero.jpg"
   },
   {
     "path": "/market-notes/west-palm-beach-wall-street-south-condos/",
-    "title": "The Money Is Moving South: How West Palm Beach Became a New Luxury Real Estate Power Center | Buyer Intelligence",
+    "title": "How WPB became a luxury power center | Buyer Intelligence",
     "description": "West Palm Beach is drawing finance, wealth, and new luxury condo development. Learn what Wall Street South means for buyers and what to verify.",
     "ogImage": "/assets/editorial/wall-street-south-flagler-drive-hero.jpg"
   },
   {
     "path": "/market-notes/active-sales-vs-pipeline-watch/",
-    "title": "Active Sales vs Pipeline Watch: How to Read the West Palm Beach Condo Market | Buyer Intelligence",
+    "title": "Active sales vs. pipeline watch | Buyer Intelligence",
     "description": "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/",
-    "title": "Olara vs Shorecrest: Two Different Waterfront Buyer Profiles | Buyer Intelligence",
+    "title": "Olara vs. Shorecrest buyer profiles | Buyer Intelligence",
     "description": "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/why-published-floor-plans-matter/",
-    "title": "Why Published Floor Plans Matter Before You Tour | Buyer Intelligence",
+    "title": "Why published floor plans matter | Buyer Intelligence",
     "description": "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/what-buyers-should-verify-before-trusting-pricing/",
-    "title": "What Buyers Should Verify Before Trusting New Construction Pricing | Buyer Intelligence",
+    "title": "Verifying new-construction pricing | Buyer Intelligence",
     "description": "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/downtown-west-palm-beach-condo-corridors-explained/",
-    "title": "Downtown West Palm Beach Condo Corridors Explained | Buyer Intelligence",
+    "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping/",
-    "title": "South Flagler House keeps West Palm Beach luxury buyers line-shopping | Buyer Intelligence",
+    "title": "South Flagler House line-shopping guide | Buyer Intelligence",
     "description": "South Flagler House's official pricing ladder and the latest downtown condo report show a luxury market that still rewards line-by-line comparison.",
     "ogImage": "/assets/editorial/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping-hero.jpg"
   },
   {
     "path": "/market-notes/nora-house-turns-the-district-into-a-buyer-decision/",
-    "title": "NORA House turns the district into a buyer decision | Buyer Intelligence",
-    "description": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later.",
+    "title": "NORA House: a district buyer decision | Buyer Intelligence",
+    "description": "NORA House gives West Palm Beach buyers a real choice: live in an open, walkable neighborhood now, or keep waiting for a waterfront tower later.",
     "ogImage": "/projects/nora-house/media/user-provided-nora-house-hero.jpg"
   },
   {
     "path": "/market-notes/alba-s-finish-changes-the-north-flagler-buyer-test/",
-    "title": "Alba's finish changes the North Flagler buyer test | Buyer Intelligence",
-    "description": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler, giving buyers a live example of delivered waterfront inventory while West Palm Beach still shows a broad new-construction shelf.",
+    "title": "Alba's finish resets the buyer test | Buyer Intelligence",
+    "description": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler — a live example of delivered waterfront inventory.",
     "ogImage": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp"
   },
   {
     "path": "/market-notes/mr-c-shows-downtown-branded-condos-still-move/",
-    "title": "Mr. C shows downtown branded condos still move | Buyer Intelligence",
-    "description": "Mr. C Hotel & Residences is still climbing at 320 Lakeview Avenue, and the current sales pace says downtown branded residences can still clear when the product and location are tight.",
+    "title": "Mr. C shows branded condos still move | Buyer Intelligence",
+    "description": "Mr. C is still climbing at 320 Lakeview Avenue; the sales pace says downtown branded residences can still clear when product and location are tight.",
     "ogImage": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp"
   },
   {
     "path": "/corridors/north-flagler/",
-    "title": "North Flagler New Construction Condos | Compare & Floor Plans",
-    "description": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
+    "title": "North Flagler New Condos | Compare & Floor Plans",
+    "description": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: floor plans, waterfront settings, active sales and buyer guidance.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5193,7 +5193,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/shorecrest/",
     "title": "Shorecrest West Palm Beach | Condos & Floor Plans",
-    "description": "Explore Shorecrest West Palm Beach condos, released floor plans, rooftop amenities and North Flagler comparisons. Request current pricing before a sales-gallery visit.",
+    "description": "Explore Shorecrest West Palm Beach condos, released floor plans, rooftop amenities, and North Flagler comparisons. Request current pricing.",
     "ogImage": "/projects/shorecrest/media/showcase/shorecrest-hero-aerial-v01-web.jpg"
   },
   {
@@ -5211,18 +5211,18 @@ export const prerenderRoutes = [
   {
     "path": "/projects/nora-house/",
     "title": "NORA House West Palm Beach | Prices & Floor Plans",
-    "description": "Explore NORA House condos in West Palm Beach: published starting prices, released floor plans, rooftop amenities and buyer guidance before a sales-gallery visit.",
+    "description": "Explore NORA House condos in West Palm Beach: published starting prices, released floor plans, rooftop amenities, and buyer guidance.",
     "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
   },
   {
     "path": "/projects/south-flagler-house/",
     "title": "South Flagler House West Palm Beach | Prices & Floor Plans",
-    "description": "Research South Flagler House prices, released floor plans, loggias and private-club amenities. Compare the waterfront residences before a sales-gallery appointment.",
+    "description": "Research South Flagler House prices, released floor plans, loggias, and private-club amenities. Compare the waterfront residences.",
     "ogImage": "/projects/south-flagler-house/media/showcase/south-flagler-house-hero-night-web.jpg"
   },
   {
     "path": "/projects/mr-c/",
-    "title": "Mr. C Residences West Palm Beach | Downtown Branded Condos & Floor Plans",
+    "title": "Mr. C Residences West Palm Beach | Downtown Condos",
     "description": "Mr. C Residences West Palm Beach: 146 downtown branded condos with Cipriani hospitality and hotel services. Compare plans; request current pricing.",
     "ogImage": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp"
   },
@@ -5234,14 +5234,14 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/edgeworth/",
-    "title": "Edgeworth West Palm Beach | Related Ross South Flagler Condos",
-    "description": "Explore Edgeworth West Palm Beach, Related Ross’s two-tower South Flagler waterfront condominium with 168 residences and more than 90,000 square feet of amenities.",
+    "title": "Edgeworth West Palm Beach | South Flagler Condos",
+    "description": "Explore Edgeworth West Palm Beach — Related Ross’s two-tower South Flagler waterfront condominium with 168 residences and 90,000+ square feet of amenities.",
     "ogImage": "/projects/edgeworth-north/media/showcase/edgeworth-hero-exterior-v01-web.jpg"
   },
   {
     "path": "/projects/mandarin-oriental/",
-    "title": "Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront",
-    "description": "Mandarin Oriental Residences West Palm Beach: 87 branded waterfront residences on North Flagler by Safdie Architects. Request current pricing and delivery guidance.",
+    "title": "Mandarin Oriental Residences | West Palm Beach Waterfront",
+    "description": "Mandarin Oriental Residences West Palm Beach: 87 branded waterfront residences on North Flagler. Request current pricing and delivery guidance.",
     "ogImage": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg"
   },
   {
@@ -5276,8 +5276,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/rybovich-marina-redevelopment/",
-    "title": "Rybovich Marina Redevelopment | North Flagler Waterfront District",
-    "description": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, and promenade access.",
+    "title": "Rybovich Marina Redevelopment | Waterfront District",
+    "description": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina, private club space, retail, and promenade access.",
     "ogImage": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg"
   },
   {

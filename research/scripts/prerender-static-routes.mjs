@@ -236,6 +236,7 @@ function canonicalPathForRoute(routePath) {
   if (routePath === "/blog/" || routePath === "/blog") return "/market-notes/";
   if (routePath === "/contact/" || routePath === "/contact") return "/inquire/";
   if (routePath === "/floor-plans/" || routePath === "/floor-plans") return "/floorplans/";
+  if (routePath === "/market-notes/nora-district-downtown-transformation/" || routePath === "/market-notes/nora-district-downtown-transformation") return "/downtown-spotlight/nora-district-downtown-transformation/";
   const blogMatch = routePath.match(/^\/blog\/([^/]+)\/?$/);
   if (blogMatch) return `/market-notes/${blogMatch[1]}/`;
   return routePath;
@@ -620,6 +621,15 @@ function renderProjectRoute(route, payload, slug) {
   const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
   const cleanStatus = facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page";
   const editorial = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId && item.pageTemplate === "editorial-showcase");
+  const copyItem = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId)
+    || payload.projectCopyPackage.find((item) => item.slug === slug);
+  const heroImage = copyItem?.showcase?.heroImage;
+  const defaultImage = payload.siteMeta?.defaultImage || "";
+  const ogSrc = typeof route.ogImage === "string" && route.ogImage.startsWith("/") && route.ogImage !== defaultImage ? route.ogImage : "";
+  const heroSrc = heroImage?.src || project.presentation?.heroImage || project.presentation?.image || ogSrc || "";
+  const heroFigure = heroSrc.startsWith("/")
+    ? `<figure class="market-note-hero-image"><img src="${safeHref(heroSrc)}" alt="${publicText(heroImage?.alt || `${project.name} hero image`)}" loading="eager" decoding="async" />${heroImage?.label ? `<figcaption>${publicText(heroImage.label)}</figcaption>` : ""}</figure>`
+    : "";
 
   return pageShell(
     `project-${slug}`,
@@ -628,7 +638,7 @@ function renderProjectRoute(route, payload, slug) {
     `<div data-project-type="${safeHref(project.projectType)}">
       <section data-project-section="hero">
         <p>${publicText(project.area || "West Palm Beach")} ${publicText(presentation.identityLabel)}</p>
-        <h2>${publicText(project.name)}</h2>
+        ${heroFigure}
         <p>${publicText(project.summary || route.description)}</p>
       </section>
       <section data-project-section="overview">
@@ -948,13 +958,15 @@ function renderUpdateRoute(route, payload, slug) {
     .map((projectId) => payload.projectFacts.find((project) => project.projectId === projectId))
     .filter(Boolean);
   const corridorKeys = [...new Set(relatedProjects.map(corridorKeyForProject))];
+  const publishedRaw = item.publishedAt || item.datePublished || "";
+  const publishedAttr = staticDateAttr(publishedRaw);
   return pageShell(
     `update-${slug}`,
     item.title,
     item.description || item.summary || route.description,
     `
       <article>
-        <p>Published ${publicText(item.publishedAt || item.datePublished || "current review")} from ${publicText(item.sourceName || "reviewed source")}.</p>
+        <p class="update-byline">By Brooke Snader · Published ${publishedAttr ? `<time datetime="${publishedAttr}">${formatStaticDate(publishedRaw)}</time>` : formatStaticDate(publishedRaw)} · Source: ${publicText(item.sourceName || "reviewed source")}.</p>
         <p>${publicText(item.deck || item.summary || item.rewrittenSummary || route.description)}</p>
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${item.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
         ${item.whyItMatters && !isDeckEcho(item.whyItMatters) ? `<section><h2>Why it matters</h2><p>${publicText(stripImageTokens(item.whyItMatters))}</p></section>` : ""}
@@ -1558,7 +1570,8 @@ function projectSchema(project, payload) {
 
 function schemaTypeForProject(projectType) {
   if (projectType === "hotel-residences") return ["Hotel", "ApartmentComplex"];
-  if (projectType === "office" || projectType === "mixed-use" || projectType === "condo-pipeline") return "Place";
+  if (projectType === "office") return "Place";
+  if (projectType === "mixed-use") return ["Place", "ApartmentComplex"];
   return "ApartmentComplex";
 }
 
@@ -1634,6 +1647,18 @@ function stripImageTokens(value) {
     .replace(/[ \t]{2,}/g, " ")
     .replace(/ +\n/g, "\n")
     .trim();
+}
+
+function formatStaticDate(value) {
+  const text = String(value ?? "").trim();
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(text) ? Date.parse(`${text}T12:00:00`) : Date.parse(text);
+  if (Number.isNaN(parsed)) return text || "current review";
+  return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(parsed));
+}
+
+function staticDateAttr(value) {
+  const match = String(value ?? "").match(/^(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : "";
 }
 
 function escapeHtml(value) {

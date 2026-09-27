@@ -4,8 +4,8 @@
     "slug": "rosewood-residences-west-palm-beach",
     "path": "/projects/rosewood-residences-west-palm-beach/",
     "canonical": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
-    "title": "Rosewood Residences West Palm Beach | North Flagler Buyer Guide",
-    "description": "Buyer guide to Rosewood Residences West Palm Beach at 2001 N Flagler Drive: approved planning status, 90-residence program, buyer fit, and what remains unconfirmed.",
+    "title": "Rosewood Residences West Palm Beach | Buyer Guide",
+    "description": "Buyer guide to Rosewood Residences West Palm Beach at 2001 N Flagler Drive: planning status, 90-residence program, buyer fit, and unconfirmed items.",
     "h1": "Rosewood Residences West Palm Beach Buyer Guide",
     "eyebrow": "North Flagler · Approved pipeline / prelaunch",
     "opening": "Rosewood Residences West Palm Beach is an approved 90-residence North Flagler proposal at 2001 N Flagler Drive. It belongs on an early branded-residence shortlist, but buyers should separate the approved development program from a public sales launch: current pricing, released residence inventory, complete floor plans, delivery timing and final service details are not publicly verified.",
@@ -33,18 +33,41 @@
       "Do not infer current availability from the approved unit count."
     ],
     "links": [
-      {"label":"North Flagler buyer guide","href":"/corridors/north-flagler/"},
-      {"label":"Compare West Palm Beach buildings","href":"/compare/"},
-      {"label":"Olara buyer guide","href":"/projects/olara/"},
-      {"label":"Ritz-Carlton Residences buyer guide","href":"/projects/ritz-carlton-wpb/"},
-      {"label":"North Flagler vs South Flagler","href":"/answers/north-flagler-vs-south-flagler-new-condos/"}
+      {
+        "label": "North Flagler buyer guide",
+        "href": "/corridors/north-flagler/"
+      },
+      {
+        "label": "Compare West Palm Beach buildings",
+        "href": "/compare/"
+      },
+      {
+        "label": "Olara buyer guide",
+        "href": "/projects/olara/"
+      },
+      {
+        "label": "Ritz-Carlton Residences buyer guide",
+        "href": "/projects/ritz-carlton-wpb/"
+      },
+      {
+        "label": "North Flagler vs South Flagler",
+        "href": "/answers/north-flagler-vs-south-flagler-new-condos/"
+      }
     ],
     "availabilityHref": "/inquire/?project=rosewood&interest=Request%20current%20availability",
     "packetHref": "/inquire/?project=rosewood&interest=Pricing%20%2B%20floor-plan%20packet",
     "reviewedOn": "2026-09-08",
     "sources": [
-      {"label":"City of West Palm Beach Planning Board agenda, May 19, 2026 — Case SP-25100073","url":"https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf","kind":"official"},
-      {"label":"The Real Deal — city approval and filed-plan program, June 24, 2026","url":"https://therealdeal.com/miami/2026/06/24/related-group-bh-group-greenlighted-for-rosewood-residences/","kind":"reporting"}
+      {
+        "label": "City of West Palm Beach Planning Board agenda, May 19, 2026 — Case SP-25100073",
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+        "kind": "official"
+      },
+      {
+        "label": "The Real Deal — city approval and filed-plan program, June 24, 2026",
+        "url": "https://therealdeal.com/miami/2026/06/24/related-group-bh-group-greenlighted-for-rosewood-residences/",
+        "kind": "reporting"
+      }
     ]
   },
   {
@@ -81,18 +104,41 @@
       "Published plan dimensions are useful for layout comparison but do not establish current inventory."
     ],
     "links": [
-      {"label":"South Flagler buyer guide","href":"/corridors/south-flagler/"},
-      {"label":"North Flagler vs South Flagler","href":"/answers/north-flagler-vs-south-flagler-new-condos/"},
-      {"label":"Compare West Palm Beach buildings","href":"/compare/"},
-      {"label":"South Flagler House buyer guide","href":"/projects/south-flagler-house/"},
-      {"label":"Browse released floor plans","href":"/floorplans/"}
+      {
+        "label": "South Flagler buyer guide",
+        "href": "/corridors/south-flagler/"
+      },
+      {
+        "label": "North Flagler vs South Flagler",
+        "href": "/answers/north-flagler-vs-south-flagler-new-condos/"
+      },
+      {
+        "label": "Compare West Palm Beach buildings",
+        "href": "/compare/"
+      },
+      {
+        "label": "South Flagler House buyer guide",
+        "href": "/projects/south-flagler-house/"
+      },
+      {
+        "label": "Browse released floor plans",
+        "href": "/floorplans/"
+      }
     ],
     "availabilityHref": "/inquire/?project=maison-dor&interest=Request%20current%20availability",
     "packetHref": "/inquire/?project=maison-dor&interest=Pricing%20%2B%20floor-plan%20packet",
     "reviewedOn": "2026-09-23",
     "sources": [
-      {"label":"Maison d’Or official site — building overview","url":"https://livemaisondor.com/","kind":"official"},
-      {"label":"Maison d’Or official residence and floor-plan page","url":"https://livemaisondor.com/the-residences/","kind":"official"}
+      {
+        "label": "Maison d’Or official site — building overview",
+        "url": "https://livemaisondor.com/",
+        "kind": "official"
+      },
+      {
+        "label": "Maison d’Or official residence and floor-plan page",
+        "url": "https://livemaisondor.com/the-residences/",
+        "kind": "official"
+      }
     ]
   }
 ]
