@@ -247,6 +247,7 @@ async function assertInquiryAttribution(section, page, model, label) {
   await section.locator('[data-r3d-action="availability"]').click();
   await page.waitForURL(/\/inquire\//);
   const stableContext = `floorplan:${model.projectId}:${model.residenceSlug}`;
+  await waitForSynchronizedInquiry(page, model, stableContext);
   assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(), model.projectId, `${label}: inquiry project attribution`);
   assert.equal(await page.locator('.inquiry-form input[name="lead_capture_context"]').inputValue(), stableContext, `${label}: inquiry residence attribution`);
   const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("wpbLeadAttribution") ?? "{}"));
@@ -255,6 +256,16 @@ async function assertInquiryAttribution(section, page, model, label) {
   assert.equal(ctaEvent?.payload?.modelId, model.modelId, `${label}: 3D CTA model attribution`);
   assert.equal(ctaEvent?.payload?.residenceId, model.residenceSlug, `${label}: 3D CTA stable residence attribution`);
   assert.equal(ctaEvent?.payload?.source, "3d-loaded", `${label}: 3D CTA loaded-state attribution`);
+}
+
+async function waitForSynchronizedInquiry(page, model, stableContext) {
+  // URL navigation and form insertion can finish before bootstrap applies the
+  // remembered residence to the new form.
+  await page.waitForFunction(({ projectId, context }) => {
+    const form = document.querySelector('.inquiry-form');
+    return form?.querySelector('select[name="project"]')?.value === projectId
+      && form.querySelector('input[name="lead_capture_context"]')?.value === context;
+  }, { projectId: model.projectId, context: stableContext }, { timeout: 15000 });
 }
 
 async function assertEntityIntroAttribution(page, model, origin, label) {
@@ -267,6 +278,7 @@ async function assertEntityIntroAttribution(page, model, origin, label) {
   await page.waitForURL(/\/inquire\//);
   const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("wpbLeadAttribution") ?? "{}"));
   const stableContext = `floorplan:${model.projectId}:${model.residenceSlug}`;
+  await waitForSynchronizedInquiry(page, model, stableContext);
   assert.equal(stored.cta_context, stableContext, `${label}: entity intro stored residence`);
   assert.equal(stored.cta_location, "floorplan-entity-intro", `${label}: entity intro stored placement`);
   assert.equal(stored.corridor, project.corridorKey, `${label}: entity intro stored corridor`);

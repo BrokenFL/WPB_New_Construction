@@ -64,6 +64,8 @@ test('postbuild composes both page families and production keeps the reachable-g
     ...['d','a','c','f','i','l'].map(letter=>['olara',`residence-${letter}`]),
     ['shorecrest','residence-0704'], ['shorecrest','residence-1602'],
     ['ritz-carlton-wpb','residence-02'], ['ritz-carlton-wpb','residence-06'],
+    ['mr-c','residence-01a'], ['mr-c','residence-02a'],
+    ['berkeley','residence-d'], ['berkeley','residence-g'],
   ]);
   assert.ok(buildFloorplanEntities().some(p=>p.projectId==='alba-palm-beach'));
 });
