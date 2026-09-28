@@ -18,7 +18,7 @@ export const siteMeta = {
     "phone": "561-891-0186",
     "brokerage": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman"
   },
-  "defaultImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  "defaultImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
 } as const;
 
 export const floorplanLibrary = [
@@ -6545,607 +6545,607 @@ export const prerenderRoutes = [
     "path": "/",
     "title": "West Palm Beach New Construction Condos | Buyer Guide",
     "description": "Research West Palm Beach new-construction condos. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/",
     "title": "West Palm Beach Condo Floor Plans | New Construction Guide",
     "description": "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-07/",
     "title": "Lake Home 07 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 07 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,750 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-08/",
     "title": "Lake Home 08 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 08 floor plan at Ritz-Carlton WPB: 2 bd, 3 ba, 2,543 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-09/",
     "title": "Lake Home 09 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 09 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,117 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-10/",
     "title": "Lake Home 10 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 10 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,117 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-11/",
     "title": "Lake Home 11 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 11 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,078 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-12/",
     "title": "Lake Home 12 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 12 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 3,170 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-01/",
     "title": "Residence 01 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 01 floor plan at Ritz-Carlton WPB: 4 bd, 4 + powder ba, 4,229 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-02/",
     "title": "Residence 02 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 02 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 1,868 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-03/",
     "title": "Residence 03 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 03 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 2,706 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-04/",
     "title": "Residence 04 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 04 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 2,798 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-05/",
     "title": "Residence 05 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 05 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 1,839 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-06/",
     "title": "Residence 06 Floor Plan | Ritz-Carlton WPB",
     "description": "Residence 06 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 4,141 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/residence-301/",
     "title": "Residence 301 Floor Plan | Shorecrest",
     "description": "Residence 301 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,835 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/residence-1602/",
     "title": "Residence 1602 Floor Plan | Shorecrest",
     "description": "Residence 1602 floor plan at Shorecrest: 2 bd, 2 + powder ba, 2,015 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/shorecrest-1153-0303/",
     "title": "Shorecrest 1153 0303 Floor Plan | Shorecrest",
     "description": "Shorecrest 1153 0303 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,706 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/shorecrest-1153-0704/",
     "title": "Shorecrest 1153 0704 Floor Plan | Shorecrest",
     "description": "Shorecrest 1153 0704 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,470 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-n-residence/",
     "title": "Tier 1 N Residence Floor Plan | South Flagler House",
     "description": "Tier 1 N Residence floor plan at South Flagler House: 4 bd, 5 ba, 5,385 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-s-residence/",
     "title": "Tier 1 S Residence Floor Plan | South Flagler House",
     "description": "Tier 1 S Residence floor plan at South Flagler House: 3 bd, 4 + powder ba, 5,034 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-w-residence/",
     "title": "Tier 1 W Residence Floor Plan | South Flagler House",
     "description": "Tier 1 W Residence floor plan at South Flagler House: 2 bd, 2 + powder ba, 2,196 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-n-residence/",
     "title": "Tier 2 N Residence Floor Plan | South Flagler House",
     "description": "Tier 2 N Residence floor plan at South Flagler House: 4 bd, 5 ba, 5,177 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-s-residence/",
     "title": "Tier 2 S Residence Floor Plan | South Flagler House",
     "description": "Tier 2 S Residence floor plan at South Flagler House: 5 bd, 6 + powder ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-w-residence/",
     "title": "Tier 2 W Residence Floor Plan | South Flagler House",
     "description": "Tier 2 W Residence floor plan at South Flagler House: 2 bd, 2 + powder ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-3-n-residence/",
     "title": "Tier 3 N Residence Floor Plan | South Flagler House",
     "description": "Tier 3 N Residence floor plan at South Flagler House: 3 bd, 4 + powder ba, 4,639 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-3-s-residence/",
     "title": "Tier 3 S Residence Floor Plan | South Flagler House",
     "description": "Tier 3 S Residence floor plan at South Flagler House: 4 bd, 5 + powder ba, 5,770 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-01-l/",
     "title": "Residence 01-L Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 01-L floor plan at Mandarin Oriental WPB: 3 + den bd, 4 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-01-u/",
     "title": "Residence 01-U Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 01-U floor plan at Mandarin Oriental WPB: 4 + den bd, 5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-02/",
     "title": "Residence 02 Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 02 floor plan at Mandarin Oriental WPB: 3 + den bd, 3.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-03/",
     "title": "Residence 03 Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 03 floor plan at Mandarin Oriental WPB: 2 bd, 2.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-04-l/",
     "title": "Residence 04-L Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 04-L floor plan at Mandarin Oriental WPB: 3 + den bd, 3.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-04-u/",
     "title": "Residence 04-U Floor Plan | Mandarin Oriental WPB",
     "description": "Residence 04-U floor plan at Mandarin Oriental WPB: 2 + den bd, 2.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-01/",
     "title": "Residence 01 Floor Plan | NORA House",
     "description": "Residence 01 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-02/",
     "title": "Residence 02 Floor Plan | NORA House",
     "description": "Residence 02 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-03/",
     "title": "Residence 03 Floor Plan | NORA House",
     "description": "Residence 03 floor plan at NORA House: 2 bd, 2.5 ba, 1,650 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-04/",
     "title": "Residence 04 Floor Plan | NORA House",
     "description": "Residence 04 floor plan at NORA House: 3 bd, 3.5 ba, 2,435 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-05/",
     "title": "Residence 05 Floor Plan | NORA House",
     "description": "Residence 05 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-06/",
     "title": "Residence 06 Floor Plan | NORA House",
     "description": "Residence 06 floor plan at NORA House: 2 bd, 2.5 ba, 1,655 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-07/",
     "title": "Residence 07 Floor Plan | NORA House",
     "description": "Residence 07 floor plan at NORA House: 2 bd, 2.5 ba, 1,695 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-08/",
     "title": "Residence 08 Floor Plan | NORA House",
     "description": "Residence 08 floor plan at NORA House: 2 bd, 2.5 ba, 1,465 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-09/",
     "title": "Residence 09 Floor Plan | NORA House",
     "description": "Residence 09 floor plan at NORA House: 3 bd, 3.5 ba, 2,645 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-10/",
     "title": "Residence 10 Floor Plan | NORA House",
     "description": "Residence 10 floor plan at NORA House: 3 bd, 3.5 ba, 2,645 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-11/",
     "title": "Residence 11 Floor Plan | NORA House",
     "description": "Residence 11 floor plan at NORA House: 2 bd, 2.5 ba, 1,465 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-12/",
     "title": "Residence 12 Floor Plan | NORA House",
     "description": "Residence 12 floor plan at NORA House: 2 bd, 2.5 ba, 1,665 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-13/",
     "title": "Residence 13 Floor Plan | NORA House",
     "description": "Residence 13 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-14/",
     "title": "Residence 14 Floor Plan | NORA House",
     "description": "Residence 14 floor plan at NORA House: 2 bd, 2.5 ba, 1,660 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-15/",
     "title": "Residence 15 Floor Plan | NORA House",
     "description": "Residence 15 floor plan at NORA House: 2 bd, 2.5 ba, 1,928 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-16/",
     "title": "Residence 16 Floor Plan | NORA House",
     "description": "Residence 16 floor plan at NORA House: 4 bd, 3.5 ba, 2,960 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-17/",
     "title": "Residence 17 Floor Plan | NORA House",
     "description": "Residence 17 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-401/",
     "title": "Terrace 401 Floor Plan | NORA House",
     "description": "Terrace 401 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-402/",
     "title": "Terrace 402 Floor Plan | NORA House",
     "description": "Terrace 402 floor plan at NORA House: 3 bd, 3.5 ba, 3,295 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-403/",
     "title": "Terrace 403 Floor Plan | NORA House",
     "description": "Terrace 403 floor plan at NORA House: 2 bd, 2.5 ba, 2,190 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-404/",
     "title": "Terrace 404 Floor Plan | NORA House",
     "description": "Terrace 404 floor plan at NORA House: 3 bd, 3.5 ba, 2,435 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-405/",
     "title": "Terrace 405 Floor Plan | NORA House",
     "description": "Terrace 405 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-406/",
     "title": "Terrace 406 Floor Plan | NORA House",
     "description": "Terrace 406 floor plan at NORA House: 2 bd, 2.5 ba, 1,910 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-407/",
     "title": "Terrace 407 Floor Plan | NORA House",
     "description": "Terrace 407 floor plan at NORA House: 2 bd, 2.5 ba, 1,695 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-409/",
     "title": "Terrace 409 Floor Plan | NORA House",
     "description": "Terrace 409 floor plan at NORA House: 2 bd, 2.5 ba, 3,325 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-410/",
     "title": "Terrace 410 Floor Plan | NORA House",
     "description": "Terrace 410 floor plan at NORA House: 2 bd, 2.5 ba, 3,325 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-412/",
     "title": "Terrace 412 Floor Plan | NORA House",
     "description": "Terrace 412 floor plan at NORA House: 2 bd, 2.5 ba, 1,665 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-413/",
     "title": "Terrace 413 Floor Plan | NORA House",
     "description": "Terrace 413 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-414/",
     "title": "Terrace 414 Floor Plan | NORA House",
     "description": "Terrace 414 floor plan at NORA House: 2 bd, 2.5 ba, 4,175 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-415/",
     "title": "Terrace 415 Floor Plan | NORA House",
     "description": "Terrace 415 floor plan at NORA House: 2 bd, 2.5 ba, 2,190 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-416/",
     "title": "Terrace 416 Floor Plan | NORA House",
     "description": "Terrace 416 floor plan at NORA House: 4 bd, 3.5 ba, 2,960 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-417/",
     "title": "Terrace 417 Floor Plan | NORA House",
     "description": "Terrace 417 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-a/",
     "title": "Residence A Floor Plan | Alba Palm Beach",
     "description": "Residence A floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 2,334 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-b/",
     "title": "Residence B Floor Plan | Alba Palm Beach",
     "description": "Residence B floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 2,422 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-c/",
     "title": "Residence C Floor Plan | Alba Palm Beach",
     "description": "Residence C floor plan at Alba Palm Beach: 2 bd, 2.5 ba, 2,369 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-d/",
     "title": "Residence D Floor Plan | Alba Palm Beach",
     "description": "Residence D floor plan at Alba Palm Beach: 3 bd, 3 ba, 2,374 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-lph-a/",
     "title": "Residence LPH A Floor Plan | Alba Palm Beach",
     "description": "Residence LPH A floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 4,698 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-lph-b/",
     "title": "Residence LPH B Floor Plan | Alba Palm Beach",
     "description": "Residence LPH B floor plan at Alba Palm Beach: 3 bd, 4 ba, 4,895 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/townhouse-c/",
     "title": "Townhouse C Floor Plan | Alba Palm Beach",
     "description": "Townhouse C floor plan at Alba Palm Beach: 4 bd, 5 + powder ba, 6,355 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-01/",
     "title": "Residence 01 Floor Plan | Banyan Tree WPB",
     "description": "Residence 01 floor plan at Banyan Tree WPB: 3 bd, 3 ba, 2,906 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-02/",
     "title": "Residence 02 Floor Plan | Banyan Tree WPB",
     "description": "Residence 02 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,099 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-03/",
     "title": "Residence 03 Floor Plan | Banyan Tree WPB",
     "description": "Residence 03 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,011 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-04/",
     "title": "Residence 04 Floor Plan | Banyan Tree WPB",
     "description": "Residence 04 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,015 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-05/",
     "title": "Residence 05 Floor Plan | Banyan Tree WPB",
     "description": "Residence 05 floor plan at Banyan Tree WPB: 1 bd, 1 + powder ba, 1,655 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-06/",
     "title": "Residence 06 Floor Plan | Banyan Tree WPB",
     "description": "Residence 06 floor plan at Banyan Tree WPB: 2 bd, 2 ba, 2,125 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-2403/",
     "title": "Residence 2403 Floor Plan | Banyan Tree WPB",
     "description": "Residence 2403 floor plan at Banyan Tree WPB: 4 bd, 4 + powder ba, 4,103 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/ph/",
     "title": "PH Floor Plan | La Clara",
     "description": "PH floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-a/",
     "title": "Residence A Floor Plan | La Clara",
     "description": "Residence A floor plan at La Clara: 1 bd, 1.5 ba, 1,203 interior sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-c/",
     "title": "Residence C Floor Plan | La Clara",
     "description": "Residence C floor plan at La Clara: 2 bd, 2.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-d/",
     "title": "Residence D Floor Plan | La Clara",
     "description": "Residence D floor plan at La Clara: 2 bd, 2.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-e/",
     "title": "Residence E Floor Plan | La Clara",
     "description": "Residence E floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-f/",
     "title": "Residence F Floor Plan | La Clara",
     "description": "Residence F floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/north-open-kitchen-plan/",
     "title": "North Open Kitchen Plan Floor Plan | Forté on Flagler",
     "description": "North Open Kitchen Plan floor plan at Forté on Flagler: 4 bd, 4.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/penthouse-residence/",
     "title": "Penthouse Residence Floor Plan | Forté on Flagler",
     "description": "Penthouse Residence floor plan at Forté on Flagler: 4-8 bed options, 10,840 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/south/",
     "title": "South Floor Plan | Forté on Flagler",
     "description": "South floor plan at Forté on Flagler: 4 bd, 4.5 ba. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-a/",
     "title": "Residence A Floor Plan | Maison d'Or",
     "description": "Residence A floor plan at Maison d'Or: 3 bd, 4.5 ba, 5,046 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-a1/",
     "title": "Residence A1 Floor Plan | Maison d'Or",
     "description": "Residence A1 floor plan at Maison d'Or: 3 bd, 4.5 ba, 4,834 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-b/",
     "title": "Residence B Floor Plan | Maison d'Or",
     "description": "Residence B floor plan at Maison d'Or: 2 bd, 3 ba, 3,411 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-c/",
     "title": "Residence C Floor Plan | Maison d'Or",
     "description": "Residence C floor plan at Maison d'Or: 3 bd, 4.5 ba, 5,123 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-c1/",
     "title": "Residence C1 Floor Plan | Maison d'Or",
     "description": "Residence C1 floor plan at Maison d'Or: 3 bd, 4.5 ba, 4,923 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/estate-a/",
     "title": "Estate A Floor Plan | Maison d'Or",
     "description": "Estate A floor plan at Maison d'Or: 4 bd, 5.5 ba, 7,055 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/estate-b/",
     "title": "Estate B Floor Plan | Maison d'Or",
     "description": "Estate B floor plan at Maison d'Or: 4 bd, 5.5 ba, 6,872 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/lph-a/",
     "title": "LPH A Floor Plan | Maison d'Or",
     "description": "LPH A floor plan at Maison d'Or: 4 bd, 5.5 ba, 7,055 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/lph-b/",
     "title": "LPH B Floor Plan | Maison d'Or",
     "description": "LPH B floor plan at Maison d'Or: 4 bd, 5.5 ba, 6,872 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/penthouse/",
     "title": "Penthouse Floor Plan | Maison d'Or",
     "description": "Penthouse floor plan at Maison d'Or: 4 bd, 6 full bath + 3 half bath, 12,744 sq ft. Released drawing and current availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/buildings/",
     "title": "West Palm Beach New Construction Buildings | Buyer Guide",
     "description": "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/map/",
     "title": "West Palm Beach Condo Map | New Construction Corridors",
     "description": "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/corridors/",
     "title": "West Palm Beach Condo Corridors | Buyer Guide",
     "description": "Choose between South Flagler, North Flagler, and Downtown West Palm Beach new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/compare/",
     "title": "Compare West Palm Beach New Construction Condos",
     "description": "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/about/",
@@ -7157,151 +7157,151 @@ export const prerenderRoutes = [
     "path": "/answers/",
     "title": "West Palm Beach New Construction Condo Answers",
     "description": "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/best-new-construction-condos-west-palm-beach/",
     "title": "Best New Condos in West Palm Beach | WPB Answers",
     "description": "A buyer-first answer for comparing West Palm Beach new-construction condo options by corridor, readiness, floorplan depth, and verification needs.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/closest-new-condos-to-palm-beach/",
     "title": "Which New Condos Are Closest to Palm Beach? | WPB Answers",
     "description": "A corridor-based answer for buyers comparing West Palm Beach new-construction condos by Palm Beach proximity and verification needs.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/north-flagler-vs-south-flagler-new-condos/",
     "title": "North Flagler vs South Flagler New Condos | WPB Answers",
     "description": "A buyer guide to comparing North Flagler and South Flagler new-construction condo corridors in West Palm Beach.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/downtown-vs-waterfront-new-construction-condos/",
     "title": "Downtown vs Waterfront West Palm Beach Condos | WPB Answers",
     "description": "A buyer-facing comparison of Downtown West Palm Beach condo projects and Flagler Drive waterfront new construction.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/compare-floor-plans-west-palm-beach-new-construction-condos/",
     "title": "Compare Floor Plans in West Palm Beach | WPB Answers",
     "description": "A practical buyer answer for comparing West Palm Beach new-construction condo floor plans, stacks, exposure, and current packet details.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/west-palm-beach-new-construction-condo-fees-verify/",
     "title": "West Palm Beach New Condo Fees: What to Verify | WPB Answers",
     "description": "A cautious buyer checklist for West Palm Beach new-construction condo fees, carrying costs, and association questions.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/preconstruction-vs-completed-new-construction-condos-west-palm-beach/",
     "title": "Preconstruction vs Completed WPB Condos | WPB Answers",
     "description": "A buyer guide to comparing preconstruction, under-construction, pipeline, and completed/newly delivered West Palm Beach condo options.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/strongest-lifestyle-fit-west-palm-beach-new-condos/",
     "title": "West Palm Beach Condos for Your Lifestyle | WPB Answers",
     "description": "A buyer-lifestyle answer for comparing West Palm Beach new-construction condos by corridor, daily routine, service model, and verification needs.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/maison-dor-vs-south-flagler-house/",
     "title": "Maison d'Or vs South Flagler House | WPB Answers",
     "description": "Compare Maison d'Or and South Flagler House on South Flagler — scale, delivery timing, pricing guidance, and which buyer each flagship fits.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/branded-residences-west-palm-beach/",
     "title": "Branded Residences in West Palm Beach | WPB Answers",
     "description": "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/north-flagler-new-condos-compared/",
     "title": "North Flagler New Condos Compared | WPB Answers",
     "description": "Compare North Flagler new condos — Olara, Shorecrest, Alba, Ritz-Carlton, Mandarin Oriental, Rosewood — on status, scale, timing, and buyer fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/best-new-condos-west-palm-beach-for-boaters/",
     "title": "Best New Condos in West Palm Beach for Boaters | WPB Answers",
     "description": "A boater's guide to West Palm Beach new condos — waterfront position, marina context, and what to verify about dockage before buying.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/most-affordable-new-construction-condos-west-palm-beach/",
     "title": "Most Affordable New Condos in West Palm Beach | WPB Answers",
     "description": "Where sub-$2M new construction actually exists in West Palm Beach — honest price-band guidance and what to verify.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/west-palm-beach-new-condo-delivery-timeline/",
     "title": "West Palm Beach New Condo Delivery Timeline | WPB Answers",
     "description": "Delivery timing across West Palm Beach new condos — what's completed, under construction, and pipeline, and how to verify dates.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/west-palm-beach-vs-fort-lauderdale-new-condos/",
     "title": "West Palm Beach vs Fort Lauderdale New Condos | WPB Answers",
     "description": "A decision framework for choosing between West Palm Beach and Fort Lauderdale new condos — with an honest note on what this site tracks.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/pet-friendly-new-construction-condos-west-palm-beach/",
     "title": "Pet-Friendly New Condos in West Palm Beach | WPB Answers",
     "description": "How to evaluate pet policies in West Palm Beach new condos — what the catalog confirms and the exact questions to ask sales teams.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/south-flagler-new-condos-compared/",
     "title": "South Flagler New Condos Compared | WPB Answers",
     "description": "Compare South Flagler new condos — South Flagler House, Maison d'Or, Forté on Flagler, La Clara — on status, scale, timing, and buyer fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/downtown-west-palm-beach-new-condos-compared/",
     "title": "Downtown West Palm Beach New Condos Compared | WPB Answers",
     "description": "Compare Downtown WPB new condos — NORA House, Mr. C, The Berkeley, Banyan Tree — on status, service model, pricing guidance, and buyer fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/olara-vs-shorecrest/",
     "title": "Olara vs Shorecrest | WPB Answers",
     "description": "Compare Olara and Shorecrest on North Flagler — scale, pricing guidance, delivery timing, and which 2028-wave buyer each fits.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/move-in-ready-new-condos-west-palm-beach/",
     "title": "Move-In-Ready New Condos in West Palm Beach | WPB Answers",
     "description": "The completed new condos in West Palm Beach — Alba, La Clara, Forté on Flagler — and how to verify specific residence availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/new-construction-penthouses-west-palm-beach/",
     "title": "New Construction Penthouses in West Palm Beach | WPB Answers",
     "description": "Where penthouse plans are released in West Palm Beach new construction — and what to verify about pricing, exposure, and availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/nora-house-vs-the-berkeley/",
     "title": "NORA House vs The Berkeley | WPB Answers",
     "description": "Compare NORA House and The Berkeley in Downtown WPB — district positioning, pricing guidance, status, and which buyer each fits.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/palm-beach-island-new-construction-guide/",
     "title": "Palm Beach Island New Construction Guide | WPB Answers",
     "description": "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/updates/west-palm-point-tent-site-delay-2029-2026-09-25/",
@@ -7517,7 +7517,7 @@ export const prerenderRoutes = [
     "path": "/downtown-spotlight/",
     "title": "Downtown Spotlight | West Palm Beach Condo District Notes",
     "description": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/downtown-spotlight/urban-roast-opens-on-datura-street/",
@@ -7529,7 +7529,7 @@ export const prerenderRoutes = [
     "path": "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/",
     "title": "Fuku at CityPlace: easy downtown draw | Downtown Spotlight",
     "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work and into the late shift.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/downtown-spotlight/nora-hotel-countdown/",
@@ -7589,7 +7589,7 @@ export const prerenderRoutes = [
     "path": "/market-notes/",
     "title": "West Palm Beach Condo Guidance | Buyer Intelligence",
     "description": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/olara-special-pricing-keeps-north-flagler-in-play/",
@@ -7607,7 +7607,7 @@ export const prerenderRoutes = [
     "path": "/market-notes/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact | Buyer Intelligence",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/are-branded-residences-worth-it-west-palm-beach/",
@@ -7631,31 +7631,31 @@ export const prerenderRoutes = [
     "path": "/market-notes/active-sales-vs-pipeline-watch/",
     "title": "Active sales vs. pipeline watch | Buyer Intelligence",
     "description": "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/",
     "title": "Olara vs. Shorecrest buyer profiles | Buyer Intelligence",
     "description": "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/why-published-floor-plans-matter/",
     "title": "Why published floor plans matter | Buyer Intelligence",
     "description": "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/what-buyers-should-verify-before-trusting-pricing/",
     "title": "Verifying new-construction pricing | Buyer Intelligence",
     "description": "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/downtown-west-palm-beach-condo-corridors-explained/",
     "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/market-notes/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping/",
@@ -7685,25 +7685,25 @@ export const prerenderRoutes = [
     "path": "/corridors/north-flagler/",
     "title": "North Flagler New Condos | Compare & Floor Plans",
     "description": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: floor plans, waterfront settings, active sales and buyer guidance.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/corridors/downtown-west-palm-beach/",
     "title": "Downtown West Palm Beach Condos | Buyer Guide",
     "description": "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/corridors/south-flagler/",
     "title": "South Flagler Condos | West Palm Beach Buyer Guide",
     "description": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/corridors/south-end/",
     "title": "South End West Palm Beach Developments | Area Guide",
     "description": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/corridors/palm-beach/",
@@ -7715,31 +7715,31 @@ export const prerenderRoutes = [
     "path": "/methodology/",
     "title": "How We Verify | WPB New Construction",
     "description": "How WPB New Construction separates official sources, reported details, and items to confirm before relying on project information.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/fair-housing/",
     "title": "Fair Housing | WPB New Construction",
     "description": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/privacy/",
     "title": "Privacy | WPB New Construction",
     "description": "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/terms/",
     "title": "Terms | WPB New Construction",
     "description": "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/inquire/",
     "title": "West Palm Beach Condo Buyer Research Desk | Inquiry",
     "description": "Ask for current condo availability, pricing checks, floor-plan and residence-line comparisons, delivery context, and tour strategy in West Palm Beach.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/projects/alba-palm-beach/",
@@ -7883,6 +7883,6 @@ export const prerenderRoutes = [
     "path": "/projects/the-sound-west-palm-beach/",
     "title": "The Sound Apartments West Palm Beach | Rental Guide",
     "description": "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   }
 ] as const;

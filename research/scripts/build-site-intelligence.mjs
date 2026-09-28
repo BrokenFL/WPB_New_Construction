@@ -267,7 +267,7 @@ const siteMeta = {
     phone: "561-891-0186",
     brokerage: "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
   },
-  defaultImage: "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+  defaultImage: "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png",
 };
 
 const answerBlocks = [
