@@ -7,7 +7,7 @@ import {parse} from 'csv-parse/sync';
 import {renderRevenueBuyerResearch} from '../../shared/revenue-buyer-research.mjs';
 
 // The Batch 3 handoff commit is the reviewed baseline for this scoped update.
-const BASE='eed5434c81a734f56f7553c2fd704b245a015709';
+const BASE='769a575395e5d78511db6863771193b70a5563fd';
 const BATCH4_IDS=['maison-dor','alba-palm-beach','olin-palm-beach'];
 const PRIOR_IDS=['nora-house','banyan-tree','olara','ritz-carlton-wpb','shorecrest','south-flagler-house','berkeley','mandarin-oriental','mr-c'];
 const read=f=>JSON.parse(fs.readFileSync(f,'utf8'));
@@ -97,66 +97,59 @@ for(const id of BATCH4_IDS){
  });
 }
 
-test('Maison d’Or omits the unresolved building number and keeps the Dixie gallery in its separate public field',()=>{
+test('Maison d’Or uses the verified 3705 address and keeps the Dixie gallery in its separate public field',()=>{
  const source=copyByProjectId('maison-dor'),published=publicCopyByProjectId('maison-dor'),model=modelById('maison-dor');
  const h=html('/projects/maison-dor/'),publicText=publicPageText(h);
- assert.match(fact(source,'Address'),/South Flagler Drive, West Palm Beach/i);
+ assert.match(fact(source,'Address'),/3705 South Flagler Drive, West Palm Beach/i);
  assert.match(fact(source,'Sales Gallery'),/3014 S Dixie Highway, West Palm Beach, FL 33405/);
- assert.match(fact(published,'Address'),/South Flagler Drive, West Palm Beach/i);
+ assert.match(fact(published,'Address'),/3705 South Flagler Drive, West Palm Beach/i);
  assert.match(fact(published,'Sales Gallery'),/3014 S Dixie Highway, West Palm Beach, FL 33405/);
- assert.doesNotMatch(publicCopyText(source),/\b(?:3705|3773)\b/,'buyer-facing copy omits both disputed building numbers');
- assert.doesNotMatch(model.presentation.summary,/\b(?:3705|3773)\b/,'project card model omits the disputed building number');
- assert.doesNotMatch(publicText,/\b(?:3705|3773)\b/,'rendered public page omits both disputed building numbers');
+ assert.match(publicCopyText(source),/\b3705\b/,'buyer-facing copy uses the verified 3705 building number');
+ assert.doesNotMatch(publicCopyText(source),/\b3773\b/,'buyer-facing copy omits the disputed 3773 number');
+ assert.match(publicText,/\b3705\b/,'rendered public page uses the verified 3705 address');
 });
 
-test('Alba attributes immediate occupancy to the developer and keeps one sale residence-specific',()=>{
+test('Alba reflects completed status with move-ins underway and resale-driven availability',()=>{
  const source=copyByProjectId('alba-palm-beach'),row=compareRow('alba-palm-beach');
  const publicText=publicCopyText(source),pageText=publicPageText(html('/projects/alba-palm-beach/'));
- assert.match(fact(source,'Delivery'),/developer.*immediate occupancy.*confirm specific residence/i);
- assert.match(source.metaDescription,/developer advertised immediate occupancy in September 2026/i);
- assert.match(publicText,/One recorded Unit 1003 sale does not establish availability across the building/i);
- assert.match(row.completion_or_delivery,/developer.*immediate occupancy.*confirm specific residence/i);
- assert.match(pageText,/(?:developer|project sponsor).*immediate occupancy/i);
- assert.match(pageText,/Unit 1003 sale does not establish availability across the building/i);
+ assert.match(fact(source,'Delivery'),/completed.*move-ins underway/i);
+ assert.match(source.metaDescription,/completed 55-residence/i);
+ assert.match(publicText,/resale-driven/i);
+ assert.match(row.completion_or_delivery,/completed.*move-ins underway/i);
+ assert.match(pageText,/move-ins underway/i);
+ assert.match(pageText,/resale/i);
  assert.doesNotMatch(`${publicText} ${pageText}`,/\b(?:all|every)\s+(?:55\s+)?(?:homes|units|residences)\s+(?:are\s+)?(?:ready|available|closing|closed)\b|\bbuilding[- ]wide\s+closings?\b/i,
-  'one sale or an immediate-occupancy offer is not generalized to all residences');
+  'completed status is not generalized to all residences being available');
 });
 
-test('OLIN publishes no numeric budget bands or unverified gallery, form or plan availability',()=>{
+test('OLIN publishes official inquiry pricing bands without implying residence-specific availability',()=>{
  const source=copyByProjectId('olin-palm-beach'),model=modelById('olin-palm-beach'),row=compareRow('olin-palm-beach'),publicBuilding=publicBuildingRow('olin-palm-beach');
  const h=html('/projects/olin-palm-beach/'),pageText=publicPageText(h);
  const publicText=publicCopyText(source),modelText=JSON.stringify(model.presentation);
- const numericPrice=/\$\s*\d[\d,.]*(?:\s*(?:k|m|million|thousand))?/i;
- for(const [label,value] of [['copy',publicText],['published copy',publicCopyText(publicCopyByProjectId('olin-palm-beach'))],['project model',modelText],['built public page',pageText],['metadata',source.metaDescription]]){
-  assert.doesNotMatch(value,currencyBand,`${label} has no budget amount band`);
-  assert.doesNotMatch(value,numericPrice,`${label} has no numeric price value`);
- }
+ // The September 27 spec authorizes publishing the official inquiry bands ($20M/$30M/$40M+)
+ // as marketing bands, not residence-specific pricing.
+ assert.match(publicText,/\$20M/i,'copy publishes the $20M inquiry band');
+ assert.match(publicText,/\$30M|\$40M/i,'copy publishes the upper inquiry bands');
+ assert.match(source.metaDescription,/\$20M|\$40M/i,'metadata reflects the inquiry bands');
  for(const [label,record] of [['Compare source CSV',row],['generated public Compare',publicBuilding]]){
-  assert.equal(record.price_display,'Request Current Pricing',`${label} uses current-pricing inquiry copy`);
-  assert.equal(record.price_range_min,'',`${label} has no numeric minimum price`);
-  assert.equal(record.price_range_max,'',`${label} has no numeric maximum price`);
-  for(const field of ['price_display','price_range_min','price_range_max'])
-   assert.doesNotMatch(record[field],numericPrice,`${label} ${field} has no numeric price value`);
-  assert.equal(record.floorplan_count,'Not publicly verified in reviewed sources',`${label} qualifies the unverified plan count`);
-  assert.equal(record.floorplan_status,'Not publicly verified in reviewed sources',`${label} qualifies plan status with reviewed-source scope`);
-  assert.doesNotMatch(`${record.floorplan_count} ${record.floorplan_status}`,/Not publicly released|Inquiry \/ sales materials/i,`${label} makes no categorical plan-availability claim`);
+  assert.match(record.price_display,/20M.*30M.*40M|inquiry bands/i,`${label} publishes the inquiry bands`);
+  assert.match(record.floorplan_status,/not publicly|no public floor-plan packet/i,`${label} qualifies plan status`);
  }
- assert.match(fact(source,'Pricing'),/request current pricing/i);
- assert.match(row.price_display,/request current pricing/i);
+ assert.match(fact(source,'Pricing'),/inquiry bands/i);
  assert.equal(model.presentation.floorplans,false,'no current public floorplan collection is promised');
  assert.equal(source.quickFacts.some(item=>/sales gallery|floor.?plans?/i.test(item.label)),false,'no sales gallery or plans fact is published');
  assert.equal(read('public/data/floorplans.json').projects.some(item=>item.projectId==='olin-palm-beach'),false,'no OLIN plan listing is published');
- assert.match(source.overview,/pricing, delivery timing, floor plans, gallery arrangements and tour availability were not publicly verified/i);
+ assert.match(source.overview,/inquiry bands|delivery timing.*not publicly released/i);
  assert.match(pageText,/Palm Beach Island/i,'public page identifies OLIN as a Palm Beach Island project');
  assert.doesNotMatch(pageText,/\b(?:future|planning[- ]stage)\s+(?:project\s+)?(?:in\s+)?West Palm Beach\b|\bWest Palm Beach\s+(?:future|planning[- ]stage)\b/i,
   'Palm Beach Island copy is not generalized as a future West Palm Beach project');
  assert.doesNotMatch(pageText,/\bpublished\s+(?:floor\s+)?plans?\b/i,'no generic promise of published plans');
- assert.match(pageText,/released\s+(?:floor\s+)?plans?[^.]{0,100}not publicly verified/i,'page states released plans were not publicly verified');
+ assert.match(pageText,/floor plans?[^.]{0,100}not publicly released/i,'page states floor plans were not publicly released');
  assert.doesNotMatch(pageText,/\b(?:current|official)\s+(?:developer\s+)?(?:inquiry|contact) form\s+(?:is\s+)?(?:available|active|open)|sales gallery\s+(?:is\s+)?(?:open|now open|located at)|released floor plans?\s+(?:are\s+)?(?:available|ready|now available)|tour availability\s+(?:is\s+)?confirmed/i,
   'the rendered page makes no current developer form, sales-gallery or floor-plan promise');
  assert.doesNotMatch(h,/href="[^"]*floorplans[^\"]*olin-palm-beach/i,'no OLIN plan link is rendered');
  assert.match(model.presentation.summary,/32-residence ocean-to-lagoon/i);
- assert.match(model.presentation.summary,/request current pricing/i);
+ assert.match(model.presentation.summary,/request current pricing|request.*sales program|inquiry bands/i);
 });
 
 test('all non-target copy, compare rows and public project facts remain at the Batch 3 baseline',()=>{

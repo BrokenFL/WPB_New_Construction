@@ -3117,6 +3117,7 @@ function buildPublicProjectCopyPackage(records) {
     projectTeamNarrative: record.projectTeamNarrative,
     sourceUrls: (record.sourceUrls || []).filter(isPublicHttpUrl),
     lastCopyResearchDate: record.lastCopyResearchDate,
+    faqs: Array.isArray(record.faqs) ? record.faqs.filter((faq) => faq && typeof faq.question === "string" && typeof faq.answer === "string").map((faq) => ({ question: faq.question, answer: faq.answer })) : undefined,
   }));
 }
 

@@ -7025,8 +7025,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/alba-palm-beach/",
-    "title": "Alba Palm Beach | North Flagler New Construction Condos",
-    "description": "Alba Palm Beach is a 55-residence North Flagler condominium with developer sales active. The developer advertised immediate occupancy in September 2026; confirm specific availability.",
+    "title": "Alba Palm Beach | Completed North Flagler Waterfront Condos",
+    "description": "Alba Palm Beach: completed 55-residence North Flagler waterfront condo by BGI Companies. Day docks, terraces, from $2.5M. Request current pricing.",
     "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
@@ -7073,8 +7073,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/maison-dor/",
-    "title": "Maison d Or West Palm Beach | South Flagler Condo Watch",
-    "description": "Maison d Or is a 39-residence South Flagler condominium with published pricing from $5.7M, released plans and a separate Dixie Highway sales gallery.",
+    "title": "Maison d'Or West Palm Beach | South Flagler Buyer Guide",
+    "description": "Maison d'Or buyer guide: 39 South Flagler waterfront residences from $5.7M — Kolter Urban and Perko, 10 Design, late-2028 delivery. Request current pricing.",
     "ogImage": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp"
   },
   {
@@ -7134,7 +7134,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/olin-palm-beach/",
     "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
-    "description": "OLIN Palm Beach is a 32-residence ocean-to-lagoon condominium by OKO Group and Cain International. OKO listed pre-construction sales in September 2026.",
+    "description": "OLIN Palm Beach: 32 ocean-to-lagoon island residences by OKO Group and Cain, OMA design. Sales launched, under $20M to over $40M. Request availability.",
     "ogImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp"
   },
   {

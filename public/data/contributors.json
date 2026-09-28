@@ -17,16 +17,28 @@
       "license": "BK3291335",
       "team": "The Scott Gordon Team",
       "brokerage": "Douglas Elliman Real Estate",
-      "geographicFocus": ["West Palm Beach", "Palm Beach"],
-      "expertise": ["West Palm Beach new-construction buyer research", "Palm Beach and West Palm Beach residential real estate"],
+      "geographicFocus": [
+        "West Palm Beach",
+        "Palm Beach"
+      ],
+      "expertise": [
+        "West Palm Beach new-construction buyer research",
+        "Palm Beach and West Palm Beach residential real estate"
+      ],
       "bio": "Brooke Snader is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Brooke is responsible for buyer-facing research, project-guide context and source-backed comparisons explicitly assigned to him on the site.",
       "profileUrl": "https://www.wpbnewconstruction.com/about/#brooke-snader",
-      "sameAs": ["https://www.elliman.com/agent/brooke-snader/1025144"],
+      "sameAs": [
+        "https://www.elliman.com/agent/brooke-snader/1025144"
+      ],
       "verification": {
         "source": "Douglas Elliman agent/team directory",
         "url": "https://www.elliman.com/agent/brooke-snader/1025144",
         "verifiedOn": "2026-09-08",
-        "facts": ["Broker Associate", "Florida license BK3291335", "The Scott Gordon Team membership"]
+        "facts": [
+          "Broker Associate",
+          "Florida license BK3291335",
+          "The Scott Gordon Team membership"
+        ]
       }
     },
     {
@@ -37,22 +49,39 @@
       "license": "BK383426",
       "team": "The Scott Gordon Team",
       "brokerage": "Douglas Elliman Real Estate",
-      "geographicFocus": ["Palm Beach", "West Palm Beach"],
-      "expertise": ["Palm Beach residential real estate"],
+      "geographicFocus": [
+        "Palm Beach",
+        "West Palm Beach"
+      ],
+      "expertise": [
+        "Palm Beach residential real estate"
+      ],
       "bio": "Scott Gordon is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Scott is identified as a contributor and is named as a reviewer only when that review responsibility has been specifically confirmed.",
       "profileUrl": "https://www.wpbnewconstruction.com/about/#scott-gordon",
-      "sameAs": ["https://www.elliman.com/agent/scott-gordon-pa/1195935"],
+      "sameAs": [
+        "https://www.elliman.com/agent/scott-gordon-pa/1195935"
+      ],
       "verification": {
         "source": "Douglas Elliman agent/team directory",
         "url": "https://www.elliman.com/agent/scott-gordon-pa/1195935",
         "verifiedOn": "2026-09-08",
-        "facts": ["Broker Associate", "Florida license BK383426", "The Scott Gordon Team membership"]
+        "facts": [
+          "Broker Associate",
+          "Florida license BK383426",
+          "The Scott Gordon Team membership"
+        ]
       }
     }
   ],
   "assignmentPolicy": {
-    "about": {"author": "brooke-snader", "updatedOn": "2026-09-08"},
-    "methodology": {"author": "brooke-snader", "updatedOn": "2026-09-08"},
+    "about": {
+      "author": "brooke-snader",
+      "updatedOn": "2026-09-08"
+    },
+    "methodology": {
+      "author": "brooke-snader",
+      "updatedOn": "2026-09-08"
+    },
     "compare": {},
     "project": {},
     "corridor": {},
@@ -62,8 +91,22 @@
     "downtown-spotlight": {}
   },
   "routeAssignments": {
-    "/projects/rosewood-residences-west-palm-beach/": {"reviewer": "brooke-snader", "reviewedOn": "2026-09-08"},
-    "/projects/maison-dor/": {"reviewer": "brooke-snader", "reviewedOn": "2026-09-08"}
+    "/projects/rosewood-residences-west-palm-beach/": {
+      "reviewer": "brooke-snader",
+      "reviewedOn": "2026-09-08"
+    },
+    "/projects/maison-dor/": {
+      "reviewer": "brooke-snader",
+      "reviewedOn": "2026-09-27"
+    },
+    "/projects/alba-palm-beach/": {
+      "reviewer": "brooke-snader",
+      "reviewedOn": "2026-09-27"
+    },
+    "/projects/olin-palm-beach/": {
+      "reviewer": "brooke-snader",
+      "reviewedOn": "2026-09-27"
+    }
   },
   "assignmentNotes": {
     "scottReview": "Scott Gordon is not presented as a reviewer in this draft until an actual page review is specifically confirmed.",

@@ -4878,7 +4878,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
             : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
             ? [buildLegalPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: pageSchemaName(routeType), path: `/${routeType}/` }])]
           : activeProject
-            ? [buildProjectBreadcrumbSchema(activeProject), buildProjectSchema(activeProject)]
+            ? [buildProjectBreadcrumbSchema(activeProject), buildProjectSchema(activeProject), ...buildProjectFaqSchemaEntry(activeProject)]
             : [buildWebPageSchema(routeType), buildHomeItemListSchema()];
 
   setJsonLd({
@@ -5095,6 +5095,29 @@ function projectStartingOffer(projectId: string) {
     price: entry.amount,
     priceCurrency: "USD",
     description: entry.label,
+  };
+}
+
+function buildProjectFaqSchemaEntry(project: FeaturedProject) {
+  const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
+  const faqs = copyPackage?.faqs;
+  if (!faqs || faqs.length === 0) return [];
+  return [buildProjectFaqSchema(project, faqs)];
+}
+
+function buildProjectFaqSchema(project: FeaturedProject, faqs: Array<{ question: string; answer: string }>) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${siteMeta.baseUrl}/projects/${project.id}/#faq`,
+    name: `${project.name} FAQ`,
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 
@@ -8940,7 +8963,7 @@ function renderProjectEntityBrief(
         <h2>Common buyer questions about ${publicText(project.name)}.</h2>
       </div>
       <div class="answer-list">
-        ${projectEntityFaq(project, sourceFact, floorplanProject).map((item) => `
+        ${projectEntityFaq(project, sourceFact, floorplanProject, copyPackage).map((item) => `
           <article class="answer-block">
             <h3>${publicText(item.question)}</h3>
             <p>${publicText(item.answer)}</p>
@@ -9013,8 +9036,13 @@ function projectEntityFaq(
   project: FeaturedProject,
   sourceFact: ReturnType<typeof sourceFactForProject> | undefined,
   floorplanProject: ReturnType<typeof getFloorplanProject>,
+  copyPackage?: ProjectCopyPackage,
 ) {
   const facts = sourceFact?.facts;
+  const customFaqs = copyPackage?.faqs;
+  if (customFaqs && customFaqs.length > 0) {
+    return customFaqs.map((faq) => ({ question: faq.question, answer: faq.answer }));
+  }
   if (project.id === "olin-palm-beach") {
     return [
       {

@@ -90,6 +90,7 @@ export type ProjectCopyPackage = {
   projectTeamNarrative: string;
   sourceUrls: string[];
   lastCopyResearchDate: string;
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 export const batch1ProjectCopyByProjectId = new Map<string, ProjectCopyPackage>();

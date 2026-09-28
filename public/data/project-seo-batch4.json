@@ -75,32 +75,32 @@
     "slug": "maison-dor",
     "path": "/projects/maison-dor/",
     "canonical": "https://www.wpbnewconstruction.com/projects/maison-dor/",
-    "title": "Maison d Or West Palm Beach | South Flagler Condo Watch",
-    "description": "Maison d Or is a 39-residence South Flagler condominium with published pricing from $5.7M, released plans and a separate Dixie Highway sales gallery.",
+    "title": "Maison d'Or West Palm Beach | South Flagler Buyer Guide",
+    "description": "Maison d'Or buyer guide: 39 South Flagler waterfront residences from $5.7M — Kolter Urban and Perko, 10 Design, late-2028 delivery. Request current pricing.",
     "h1": "Maison d’Or West Palm Beach Buyer Guide",
     "eyebrow": "South Flagler · Official sales materials available",
-    "opening": "Maison d’Or is a 39-residence boutique waterfront condominium marketed on South Flagler Drive. Its official materials now provide enough residence and amenity detail for a substantive buyer comparison: two- to four-bedroom layouts, expansive terraces, private elevator access and a broad waterfront amenity program. The released drawings and starting-price language are useful orientation, not proof that a particular residence is currently available.",
-    "buyerFit": "Best suited to buyers prioritizing a small residence count, large flow-through layouts, east-and-west outdoor space and a quieter South Flagler setting over the scale and social energy of larger waterfront towers.",
-    "location": "Maison d’Or is marketed on the South Flagler waterfront, with Intracoastal and Palm Beach orientation. Because address references have differed across public materials and records, this guide does not turn an unverified street number into a buyer fact; confirm the legal project address in current offering documents.",
+    "opening": "Maison d'Or is a 39-residence boutique waterfront condominium at 3705 South Flagler Drive, developed by Kolter Urban with Perko Development Partners. Its official materials now support a substantive buyer comparison: 10 Design architecture, HBA interiors, two- to four-bedroom flow-through layouts with east-and-west terraces, private elevator entry, and a broad waterfront amenity program. Starting pricing from $5.7M is published marketing, not proof that a particular residence is currently available.",
+    "buyerFit": "Best suited to buyers prioritizing a small residence count, large flow-through layouts, east-and-west outdoor space, and a quieter South Flagler setting over the scale and social energy of larger waterfront towers — and who are comfortable with a targeted late-2028 delivery.",
+    "location": "Maison d'Or is at 3705 South Flagler Drive on the Intracoastal Waterway, across from Palm Beach Island near Southern Boulevard, with sunrise water views and sunset city views. (ZIP omitted: not re-verified against county records in this review.)",
     "status": {
-      "marketing": "The official project site marketed 39 residences with published starting guidance from $5.7 million when reviewed in September 2026; request current residence-specific terms.",
-      "construction": "The reviewed official pages do not establish a construction milestone or guaranteed completion date, so this guide does not publish one.",
+      "marketing": "The official project site is actively marketing a limited collection of 39 residences, currently advertising starting pricing from $5.7M.",
+      "construction": "Groundbreaking is planned for fall 2026 with completion targeted for late 2028 (4Q 2028), per published reports. Timelines on pre-construction projects can shift.",
       "availability": "Official marketing describes the offered collection, but residence-specific availability and current pricing require a current buyer packet."
     },
     "verifiedFacts": [
-      "Official project materials describe 39 waterfront residences.",
-      "The official residence page publishes two- to four-bedroom layouts across Residence, Estate and Penthouse collections.",
-      "Published layouts include private residential elevator-lobby access, expansive exterior terraces and Sub-Zero/Wolf appliance packages.",
-      "Official marketing currently states starting pricing from $5.7 million; current residence-specific pricing and availability still require verification."
+      "Developed by Kolter Urban with Perko Development Partners (PK Flagler LLC); architecture by 10 Design, interiors by HBA, landscape by EDSA.",
+      "19 stories with 39 residences; eight floor plans reported, two- to four-bedroom layouts with flow-through plans and east-and-west terraces.",
+      "Published layouts include private residential elevator-lobby access and Sub-Zero/Wolf appliance packages.",
+      "Starting pricing from $5.7M published; four-bedroom estate residences reported from $12.9M; full-floor penthouse unveiled at $39.7M (August 2026). Current residence-specific pricing and availability still require verification."
     ],
     "amenities": [
-      "Official marketing describes a waterfront resort-style pool and spa, fitness and wellness spaces, private dining, screening room and other resident amenities.",
-      "The project site also describes guest suites, wine-oriented spaces and waterfront programming; service levels and operating costs should be confirmed from current offering materials.",
-      "Amenity marketing is not presented as a guarantee of future access terms or association fees."
+      "Waterfront resort-style pool deck and spa with day cabanas; fitness and wellness spaces including sauna/steam and salon.",
+      "Private dining, cocktail bar and wine tasting room, screening theater, and sports simulator.",
+      "Guest suites, dog spa, and boat dock; service levels and operating costs should be confirmed from current offering materials."
     ],
     "residences": [
-      "Official floor plans span two- to four-bedroom residences, generally with dens and expansive terraces.",
-      "The official Residence Collection includes approximately 3,411 to 5,123 square feet in published plans; larger Estate and Penthouse plans extend beyond that range.",
+      "Two- to four-bedroom residences, generally with dens and expansive east-and-west terraces (one report references one-bedroom plans — unconfirmed).",
+      "Published plans span roughly 3,000+ sq ft to a 10,190 sq ft full-floor penthouse; larger Estate and Penthouse plans extend beyond the standard range.",
       "Published plan dimensions are useful for layout comparison but do not establish current inventory."
     ],
     "links": [
@@ -127,7 +127,7 @@
     ],
     "availabilityHref": "/inquire/?project=maison-dor&interest=Request%20current%20availability",
     "packetHref": "/inquire/?project=maison-dor&interest=Pricing%20%2B%20floor-plan%20packet",
-    "reviewedOn": "2026-09-23",
+    "reviewedOn": "2026-09-27",
     "sources": [
       {
         "label": "Maison d’Or official site — building overview",
@@ -138,6 +138,150 @@
         "label": "Maison d’Or official residence and floor-plan page",
         "url": "https://livemaisondor.com/the-residences/",
         "kind": "official"
+      },
+      {
+        "label": "Palm Beach Post — buyout/Maison d'Or report (Aug 2026)",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/08/31/west-palm-beach-waterfront-condos-targeted-for-buyouts-exclusive/91491871007/",
+        "kind": "press"
+      },
+      {
+        "label": "World Red Eye — $39.7M penthouse unveiling (Aug 2026)",
+        "url": "https://worldredeye.com/2026/08/wre-news-39-7m-full-floor-penthouse-unveiled-at-maison-dor-in-west-palm-beach/",
+        "kind": "press"
+      }
+    ]
+  },
+  {
+    "projectId": "alba-palm-beach",
+    "slug": "alba-palm-beach",
+    "path": "/projects/alba-palm-beach/",
+    "canonical": "https://www.wpbnewconstruction.com/projects/alba-palm-beach/",
+    "title": "Alba Palm Beach | Completed North Flagler Waterfront Condos",
+    "description": "Alba Palm Beach: completed 55-residence North Flagler waterfront condo by BGI Companies. Day docks, terraces, from $2.5M. Request current pricing.",
+    "h1": "Alba Palm Beach",
+    "eyebrow": "North Flagler · Completed · Move-ins underway",
+    "opening": "Alba Palm Beach is a completed 22-story, 55-residence boutique waterfront condominium at 4714 N. Flagler Drive, developed by BGI Companies with Blue Road and designed by Spina O'Rourke + Partners. With move-ins underway and 95% of direct water-view residences reported sold, it is the corridor's move-in-ready alternative to pre-construction towers: day docks, deep terraces with summer kitchens, and a 25,500 sq ft amenity level. Current choice is resale-driven; residence-specific pricing, HOA, and terms require a current listing.",
+    "buyerFit": "Best suited to buyers who want North Flagler waterfront living without construction-timing risk: a quieter 55-residence scale, boating access via day docks (confirm per residence), and generous terraces — traded against the deeper resort programs of larger towers.",
+    "location": "Alba Palm Beach is at 4714 N. Flagler Drive, West Palm Beach, FL 33407, in the Northwood neighborhood on the Intracoastal Waterway — north of downtown, minutes from Palm Beach and the marina scene.",
+    "status": {
+      "marketing": "Developer sellout substantially complete (95% of direct water-view residences reported sold); current availability is resale-driven.",
+      "construction": "Completed. Move-ins underway as of mid-2026; built 2025 per county/MLS records.",
+      "availability": "No developer inventory marketed; request current resale listings for residence-specific pricing, HOA, and terms."
+    },
+    "verifiedFacts": [
+      "Developed by BGI Companies (Kenneth Baboun) with Blue Road; architecture by Spina O'Rourke + Partners; built by Moss Construction.",
+      "22 stories, 55 residences including penthouse residences and townhomes; two- to four-bedroom layouts, 1,778–4,237 sq ft.",
+      "Water views from every residence; 9- to 10-foot ceilings; Italkraft kitchens with Sub-Zero and Wolf appliances; summer kitchens on deep terraces.",
+      "Developer pricing started at $2.5M (average ~$3.5M); resale example: 2 bd + den at ~$2.7M with $3,195/mo HOA (Sept 2026 listing). Request current listings."
+    ],
+    "amenities": [
+      "25,500 sq ft full-floor amenity level with sunrise and sunset pools.",
+      "TechnoGym fitness center, yoga and Pilates studios, multisport simulator, spa and sauna.",
+      "Private dining with per-owner wine storage, pet spa, home theater, bocce, cafe; on-site health services via Mount Sinai.",
+      "24-hour doorman and valet, private gated entry, dock with boat-slip access; confirm dock rights per residence."
+    ],
+    "residences": [
+      "Two- to four-bedroom residences plus townhomes; 1,778–4,237 sq ft interiors with deep terraces.",
+      "Seven canonical plans tracked in the floor-plan library for layout orientation.",
+      "Resale condition, exposure, HOA, and seller terms vary by residence — verify the specific listing."
+    ],
+    "links": [
+      {
+        "label": "North Flagler corridor guide",
+        "href": "/corridors/north-flagler/"
+      },
+      {
+        "label": "Olara buyer guide",
+        "href": "/projects/olara/"
+      },
+      {
+        "label": "Mandarin Oriental Residences",
+        "href": "/projects/mandarin-oriental/"
+      },
+      {
+        "label": "Browse floor plans",
+        "href": "/floorplans/"
+      },
+      {
+        "label": "Compare West Palm Beach buildings",
+        "href": "/compare/"
+      }
+    ],
+    "availabilityHref": "/inquire/?project=alba-palm-beach&interest=Request%20current%20resale%20listings",
+    "packetHref": "/inquire/?project=alba-palm-beach&interest=Resale%20packet%20%2B%20HOA%20docs",
+    "reviewedOn": "2026-09-27",
+    "sources": [
+      {
+        "label": "Florida YIMBY — Alba Palm Beach move-ins (June 2026)",
+        "url": "https://floridayimby.com/2026/06/alba-palm-beach-begins-move-ins-at-4714-north-flagler-drive-in-west-palm-beach.html",
+        "kind": "press"
+      },
+      {
+        "label": "Palm Beach Post — Alba Palm Beach (June 2026)",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/17/alba-palm-beach-condo-tower-west-palm-beach/84037904007/",
+        "kind": "press"
+      }
+    ]
+  },
+  {
+    "projectId": "olin-palm-beach",
+    "slug": "olin-palm-beach",
+    "path": "/projects/olin-palm-beach/",
+    "canonical": "https://www.wpbnewconstruction.com/projects/olin-palm-beach/",
+    "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
+    "description": "OLIN Palm Beach: 32 ocean-to-lagoon island residences by OKO Group and Cain, OMA design. Sales launched, under $20M to over $40M. Request availability.",
+    "h1": "OLIN Palm Beach",
+    "eyebrow": "Palm Beach Island · Sales launched · Breaking ground",
+    "opening": "OLIN Palm Beach is a 32-residence ocean-to-lagoon condominium on Palm Beach Island's South End — the island's first new South End condo development in 20 years. Developed by OKO Group and Cain International and designed by OMA with GACHOT interiors, its three five-story buildings span the Atlantic Ocean and Lake Worth Lagoon. Sales are launched via The Corcoran Group with inquiry bands from under $20M to over $40M; delivery timing, residence pricing, fees, and operating rules are not publicly released.",
+    "buyerFit": "Best suited to Palm Beach Island buyers who prioritize scarcity and design credentials — low-rise scale, ocean-to-lagoon land, OMA/GACHOT pedigree — and who are comfortable entering at an early stage with delivery timing still to be confirmed.",
+    "location": "OLIN Palm Beach is at 2720 & 2730 S. Ocean Blvd, Palm Beach, FL 33480, on the island's South End — oceanfront on the east parcel, lagoon-front on the west — near the Palm Beach Par 3 Golf Course and minutes from Worth Avenue.",
+    "status": {
+      "marketing": "Sales launched. The Corcoran Group is the exclusive sales and marketing brokerage; the official site runs an inquiry program banding residences up to $20M, up to $30M, and over $40M.",
+      "construction": "Breaking ground / early site work following conditional Architectural Commission approval (Oct 2025). No public delivery date.",
+      "availability": "Residence-specific pricing and availability are not published — request the current sales program."
+    },
+    "verifiedFacts": [
+      "Developed by OKO Group (Vlad Doronin) and Cain International; site acquired October 2022 for $147.6M (former Ambassador Hotel + Edgewater House).",
+      "Three five-story buildings; official count 32 residences (earlier filings showed 41 — confirm with sales).",
+      "Architecture by OMA (Rem Koolhaas) with Spina O'Rourke + Partners; interiors by GACHOT (Christine & John Gachot, AD100).",
+      "Signature arched balconies and oceanfront infinity pool per official materials.",
+      "Inquiry pricing bands: up to $20M / up to $30M / over $40M; some units may exceed $40M. Not affiliated with the Aman brand."
+    ],
+    "amenities": [
+      "Oceanfront infinity pool and landscaped ocean-to-lagoon grounds (official materials).",
+      "Full amenity program not yet publicly released — confirm against offering documents."
+    ],
+    "residences": [
+      "Estate-scaled and full-floor residences reported; bedroom mix, size range, and floor plans not publicly released.",
+      "No public floor-plan packet — request sales materials."
+    ],
+    "links": [
+      {
+        "label": "Palm Beach corridor guide",
+        "href": "/corridors/palm-beach/"
+      },
+      {
+        "label": "Compare West Palm Beach buildings",
+        "href": "/compare/"
+      },
+      {
+        "label": "Browse floor plans",
+        "href": "/floorplans/"
+      }
+    ],
+    "availabilityHref": "/inquire/?project=olin-palm-beach&interest=Request%20current%20sales%20program",
+    "packetHref": "/inquire/?project=olin-palm-beach&interest=Pricing%20bands%20%2B%20offering%20documents",
+    "reviewedOn": "2026-09-27",
+    "sources": [
+      {
+        "label": "OLIN Palm Beach — official site",
+        "url": "https://olinpalmbeach.com/",
+        "kind": "official"
+      },
+      {
+        "label": "Palm Beach Post — name/pricing unveil (Jul 2026)",
+        "url": "https://www.palmbeachpost.com/story/news/local/2026/07/17/name-price-ranges-unveiled-for-ultra-luxe-condo-project-in-palm-beach-florida/90940375007/",
+        "kind": "press"
       }
     ]
   }
