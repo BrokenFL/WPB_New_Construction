@@ -5081,6 +5081,9 @@ const projectStartingPrices: Record<string, { amount: number; label: string }> =
   "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
   "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
   "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
+  "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
+  berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
+  "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
 };
 
 function projectStartingOffer(projectId: string) {
