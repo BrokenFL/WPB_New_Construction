@@ -10,6 +10,7 @@ import {
 } from "./generated/siteData";
 import type { FloorplanPlanPage } from "./data/floorplanPlanPages";
 import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "./lib/floorplanEntities.ts";
+import { renderProjectVideoSection } from "./lib/projectVideos.ts";
 import { approvedFloorplanLibrary, type ApprovedFloorplanPlan, type ApprovedFloorplanProject } from "./data/floorplanApprovedLibrary";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
@@ -971,19 +972,22 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     bluf:
       "Preconstruction may offer selection and new-building upside, while completed or recently delivered condos offer more physical certainty. Compare timing, deposit structure, construction risk, available floorplans, fee clarity, resale alternatives, and what can be inspected before making a purchase decision.",
     explanation:
-      "The right choice depends on the buyer's timeline and risk tolerance. Active projects, pipeline projects, and completed benchmarks should not be treated as the same decision until documents, availability, fees, and delivery assumptions are verified.",
-    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "forte-on-flagler", "la-clara", "maison-dor"],
+      "West Palm Beach splits into clear stages. Under construction with 2028 delivery language: Olara, The Ritz-Carlton Residences, and Shorecrest. Pre-construction sales with a late-2028 targeted delivery: Maison d'Or. Completed benchmarks for immediate occupancy and reality checks: Alba Palm Beach, Forté on Flagler, and La Clara. Pipeline watch (Mandarin Oriental, Rosewood, Apogee, Alba Reserve, 2085 North Flagler, Rybovich, Edgeworth): future supply, not current inventory. The right choice depends on the buyer's timeline and risk tolerance — these stages should not be treated as the same decision until documents, availability, fees, deposits, assignment terms, and delivery assumptions are verified.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "forte-on-flagler", "la-clara", "maison-dor", "alba-palm-beach"],
     corridorKeys: ["north-flagler", "south-flagler"],
     tableRows: [
-      { label: "Preconstruction / under construction", bestUse: "Buyers who can wait and want current launch or construction-stage options.", links: ["/compare/", "/projects/olara/", "/projects/ritz-carlton-wpb/"], verify: "Confirm delivery timing, deposits, contract terms, construction status, and current availability." },
-      { label: "Completed / recently delivered", bestUse: "Buyers who want to inspect the building or compare against existing inventory.", links: ["/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, condition, and association documents." },
+      { label: "Preconstruction / under construction", bestUse: "Buyers who can wait and want current launch or construction-stage options (Olara, Ritz-Carlton WPB, Shorecrest, Maison d'Or).", links: ["/compare/", "/projects/olara/", "/projects/ritz-carlton-wpb/"], verify: "Confirm delivery timing, deposit schedule, assignment and resale restrictions, contract terms, construction status, and current availability." },
+      { label: "Completed / recently delivered", bestUse: "Buyers who want to inspect the building or compare against existing inventory (Alba Palm Beach, Forté on Flagler, La Clara).", links: ["/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, condition, association documents, and rental policies." },
       { label: "Pipeline watch", bestUse: "Buyers tracking future supply but not ready to rely on unreleased details.", links: ["/market-notes/active-sales-vs-pipeline-watch/", "/corridors/north-flagler/"], verify: "Confirm approvals, launch timing, official packets, and whether buyer-ready materials exist." },
     ],
     faqs: [
       { question: "Is preconstruction safer than resale?", answer: "Not automatically. It may offer selection and new-building appeal, but buyers should verify timing, contracts, deposits, and completion risk." },
       { question: "When should completed buildings be compared?", answer: "Use completed or recently delivered buildings as reality checks for finishes, fees, building operations, and resale alternatives." },
+      { question: "What does 2028 delivery language mean for my deposit?", answer: "Olara, The Ritz-Carlton Residences, and Shorecrest all carry 2028 delivery language, and Maison d'Or targets late 2028. Deposits sit with the developer for the construction period, so confirm the deposit schedule, refund terms, and what happens if delivery slips — all in the current contract documents." },
+      { question: "Can I assign or flip a preconstruction contract before closing?", answer: "Assignment rights are contract-specific, not automatic. Some developers restrict or prohibit assignments; others allow them with fees. Confirm the exact assignment language in the purchase contract before assuming an exit exists." },
+      { question: "How do I compare a 2028 delivery against immediate occupancy?", answer: "Weigh price-lock and selection against time risk: compare the deposit outlay and delivery assumptions of the under-construction set (Olara, Ritz-Carlton WPB, Shorecrest) against what you can inspect and occupy now (Alba Palm Beach, Forté on Flagler, La Clara)." },
     ],
-    sourceNotes: ["Project status comes from the existing project fact layer.", "Contract, deposit, and delivery details require current documents."],
+    sourceNotes: ["Project status comes from the existing project fact layer.", "Contract, deposit, assignment, and delivery details require current documents.", "Market-wide absorption and $/sqft figures are not published here; compare residence-specific pricing from current buyer packets."],
   },
   {
     slug: "strongest-lifestyle-fit-west-palm-beach-new-condos",
@@ -3814,6 +3818,23 @@ function initTrackableCtas() {
     if (!tracked) return;
     trackBuyerIntentCta(tracked);
   }, true);
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const facade = target?.closest<HTMLButtonElement>("[data-youtube-facade]");
+    if (!facade) return;
+    const videoId = facade.dataset.youtubeFacade || "";
+    const title = facade.dataset.youtubeTitle || "Project video";
+    if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+    const frame = document.createElement("iframe");
+    frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    frame.title = title;
+    frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    frame.allowFullscreen = true;
+    frame.loading = "lazy";
+    frame.className = "project-video-iframe";
+    facade.replaceWith(frame);
+    track("project_video_play", { videoId });
+  });
   document.addEventListener("click", (event) => {
     const target = event.target as HTMLElement | null;
     const tracked = target?.closest<HTMLElement>("[data-track-lead-capture-cta='true']");
@@ -9746,6 +9767,8 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       ${gallery.length ? `<section class="berkeley-gallery-row ${galleryClass}" data-project-section="gallery" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#${galleryId}">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="${galleryId}">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${showcase?.galleryLayout === "grid" || index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
 
+      ${renderProjectVideoSection(project.id, project.name)}
+
       ${amenities.length ? `<section class="berkeley-amenity-rail" data-project-section="amenities" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
 
       ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
@@ -9934,6 +9957,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectFloorplansSection(project, floorplanProject, rules)}
 
       ${renderProjectGallerySection(project.id)}
+
+      ${renderProjectVideoSection(project.id, project.name)}
 
       ${hasAmenities ? renderProjectAmenitiesSection(project, draft, copyPackage) : ""}
 

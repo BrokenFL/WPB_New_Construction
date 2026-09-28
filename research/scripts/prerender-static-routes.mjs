@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
 import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "../../src/lib/floorplanEntities.ts";
+import { projectVideoSchemas, renderProjectVideoSection } from "../../src/lib/projectVideos.ts";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
@@ -392,11 +393,17 @@ function renderMethodologyRoute(route) {
 }
 
 function renderBuildingsRoute(route, payload) {
+  const tableProjects = priorityProjectFacts(payload);
   return pageShell(
     "buildings",
     "West Palm Beach New Construction Buildings",
     route.description,
     `
+      <section>
+        <h2>Master comparison table</h2>
+        <p>Every tracked project on one table: corridor, status, delivery language, pricing guidance, released floorplan depth, and best-fit buyer lane. Sort by corridor first, then compare status and delivery before treating two buildings as substitutes. All figures are orientation only — confirm current pricing, availability, fees, and timing from the current buyer packet.</p>
+        ${renderStaticComparisonTable(payload, tableProjects)}
+      </section>
       <section>
         <h2>Tracked building entities</h2>
         <p>Each project page is the canonical entity page for that building or benchmark. Public details are useful for orientation, but pricing, availability, incentives, fees, square footage, and timing require current buyer-side confirmation.</p>
@@ -716,6 +723,7 @@ function renderProjectRoute(route, payload, slug) {
         ${editorial?.bestFor?.length ? `<h3>Best suited to</h3><ul>${editorial.bestFor.slice(0, 3).map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>` : ""}
       </section>
       ${renderRevenueBuyerResearch(project.projectId)}
+      ${renderProjectVideoSection(project.projectId, project.name)}
       ${renderPipelineWatchlistStaticNote(project)}
       ${renderProjectTypeContextStatic(project)}
       <section data-project-section="facts">
@@ -928,6 +936,8 @@ function renderCorridorRoute(route, payload, slug) {
         ${renderStaticComparisonTable(payload, projects)}
       </section>
       ${projectSections}
+      ${slug === "north-flagler" ? northFlaglerBuyerGuide(payload) : ""}
+      ${slug === "south-end" ? southEndBuyerGuide(payload) : ""}
       <section>
         <h2>Buyer fit and verification notes</h2>
         <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
@@ -1374,8 +1384,44 @@ function floorplanSignals(project) {
   return project.projectType === "condo-active-sales";
 }
 
-function corridorBestFit(slug) {
-  const key = slug === "downtown-west-palm-beach" ? "downtown" : slug;
+function linkedProjectNames(list) {
+  return list.map((p) => `<a href="${projectPath(p)}">${publicText(p.name)}</a>`).join(", ");
+}
+
+function northFlaglerBuyerGuide(payload) {
+  const projects = payload.projectFacts.filter((p) => normalize(p.area).includes("north flagler"));
+  const active = projects.filter((p) => p.projectType === "condo-active-sales");
+  const completed = projects.filter((p) => p.projectType === "completed-comparable");
+  const pipeline = projects.filter((p) => p.projectType === "condo-pipeline" || p.projectType === "mixed-use");
+  return `
+      <section>
+        <h2>North Flagler buyer guide</h2>
+        <p>Read this corridor in three lanes. <strong>Under construction:</strong> ${linkedProjectNames(active) || "none currently tracked"} — the current active-sales comparison set, with 2028 delivery language on the two largest programs. <strong>Completed benchmark:</strong> ${linkedProjectNames(completed) || "none currently tracked"} — use it as a reality check on finishes, fees, building operations, and immediate-occupancy alternatives. <strong>Pipeline watch:</strong> ${linkedProjectNames(pipeline) || "none currently tracked"} — future supply to track, not current inventory to compare against.</p>
+        <p>Published pricing guidance spans from Olara's $1.7M through Alba Palm Beach just under $3M, Mandarin Oriental's $3.5M published guidance, and Shorecrest around $3.69M, with Ritz-Carlton WPB pricing by request. Treat every figure as guidance: confirm residence-specific pricing, availability, fees, and incentives from the current buyer packet.</p>
+        <h3>How to choose between the buildings</h3>
+        <ul>
+          <li><strong>Delivery timing.</strong> Decide first whether you can wait on 2028 delivery language or need immediate occupancy — that single filter splits the corridor in two.</li>
+          <li><strong>Price band.</strong> The corridor's published guidance spans roughly $1.7M to $3.69M-plus before request-pricing programs; pick the band before comparing floor plans.</li>
+          <li><strong>View exposure and stack.</strong> Waterfront value here is line-specific. Compare the actual stack and exposure, not the building average.</li>
+          <li><strong>Service model.</strong> Hotel-branded programs (Ritz-Carlton, Mandarin Oriental, Rosewood) and independent projects run different operating models — compare fees and services, not just amenities.</li>
+        </ul>
+        <p>Want quieter waterfront positioning instead of the North Flagler tower set? Compare the <a href="/corridors/south-flagler/">South Flagler corridor</a> — the South Flagler House and Maison d'Or flagships with Forté on Flagler and La Clara as completed benchmarks.</p>
+      </section>`;
+}
+
+function southEndBuyerGuide(payload) {
+  const projects = payload.projectFacts.filter(
+    (p) => normalize(p.area).includes("south end") || normalize(p.area).includes("south dixie"),
+  );
+  return `
+      <section>
+        <h2>South End buyer guide</h2>
+        <p>The South End and South Dixie corridor is a rental and mixed-use development lane, not a new-construction condo comparison set. The only tracked project here is ${linkedProjectNames(projects) || "currently under review"} — compare leasing status, neighborhood retail access, traffic patterns, and delivery details rather than condo floor plans.</p>
+        <p>Buyers comparing new-construction condos should start with the <a href="/corridors/north-flagler/">North Flagler</a>, <a href="/corridors/south-flagler/">South Flagler</a>, or <a href="/corridors/downtown-west-palm-beach/">Downtown</a> corridors, where the active condo comparison sets live.</p>
+      </section>`;
+}
+
+function corridorBestFit(slug) {  const key = slug === "downtown-west-palm-beach" ? "downtown" : slug;
   if (key === "north-flagler") return "North Flagler is best for waterfront buyers who want the deepest active comparison set.";
   if (key === "south-flagler") return "South Flagler is best for buyers who want quieter waterfront positioning and Palm Beach proximity.";
   if (key === "south-end") return "The South End is best for renters and residents prioritizing South Dixie retail access and newer mixed-use development.";
@@ -1567,7 +1613,10 @@ function buildRouteSchema(route, payload, canonical) {
   }
   if (routeKind.type === "project") {
     const project = projectForSlug(payload, routeKind.slug);
-    if (project) routeGraph.push(projectSchema(project, payload));
+    if (project) {
+      routeGraph.push(projectSchema(project, payload));
+      for (const videoSchema of projectVideoSchemas(project.projectId)) routeGraph.push(videoSchema);
+    }
   } else if (routeKind.type === "corridor") {
     routeGraph.push(itemListSchema(canonical, "Tracked corridor projects", payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridorDetails[routeKind.slug]?.label || ""))).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
   } else if (route.path === "/map/") {
