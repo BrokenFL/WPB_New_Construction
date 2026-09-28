@@ -1,4 +1,7 @@
 .r3d { margin: 2.5rem 0; border: 1px solid #d5d1c7; background: #fffdf9; box-shadow: 0 20px 50px rgba(32,51,55,.07); color: #203337; }
+.fp-per-plan-review { margin: 1.5rem 0 2.5rem; }
+.fp-per-plan-review > p { max-width: 58rem; color: #526260; line-height: 1.65; }
+.fp-per-plan-review .fp-3d-detail { font-size: .85rem; }
 .r3d-heading { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; padding: 1.7rem 1.75rem 0; }
 .r3d .r3d-eyebrow { margin: 0 0 .5rem; color: #806b55; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .r3d h2 { margin: 0; font: 400 clamp(1.65rem, 3vw, 2.25rem)/1.2 Georgia, serif; }
@@ -35,4 +38,3 @@
   line-height: 1.65;
   margin: .6rem 0 clamp(2.5rem, 5vw, 4rem);
 }
-

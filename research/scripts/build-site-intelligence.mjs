@@ -4,7 +4,9 @@ import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { readTsArray } from "./article-market-note-utils.mjs";
-import { residence3DModels } from "../../src/data/residence3DModels.ts";
+import { approved3DPlanEntities } from "../../src/lib/residence3DDiscovery.ts";
+import { publishedFloorplanEntities } from "../../src/lib/floorplanEntities.ts";
+import { addSitemapEntities } from "./prerender-floorplan-entities.mjs";
 
 const execFileAsync = promisify(execFile);
 const workspace = process.cwd();
@@ -1424,6 +1426,41 @@ function approvedRevenueFloorplanProjects(projects) {
 }
 
 async function main() {
+  if (process.argv.includes("--floorplan-discovery-only")) {
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    let siteData = await fs.readFile(siteDataPath, "utf8");
+    for (const [name, value] of Object.entries({
+      floorplanPlanPages: floorplanPlanPageRoutes,
+      prerenderRoutes: buildPrerenderRoutes(),
+    })) {
+      const pattern = new RegExp(`^export const ${name} = [^]*? as const;`, "m");
+      if ([...siteData.matchAll(new RegExp(pattern.source, "gm"))].length !== 1) throw new Error(`Expected one generated export: ${name}`);
+      siteData = siteData.replace(pattern, () => `export const ${name} = ${JSON.stringify(value, null, 2)} as const;`);
+    }
+    const currentFloorplans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
+    const currentNews = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
+    if (!Array.isArray(currentFloorplans.projects) || !Array.isArray(currentNews.items)) throw new Error("Missing public floor-plan or news snapshot");
+    const published = publishedFloorplanEntities();
+    const sitemap = addSitemapEntities(renderSitemap(), published);
+    const llms = renderLlmsTxt(currentFloorplans, currentNews);
+    const perPlanCanonicals = floorplanPlanPageRoutes.map((plan) => `${productionBaseUrl}/floorplans/${plan.projectId}/${plan.planSlug}/`);
+    if (!perPlanCanonicals.length || new Set(perPlanCanonicals).size !== perPlanCanonicals.length) throw new Error("Expected distinct per-plan routes");
+    for (const canonical of perPlanCanonicals) {
+      if (sitemap.split(`<loc>${canonical}</loc>`).length !== 2) throw new Error(`Missing or duplicate per-plan sitemap URL: ${canonical}`);
+    }
+    for (const plan of published) {
+      if (sitemap.split(`<loc>${plan.canonical}</loc>`).length !== 2) throw new Error(`Missing or duplicate reviewed sitemap URL: ${plan.canonical}`);
+      if (plan.models3D.some((model) => model.status === "approved") && !llms.includes(plan.path)) throw new Error(`Missing reviewed 3D crawl link: ${plan.path}`);
+    }
+    if (approved3DPlanEntities().length && sitemap.split(`<loc>${productionBaseUrl}/3d-floorplans/</loc>`).length !== 2) throw new Error("Missing or duplicate 3D gallery sitemap URL");
+    if (sitemap.includes(`${productionBaseUrl}/floorplans/shorecrest/residence-0704/`)) throw new Error("Legacy Shorecrest alias in sitemap");
+    if (llms.includes("/floorplans/shorecrest/residence-0704/")) throw new Error("Legacy Shorecrest alias in crawler inventory");
+    await fs.writeFile(siteDataPath, siteData);
+    await fs.writeFile(path.join(workspace, "public/sitemap.xml"), sitemap);
+    await fs.writeFile(path.join(workspace, "public/llms.txt"), llms);
+    console.log(JSON.stringify({ mode: "floorplan-discovery-only", perPlanRoutes: perPlanCanonicals.length, entityRoutes: published.filter((plan) => !perPlanCanonicals.includes(plan.canonical)).length, outputs: ["src/generated/siteData.ts", "public/sitemap.xml", "public/llms.txt"] }, null, 2));
+    return;
+  }
   if (process.argv.includes("--llms-only")) {
     const plans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
     const news = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
@@ -1539,7 +1576,7 @@ async function main() {
   await fs.writeFile(path.join(workspace, "public/rss.xml"), renderRss(publicNewsFeed));
   await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(publicFloorplans, publicNewsFeed));
   await fs.writeFile(path.join(workspace, "public/robots.txt"), renderRobots());
-  await fs.writeFile(path.join(workspace, "public/sitemap.xml"), renderSitemap(catalog.projects));
+  await fs.writeFile(path.join(workspace, "public/sitemap.xml"), addSitemapEntities(renderSitemap(), publishedFloorplanEntities()));
   await fs.writeFile(path.join(reviewRoot, "floorplan-library.md"), renderFloorplanMd(floorplans));
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.md"), renderImageMd(images.catalog));
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.json"), `${JSON.stringify(images.catalog, null, 2)}\n`);
@@ -2681,8 +2718,8 @@ function renderLlmsTxt(floorplans, newsFeed) {
     .map((project) => `- ${project.name}: ${project.count} floorplan records`);
   const newsLines = newsFeed.items.map((item) => `- ${item.title}: ${item.summary}`);
   const routeLines = buildPrerenderRoutes().map((route) => `- ${route.title}: ${route.path}`);
-  const approved3DModels = residence3DModels.filter((model) => model.status === "approved");
-  const threeDLines = approved3DModels.length ? `## Interactive 3D Floor Plans\n\n- Interactive 3D floor plan gallery: /3d-floorplans/\n${approved3DModels.map((model) => `- ${model.projectId} ${model.residenceSlug}: /floorplans/${model.projectId}/${model.residenceSlug}/`).join("\n")}\n\n` : "";
+  const approved3DPlans = approved3DPlanEntities();
+  const threeDLines = approved3DPlans.length ? `## Interactive 3D Floor Plans\n\n- Interactive 3D floor plan gallery: /3d-floorplans/\n${approved3DPlans.map((plan) => `- ${plan.projectName} ${plan.planName}: ${plan.path}`).join("\n")}\n\n` : "";
   return `# WPB New Construction
 
 West Palm Beach new-construction condo buyer guide presented by The Scott Gordon Group at Douglas Elliman, with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
@@ -2996,7 +3033,7 @@ function projectTitle(projectId) {
   }[projectId] ?? projectId;
 }
 
-function renderSitemap(projects) {
+function renderSitemap() {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
   // The legacy market-notes NORA article is canonicalized to its downtown-spotlight twin; keep it out of the sitemap.

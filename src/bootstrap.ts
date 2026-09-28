@@ -44,6 +44,10 @@ async function installConcierge() {
 
 async function start() {
   installSocialPreviewNormalization();
+  if (cleanFloorplanPath(location.pathname) === "/floorplans/shorecrest/residence-0704/") {
+    location.replace(`/floorplans/shorecrest/shorecrest-1153-0704/${location.search}${location.hash}`);
+    return;
+  }
   // The launcher is optional but should become available independently of the
   // heavier legacy enhancement chain. The panel body remains interaction-lazy.
   void installConcierge();
@@ -94,7 +98,6 @@ async function start() {
       event.stopImmediatePropagation();
       return;
     }
-    if (!link.hasAttribute("data-floorplan-entity-link")) return;
     const entity = floorplanForPath(link.pathname);
     if (!entity) return;
     event.stopImmediatePropagation();

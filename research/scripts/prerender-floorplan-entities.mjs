@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  buildFloorplanEntities, publishedFloorplanEntities, mergeFloorplanDiscoverySchema, escapeFloorplanHtml, floorplanDescription,
+  buildFloorplanEntities, publishedFloorplanEntities, entityRendererPages, perPlanPageForEntity, isPerPlanOwnedPath, mergeFloorplanDiscoverySchema, escapeFloorplanHtml, floorplanDescription,
   floorplanJson, floorplanSchema, floorplanSiteUrl, floorplanTitle, floorplanModifiedOn,
   renderFloorplanDiscovery, renderFloorplanPage,
 } from "../../src/lib/floorplanEntities.ts";
@@ -12,16 +12,6 @@ import {
 } from "../../src/lib/residence3DDiscovery.ts";
 
 const e = escapeFloorplanHtml;
-
-// Paths served by the dedicated per-plan page system (src/data/floorplanPlanPages.ts).
-async function siteDataPlanPagePaths(root) {
-  try {
-    const src = await fs.readFile(path.join(root, "src/generated/siteData.ts"), "utf8");
-    return [...src.matchAll(/"path": "\/floorplans\/[^"]+\/[^"]+\/"/g)].map((m) => m[0].slice(9, -1));
-  } catch {
-    return [];
-  }
-}
 
 export function renderEntityDocument(template, plan) {
   let html = template;
@@ -95,12 +85,17 @@ export function render3DDiscoveryDocument(template) {
 
 export function addSitemapEntities(xml, plans, extraCanonicals = []) {
   const extra = new Set(extraCanonicals);
-  const ownedPlans = plans.filter((plan) => !extra.has(plan.canonical));
+  const ownedPlans = plans.filter((plan) => !perPlanPageForEntity(plan) && !extra.has(plan.canonical));
+  if (ownedPlans.some((plan) => isPerPlanOwnedPath(plan.path))) throw new Error("Entity sitemap route collides with a per-plan page");
   const selected = new Set(ownedPlans.map((plan) => plan.canonical));
   const hub = `${floorplanSiteUrl}${residence3DDiscoveryPath}`;
   // The dedicated per-plan generator owns its existing URLs. Reconcile only
   // legacy entity URLs and the 3D hub; never remove or duplicate a per-plan URL.
-  const paths = new Set([...selected, ...buildFloorplanEntities().map((plan) => plan.canonical), hub].filter((canonical) => !extra.has(canonical)));
+  const legacy = buildFloorplanEntities().map((plan) => {
+    const oldCanonical = `${floorplanSiteUrl}/floorplans/${plan.projectId}/${plan.slug}/`;
+    return isPerPlanOwnedPath(`/floorplans/${plan.projectId}/${plan.slug}/`) ? null : oldCanonical;
+  }).filter((canonical) => canonical && !extra.has(canonical));
+  const paths = new Set([...selected, ...legacy, hub]);
   if (selected.size !== ownedPlans.length) throw new Error("Duplicate entity canonicals");
   if (!xml.includes("</urlset>")) throw new Error("Expected sitemap urlset");
   const clean = xml.replace(/\s*<url>[\s\S]*?<\/url>/g, (block) => {
@@ -158,17 +153,16 @@ export async function prerenderFloorplanEntities(root = process.cwd()) {
       }
     }
   }
-  // Standalone postbuild reruns must also remove a formerly emitted pending page.
-  // Preserve paths now served by the per-plan floor-plan page system
-  // (src/data/floorplanPlanPages.ts) so the new SEO pages are not deleted.
-  const siteDataSource = await fs.readFile(path.join(root, "src/generated/siteData.ts"), "utf8").catch(() => "");
-  const planPagePaths = new Set(
-    [...siteDataSource.matchAll(/"path": "\/floorplans\/[^"]+\/[^"]+\/"/g)].map((m) => m[0].slice(9, -1)),
-  );
-  for (const plan of reviewed.filter((item) => !plans.some((live) => live.path === item.path) && !planPagePaths.has(item.path))) {
-    await fs.rm(path.join(dist, plan.path.slice(1)), { recursive: true, force: true });
+  // Standalone reruns remove old entity paths without touching per-plan pages.
+  for (const plan of reviewed) {
+    const oldPath = `/floorplans/${plan.projectId}/${plan.slug}/`;
+    if (perPlanPageForEntity(plan) && oldPath !== plan.path && !isPerPlanOwnedPath(oldPath)) {
+      await fs.rm(path.join(dist, oldPath.slice(1)), { recursive: true, force: true });
+    } else if (!perPlanPageForEntity(plan) && !isPerPlanOwnedPath(plan.path) && !plans.some((live) => live.path === plan.path)) {
+      await fs.rm(path.join(dist, plan.path.slice(1)), { recursive: true, force: true });
+    }
   }
-  for (const plan of plans.filter((item) => !planPagePaths.has(item.path))) {
+  for (const plan of entityRendererPages()) {
     const target = path.join(dist, plan.path.slice(1), "index.html");
     await fs.mkdir(path.dirname(target), { recursive: true });
     await fs.writeFile(target, await withRouteStyles(renderEntityDocument(template, plan), "src/floorplanPage.ts"));
@@ -183,11 +177,10 @@ export async function prerenderFloorplanEntities(root = process.cwd()) {
     await fs.writeFile(file, addDiscovery(await fs.readFile(file, "utf8"), route));
   }
   const sitemap = path.join(dist, "sitemap.xml");
-  const planPageCanonicals = [...(await siteDataPlanPagePaths(root))].map((p) => `${floorplanSiteUrl}${p}`);
-  await fs.writeFile(sitemap, addSitemapEntities(await fs.readFile(sitemap, "utf8"), plans, planPageCanonicals));
+  await fs.writeFile(sitemap, addSitemapEntities(await fs.readFile(sitemap, "utf8"), plans));
   const llms = path.join(dist, "llms.txt");
   await fs.writeFile(llms, add3DLlmsInventory(await fs.readFile(llms, "utf8")));
-  console.log(JSON.stringify({ floorplanEntitiesPrerendered: plans.map((plan) => plan.path) }, null, 2));
+  console.log(JSON.stringify({ floorplanEntitiesPrerendered: entityRendererPages().map((plan) => plan.path) }, null, 2));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

@@ -1,6 +1,7 @@
 import { track } from "./lib/analytics.ts";
 import { captureLeadLandingContext, rememberLeadAttribution } from "./lib/leadCapture.ts";
 import { floorplanDescription, floorplanJson, floorplanSchema, floorplanTitle, renderFloorplanPage, type FloorplanEntity } from "./lib/floorplanEntities.ts";
+import { resolveInquiryContext } from "./lib/inquiryContext.ts";
 import { mountResidence3DViewers } from "./residence3DViewer.ts";
 import "./residence3DViewer.css";
 
@@ -49,7 +50,8 @@ export function mountFloorplanPage(plan: FloorplanEntity) {
         break;
       case "availability": {
         const leadContext = `floorplan:${plan.projectId}:${plan.slug}`;
-        rememberLeadAttribution({ cta_context: leadContext, cta_label: "Request current availability", cta_location: placement, corridor: "north-flagler" }, { replaceRequest: true });
+        const corridor = resolveInquiryContext(leadContext)?.corridor;
+        rememberLeadAttribution({ cta_context: leadContext, cta_label: "Request current availability", cta_location: placement, corridor }, { replaceRequest: true });
         track("cta_click", { ...context, ctaText: "Request current availability", leadCaptureContext: leadContext });
         break;
       }

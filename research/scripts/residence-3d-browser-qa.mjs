@@ -10,12 +10,35 @@ import { fileURLToPath } from "node:url";
 import { chromium, webkit } from "playwright";
 import sharp from "sharp";
 import { residence3DModels } from "../../src/data/residence3DModels.ts";
+import { perPlanPageForEntity, publishedFloorplanEntities } from "../../src/lib/floorplanEntities.ts";
+import { publicProjectRecords } from "../../src/generated/projectModelPublic.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dist = path.join(root, "dist");
-const shots = path.join(root, "output/playwright/residence-3d");
-const reportFile = path.join(root, ".runtime/residence-3d-browser-qa.json");
+const shots = path.join(root, "output/playwright/residence-3d-2026-09-27");
+const reportFile = path.join(root, ".runtime/residence-3d-continuation/browser-qa.json");
 const models = residence3DModels.filter((model) => model.status === "approved");
+const publishedEntities = publishedFloorplanEntities();
+const entityByModelId = new Map();
+for (const model of models) {
+  const entities = publishedEntities.filter((entity) => entity.projectId === model.projectId && entity.slug === model.residenceSlug);
+  assert.equal(entities.length, 1, `${model.modelId}: expected exactly one published floorplan entity`);
+  const attachedModels = entities[0].models3D.filter((attached) => attached.modelId === model.modelId);
+  assert.equal(attachedModels.length, 1, `${model.modelId}: expected exactly one model attachment on its entity`);
+  entityByModelId.set(model.modelId, entities[0]);
+}
+const modelIds = new Set(models.map((model) => model.modelId));
+assert.equal(modelIds.size, models.length, "Approved residence model IDs must be unique");
+const routeFor = (model) => entityByModelId.get(model.modelId).path;
+const projectRepresentatives = [...new Map(models.map((model) => [model.projectId, model])).values()];
+const fallbackRepresentatives = [...projectRepresentatives];
+for (const family of ["entity", "per-plan"]) {
+  const hasFamily = fallbackRepresentatives.some((model) => (perPlanPageForEntity(entityByModelId.get(model.modelId)) ? "per-plan" : "entity") === family);
+  if (!hasFamily) {
+    const familyModel = [...models].reverse().find((model) => (perPlanPageForEntity(entityByModelId.get(model.modelId)) ? "per-plan" : "entity") === family);
+    if (familyModel && !fallbackRepresentatives.some((model) => model.modelId === familyModel.modelId)) fallbackRepresentatives.push(familyModel);
+  }
+}
 const viewports = {
   desktop: { width: 1440, height: 960 },
   tablet: { width: 820, height: 1180 },
@@ -26,13 +49,23 @@ const mime = {
   ".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml",
   ".pdf": "application/pdf", ".json": "application/json", ".woff2": "font/woff2", ".xml": "application/xml",
 };
-const routeFor = (model) => `/floorplans/${model.projectId}/${model.residenceSlug}/`;
 let viewerChunk = "";
 
 async function serveDist() {
+  const redirectText = await fs.readFile(path.join(dist, "_redirects"), "utf8");
+  const exactRedirects = new Map(redirectText.split(/\r?\n/).flatMap((line) => {
+    const [source, target, status] = line.trim().split(/\s+/);
+    return source && target && status && !/[:*]/.test(source) ? [[source, { target, status: Number(status) }]] : [];
+  }));
   const server = http.createServer(async (req, res) => {
     try {
       const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+      const redirect = exactRedirects.get(pathname);
+      if (redirect) {
+        res.writeHead(redirect.status, { Location: redirect.target });
+        res.end();
+        return;
+      }
       let file = path.resolve(dist, `.${pathname}`);
       if (file !== dist && !file.startsWith(`${dist}${path.sep}`)) throw new Error("Invalid path");
       if ((await fs.stat(file)).isDirectory()) file = path.join(file, "index.html");
@@ -155,20 +188,90 @@ async function assertKeyboardInteractionFocus(viewer, label) {
   assert.ok(focus.hostActive && focus.interactionSurfaceActive, `${label}: keyboard focus must be on model-viewer's interaction surface ${JSON.stringify(focus)}`);
 }
 
-async function waitForFullscreen(page, expected, label) {
+async function waitForFullscreen(page, expected, label, modelId) {
   try {
-    await page.waitForFunction((state) => Boolean(document.fullscreenElement) === state, expected, { timeout: 5000 });
+    await page.waitForFunction(({ state, id }) => {
+      const control = document.querySelector(`[data-r3d-model-id="${id}"] [data-r3d-fullscreen]`);
+      return Boolean(document.fullscreenElement) === state
+        && control?.textContent?.trim() === (state ? "Exit full screen" : "Full screen");
+    }, { state: expected, id: modelId }, { timeout: 5000 });
   } catch (error) {
     const diagnostics = await page.evaluate(() => ({
       enabled: document.fullscreenEnabled,
       active: Boolean(document.fullscreenElement),
       target: document.fullscreenElement?.className ?? null,
+      label: document.querySelector("[data-r3d-fullscreen]")?.textContent?.trim() ?? null,
       status: document.querySelector("[data-r3d-status]")?.textContent ?? null,
       events: window.__r3dFullscreenEvents ?? [],
     }));
     throw new Error(`${label}: fullscreen transition did not settle ${JSON.stringify(diagnostics)} (${error.message})`);
   }
   assert.equal(await page.evaluate(() => Boolean(document.fullscreenElement)), expected, label);
+}
+
+async function assertResetAndFullscreen(section, page, label) {
+  const viewer = section.locator("model-viewer");
+  const initialOrbit = await viewer.getAttribute("camera-orbit");
+  await viewer.evaluate((element) => element.setAttribute("camera-orbit", "85deg 70deg 4m"));
+  await section.locator("[data-r3d-reset]").click();
+  assert.equal(await viewer.getAttribute("camera-orbit"), initialOrbit, `${label}: reset camera orbit`);
+  await assertKeyboardInteractionFocus(viewer, `${label}: reset camera`);
+  const fullscreen = section.locator("[data-r3d-fullscreen]");
+  const modelId = await section.getAttribute("data-r3d-model-id");
+  assert.ok(modelId, `${label}: model identity`);
+  const fullscreenAvailable = await page.evaluate(() => document.fullscreenEnabled === true);
+  if (await fullscreen.isVisible() && fullscreenAvailable) {
+    await page.evaluate(() => {
+      window.__r3dFullscreenEvents = [];
+      document.addEventListener("fullscreenchange", () => window.__r3dFullscreenEvents.push("fullscreenchange"));
+      document.addEventListener("fullscreenerror", () => window.__r3dFullscreenEvents.push("fullscreenerror"));
+    });
+    await fullscreen.click();
+    await waitForFullscreen(page, true, `${label}: fullscreen entry`, modelId);
+    assert.equal((await fullscreen.innerText()).trim(), "Exit full screen", `${label}: fullscreen entry label`);
+    await fullscreen.click();
+    await waitForFullscreen(page, false, `${label}: fullscreen exit`, modelId);
+    assert.equal((await fullscreen.innerText()).trim(), "Full screen", `${label}: fullscreen exit label`);
+  }
+}
+
+async function assertInquiryAttribution(section, page, model, label) {
+  if (model.projectId === "shorecrest" && model.residenceSlug === "residence-0704") {
+    assert.equal(model.modelId, "shorecrest-residence-0704-3d-v01", `${label}: Shorecrest 0704 stable model ID`);
+    assert.equal(routeFor(model), "/floorplans/shorecrest/shorecrest-1153-0704/", `${label}: Shorecrest 0704 canonical route`);
+  }
+  assert.equal(await section.locator('[data-r3d-action="availability"]').getAttribute("href"), "/inquire/", `${label}: inquiry CTA destination`);
+  await page.evaluate(() => window.addEventListener("wpb:analytics", (event) => {
+    if (event.detail?.eventName === "residence_3d_cta") sessionStorage.setItem("__qa_3d_cta", JSON.stringify(event.detail));
+  }));
+  await section.locator('[data-r3d-action="availability"]').click();
+  await page.waitForURL(/\/inquire\//);
+  const stableContext = `floorplan:${model.projectId}:${model.residenceSlug}`;
+  assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(), model.projectId, `${label}: inquiry project attribution`);
+  assert.equal(await page.locator('.inquiry-form input[name="lead_capture_context"]').inputValue(), stableContext, `${label}: inquiry residence attribution`);
+  const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("wpbLeadAttribution") ?? "{}"));
+  assert.equal(stored.cta_context, stableContext, `${label}: stored residence attribution`);
+  const ctaEvent = await page.evaluate(() => JSON.parse(sessionStorage.getItem("__qa_3d_cta") ?? "null"));
+  assert.equal(ctaEvent?.payload?.modelId, model.modelId, `${label}: 3D CTA model attribution`);
+  assert.equal(ctaEvent?.payload?.residenceId, model.residenceSlug, `${label}: 3D CTA stable residence attribution`);
+  assert.equal(ctaEvent?.payload?.source, "3d-loaded", `${label}: 3D CTA loaded-state attribution`);
+}
+
+async function assertEntityIntroAttribution(page, model, origin, label) {
+  const entity = entityByModelId.get(model.modelId);
+  if (perPlanPageForEntity(entity)) return;
+  const project = publicProjectRecords.find((record) => record.publicSlug === model.projectId);
+  assert.ok(project?.corridorKey, `${label}: reviewed project corridor missing`);
+  await page.goto(`${origin}${entity.path}`, { waitUntil: "networkidle" });
+  await page.locator('.fp-intro-action [data-fp-action="availability"]').click();
+  await page.waitForURL(/\/inquire\//);
+  const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("wpbLeadAttribution") ?? "{}"));
+  const stableContext = `floorplan:${model.projectId}:${model.residenceSlug}`;
+  assert.equal(stored.cta_context, stableContext, `${label}: entity intro stored residence`);
+  assert.equal(stored.cta_location, "floorplan-entity-intro", `${label}: entity intro stored placement`);
+  assert.equal(stored.corridor, project.corridorKey, `${label}: entity intro stored corridor`);
+  assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(), model.projectId, `${label}: entity intro inquiry project`);
+  assert.equal(await page.locator('.inquiry-form input[name="lead_capture_context"]').inputValue(), stableContext, `${label}: entity intro inquiry residence`);
 }
 
 async function touchDrag(page, start, end) {
@@ -198,6 +301,35 @@ async function assertPoster(page, model, origin, label, screenshots) {
   page.off("request", listener);
   screenshots.push(await screenshotSection(section, `${label}-poster`));
   return section;
+}
+
+async function assertModelPageOwner(page, model, label) {
+  const entity = entityByModelId.get(model.modelId);
+  const h1s = page.locator("h1:visible");
+  assert.equal(await h1s.count(), 1, `${label}: destination must have one visible H1`);
+  const owner = perPlanPageForEntity(entity)
+    ? page.locator('[data-route-view="floorplan-plan-detail"]:not([hidden])')
+    : page.locator(`.fp-page[data-floorplan-id="${entity.planId}"]:visible`);
+  assert.equal(await owner.count(), 1, `${label}: expected one visible ${perPlanPageForEntity(entity) ? "per-plan" : "entity"} owner`);
+  const ownedModel = owner.locator(`[data-r3d-model-id="${model.modelId}"]`);
+  assert.equal(await ownedModel.count(), 1, `${label}: destination owner must contain exactly one matching data-r3d model`);
+  assert.equal(await ownedModel.getAttribute("data-r3d-model-id"), model.modelId, `${label}: model identity`);
+  return owner;
+}
+
+async function assertShorecrest0704Alias(origin, report) {
+  const model = models.find((candidate) => candidate.projectId === "shorecrest" && candidate.residenceSlug === "residence-0704");
+  assert.ok(model, "Shorecrest Residence 0704 must remain in the approved model manifest");
+  assert.equal(model.modelId, "shorecrest-residence-0704-3d-v01", "Shorecrest Residence 0704 stable model ID");
+  const alias = "/floorplans/shorecrest/residence-0704/";
+  const canonical = routeFor(model);
+  assert.equal(canonical, "/floorplans/shorecrest/shorecrest-1153-0704/", "Shorecrest Residence 0704 canonical route");
+  const response = await fetch(`${origin}${alias}`, { redirect: "manual" });
+  try {
+    assert.equal(response.status, 301, "Shorecrest Residence 0704 alias HTTP status");
+    assert.equal(response.headers.get("location"), canonical, "Shorecrest Residence 0704 alias destination");
+  } finally { await response.arrayBuffer(); }
+  report.checks.push("Shorecrest 0704 alias returns exact 301 to canonical route with stable model ID");
 }
 
 async function activate(section, model, label, screenshots) {
@@ -240,26 +372,32 @@ async function assertProjectNavigation(page, model, origin, label) {
   assert.ok(await page.locator(`.fp-3d-discovery a[href="${entityRoute}"]`).count() > 0, `${label}: hub entity link missing`);
 
   await page.goto(`${origin}${projectRoute}`, { waitUntil: "networkidle" });
-  const entityLink = page.locator(`a[data-floorplan-entity-link][href="${entityRoute}"]:visible`);
-  assert.equal(await entityLink.count(), 1, `${label}: visible project-to-entity link missing or duplicated`);
-  await entityLink.click();
+  const entityLink = page.locator(`a[href="${entityRoute}"]:visible`);
+  assert.ok(await entityLink.count() >= 1, `${label}: visible project-to-canonical-floorplan link missing`);
+  await entityLink.first().click();
   await page.waitForURL(`${origin}${entityRoute}`);
-  await page.locator("[data-floorplan-id]").waitFor();
-  await page.locator(`[data-r3d-model-id="${model.modelId}"]`).waitFor();
+  await assertModelPageOwner(page, model, label);
   assert.equal(new URL(page.url()).pathname, entityRoute, `${label}: entity destination path`);
 }
 
 async function main() {
-  assert.equal(models.length, 6, "Expected six QA-approved residence models");
+  assert.ok(models.length > 0, "Expected approved residence models in the manifest");
   await fs.access(path.join(dist, "index.html"));
   viewerChunk = (await fs.readdir(path.join(dist, "assets"))).find((name) => /^model-viewer[-.].*\.js$/.test(name)) ?? "";
   assert.ok(viewerChunk, "Could not identify the lazy model-viewer build chunk");
   await fs.mkdir(shots, { recursive: true });
   await fs.mkdir(path.dirname(reportFile), { recursive: true });
   const { server, origin } = await serveDist();
-  const report = { origin, modelIds: models.map((model) => model.modelId), screenshots: [], checks: [], errors: [] };
+  const report = {
+    origin,
+    modelIds: models.map((model) => model.modelId),
+    modelRoutes: Object.fromEntries(models.map((model) => [model.modelId, routeFor(model)])),
+    projectRepresentatives: projectRepresentatives.map((model) => model.modelId),
+    screenshots: [], checks: [], errors: [],
+  };
   const browsers = [];
   try {
+    await assertShorecrest0704Alias(origin, report);
     const chrome = await chromium.launch({ headless: true });
     browsers.push(chrome);
     const webkitBrowser = await webkit.launch({ headless: true });
@@ -286,9 +424,8 @@ async function main() {
       } finally { await context.close(); }
     }
 
-    // Discovery and project paths at the three review sizes, plus selected
-    // activated residences in both browser engines.
-    const selected = [models[0], models[Math.floor(models.length / 2)], models[models.length - 1]];
+    // Discovery and project paths at the three review sizes, plus one
+    // representative per project in both browser engines.
     for (const [browserName, browser] of [["chromium", chrome], ["webkit", webkitBrowser]]) {
       for (const [sizeName, viewport] of Object.entries(viewports)) {
         const { context, page, errors } = await newPage(browser, origin, viewport);
@@ -297,22 +434,23 @@ async function main() {
           page.on("request", (request) => initialRequests.push(request.url()));
           await page.goto(`${origin}/3d-floorplans/`, { waitUntil: "networkidle" });
           report.screenshots.push(await screenshot(page, `${browserName}-discovery-${sizeName}`, true, {
-            selector: ".fp-3d-discovery .fp-3d-cards img", count: 6,
+            selector: ".fp-3d-discovery .fp-3d-cards img", count: models.length,
           }));
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, `${browserName} discovery ${sizeName}: overflow`);
           assertNoHeavyRequests(initialRequests, `${browserName} discovery ${sizeName}`);
-          for (const model of selected) {
+          for (const model of projectRepresentatives) {
             initialRequests.length = 0;
             await page.goto(`${origin}/projects/${model.projectId}/`, { waitUntil: "networkidle" });
             report.screenshots.push(await screenshot(page, `${browserName}-${model.projectId}-${sizeName}`, true));
             assertNoHeavyRequests(initialRequests, `${browserName} ${model.projectId} ${sizeName}`);
           }
-          for (const model of selected) {
+          for (const model of projectRepresentatives) {
             const label = `${browserName}-${model.modelId}-${sizeName}`;
             await assertProjectNavigation(page, model, origin, label);
             const section = await assertPoster(page, model, origin, label, report.screenshots);
+            report.screenshots.push(await screenshot(page, `${label}-full-page-before-activation`, true));
             await activate(section, model, label, report.screenshots);
-            if (browserName === "chromium" && sizeName === "mobile" && model === selected[selected.length - 1]) {
+            if (browserName === "chromium" && sizeName === "mobile" && model === projectRepresentatives[projectRepresentatives.length - 1]) {
               const viewer = section.locator("model-viewer");
               await viewer.scrollIntoViewIfNeeded();
               const before = await viewer.evaluate((element) => element.getCameraOrbit().theta);
@@ -334,23 +472,24 @@ async function main() {
       }
     }
 
-    const model = models[0];
-    // A slow GLB keeps the poster visible and reports progress before the model appears.
-    {
+    // Exercise latency and failure recovery on each project's representative,
+    // adding a route-family example if the project set does not cover both.
+    for (const model of fallbackRepresentatives) {
       const { context, page } = await newPage(chrome, origin, viewports.mobile);
       try {
         await context.route(`**${model.modelUrl}`, async (route) => { await new Promise((resolve) => setTimeout(resolve, 1800)); await route.continue(); });
         const section = await assertPoster(page, model, origin, `slow-${model.modelId}`, report.screenshots);
         await section.locator("[data-r3d-start]").click();
-        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true, "Slow network must keep poster");
-        assert.equal(await section.getAttribute("data-r3d-state"), "loading", "Slow network must show loading state");
+        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true, `${model.modelId}: slow network must keep poster`);
+        assert.equal(await section.getAttribute("data-r3d-state"), "loading", `${model.modelId}: slow network must show loading state`);
         await page.waitForFunction((id) => document.querySelector(`[data-r3d-model-id="${id}"]`)?.getAttribute("data-r3d-state") === "ready", model.modelId, { timeout: 90000 });
-        report.checks.push("slow network preserves poster until load");
+        report.checks.push(`${model.modelId}: slow network preserves poster until load`);
       } finally { await context.close(); }
     }
 
-    // A failed GLB must leave the released plan and inquiry route available.
-    {
+    // A failed GLB must leave the released plan and inquiry route available,
+    // then allow a retry to load the same stable model.
+    for (const model of fallbackRepresentatives) {
       const { context, page } = await newPage(chrome, origin, viewports.mobile);
       try {
         const abortGlb = (route) => route.abort("failed");
@@ -358,19 +497,21 @@ async function main() {
         const section = await assertPoster(page, model, origin, `failed-${model.modelId}`, report.screenshots);
         await section.locator("[data-r3d-start]").click();
         await page.waitForFunction((id) => document.querySelector(`[data-r3d-model-id="${id}"]`)?.getAttribute("data-r3d-state") === "error", model.modelId, { timeout: 15000 });
-        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true);
-        assert.equal(await section.locator("[data-r3d-start]").isVisible(), true);
-        assert.equal(await page.locator(".fp-drawing a").isVisible(), true);
+        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true, `${model.modelId}: failed GLB poster`);
+        assert.equal(await section.locator("[data-r3d-start]").isVisible(), true, `${model.modelId}: failed GLB retry control`);
+        const drawing = page.locator('.fp-drawing a[href$=".pdf"]:visible, .fp-per-plan-review a[href$=".pdf"]:visible, a[href$=".pdf"]:visible').first();
+        assert.ok(await drawing.count() > 0 && await drawing.isVisible(), `${model.modelId}: released drawing remains available after GLB failure`);
+        assert.equal(await section.locator('[data-r3d-action="availability"]').getAttribute("href"), "/inquire/", `${model.modelId}: inquiry route after GLB failure`);
         report.screenshots.push(await screenshot(page, `failed-${model.modelId}-fallback`));
         await context.unroute(`**${model.modelUrl}`, abortGlb);
         await activate(section, model, `retry-${model.modelId}`, report.screenshots);
-        report.checks.push("failed GLB retains poster and released plan; retry loads model");
+        report.checks.push(`${model.modelId}: failed GLB preserves poster, drawing and inquiry; retry loads model`);
       } finally { await context.close(); }
     }
 
     // An unavailable library leaves the static image, plan, CTA and retry
     // affordance on screen without ever requesting the GLB.
-    {
+    for (const model of fallbackRepresentatives) {
       const { context, page } = await newPage(chrome, origin, viewports.mobile);
       try {
         const requests = [];
@@ -379,76 +520,58 @@ async function main() {
         const section = await assertPoster(page, model, origin, `library-fail-${model.modelId}`, report.screenshots);
         await section.locator("[data-r3d-start]").click();
         await page.waitForFunction((id) => document.querySelector(`[data-r3d-model-id="${id}"]`)?.getAttribute("data-r3d-state") === "error", model.modelId, { timeout: 15000 });
-        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true);
-        assert.equal(await section.locator('[data-r3d-action="availability"]').isVisible(), true);
-        assert.equal(requests.filter((url) => /\.glb(?:\?|$)/.test(url)).length, 0, "GLB requested after library failure");
+        assert.equal(await section.locator("[data-r3d-poster]").isVisible(), true, `${model.modelId}: library failure poster`);
+        assert.equal(await section.locator('[data-r3d-action="availability"]').isVisible(), true, `${model.modelId}: library failure CTA`);
+        assert.equal(requests.filter((url) => /\.glb(?:\?|$)/.test(url)).length, 0, `${model.modelId}: GLB requested after library failure`);
         report.screenshots.push(await screenshot(page, `library-fail-${model.modelId}-fallback`));
-        report.checks.push("failed library retains poster, plan and inquiry CTA");
+        report.checks.push(`${model.modelId}: failed library retains poster, plan and inquiry CTA`);
       } finally { await context.close(); }
     }
 
-    // No JavaScript and no WebGL still expose poster, facts and inquiry link.
-    for (const kind of ["no-js", "no-webgl"]) {
-      for (const [sizeName, viewport] of Object.entries(viewports)) {
-        const { context, page } = await newPage(chrome, origin, viewport, { javaScriptEnabled: kind !== "no-js" });
-        try {
-          if (kind === "no-webgl") await page.addInitScript(() => { HTMLCanvasElement.prototype.getContext = () => null; });
-          await page.goto(`${origin}${routeFor(model)}`, { waitUntil: "networkidle" });
-          const section = page.locator('[data-r3d-model-id="' + model.modelId + '"]');
-          assert.equal(await section.locator("[data-r3d-poster] img").isVisible(), true);
-          assert.equal(await section.locator("[data-r3d-start]").isHidden(), true);
-          assert.equal(await page.locator(".fp-facts").isVisible(), true);
-          assert.equal(await section.locator('[data-r3d-action="availability"]').getAttribute("href"), "/inquire/");
-          report.screenshots.push(await screenshot(page, `${kind}-${model.modelId}-${sizeName}-fallback`));
-          report.checks.push(`${kind} ${sizeName} fallback`);
-        } finally { await context.close(); }
+    // No JavaScript and no WebGL still expose poster, plan facts and inquiry
+    // across each project and both page-owner families.
+    for (const model of fallbackRepresentatives) {
+      for (const kind of ["no-js", "no-webgl"]) {
+        for (const [sizeName, viewport] of Object.entries(viewports)) {
+          const { context, page } = await newPage(chrome, origin, viewport, { javaScriptEnabled: kind !== "no-js" });
+          try {
+            if (kind === "no-webgl") await page.addInitScript(() => { HTMLCanvasElement.prototype.getContext = () => null; });
+            await page.goto(`${origin}${routeFor(model)}`, { waitUntil: "networkidle" });
+            const section = page.locator(`[data-r3d-model-id="${model.modelId}"]`);
+            assert.equal(await section.locator("[data-r3d-poster] img").isVisible(), true, `${model.modelId}: ${kind} poster`);
+            assert.equal(await section.locator("[data-r3d-start]").isHidden(), true, `${model.modelId}: ${kind} start control should be hidden`);
+            const planFacts = page.locator(".fp-facts:visible, .fp-per-plan-review:visible");
+            assert.ok(await planFacts.count() > 0, `${model.modelId}: ${kind} route facts remain visible`);
+            assert.equal(await section.locator('[data-r3d-action="availability"]').getAttribute("href"), "/inquire/", `${model.modelId}: ${kind} inquiry link`);
+            report.screenshots.push(await screenshot(page, `${kind}-${model.modelId}-${sizeName}-fallback`));
+            report.checks.push(`${model.modelId}: ${kind} ${sizeName} fallback`);
+          } finally { await context.close(); }
+        }
       }
     }
 
-    // Reset, fullscreen where available, and residence-specific lead attribution.
-    {
-      const { context, page } = await newPage(chrome, origin, viewports.desktop);
-      try {
-        const section = await assertPoster(page, model, origin, `controls-${model.modelId}`, report.screenshots);
-        await activate(section, model, `controls-${model.modelId}`, report.screenshots);
-        const viewer = section.locator("model-viewer");
-        await checkCameraInteraction(section, page, "chromium camera controls");
-        const initialOrbit = await viewer.getAttribute("camera-orbit");
-        await viewer.evaluate((element) => element.setAttribute("camera-orbit", "85deg 70deg 4m"));
-        await section.locator("[data-r3d-reset]").click();
-        assert.equal(await viewer.getAttribute("camera-orbit"), initialOrbit, "Reset camera orbit");
-        await assertKeyboardInteractionFocus(viewer, "Reset camera");
-        const fullscreen = section.locator("[data-r3d-fullscreen]");
-        if (await fullscreen.isVisible()) {
-          await page.evaluate(() => {
-            window.__r3dFullscreenEvents = [];
-            document.addEventListener("fullscreenchange", () => window.__r3dFullscreenEvents.push("fullscreenchange"));
-            document.addEventListener("fullscreenerror", () => window.__r3dFullscreenEvents.push("fullscreenerror"));
-          });
-          await fullscreen.click();
-          await waitForFullscreen(page, true, "Fullscreen entry");
-          assert.equal((await fullscreen.innerText()).trim(), "Exit full screen", "Fullscreen toggle label after entry");
-          await fullscreen.click();
-          await waitForFullscreen(page, false, "Fullscreen exit");
-          assert.equal((await fullscreen.innerText()).trim(), "Full screen", "Fullscreen toggle label after exit");
-        }
-        const href = await section.locator('[data-r3d-action="availability"]').getAttribute("href");
-        assert.ok(href);
-        await page.evaluate(() => window.addEventListener("wpb:analytics", (event) => {
-          if (event.detail?.eventName === "residence_3d_cta") sessionStorage.setItem("__qa_3d_cta", JSON.stringify(event.detail));
-        }));
-        await section.locator('[data-r3d-action="availability"]').click();
-        await page.waitForURL(/\/inquire\//);
-        assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(), model.projectId, "Inquiry project attribution");
-        assert.equal(await page.locator('.inquiry-form input[name="lead_capture_context"]').inputValue(), `floorplan:${model.projectId}:${model.residenceSlug}`, "Inquiry residence attribution");
-        const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("wpbLeadAttribution") ?? "{}"));
-        assert.equal(stored.cta_context, `floorplan:${model.projectId}:${model.residenceSlug}`, "Stored residence attribution");
-        const ctaEvent = await page.evaluate(() => JSON.parse(sessionStorage.getItem("__qa_3d_cta") ?? "null"));
-        assert.equal(ctaEvent?.payload?.modelId, model.modelId, "3D CTA model attribution");
-        assert.equal(ctaEvent?.payload?.residenceId, model.residenceSlug, "3D CTA residence attribution");
-        assert.equal(ctaEvent?.payload?.source, "3d-loaded", "3D CTA loaded-state attribution");
-        report.checks.push("camera reset, fullscreen and inquiry attribution");
-      } finally { await context.close(); }
+    // Exercise actual viewer controls in both browser engines. Attribution
+    // covers each project's last model plus Shorecrest 0704 so the established
+    // canonical alias and stable residence ID remain coupled.
+    const attributionModels = [...projectRepresentatives];
+    const shorecrest0704 = models.find((model) => model.projectId === "shorecrest" && model.residenceSlug === "residence-0704");
+    if (shorecrest0704 && !attributionModels.some((model) => model.modelId === shorecrest0704.modelId)) attributionModels.push(shorecrest0704);
+    for (const [browserName, browser] of [["chromium", chrome], ["webkit", webkitBrowser]]) {
+      for (const model of attributionModels) {
+        const { context, page } = await newPage(browser, origin, viewports.desktop);
+        try {
+          const label = `${browserName}-controls-${model.modelId}`;
+          const section = await assertPoster(page, model, origin, label, report.screenshots);
+          await activate(section, model, label, report.screenshots);
+          await checkCameraInteraction(section, page, `${label}: camera controls`);
+          await assertResetAndFullscreen(section, page, label);
+          if (browserName === "chromium") {
+            await assertInquiryAttribution(section, page, model, label);
+            await assertEntityIntroAttribution(page, model, origin, label);
+          }
+          report.checks.push(`${label}: camera, reset, fullscreen where available${browserName === "chromium" ? ", and inquiry attribution" : ""}`);
+        } finally { await context.close(); }
+      }
     }
   } catch (error) {
     report.errors.push(error.stack ?? String(error));
