@@ -141,6 +141,32 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Residence LPH A Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-lph-a/
 - Residence LPH B Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/residence-lph-b/
 - Townhouse C Floor Plan | Alba Palm Beach: /floorplans/alba-palm-beach/townhouse-c/
+- Residence 01 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-01/
+- Residence 02 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-02/
+- Residence 03 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-03/
+- Residence 04 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-04/
+- Residence 05 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-05/
+- Residence 06 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-06/
+- Residence 2403 Floor Plan | Banyan Tree WPB: /floorplans/banyan-tree/residence-2403/
+- PH Floor Plan | La Clara: /floorplans/la-clara/ph/
+- Residence A Floor Plan | La Clara: /floorplans/la-clara/residence-a/
+- Residence C Floor Plan | La Clara: /floorplans/la-clara/residence-c/
+- Residence D Floor Plan | La Clara: /floorplans/la-clara/residence-d/
+- Residence E Floor Plan | La Clara: /floorplans/la-clara/residence-e/
+- Residence F Floor Plan | La Clara: /floorplans/la-clara/residence-f/
+- North Open Kitchen Plan Floor Plan | Forté on Flagler: /floorplans/forte-on-flagler/north-open-kitchen-plan/
+- Penthouse Residence Floor Plan | Forté on Flagler: /floorplans/forte-on-flagler/penthouse-residence/
+- South Floor Plan | Forté on Flagler: /floorplans/forte-on-flagler/south/
+- Residence A Floor Plan | Maison d'Or: /floorplans/maison-dor/residence-a/
+- Residence A1 Floor Plan | Maison d'Or: /floorplans/maison-dor/residence-a1/
+- Residence B Floor Plan | Maison d'Or: /floorplans/maison-dor/residence-b/
+- Residence C Floor Plan | Maison d'Or: /floorplans/maison-dor/residence-c/
+- Residence C1 Floor Plan | Maison d'Or: /floorplans/maison-dor/residence-c1/
+- Estate A Floor Plan | Maison d'Or: /floorplans/maison-dor/estate-a/
+- Estate B Floor Plan | Maison d'Or: /floorplans/maison-dor/estate-b/
+- LPH A Floor Plan | Maison d'Or: /floorplans/maison-dor/lph-a/
+- LPH B Floor Plan | Maison d'Or: /floorplans/maison-dor/lph-b/
+- Penthouse Floor Plan | Maison d'Or: /floorplans/maison-dor/penthouse/
 - West Palm Beach New Construction Buildings | Buyer Guide: /buildings/
 - West Palm Beach Condo Map | New Construction Corridors: /map/
 - West Palm Beach Condo Corridors | Buyer Guide: /corridors/
@@ -237,7 +263,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Privacy | WPB New Construction: /privacy/
 - Terms | WPB New Construction: /terms/
 - West Palm Beach Condo Buyer Research Desk | Inquiry: /inquire/
-- Alba Palm Beach | North Flagler New Construction Condos: /projects/alba-palm-beach/
+- Alba Palm Beach | Completed North Flagler Waterfront Condos: /projects/alba-palm-beach/
 - Olara West Palm Beach | Prices, Floor Plans & Condos: /projects/olara/
 - Shorecrest West Palm Beach | Condos & Floor Plans: /projects/shorecrest/
 - Ritz-Carlton Residences West Palm Beach | Floor Plans: /projects/ritz-carlton-wpb/
@@ -245,7 +271,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - NORA House West Palm Beach | Prices & Floor Plans: /projects/nora-house/
 - South Flagler House West Palm Beach | Prices & Floor Plans: /projects/south-flagler-house/
 - Mr. C Residences West Palm Beach | Downtown Condos: /projects/mr-c/
-- Maison d Or West Palm Beach | South Flagler Condo Watch: /projects/maison-dor/
+- Maison d'Or West Palm Beach | South Flagler Buyer Guide: /projects/maison-dor/
 - Edgeworth West Palm Beach | South Flagler Condos: /projects/edgeworth/
 - Mandarin Oriental Residences | West Palm Beach Waterfront: /projects/mandarin-oriental/
 - Banyan Tree Residences West Palm Beach | Buyer Guide: /projects/banyan-tree/
