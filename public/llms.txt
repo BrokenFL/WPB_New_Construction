@@ -63,12 +63,16 @@ The site is built to help buyers understand which West Palm Beach condo building
 ## Interactive 3D Floor Plans
 
 - Interactive 3D floor plan gallery: /3d-floorplans/
-- olara residence-c: /floorplans/olara/residence-c/
-- olara residence-d: /floorplans/olara/residence-d/
-- shorecrest residence-0704: /floorplans/shorecrest/residence-0704/
-- shorecrest residence-1602: /floorplans/shorecrest/residence-1602/
-- ritz-carlton-wpb residence-02: /floorplans/ritz-carlton-wpb/residence-02/
-- ritz-carlton-wpb residence-06: /floorplans/ritz-carlton-wpb/residence-06/
+- Olara Residence D: /floorplans/olara/residence-d/
+- Olara Residence C: /floorplans/olara/residence-c/
+- Shorecrest Residence 0704: /floorplans/shorecrest/shorecrest-1153-0704/
+- Shorecrest Residence 1602: /floorplans/shorecrest/residence-1602/
+- The Ritz-Carlton Residences, West Palm Beach Residence 02: /floorplans/ritz-carlton-wpb/residence-02/
+- The Ritz-Carlton Residences, West Palm Beach Residence 06: /floorplans/ritz-carlton-wpb/residence-06/
+- Mr. C Hotel & Residences West Palm Beach Residence 01A: /floorplans/mr-c/residence-01a/
+- Mr. C Hotel & Residences West Palm Beach Residence 02A: /floorplans/mr-c/residence-02a/
+- The Berkeley Palm Beach Residence D: /floorplans/berkeley/residence-d/
+- The Berkeley Palm Beach Residence G: /floorplans/berkeley/residence-g/
 
 ## Current Updates
 

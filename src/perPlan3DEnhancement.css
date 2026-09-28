@@ -1,0 +1,67 @@
+@import "./residence3DViewer.css";
+
+/* Loaded only with reviewed per-plan 3D pages, including their static HTML. */
+.r3d-plan-page {
+  width: min(1180px, calc(100% - 72px));
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) 0 5rem;
+  color: #203337;
+  overflow-wrap: break-word;
+}
+.r3d-plan-page h1 {
+  max-width: 22ch;
+  margin: 1.2rem 0 1.5rem;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.r3d-plan-page > p,
+.r3d-plan-page > section > p {
+  max-width: 66ch;
+  line-height: 1.75;
+}
+.r3d-plan-page > p:first-child { font-size: .85rem; }
+.r3d-plan-page > section:not(.fp-per-plan-review) {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #d5d1c7;
+}
+.r3d-plan-page.static-prerender > section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.r3d-plan-page > section > h2 {
+  max-width: none;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.16;
+}
+.r3d-plan-page h3 {
+  max-width: 58ch;
+  color: #203337;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin-bottom: .6rem;
+}
+.r3d-plan-page > section > article { margin: 1.7rem 0; }
+.r3d-plan-page > section > article p { max-width: 70ch; line-height: 1.75; }
+.r3d-plan-page > section > p + p { margin-top: 1rem; }
+.r3d-plan-page dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem 2rem;
+  margin: 0 0 1.8rem;
+  padding: 1.5rem;
+  background: #fffdf9;
+  border: 1px solid #d5d1c7;
+}
+.r3d-plan-page dt { font-size: .8rem; color: #526260; }
+.r3d-plan-page dd { margin: .35rem 0 0; font-size: 1.1rem; line-height: 1.5; }
+.r3d-plan-page .r3d h2 { max-width: none; }
+.r3d-plan-page a:focus-visible { outline: 2px solid #806b55; outline-offset: 4px; }
+@media (max-width: 650px) {
+  .r3d-plan-page { width: calc(100% - 36px); padding-top: 2rem; }
+  .r3d-plan-page h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .r3d-plan-page dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; padding: 1.1rem; }
+}

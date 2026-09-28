@@ -3,7 +3,7 @@ import { teamProfile } from "./contact.ts";
 
 export const residence3DDiscoveryPath = "/3d-floorplans/";
 export const residence3DDiscoveryTitle = "Interactive 3D Floor Plans | West Palm Beach Residences";
-export const residence3DDiscoveryDescription = "Explore reviewed 3D residence layouts alongside their released developer drawings for Olara, Shorecrest and The Ritz-Carlton Residences, West Palm Beach.";
+export const residence3DDiscoveryDescription = "Explore reviewed 3D residence layouts alongside released developer drawings for selected West Palm Beach developments.";
 
 export function approved3DPlanEntities() {
   return publishedFloorplanEntities().filter((plan) => plan.models3D.some((model) => model.status === "approved"));
@@ -47,9 +47,9 @@ export function renderResidence3DDiscoveryPage(): string {
         const project = projectPlans[0];
         return `<section class="fp-discovery" aria-labelledby="fp-3d-${e(projectId)}"><h2 id="fp-3d-${e(projectId)}">${e(project.projectName)}</h2><p><a href="/projects/${e(projectId)}/">Read the building guide</a></p><ul class="fp-3d-cards">${projectPlans.map((plan) => {
           const model = plan.models3D.find((item) => item.status === "approved")!;
-          return `<li><article><a href="${e(plan.path)}"><img src="${e(model.posterUrl)}" alt="${e(model.accessibilityLabel)}" loading="lazy" decoding="async"><h3>${e(project.projectName)} · ${e(plan.planName)}</h3></a><p>${e(plan.bedrooms)} bedrooms · ${e(plan.interiorSqFt.toLocaleString("en-US"))} sq ft interior · ${e(plan.terraceSqFt.toLocaleString("en-US"))} sq ft exterior</p><p><a href="${e(plan.path)}">Explore in 3D</a> · <a href="${e(plan.pdf)}">Source drawing</a></p></article></li>`;
+          return `<li><article><a href="${e(plan.path)}"><img src="${e(model.posterUrl)}" alt="${e(model.accessibilityLabel)}" loading="lazy" decoding="async"><h3>${e(project.projectName)} · ${e(plan.planName)}</h3></a><p>${e(plan.bedrooms.replace(/^(\d+)/, "$1 bedrooms"))} · ${e(plan.interiorSqFt.toLocaleString("en-US"))} sq ft interior · ${e(plan.terraceSqFt.toLocaleString("en-US"))} sq ft exterior</p><p><a href="${e(plan.path)}">Explore in 3D</a> · <a href="${e(plan.pdf)}">Source drawing</a></p></article></li>`;
         }).join("")}</ul></section>`;
       }).join("")}
-      <section class="fp-reading"><h2>Compare the model with the drawing</h2><p>A 3D view helps explain circulation, room relationships and terrace placement. Check measurements and disclosures in each archived developer PDF, then ask for the current residence-specific packet before relying on availability, views or purchase terms.</p><div class="fp-actions"><a href="/floorplans/">Browse the full floor-plan library</a><a href="/inquire/">Request current availability</a></div></section>
+      <section class="fp-reading"><h2>Compare the model with the drawing</h2><p>A 3D view helps explain circulation, room relationships and terrace placement. Check measurements and disclosures in each archived developer drawing, then ask for the current residence-specific packet before relying on availability, views or purchase terms.</p><div class="fp-actions"><a href="/floorplans/">Browse the full floor-plan library</a><a href="/inquire/">Request current availability</a></div></section>
     </main><footer class="fp-footer"><strong>${e(teamProfile.presentedBy)}</strong><p>${e(teamProfile.legalBrokerage)} · Brokerage license ${e(teamProfile.brokerageLicense)}</p><p>Independent buyer research. This page is not the developer’s sales website. Equal Housing Opportunity.</p><nav aria-label="Legal"><a href="/about/">About</a><a href="/methodology/">Methodology</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/fair-housing/">Fair housing</a></nav></footer></div>`;
 }

@@ -7,7 +7,7 @@
     "dev": "vite",
     "typecheck": "tsc --noEmit",
     "build": "tsc && node node_modules/vite/bin/vite.js build",
-    "postbuild": "node research/scripts/prerender-static-routes.mjs && node --experimental-strip-types research/scripts/prerender-commercial-routes.mjs && node --experimental-strip-types research/scripts/prerender-floorplan-entities.mjs && node research/scripts/apply-project-seo-batch4.mjs && node research/scripts/normalize-social-previews.mjs",
+    "postbuild": "node --experimental-strip-types research/scripts/prerender-static-routes.mjs && node --experimental-strip-types research/scripts/prerender-commercial-routes.mjs && node --experimental-strip-types research/scripts/prerender-floorplan-entities.mjs && node research/scripts/apply-project-seo-batch4.mjs && node research/scripts/normalize-social-previews.mjs",
     "preview": "vite preview",
     "intel:process": "node research/scripts/intel/process-intel.mjs",
     "test:intel:phase-a": "node --test research/scripts/intel/*.test.mjs",
@@ -136,6 +136,7 @@
     "test:residence-3d:assets": "node --test research/scripts/residence-model-assets.test.mjs",
     "qa:residence-3d": "node --experimental-strip-types research/scripts/check-residence-model-assets.mjs --dist && node --experimental-strip-types research/scripts/residence-3d-browser-qa.mjs",
     "discovery:llms": "node --experimental-strip-types research/scripts/build-site-intelligence.mjs --llms-only",
+    "discovery:floorplans": "node --experimental-strip-types research/scripts/build-site-intelligence.mjs --floorplan-discovery-only",
     "test:residence-3d": "node --experimental-strip-types --test research/scripts/residence-3d-manifest.test.mjs research/scripts/residence-model-assets.test.mjs"
   },
   "devDependencies": {

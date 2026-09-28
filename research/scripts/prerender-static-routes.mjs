@@ -2,6 +2,7 @@ import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
+import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "../../src/lib/floorplanEntities.ts";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
@@ -59,6 +60,8 @@ async function main() {
   const template = await fs.readFile(templatePath, "utf8");
   const siteData = await fs.readFile(siteDataPath, "utf8");
   const staticPayload = await loadStaticPayload(siteData);
+  const buildManifest = JSON.parse(await fs.readFile(path.join(workspace, ".runtime/build/manifest.json"), "utf8"));
+  staticPayload.residenceStyles = buildManifest["src/perPlan3DEnhancement.ts"]?.css ?? [];
   const routes = staticPayload.prerenderRoutes;
 
   for (const route of routes) {
@@ -210,6 +213,8 @@ function renderRouteHtml(template, route, staticPayload) {
   const canonical = `${baseUrl}${canonicalPathForRoute(route.path)}`;
   const staticContent = renderStaticRouteContent(route, staticPayload);
   const schema = buildRouteSchema(route, staticPayload, canonical);
+  const planPage = staticPayload.floorplanPlanPages?.find((plan) => route.path === `/floorplans/${plan.projectId}/${plan.planSlug}/`);
+  const reviewed = planPage ? entityForPerPlanPage(planPage) : undefined;
   let html = template
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(route.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(route.description)}" />`)
@@ -226,6 +231,13 @@ function renderRouteHtml(template, route, staticPayload) {
     "</head>",
     `  <script id="wpb-static-structured-data" type="application/ld+json" data-static-path="${escapeHtml(route.path)}">${jsonForHtml(schema)}</script>\n  </head>`,
   );
+  if (reviewed?.models3D.some((model) => model.status === "approved")) {
+    if (!staticPayload.residenceStyles.length) throw new Error("Missing per-plan residence viewer stylesheet");
+    for (const file of staticPayload.residenceStyles) {
+      if (!/^assets\/[a-zA-Z0-9_.-]+\.css$/.test(file)) throw new Error(`Invalid residence stylesheet: ${file}`);
+      html = html.replace("</head>", `<link rel="stylesheet" href="/${file}">\n</head>`);
+    }
+  }
   html = html.replace(
     '<div id="app"></div>',
     `<div id="app">${staticContent}</div><script>window.__WPB_PRERENDER_PATH__=${JSON.stringify(route.path)};</script>`,
@@ -606,6 +618,7 @@ function renderFloorplanPlanRoute(route, payload, projectId, planSlug) {
     (item) => item.projectId === projectId && item.planSlug === planSlug,
   );
   if (!plan) return renderSimpleRoute(route);
+  const reviewed = entityForPerPlanPage(plan);
   const project = projectForSlug(payload, projectId);
   const projectHref = project ? projectPath(project) : "/buildings/";
   const corridorKey = plan.corridorSlug === "downtown-west-palm-beach" ? "downtown" : plan.corridorSlug;
@@ -622,11 +635,12 @@ function renderFloorplanPlanRoute(route, payload, projectId, planSlug) {
   const sqft = plan.totalSqFt ? `${plan.totalSqFt} total square feet` : plan.interiorSqFt ? `${plan.interiorSqFt} interior square feet` : "";
   return pageShell(
     `floorplan-plan-${projectId}-${planSlug}`,
-    `${plan.planTitle} floor plan`,
+    `${reviewed ? `${reviewed.projectName} ${reviewed.planName}` : plan.planTitle} floor plan`,
     route.description,
     `
       <section>
         <p><a href="/floorplans/">Floor plans</a> / <a href="${projectHref}">${publicText(plan.projectName)}</a> / ${publicText(plan.planTitle)}</p>
+        ${renderReviewedPerPlan3D(plan)}
         <h2>Plan facts</h2>
         ${metricRows.length ? `<dl>${metricRows.map(([term, value]) => `<div><dt>${publicText(term)}</dt><dd>${publicText(value)}</dd></div>`).join("")}</dl>` : `<p>Detailed plan metrics are being confirmed. Request the current packet for the latest drawing.</p>`}
         ${plan.pdfHref ? `<p><a href="${safeHref(plan.pdfHref)}">Open the released ${publicText(plan.planTitle)} floor plan PDF</a></p>` : ""}
@@ -635,15 +649,16 @@ function renderFloorplanPlanRoute(route, payload, projectId, planSlug) {
       <section>
         <h2>About this building</h2>
         <p>${publicText(plan.planTitle)} is a released floor plan at <a href="${projectHref}">${publicText(plan.projectName)}</a>${plan.status && plan.status !== "Unknown" ? `, currently ${publicText(plan.status.toLowerCase())}` : ""}${plan.delivery && plan.delivery !== "Unknown" ? ` with delivery ${publicText(plan.delivery)}` : ""}. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${publicText(plan.projectName)} plan set</a> and the <a href="${corridorHref}">${publicText(corridorLabelForKey(corridorKey))} corridor</a>.</p>
-        <p><a href="/inquire/">Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
+        <p><a href="/inquire/" data-per-plan-availability>Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
       </section>
       <section>
         <h2>FAQ</h2>
         ${bedBath ? `<article><h3>How many bedrooms and bathrooms does ${publicText(plan.planTitle)} have?</h3><p>The released drawing shows ${publicText(bedBath)}. Confirm the current configuration in the buyer packet, since released plans can change by stack and phase.</p></article>` : ""}
         ${sqft ? `<article><h3>What is the square footage of ${publicText(plan.planTitle)}?</h3><p>The released plan lists ${publicText(sqft)}. Terrace and balcony areas are outdoor space, not interior living area.</p></article>` : ""}
-        <article><h3>How do I check current availability for ${publicText(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/">Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
+        <article><h3>How do I check current availability for ${publicText(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/" data-per-plan-availability>Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
       </section>
     `,
+    reviewed?.models3D.some((model) => model.status === "approved") ? "r3d-plan-page" : "",
   );
 }
 
@@ -1132,9 +1147,9 @@ function renderSimpleRoute(route) {
   );
 }
 
-function pageShell(label, h1, intro, body) {
+function pageShell(label, h1, intro, body, extraClass = "") {
   return `
-    <main class="static-prerender" data-static-prerender="${escapeHtml(label)}">
+    <main class="static-prerender${extraClass ? ` ${escapeHtml(extraClass)}` : ""}" data-static-prerender="${escapeHtml(label)}">
       <section>
         <p>WPB New Construction</p>
         <h1>${publicText(h1)}</h1>
@@ -1539,6 +1554,17 @@ function buildRouteSchema(route, payload, canonical) {
   ];
 
   const routeGraph = [];
+  if (routeKind.type === "floorplan-plan") {
+    const page = payload.floorplanPlanPages.find((plan) => plan.projectId === routeKind.projectId && plan.planSlug === routeKind.planSlug);
+    const reviewed = page ? entityForPerPlanPage(page) : undefined;
+    const creative = page ? reviewedPerPlanCreativeWork(page) : undefined;
+    if (reviewed && creative) {
+      baseGraph[4].dateModified = floorplanModifiedOn(reviewed);
+      baseGraph[4].lastReviewed = reviewed.reviewedOn;
+      baseGraph[4].mainEntity = { "@id": creative["@id"] };
+      routeGraph.push(creative);
+    }
+  }
   if (routeKind.type === "project") {
     const project = projectForSlug(payload, routeKind.slug);
     if (project) routeGraph.push(projectSchema(project, payload));

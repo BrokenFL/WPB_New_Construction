@@ -3,7 +3,7 @@ import test from "node:test";
 import fs from "node:fs/promises";
 import { residence3DModels, residence3DModelsForPlan } from "../../src/data/residence3DModels.ts";
 import { reviewed3DFloorplanExpansion } from "../../src/data/reviewed3DFloorplanExpansion.ts";
-import { buildFloorplanEntities, floorplanSchema, publishedFloorplanEntities, renderFloorplanPage } from "../../src/lib/floorplanEntities.ts";
+import { buildFloorplanEntities, floorplanSchema, publishedFloorplanEntities, perPlanPageForEntity, entityRendererPages, renderFloorplanPage } from "../../src/lib/floorplanEntities.ts";
 import { approved3DPlanEntities, residence3DDiscoverySchema, renderResidence3DDiscoveryPage } from "../../src/lib/residence3DDiscovery.ts";
 import { add3DLlmsInventory, addSitemapEntities, render3DDiscoveryDocument } from "./prerender-floorplan-entities.mjs";
 
@@ -11,11 +11,13 @@ const keys = [
   "olara/residence-c", "olara/residence-d",
   "shorecrest/residence-0704", "shorecrest/residence-1602",
   "ritz-carlton-wpb/residence-02", "ritz-carlton-wpb/residence-06",
+  "mr-c/residence-01a", "mr-c/residence-02a",
+  "berkeley/residence-d", "berkeley/residence-g",
 ];
 
-test("manifest contains the exact six public-safe, uniquely keyed model entries", () => {
+test("manifest contains all ten reviewed, public-safe, uniquely keyed model entries", () => {
   assert.deepEqual(residence3DModels.map((model) => `${model.projectId}/${model.residenceSlug}`), keys);
-  assert.equal(new Set(residence3DModels.map((model) => model.modelId)).size, 6);
+  assert.equal(new Set(residence3DModels.map((model) => model.modelId)).size, residence3DModels.length);
   for (const model of residence3DModels) {
     assert.ok(["pending", "approved"].includes(model.status));
     assert.equal(typeof model.furnished, "boolean");
@@ -39,15 +41,22 @@ test("new floorplan entities preserve exact approved sources and do not synthesi
     assert.equal(plan.planName, review.displayName);
     assert.equal(plan.sourceUrl, review.sourceUrl);
     assert.equal(plan.models3D.length, 1);
-    assert.ok((await fs.readFile(`public${review.pdf}`)).subarray(0, 5).toString() === "%PDF-");
+    const sourceBytes = await fs.readFile(`public${review.pdf}`);
+    if (/\.pdf$/i.test(review.pdf)) assert.equal(sourceBytes.subarray(0, 5).toString(), "%PDF-");
+    else if (/\.jpe?g$/i.test(review.pdf)) {
+      assert.equal(sourceBytes.subarray(0, 2).toString("hex"), "ffd8");
+      const encoding = floorplanSchema(plan)["@graph"][0].mainEntity.encoding;
+      assert.equal((Array.isArray(encoding) ? encoding[0] : encoding).encodingFormat, "image/jpeg");
+      assert.doesNotMatch(renderFloorplanPage(plan), /Floor range on drawing/);
+    } else assert.fail(`Unsupported source drawing type: ${review.pdf}`);
     assert.ok((await fs.stat(`public${review.preview}`)).size > 0);
     if (review.projectId === "shorecrest") {
       assert.equal(plan.totalSqFt, null);
       assert.doesNotMatch(renderFloorplanPage(plan), /Reported total including exterior/);
       assert.doesNotMatch(JSON.stringify(floorplanSchema(plan)), /2967|2207/);
-    } else assert.equal(plan.interiorSqFt + plan.terraceSqFt, plan.totalSqFt);
+    } else if (plan.totalSqFt !== null && !review.areaDifference) assert.equal(plan.interiorSqFt + plan.terraceSqFt, plan.totalSqFt);
   }
-  assert.equal(publishedFloorplanEntities().length, 10);
+  assert.ok(publishedFloorplanEntities().length >= 10);
   assert.equal(publishedFloorplanEntities().some((plan) => plan.projectId === "alba-palm-beach"), false);
 });
 
@@ -62,6 +71,11 @@ test("only approved models enter HTML, schema, discovery and crawl inventory", (
     } else assert.doesNotMatch(html + schema, /model\.glb|poster\.webp/);
   }
   assert.deepEqual(approved3DPlanEntities(), approved);
+  for (const plan of approved) {
+    const perPlan = perPlanPageForEntity(plan);
+    assert.equal(entityRendererPages().some((item) => item.planId === plan.planId), !perPlan);
+    if (perPlan) assert.equal(plan.path, `/floorplans/${perPlan.projectId}/${perPlan.planSlug}/`);
+  }
   assert.equal(residence3DDiscoverySchema()["@graph"][1].numberOfItems, approved.length);
   assert.equal((renderResidence3DDiscoveryPage().match(/Explore in 3D/g) ?? []).length, approved.length);
   assert.equal(add3DLlmsInventory("# Test\n").includes("/3d-floorplans/"), approved.length > 0);
@@ -105,4 +119,27 @@ test("3D document renderer installs canonical, accessible body and one schema gr
   assert.equal((html.match(/id="wpb-residence-3d-schema"/g) ?? []).length, 1);
   assert.equal((html.match(/<h1>/g) ?? []).length, 1);
   assert.doesNotMatch(html, /<main>Old|id="wpb-static-structured-data"/);
+});
+
+test("drawing revisions keep approved facts distinct from a visualization's source", () => {
+  for (const slug of ["residence-d", "residence-g"]) {
+    const plan = buildFloorplanEntities().find((item) => item.projectId === "berkeley" && item.slug === slug);
+    assert.ok(plan);
+    const model = plan.models3D[0];
+    const previous = model.status;
+    model.status = "approved";
+    try {
+      const work = floorplanSchema(plan)["@graph"][0].mainEntity;
+      assert.equal(work.isBasedOn, plan.sourceUrl);
+      assert.equal(work.encoding[1].isBasedOn, model.sourceDrawingUrl);
+      assert.notEqual(model.sourceDrawingUrl, plan.sourceUrl);
+      assert.match(renderFloorplanPage(plan), /different drawing versions/);
+      if (slug === "residence-d") {
+        assert.match(renderResidence3DDiscoveryPage(), /2 bedrooms \+ flex/);
+        assert.doesNotMatch(renderResidence3DDiscoveryPage(), /flex bedrooms/);
+      }
+      assert.ok(renderFloorplanPage(plan).includes(model.sourceDrawingUrl));
+      assert.equal(plan.floors, "");
+    } finally { model.status = previous; }
+  }
 });

@@ -15,7 +15,7 @@ const sha256 = b => createHash('sha256').update(b).digest('hex');
 test('five distinct additional Olara layouts reuse the existing entity scope; D and Alba remain intact', () => {
   assert.deepEqual(olaraPlanExpansion.map(p=>p.slug), additions.map(l=>`residence-${l}`));
   assert.deepEqual(published.map(p=>p.slug), ['d',...additions].map(l=>`residence-${l}`));
-  assert.equal(buildFloorplanEntities().length,11);
+  assert.equal(buildFloorplanEntities().filter(plan => ['olara', 'alba-palm-beach'].includes(plan.projectId)).length,7);
   const d=published[0];assert.equal(d.reviewedOn,'2026-09-05');assert.equal(d.updatedOn,'2026-09-05');
   assert.equal(d.interiorSqFt,1774);assert.equal(d.terraceSqFt,381);assert.equal(d.totalSqFt,2155);
   assert.equal(floorplanForPath('/floorplans/alba-palm-beach/residence-d/'),undefined);

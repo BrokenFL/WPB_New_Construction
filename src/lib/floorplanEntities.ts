@@ -2,6 +2,7 @@ import { olaraPlanExpansion } from "../data/olaraPlanExpansion.ts";
 import { approvedFloorplanLibrary, type ApprovedFloorplanProject } from "../data/floorplanApprovedLibrary.ts";
 import { reviewed3DFloorplanExpansion } from "../data/reviewed3DFloorplanExpansion.ts";
 import { residence3DModelsForPlan, type Residence3DModel } from "../data/residence3DModels.ts";
+import { floorplanPlanPages, type FloorplanPlanPage } from "../data/floorplanPlanPages.ts";
 import { renderResidence3DViewer } from "../residence3DViewer.ts";
 import { teamProfile } from "./contact.ts";
 
@@ -48,7 +49,28 @@ export type FloorplanEntity = {
   summary: string; readingNote: string; areaNote: string; models3D: Residence3DModel[];
 };
 
-export function buildFloorplanEntities(library: readonly ApprovedFloorplanProject[] = approvedFloorplanLibrary): FloorplanEntity[] {
+// Match the reviewed drawing exactly. Residence slugs remain stable for models
+// and inquiry context even when the established per-plan URL owns the page.
+export function perPlanPageForEntity(plan: Pick<FloorplanEntity, "projectId" | "pdf">, pages: readonly FloorplanPlanPage[] = floorplanPlanPages): FloorplanPlanPage | undefined {
+  const matches = pages.filter((page) => page.projectId === plan.projectId && page.pdfHref === plan.pdf);
+  if (matches.length > 1) throw new Error(`Ambiguous per-plan page for ${plan.projectId}: ${plan.pdf}`);
+  if (matches[0] && pages.filter((page) => perPlanPath(page) === perPlanPath(matches[0])).length > 1) throw new Error(`Ambiguous per-plan route: ${perPlanPath(matches[0])}`);
+  return matches[0];
+}
+
+export function perPlanPath(page: Pick<FloorplanPlanPage, "projectId" | "planSlug">): string {
+  return `/floorplans/${page.projectId}/${page.planSlug}/`;
+}
+
+export function isPerPlanOwnedPath(value: string, pages: readonly FloorplanPlanPage[] = floorplanPlanPages): boolean {
+  return pages.some((page) => perPlanPath(page) === value);
+}
+
+export function entityForPerPlanPage(page: Pick<FloorplanPlanPage, "projectId" | "pdfHref">): FloorplanEntity | undefined {
+  return publishedFloorplanEntities().find((entity) => entity.projectId === page.projectId && entity.pdf === page.pdfHref && perPlanPageForEntity(entity));
+}
+
+export function buildFloorplanEntities(library: readonly ApprovedFloorplanProject[] = approvedFloorplanLibrary, pages: readonly FloorplanPlanPage[] = floorplanPlanPages): FloorplanEntity[] {
   return reviewedPlans.map((review) => {
     const projects = library.filter((item) => item.projectId === review.projectId);
     if (projects.length !== 1) throw new Error(`Expected one project: ${review.projectId}`);
@@ -63,7 +85,10 @@ export function buildFloorplanEntities(library: readonly ApprovedFloorplanProjec
         throw new Error(`Source review required: ${review.projectId}/${review.slug} ${key}`);
       }
     }
-    const path = `/floorplans/${review.projectId}/${review.slug}/`;
+    const planPage = perPlanPageForEntity({ projectId: review.projectId, pdf }, pages);
+    const fallbackPath = `/floorplans/${review.projectId}/${review.slug}/`;
+    if (!planPage && isPerPlanOwnedPath(fallbackPath, pages)) throw new Error(`Entity route collides with a per-plan page: ${fallbackPath}`);
+    const path = planPage ? perPlanPath(planPage) : fallbackPath;
     const interiorSqFt = Number(plan.interiorSqFt);
     const terraceSqFt = Number(plan.terraceSqFt);
     const totalSqFt = plan.totalSqFt == null ? null : Number(plan.totalSqFt);
@@ -81,7 +106,7 @@ export function buildFloorplanEntities(library: readonly ApprovedFloorplanProjec
       sourceUrl: review.sourceUrl, sourcePage: review.sourcePage, sourceNote: review.sourceNote,
       reviewedOn: review.reviewedOn, updatedOn: review.updatedOn,
       bedrooms: plan.bedrooms!, bathrooms: plan.bathrooms!, interiorSqFt, terraceSqFt, totalSqFt,
-      floors: plan.detail!, summary: review.summary, readingNote: review.readingNote, areaNote: review.areaNote,
+      floors: plan.detail ?? "", summary: review.summary, readingNote: review.readingNote, areaNote: review.areaNote,
       models3D: residence3DModelsForPlan(review.projectId, review.slug),
     };
   });
@@ -100,12 +125,16 @@ export function publishedFloorplanEntities(): FloorplanEntity[] {
     "shorecrest/residence-0704", "shorecrest/residence-1602",
     "ritz-carlton-wpb/residence-02", "ritz-carlton-wpb/residence-06",
   ]);
-  return buildFloorplanEntities().filter((plan) => plan.projectId === "olara" || additionalRelease.has(`${plan.projectId}/${plan.slug}`));
+  return buildFloorplanEntities().filter((plan) => plan.projectId === "olara" || additionalRelease.has(`${plan.projectId}/${plan.slug}`) || plan.models3D.some((model) => model.status === "approved"));
+}
+
+export function entityRendererPages(): FloorplanEntity[] {
+  return publishedFloorplanEntities().filter((plan) => !perPlanPageForEntity(plan));
 }
 
 export function floorplanForPath(value: string): FloorplanEntity | undefined {
   const path = cleanFloorplanPath(value);
-  return publishedFloorplanEntities().find((plan) => plan.path === path);
+  return entityRendererPages().find((plan) => plan.path === path);
 }
 
 export function floorplansForDiscovery(value: string): FloorplanEntity[] {
@@ -125,21 +154,46 @@ export function floorplanJson(value: unknown): string {
 
 const area = (value: number) => `${value.toLocaleString("en-US")} sq ft`;
 const fullName = (plan: FloorplanEntity) => `${plan.projectName} ${plan.planName}`;
-const compactName = (plan: FloorplanEntity) => plan.projectId === "ritz-carlton-wpb" ? `Ritz-Carlton Residences WPB ${plan.planName}` : fullName(plan);
+const compactName = (plan: FloorplanEntity) => plan.projectId === "ritz-carlton-wpb" ? `Ritz-Carlton Residences WPB ${plan.planName}`
+  : plan.projectId === "mr-c" ? `Mr. C Residences WPB ${plan.planName}` : fullName(plan);
 const bedroomLabel = (plan: FloorplanEntity) => plan.bedrooms.replace(/^(\d+)/, "$1 bedrooms");
 export const floorplanTitle = (plan: FloorplanEntity) => `${compactName(plan)} Floor Plan | ${bedroomLabel(plan).replace("bedrooms", "Bedrooms").replace("den", "Den")}`;
-export const floorplanDescription = (plan: FloorplanEntity) => `Explore ${compactName(plan)}: ${bedroomLabel(plan)}, ${area(plan.interiorSqFt)} interior. View the ${plan.models3D.some((model) => model.status === "approved") ? "3D model and " : ""}released PDF and request current availability.`;
+export const floorplanDescription = (plan: FloorplanEntity) => `Explore ${compactName(plan)}: ${bedroomLabel(plan)}, ${area(plan.interiorSqFt)} interior. View the ${plan.models3D.some((model) => model.status === "approved") ? "3D model and " : ""}released drawing and request current availability.`;
 export const floorplanModifiedOn = (plan: FloorplanEntity) => [plan.updatedOn, ...plan.models3D.filter((model) => model.status === "approved").map((model) => model.updatedOn)].sort().at(-1)!;
+
+export function renderReviewedPerPlan3D(page: FloorplanPlanPage): string {
+  const plan = entityForPerPlanPage(page);
+  if (!plan) return "";
+  const e = escapeFloorplanHtml;
+  return `<section class="fp-per-plan-review" aria-label="Reviewed residence source"><p>Source drawing reviewed <time datetime="${e(plan.reviewedOn)}">${e(plan.reviewedOn)}</time>. ${e(plan.sourceNote)}</p>${plan.models3D.filter((model) => model.status === "approved").map((model) => `${renderResidence3DViewer(model, { path: plan.path, projectName: plan.projectName, residenceName: plan.planName })}<p class="fp-3d-detail">${model.furnished ? "Furnished" : "Unfurnished"} ${model.cutaway ? "cutaway " : ""}interactive visualization · Model updated <time datetime="${e(model.updatedOn)}">${e(model.updatedOn)}</time>. The released drawing remains authoritative for dimensions and disclosures.${model.sourceDrawingUrl ? ` <a href="${e(model.sourceDrawingUrl)}" target="_blank" rel="noopener noreferrer">View the developer drawing used for this visualization ↗</a>` : ""}</p>`).join("")}</section>`;
+}
+
+export function reviewedPerPlanCreativeWork(page: FloorplanPlanPage) {
+  const plan = entityForPerPlanPage(page);
+  if (!plan) return undefined;
+  const encoding = [
+    { "@type": "MediaObject", contentUrl: `${floorplanSiteUrl}${plan.pdf}`, encodingFormat: /\.pdf$/i.test(plan.pdf) ? "application/pdf" : "image/jpeg" },
+    ...plan.models3D.filter((model) => model.status === "approved").map((model) => ({
+      "@type": "MediaObject", name: `${plan.projectName} ${plan.planName} interactive 3D floor plan`,
+      contentUrl: `${floorplanSiteUrl}${model.modelUrl}`, thumbnailUrl: `${floorplanSiteUrl}${model.posterUrl}`,
+      encodingFormat: "model/gltf-binary", dateModified: model.updatedOn,
+      description: "Illustrative visualization derived from the released drawing; refer to current offering documents for authoritative details.",
+      isBasedOn: model.sourceDrawingUrl ?? plan.sourceUrl,
+    })),
+  ];
+  return { "@type": "CreativeWork", "@id": `${plan.canonical}#plan`, name: `${plan.projectName} ${plan.planName} floor plan`,
+    description: plan.summary, version: plan.version, image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl, encoding };
+}
 
 export function floorplanSchema(plan: FloorplanEntity) {
   const canonical = plan.canonical;
-  const pdfEncoding = { "@type": "MediaObject", contentUrl: `${floorplanSiteUrl}${plan.pdf}`, encodingFormat: "application/pdf" };
+  const pdfEncoding = { "@type": "MediaObject", contentUrl: `${floorplanSiteUrl}${plan.pdf}`, encodingFormat: /\.pdf$/i.test(plan.pdf) ? "application/pdf" : "image/jpeg" };
   const modelEncodings = plan.models3D.filter((model) => model.status === "approved").map((model) => ({
     "@type": "MediaObject", name: `${fullName(plan)} interactive 3D floor plan`,
     contentUrl: `${floorplanSiteUrl}${model.modelUrl}`, thumbnailUrl: `${floorplanSiteUrl}${model.posterUrl}`,
     encodingFormat: "model/gltf-binary", dateModified: model.updatedOn,
     description: `${model.furnished ? "Furnished" : "Unfurnished"} ${model.cutaway ? "cutaway " : ""}visualization derived from the released residence drawing. Illustrative only; refer to the source drawing and current offering documents for authoritative details.`,
-    isBasedOn: plan.sourceUrl,
+    isBasedOn: model.sourceDrawingUrl ?? plan.sourceUrl,
   }));
   return {
     "@context": "https://schema.org", "@graph": [
@@ -186,28 +240,30 @@ export function mergeFloorplanDiscoverySchema(value: unknown, path: string): Rec
 export function renderFloorplanDiscovery(path: string): string {
   const plans = floorplansForDiscovery(path);
   if (!plans.length) return "";
-  return `<section id="wpb-floorplan-guides" class="fp-discovery" data-page="${escapeFloorplanHtml(cleanFloorplanPath(path))}" aria-labelledby="fp-guide-heading"><h2 id="fp-guide-heading">Explore individual floor plans</h2><p>Read the plan facts, review the source drawing, and request current availability.</p><ul>${plans.map((plan) => `<li><a data-floorplan-entity-link href="${plan.path}">${escapeFloorplanHtml(fullName(plan))} floor plan</a>${plan.models3D.some((model) => model.status === "approved") ? ' <small class="fp-3d-indicator">Interactive 3D</small>' : ""}</li>`).join("")}</ul>${plans.some((plan) => plan.models3D.some((model) => model.status === "approved")) ? '<p><a href="/3d-floorplans/">Browse interactive 3D floor plans</a></p>' : ""}</section>`;
+  return `<section id="wpb-floorplan-guides" class="fp-discovery" data-page="${escapeFloorplanHtml(cleanFloorplanPath(path))}" aria-labelledby="fp-guide-heading"><h2 id="fp-guide-heading">Explore individual floor plans</h2><p>Read the plan facts, review the source drawing, and request current availability.</p><ul>${plans.map((plan) => `<li><a ${perPlanPageForEntity(plan) ? "" : "data-floorplan-entity-link "}href="${plan.path}">${escapeFloorplanHtml(fullName(plan))} floor plan</a>${plan.models3D.some((model) => model.status === "approved") ? ' <small class="fp-3d-indicator">Interactive 3D</small>' : ""}</li>`).join("")}</ul>${plans.some((plan) => plan.models3D.some((model) => model.status === "approved")) ? '<p><a href="/3d-floorplans/">Browse interactive 3D floor plans</a></p>' : ""}</section>`;
 }
 
 export function renderFloorplanPage(plan: FloorplanEntity): string {
   const e = escapeFloorplanHtml;
+  const sourceIsPdf = /\.pdf$/i.test(plan.pdf);
+  const drawingLabel = sourceIsPdf ? "PDF" : "image";
   const facts = [ ["Bedrooms", plan.bedrooms], ["Bathrooms", plan.bathrooms.replace(" + powder", " + 1 powder room")],
     ["Interior area", area(plan.interiorSqFt)], ["Terrace / exterior area", area(plan.terraceSqFt)],
-    ...(plan.totalSqFt === null ? [] : [["Reported total including exterior", area(plan.totalSqFt)]]), ["Floor range on drawing", plan.floors] ];
+    ...(plan.totalSqFt === null ? [] : [["Reported total including exterior", area(plan.totalSqFt)]]), ...(plan.floors ? [["Floor range on drawing", plan.floors]] : []) ];
   return `<div class="fp-page" data-floorplan-id="${e(plan.planId)}">
     <a class="fp-skip" href="#floorplan-main">Skip to floor plan</a>
     <header class="fp-header"><a href="/" class="fp-brand">WPB <span>New Construction</span></a><nav aria-label="Main navigation"><a href="/buildings/">Buildings</a><a href="/floorplans/">Floor plans</a><a href="/compare/">Compare</a><a href="/inquire/">Inquire</a></nav></header>
     <main id="floorplan-main" class="fp-main">
       <nav class="fp-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/floorplans/">Floor plans</a><span>/</span><a href="/projects/${plan.projectId}/">${e(plan.projectName)}</a><span>/</span><span aria-current="page">${e(plan.planName)}</span></nav>
-      <p class="fp-kicker">Released residence plan · North Flagler</p>
+      <p class="fp-kicker">Released residence plan</p>
       <h1>${e(fullName(plan))} <br><span>Floor plan</span></h1>
       <p class="fp-intro">${e(plan.summary)}</p>
       <div class="fp-intro-action"><a class="fp-button" href="/inquire/" data-fp-action="availability" data-fp-placement="intro">Request current availability</a><p class="fp-small">Ask about ${e(fullName(plan))} and the latest floor-plan packet.</p></div>
       <p class="fp-review">Source reviewed <time datetime="${plan.reviewedOn}">${plan.reviewedOn}</time> · Availability requires confirmation</p>
-      ${plan.models3D.filter((model) => model.status === "approved").map((model) => `${renderResidence3DViewer(model, { path: plan.path, projectName: plan.projectName, residenceName: plan.planName })}<p class="fp-3d-detail">${model.furnished ? "Furnished" : "Unfurnished"} ${model.cutaway ? "cutaway " : ""}interactive floor-plan visualization · Model updated <time datetime="${e(model.updatedOn)}">${e(model.updatedOn)}</time>. The released developer drawing below remains the source for plan dimensions and disclosures.</p>`).join("")}
+      ${plan.models3D.filter((model) => model.status === "approved").map((model) => `${renderResidence3DViewer(model, { path: plan.path, projectName: plan.projectName, residenceName: plan.planName })}<p class="fp-3d-detail">${model.furnished ? "Furnished" : "Unfurnished"} ${model.cutaway ? "cutaway " : ""}interactive floor-plan visualization · Model updated <time datetime="${e(model.updatedOn)}">${e(model.updatedOn)}</time>. The archived developer drawing below supplies the residence facts.${model.sourceDrawingUrl ? ` <a href="${e(model.sourceDrawingUrl)}" target="_blank" rel="noopener noreferrer">View the developer drawing used for this visualization ↗</a> See the drawing-version clarification below.` : " Refer to current offering documents for dimensions and disclosures."}</p>`).join("")}
       <div class="fp-layout"><section aria-labelledby="fp-drawing-title"><h2 id="fp-drawing-title">The released drawing</h2>
-        <figure class="fp-drawing"><a href="${plan.pdf}" data-fp-action="pdf" target="_blank" rel="noopener noreferrer" aria-label="Open ${e(fullName(plan))} PDF in a new tab"><img src="${plan.preview}" alt="Released ${e(fullName(plan))} floor plan; open the PDF for readable drawing details" loading="eager" decoding="async"></a><figcaption>Developer plan preview. Open the PDF for readable details and the full source notes. Drawings and dimensions are approximate and subject to change.</figcaption></figure>
-        <div class="fp-actions"><a class="fp-button" href="${plan.pdf}" data-fp-action="pdf" download>Download floor plan PDF</a><a href="${plan.pdf}" data-fp-action="source" target="_blank" rel="noopener noreferrer">Open archived source PDF ↗</a></div>
+        <figure class="fp-drawing"><a href="${plan.pdf}" data-fp-action="pdf" target="_blank" rel="noopener noreferrer" aria-label="Open ${e(fullName(plan))} ${drawingLabel} in a new tab"><img src="${plan.preview}" alt="Released ${e(fullName(plan))} floor plan; open the ${drawingLabel} for readable drawing details" loading="eager" decoding="async"></a><figcaption>Developer plan preview. Open the ${drawingLabel} for readable details and the full source notes. Drawings and dimensions are approximate and subject to change.</figcaption></figure>
+        <div class="fp-actions"><a class="fp-button" href="${plan.pdf}" data-fp-action="pdf" download>Download floor plan ${drawingLabel}</a><a href="${plan.pdf}" data-fp-action="source" target="_blank" rel="noopener noreferrer">Open archived source ${drawingLabel} ↗</a></div>
       </section><aside class="fp-facts" aria-labelledby="fp-facts-title"><h2 id="fp-facts-title">Plan at a glance</h2><dl>${facts.map(([label, value]) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></div>`).join("")}</dl>${plan.areaNote ? `<p class="fp-area-note"><strong>Area clarification:</strong> ${e(plan.areaNote)}</p>` : ""}<p>${plan.totalSqFt === null ? "The drawing lists interior and exterior areas separately, without a combined total." : "Reported areas include different types of space. The total is not the interior living area."}</p><a class="fp-button" href="/inquire/" data-fp-action="availability" data-fp-placement="facts">Request current availability</a><p class="fp-small">Ask about ${e(fullName(plan))}, the current drawing, pricing and available floors.</p></aside></div>
       <section class="fp-reading"><h2>How to compare this plan</h2><p>${e(plan.readingNote)}</p><p>For a current comparison, confirm the specific residence, its view exposure, the measurement basis, any layout changes, and the current offering terms. A published plan does not reserve a residence or establish pricing.</p><div class="fp-actions"><a href="/projects/${plan.projectId}/">Read the ${e(plan.projectName)} building guide</a><a href="/compare/" data-fp-action="compare">Compare buildings</a>${plan.projectId === "olara" ? '<a href="/answers/olara-vs-ritz-carlton-vs-shorecrest/">Compare Olara, Ritz-Carlton and Shorecrest</a>' : ""}<a href="/floorplans/">Browse the floor-plan library</a></div></section>
       <section class="fp-source"><h2>Source and review notes</h2><p>${e(plan.sourceNote)}</p><p>Facts on this page were checked against the developer drawing on <time datetime="${plan.reviewedOn}">${plan.reviewedOn}</time>. <a href="${plan.pdf}" data-fp-action="source" target="_blank" rel="noopener noreferrer">Read the archived developer drawing ↗</a></p></section>

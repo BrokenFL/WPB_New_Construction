@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import http from 'node:http';
 import { chromium } from 'playwright';
-import { publishedFloorplanEntities } from '../../src/lib/floorplanEntities.ts';
+import { buildFloorplanEntities, publishedFloorplanEntities, perPlanPageForEntity, floorplanForPath } from '../../src/lib/floorplanEntities.ts';
 import { commercialPages, commercialOrigin } from '../../src/lib/commercialContent.ts';
 import { normalizeRequestIntent } from '../../shared/request-intents.js';
 const plan=publishedFloorplanEntities()[0];
@@ -48,8 +48,17 @@ async function clickPath(page,route){
 try{
   const sitemap=await fs.readFile('dist/sitemap.xml','utf8');
   assert.equal(sitemap.split(`<loc>${plan.canonical}</loc>`).length-1,1);
-  assert.ok(!sitemap.includes('/floorplans/alba-palm-beach/residence-d/'));
-  await assert.rejects(fs.access('dist/floorplans/alba-palm-beach/residence-d/index.html'));
+  const alba = buildFloorplanEntities().find(item=>item.projectId==='alba-palm-beach'&&item.slug==='residence-d');
+  assert.ok(alba);
+  const albaOwner = perPlanPageForEntity(alba);
+  assert.ok(albaOwner,'Alba Residence D remains on its established per-plan page');
+  assert.equal(floorplanForPath(alba.path),undefined,'Alba must not become a separately published entity page');
+  assert.equal(sitemap.split(`<loc>${alba.canonical}</loc>`).length-1,1);
+  const albaHtml = await fs.readFile(path.join(dist,alba.path.slice(1),'index.html'),'utf8');
+  assert.ok(albaHtml.includes(`<title>${albaOwner.seoTitle}</title>`));
+  assert.ok(albaHtml.includes(`rel="canonical" href="${alba.canonical}"`));
+  assert.ok(albaHtml.includes('id="wpb-static-structured-data"'));
+  assert.ok(!albaHtml.includes('id="wpb-floorplan-schema"'));
   for(const route of ['/floorplans/','/projects/olara/']) assert.ok((await fs.readFile(path.join(dist,route.slice(1),'index.html'),'utf8')).includes(`href="${plan.path}"`));
   const staticBuildings=await fs.readFile('dist/buildings/index.html','utf8');
   assert.ok(staticBuildings.indexOf('href="/projects/olara/"')<staticBuildings.indexOf('data-commercial-guide="buildings"'));

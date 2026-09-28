@@ -9,6 +9,7 @@ import {
   siteMeta,
 } from "./generated/siteData";
 import type { FloorplanPlanPage } from "./data/floorplanPlanPages";
+import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "./lib/floorplanEntities.ts";
 import { approvedFloorplanLibrary, type ApprovedFloorplanPlan, type ApprovedFloorplanProject } from "./data/floorplanApprovedLibrary";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
@@ -4070,6 +4071,19 @@ const projectRouteAliases: Record<string, string> = {
   "rosewood": "rosewood-residences-west-palm-beach",
 };
 
+// Initial project routing builds Offer schema, so its reviewed price map must
+// be initialized before the first route is applied.
+const projectStartingPrices: Record<string, { amount: number; label: string }> = {
+  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
+  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
+  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
+  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
+  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
+  "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
+  berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
+  "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
+};
+
 applyRoute();
 initWebMcpTools();
 initHomeSectionJumpControls();
@@ -4182,6 +4196,7 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
+  if (activePlanPage) document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", activePlanPage.seoDescription);
   if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
@@ -4212,6 +4227,9 @@ function applyRoute() {
   });
   syncMarketNoteDetail(activeMarketNote);
   syncFloorplanPlanDetail(activePlanPage);
+  if (activePlanPage && entityForPerPlanPage(activePlanPage)?.models3D.some((model) => model.status === "approved")) {
+    void import("./perPlan3DEnhancement.ts").then(({ mountPerPlan3D }) => mountPerPlan3D()).catch((error: unknown) => console.warn("Residence viewer enhancement was not loaded", error));
+  }
   if (import.meta.env.DEV && route.type === "news-detail" && route.articleId === "__preview__") {
     void syncNewsPreviewDraft();
   } else {
@@ -4867,13 +4885,14 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
                 ]
             : routeType === "floorplan-plan-detail" && activePlanPage
               ? [
-                  buildWebPageSchema(routeType),
+                  buildWebPageSchema(routeType, activePlanPage),
                   buildBreadcrumbSchema([
                     { name: "Home", path: "/" },
                     { name: "Floor Plans", path: "/floorplans/" },
                     { name: activePlanPage.projectName, path: `/projects/${activePlanPage.projectId}/` },
                     { name: activePlanPage.planTitle, path: floorplanPlanPagePath(activePlanPage) },
                   ]),
+                  ...(reviewedPerPlanCreativeWork(activePlanPage) ? [reviewedPerPlanCreativeWork(activePlanPage)!] : []),
                 ]
             : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
             ? [buildLegalPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: pageSchemaName(routeType), path: `/${routeType}/` }])]
@@ -4887,7 +4906,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
   });
 }
 
-function buildWebPageSchema(routeType: string) {
+function buildWebPageSchema(routeType: string, activePlanPage?: FloorplanPlanPage) {
   const pathByRoute: Record<string, string> = {
     home: "/",
     buildings: "/buildings/",
@@ -4902,13 +4921,15 @@ function buildWebPageSchema(routeType: string) {
     answers: "/answers/",
     inquire: "/inquire/",
   };
-  const path = pathByRoute[routeType] ?? "/";
+  const path = activePlanPage ? floorplanPlanPagePath(activePlanPage) : pathByRoute[routeType] ?? "/";
+  const reviewed = activePlanPage ? entityForPerPlanPage(activePlanPage) : undefined;
   return {
     "@type": routeType === "home" ? "CollectionPage" : "WebPage",
     "@id": `${siteMeta.baseUrl}${path}#webpage`,
-    name: pageSchemaName(routeType),
+    name: activePlanPage?.seoTitle ?? pageSchemaName(routeType),
     url: `${siteMeta.baseUrl}${path}`,
-    description: metaDescriptionForRoute(routeType),
+    description: activePlanPage?.seoDescription ?? metaDescriptionForRoute(routeType),
+    ...(reviewed ? { dateModified: floorplanModifiedOn(reviewed), lastReviewed: reviewed.reviewedOn, mainEntity: { "@id": `${siteMeta.baseUrl}${path}#plan` } } : {}),
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
     publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
@@ -5075,16 +5096,7 @@ function buildMarketNoteSchema(note: MarketNote) {
   };
 }
 
-const projectStartingPrices: Record<string, { amount: number; label: string }> = {
-  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
-  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
-  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
-  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
-  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
-  "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
-  berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
-  "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
-};
+
 
 function projectStartingOffer(projectId: string) {
   const entry = projectStartingPrices[projectId];
@@ -6393,6 +6405,12 @@ function syncFloorplanPlanDetail(plan?: FloorplanPlanPage) {
   if (!detailView) return;
   detailView.innerHTML = plan ? renderFloorplanPlanDetail(plan) : `<p>Floor plan not found. <a href="/floorplans/">Browse all floor plans</a>.</p>`;
   if (plan) {
+    const reviewed = entityForPerPlanPage(plan);
+    if (reviewed) detailView.querySelectorAll<HTMLAnchorElement>('[data-per-plan-availability]').forEach((link) => link.addEventListener("click", () => {
+      const context = `floorplan:${reviewed.projectId}:${reviewed.slug}`;
+      rememberLeadAttribution({ cta_context: context, cta_label: "Request current availability", cta_location: "floorplan-plan", corridor: plan.corridorSlug }, { replaceRequest: true });
+      track("cta_click", { path: reviewed.path, projectSlug: reviewed.projectId, pageType: "floorplan", location: "floorplan-plan", ctaText: "Request current availability", leadCaptureContext: context });
+    }));
     track("floorplan_plan_view", {
       project_id: plan.projectId,
       plan_slug: plan.planSlug,
@@ -6401,6 +6419,7 @@ function syncFloorplanPlanDetail(plan?: FloorplanPlanPage) {
 }
 
 function renderFloorplanPlanDetail(plan: FloorplanPlanPage) {
+  const reviewed = entityForPerPlanPage(plan);
   const metricRows: Array<[string, string]> = [
     plan.bedrooms ? ["Bedrooms", plan.bedrooms] : null,
     plan.bathrooms ? ["Bathrooms", plan.bathrooms] : null,
@@ -6416,10 +6435,11 @@ function renderFloorplanPlanDetail(plan: FloorplanPlanPage) {
   const corridorHref = corridorSection ? corridorPath(corridorSection.key) : "/corridors/";
   const corridorLabel = corridorSection ? corridorSection.label : "corridor";
   return `
-    <article class="floorplan-plan-detail">
+    <article class="floorplan-plan-detail${reviewed?.models3D.some((model) => model.status === "approved") ? " r3d-plan-page" : ""}">
       <p><a href="/floorplans/">Floor plans</a> / <a href="/projects/${escapeHtml(plan.projectId)}/">${escapeHtml(plan.projectName)}</a> / ${escapeHtml(plan.planTitle)}</p>
-      <h1>${escapeHtml(plan.planTitle)} floor plan</h1>
+      <h1>${escapeHtml(reviewed ? `${reviewed.projectName} ${reviewed.planName}` : plan.planTitle)} floor plan</h1>
       <p>${escapeHtml(plan.seoDescription)}</p>
+      ${renderReviewedPerPlan3D(plan)}
       <section>
         <h2>Plan facts</h2>
         ${metricRows.length ? `<dl>${metricRows.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>` : `<p>Detailed plan metrics are being confirmed. Request the current packet for the latest drawing.</p>`}
@@ -6429,13 +6449,13 @@ function renderFloorplanPlanDetail(plan: FloorplanPlanPage) {
       <section>
         <h2>About this building</h2>
         <p>${escapeHtml(plan.planTitle)} is a released floor plan at <a href="/projects/${escapeHtml(plan.projectId)}/">${escapeHtml(plan.projectName)}</a>. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${escapeHtml(plan.projectName)} plan set</a>${corridorSection ? ` and the <a href="${escapeHtml(corridorHref)}">${escapeHtml(corridorLabel)} corridor</a>` : ""}.</p>
-        <p><a href="/inquire/">Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
+        <p><a href="/inquire/" data-per-plan-availability>Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
       </section>
       <section>
         <h2>FAQ</h2>
         ${bedBath ? `<article><h3>How many bedrooms and bathrooms does ${escapeHtml(plan.planTitle)} have?</h3><p>The released drawing shows ${escapeHtml(bedBath)}. Confirm the current configuration in the buyer packet, since released plans can change by stack and phase.</p></article>` : ""}
         ${sqft ? `<article><h3>What is the square footage of ${escapeHtml(plan.planTitle)}?</h3><p>The released plan lists ${escapeHtml(sqft)}. Terrace and balcony areas are outdoor space, not interior living area.</p></article>` : ""}
-        <article><h3>How do I check current availability for ${escapeHtml(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/">Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
+        <article><h3>How do I check current availability for ${escapeHtml(plan.planTitle)}?</h3><p>Availability changes by release phase. <a href="/inquire/" data-per-plan-availability>Request the current availability sheet</a> for this plan rather than relying on the released drawing alone.</p></article>
       </section>
     </article>
   `;

@@ -1,9 +1,10 @@
 import { parseShortlist, shortlistProjects } from './shortlist.ts';
-import { floorplanForPath } from './floorplanEntities.ts';
+import { publishedFloorplanEntities, perPlanPageForEntity } from './floorplanEntities.ts';
 import { commercialLabels, parseCommercialContext } from './commercialContent.ts';
 import { corridorActionLabels, parseCorridorContext } from './corridorGrowthContent.ts';
 import { getLeadAttribution } from './leadCapture.ts';
 import { normalizeRequestIntent } from './requestIntents.ts';
+import { publicProjectRecords } from '../generated/projectModelPublic.ts';
 
 /** A single allowlisted owner for commercial, floor-plan and corridor requests. */
 export function resolveInquiryContext(value: unknown) {
@@ -25,10 +26,12 @@ export function resolveInquiryContext(value: unknown) {
     location: `commercial-${commercial.page}-intro`, project: '', projectName: '', corridor: '',
   };
   const match = typeof value === 'string' ? value.match(/^floorplan:([a-z0-9-]+):([a-z0-9-]+)$/) : null;
-  const plan = match ? floorplanForPath(`/floorplans/${match[1]}/${match[2]}/`) : undefined;
+  const plan = match ? publishedFloorplanEntities().find((item) => item.projectId === match[1] && item.slug === match[2]) : undefined;
+  const project = plan ? publicProjectRecords.find((item) => item.publicSlug === plan.projectId) : undefined;
   return plan ? {
     context: String(value), label: 'Request current availability', interest: 'Request current availability',
-    location: 'floorplan-entity', project: plan.projectId, projectName: plan.projectName, corridor: 'north-flagler',
+    location: perPlanPageForEntity(plan) ? 'floorplan-plan' : 'floorplan-entity', project: plan.projectId, projectName: plan.projectName,
+    corridor: perPlanPageForEntity(plan)?.corridorSlug ?? project?.corridorKey ?? '',
   } : undefined;
 }
 

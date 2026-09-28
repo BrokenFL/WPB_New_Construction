@@ -1,4 +1,4 @@
-// Exact-source floorplan reviews for the Shorecrest and Ritz-Carlton residences
+// Exact-source floorplan reviews for the additional 3D residences
 // added to the existing Olara/Alba entity system. The approved library remains
 // the plan-fact authority; these snapshots make later source drift fail closed.
 export const reviewed3DFloorplanExpansion = [
@@ -45,5 +45,51 @@ export const reviewed3DFloorplanExpansion = [
     expected: { title: "Residence 06", bedrooms: "3", bathrooms: "3 + powder", interiorSqFt: "3244", terraceSqFt: "897", totalSqFt: "4141", detail: "Floors 11 - 27" },
     summary: "The Ritz-Carlton Residences Residence 06 drawing lists three bedrooms, 3,244 interior square feet and 897 exterior square feet, for a reported total of 4,141 square feet.",
     readingNote: "The reported 4,141 square feet combines interior and exterior areas. Evaluate the 897 exterior square feet as separate outdoor space, then verify the residence-specific plan and prospectus. Three bathrooms and one powder room are shown; the developer states that furnishings on the drawing are illustrative.",
+  },
+  {
+    projectId: "mr-c", slug: "residence-01a", displayName: "Residence 01A", version: "v01", areaDifference: 0, areaNote: "",
+    pdf: "/assets/projects/mr-c/floorplans/residence-01a--4c4e8025.pdf",
+    preview: "/assets/projects/mr-c/floorplans/previews/residence-01a--4c4e8025.jpg",
+    sourceUrl: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+    sourcePage: "https://www.mrcresidenceswpb.com/downloads/", reviewedOn: "2026-09-27", updatedOn: "2026-09-27",
+    sourceNote: "The two-page developer PDF identifies Residence 01A on levels 9 to 15. The furnished visualization follows the illustrated plan on page 2. Dimensions and furnishings are illustrative; request the current residence drawing and offering documents.",
+    expected: { title: "Residence 01A", bedrooms: "3", bathrooms: "3", interiorSqFt: "1817", terraceSqFt: "562", totalSqFt: "2379", detail: "Levels 9-15" },
+    summary: "Mr. C Residence 01A is a three-bedroom, three-bathroom layout. The released drawing reports 1,817 interior square feet and 562 terrace square feet, for a total of 2,379 square feet, on levels 9 to 15.",
+    readingNote: "Compare the three-bedroom layout and interior circulation separately from the 562 square feet of terrace. The level range describes the released plan, not current inventory. Confirm the specific residence, drawing revision and offering terms before comparing pricing.",
+  },
+  {
+    projectId: "mr-c", slug: "residence-02a", displayName: "Residence 02A", version: "v01", areaDifference: 0, areaNote: "",
+    pdf: "/assets/projects/mr-c/floorplans/residence-02a--c0b62912.pdf",
+    preview: "/assets/projects/mr-c/floorplans/previews/residence-02a--c0b62912.jpg",
+    sourceUrl: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+    sourcePage: "https://www.mrcresidenceswpb.com/downloads/", reviewedOn: "2026-09-27", updatedOn: "2026-09-27",
+    sourceNote: "The two-page developer PDF identifies Residence 02A on levels 9 to 15. The furnished visualization follows the illustrated plan on page 2. Dimensions and furnishings are illustrative; request the current residence drawing and offering documents.",
+    expected: { title: "Residence 02A", bedrooms: "2", bathrooms: "2.5", interiorSqFt: "1397", terraceSqFt: "486", totalSqFt: "1883", detail: "Levels 9-15" },
+    summary: "Mr. C Residence 02A has two bedrooms and two-and-a-half bathrooms. The released drawing reports 1,397 interior square feet and 486 terrace square feet, for a total of 1,883 square feet, on levels 9 to 15.",
+    readingNote: "Evaluate the 1,397 interior square feet separately from the 486 terrace square feet. The total includes outdoor space. Confirm the current drawing and exact residence with the sales team; the published level range does not establish availability.",
+  },
+  {
+    projectId: "berkeley", slug: "residence-d", displayName: "Residence D", version: "v01", areaDifference: 0,
+    areaNote: "The archived drawing reports 1,798 interior and 2,168 total square feet. The developer PDF used for the visualization reports 1,780 interior and 2,150 total square feet; both report 370 terrace square feet. These are different drawing versions. Confirm the current area schedule before relying on either.",
+    pdf: "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+    preview: "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+    sourceUrl: "https://www.wpbnewconstruction.com/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+    sourcePage: "https://www.theberkeleypalmbeach.com/", reviewedOn: "2026-09-27", updatedOn: "2026-09-27",
+    sourceNote: "Residence facts follow the archived developer drawing in the approved floor-plan library. Both drawing versions label floors 2 to 26. The 3D visualization follows a separate developer PDF revision, linked beside the viewer. The area labels differ between these versions; the model is an illustrative layout aid, not an area measurement or offering document.",
+    expected: { title: "Residence D", bedrooms: "2 + flex", bathrooms: "2.5", interiorSqFt: "1798", terraceSqFt: "370", totalSqFt: "2168", detail: "" },
+    summary: "The Berkeley Residence D pairs two bedrooms with a flex room and two-and-a-half bathrooms. The archived drawing reports 1,798 interior square feet and 370 terrace square feet, for a total of 2,168 square feet. See the drawing-version clarification below.",
+    readingNote: "Keep the flex room separate from the bedroom count and compare terrace space separately from the interior. The model and archived drawing have different area labels. Ask for the current residence-specific drawing, applicable floor range and offering documents before making an area or price comparison.",
+  },
+  {
+    projectId: "berkeley", slug: "residence-g", displayName: "Residence G", version: "v01", areaDifference: 0,
+    areaNote: "The archived drawing reports 2,581 interior and 3,260 total square feet. The developer PDF used for the visualization reports 2,583 interior and 3,262 total square feet; both report 679 terrace square feet. These are different drawing versions. Confirm the current area schedule before relying on either.",
+    pdf: "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+    preview: "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+    sourceUrl: "https://www.wpbnewconstruction.com/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+    sourcePage: "https://www.theberkeleypalmbeach.com/", reviewedOn: "2026-09-27", updatedOn: "2026-09-27",
+    sourceNote: "Residence facts follow the archived developer drawing in the approved floor-plan library. Both drawing versions label floors 8 to 26 and identify a flex room separately from the three bedrooms. The 3D visualization follows a separate developer PDF revision, linked beside the viewer. The area labels differ between these versions; the model is an illustrative layout aid, not an area measurement or offering document.",
+    expected: { title: "Residence G", bedrooms: "3", bathrooms: "3.5", interiorSqFt: "2581", terraceSqFt: "679", totalSqFt: "3260", detail: "" },
+    summary: "The Berkeley Residence G has three bedrooms and three-and-a-half bathrooms. The archived drawing reports 2,581 interior square feet and 679 terrace square feet, for a total of 3,260 square feet. See the drawing-version clarification below.",
+    readingNote: "Compare the three-bedroom arrangement, room relationships and terrace access, keeping the 679 square feet of outdoor space separate from the interior. Confirm the current plan revision, applicable floor range and offering documents; the visualization is not a measurement of usable floor area.",
   },
 ] as const;
