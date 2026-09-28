@@ -1199,6 +1199,175 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["No pet policies are confirmed in the WPB New Construction source catalog.", "All pet rules are verification items — confirm the written HOA pet policy for each building."],
   },
+  {
+    slug: "south-flagler-new-condos-compared",
+    shortLabel: "South Flagler compare",
+    title: "South Flagler New Condos Compared",
+    question: "How do South Flagler's new condos compare?",
+    description: "Compare South Flagler new condos — South Flagler House, Maison d'Or, Forté on Flagler, La Clara — on status, scale, timing, and buyer fit.",
+    bluf:
+      "South Flagler's new-condo set splits into two lanes: the flagship programs (South Flagler House, about 105 residences, under construction, from $7.98M advertised; Maison d'Or, 39 residences, pre-construction sales, late-2028 targeted, from $5.7M published guidance) and the delivered benchmarks (Forté on Flagler, recently completed; La Clara, opened to residents in 2023). Start with timing — flagship wait versus delivered certainty — then compare scale, pricing guidance, and waterfront position.",
+    explanation:
+      "South Flagler buyers get a quieter waterfront lane than North Flagler, but the buildings do different jobs. The flagships are bought on future delivery and current guidance pricing; the delivered buildings are bought on inspectable product and resale inventory. Compare delivery certainty first, then residence scale, published pricing guidance, privacy, and Palm Beach access — and verify availability, fees, and floorplan currency per project.",
+    projectIds: ["south-flagler-house", "maison-dor", "forte-on-flagler", "la-clara"],
+    corridorKeys: ["south-flagler"],
+    tableRows: [
+      { label: "South Flagler House", bestUse: "Buyers who want the larger under-construction flagship program.", links: ["/projects/south-flagler-house/", "/corridors/south-flagler/"], verify: "Confirm construction progress, current availability, fees, and advertised pricing against live documents." },
+      { label: "Maison d'Or", bestUse: "Buyers who want a boutique 39-residence project and can work with a late-2028 targeted delivery.", links: ["/projects/maison-dor/", "/answers/maison-dor-vs-south-flagler-house/"], verify: "Confirm current pricing, availability, delivery language, and residence features in the latest packet." },
+      { label: "Delivered benchmarks", bestUse: "Buyers who want to inspect the building or compare against existing inventory.", links: ["/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, condition, and association documents — these trade on resale." },
+    ],
+    faqs: [
+      { question: "Which South Flagler condo can I move into now?", answer: "Forté on Flagler is recently completed and La Clara opened to residents in 2023 — both trade on resale, so confirm the specific residence. South Flagler House is under construction and Maison d'Or targets late 2028." },
+      { question: "Which is more expensive, South Flagler House or Maison d'Or?", answer: "Published guidance points to South Flagler House from $7.98M advertised and Maison d'Or from $5.7M published guidance. Verify both against current availability — flagship pricing moves with release phases." },
+      { question: "Are Forté and La Clara new construction?", answer: "They are recently delivered buildings used as South Flagler benchmarks. They are not active developer sales — compare them as resale alternatives with their own fees, reserves, and condition to verify." },
+    ],
+    sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
+  },
+  {
+    slug: "downtown-west-palm-beach-new-condos-compared",
+    shortLabel: "Downtown compare",
+    title: "Downtown West Palm Beach New Condos Compared",
+    question: "How do Downtown West Palm Beach's new condos compare?",
+    description: "Compare Downtown WPB new condos — NORA House, Mr. C, The Berkeley, Banyan Tree — on status, service model, pricing guidance, and buyer fit.",
+    bluf:
+      "Downtown's new-condo set is four deep: NORA House (sales open, from the low $2Ms guidance, NORA district), Mr. C Residences (146 residences, under construction, completion estimates vary), The Berkeley (under construction, reported from $2M to over $10M), and Banyan Tree Residences (88 residences, sales open). Compare service model and district position first — hotel-branded versus district-anchored versus boutique — then verify pricing, fees, parking, and delivery.",
+    explanation:
+      "Downtown buyers are choosing a daily life, not just a floor plan: NORA district energy, hotel-brand service, or boutique positioning near The Square and Clematis. The corridor mixes under-construction programs with sales-open launches, so sort by delivery certainty and service expectations before comparing published pricing guidance — and confirm parking, fees, and current availability per project.",
+    projectIds: ["nora-house", "mr-c", "berkeley", "banyan-tree"],
+    corridorKeys: ["downtown"],
+    tableRows: [
+      { label: "NORA House", bestUse: "Buyers who want NORA district positioning with sales already open.", links: ["/projects/nora-house/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the low-$2Ms guidance, current availability, district phasing, and fee structure." },
+      { label: "Mr. C Residences", bestUse: "Buyers who want hotel-brand service in an under-construction downtown tower.", links: ["/projects/mr-c/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the construction schedule — completion estimates vary — plus fees and what the brand operates." },
+      { label: "The Berkeley", bestUse: "Buyers comparing downtown's boutique luxury option on reported pricing.", links: ["/projects/berkeley/"], verify: "Confirm the reported $2M entry against the live price list and current availability." },
+      { label: "Banyan Tree Residences", bestUse: "Buyers who want a branded sales-open option at 88 residences.", links: ["/projects/banyan-tree/"], verify: "Confirm delivery guidance, pricing releases, and deposit structure." },
+    ],
+    faqs: [
+      { question: "Which Downtown condo is closest to delivery?", answer: "Mr. C and The Berkeley are under construction; NORA House and Banyan Tree are sales open/preconstruction. Completion estimates vary by source — confirm the live schedule with each sales team." },
+      { question: "What does Downtown offer that Flagler Drive doesn't?", answer: "Walkability: restaurants, NORA, The Square, Clematis, Brightline, and the Kravis Center close by, with less reliance on a car. Flagler Drive trades that for waterfront exposure and quieter residential positioning." },
+      { question: "How do service models differ Downtown?", answer: "Mr. C brings a hotel-brand service program; NORA House is district-anchored; Banyan Tree carries its own brand promise. Verify staffing, amenity rules, and fee structures — service is an operating cost, not just a marketing line." },
+    ],
+    sourceNotes: ["Project status, scale, and pricing guidance come from the existing WPB New Construction source catalog.", "Delivery timing and pricing are verification items — confirm against current project materials."],
+  },
+  {
+    slug: "olara-vs-shorecrest",
+    shortLabel: "Olara vs Shorecrest",
+    title: "Olara vs Shorecrest",
+    question: "Should I buy at Olara or Shorecrest?",
+    description: "Compare Olara and Shorecrest on North Flagler — scale, pricing guidance, delivery timing, and which 2028-wave buyer each fits.",
+    bluf:
+      "Olara (275 residences, under construction, 2028, from $1.7M developer-published) and Shorecrest (about 100 residences, under construction, from $3.69M on current official floorplans) are the two large 2028-wave programs on North Flagler. Olara suits buyers who want the deepest plan variety and the clearest sub-$2M entry; Shorecrest suits buyers who want a smaller program at a higher entry point. Both are under construction — verify the live schedule, stack, and availability for each.",
+    explanation:
+      "Both sit on the North Flagler waterfront and target 2028 delivery, so the choice is program, not corridor: Olara's 275-residence scale means more plan variety and more construction context; Shorecrest's roughly 100 residences mean a smaller community at a higher published entry. Compare residence count, published pricing guidance, view exposure, and fee structure — then verify current availability and contract terms directly.",
+    projectIds: ["olara", "shorecrest"],
+    corridorKeys: ["north-flagler"],
+    tableRows: [
+      { label: "Olara", bestUse: "Buyers who want the largest North Flagler program with the clearest sub-$2M entry.", links: ["/projects/olara/", "/corridors/north-flagler/"], verify: "Confirm the $1.7M figure against current availability and which plans it applies to." },
+      { label: "Shorecrest", bestUse: "Buyers who prefer a smaller program of about 100 residences at a higher entry point.", links: ["/projects/shorecrest/", "/corridors/north-flagler/"], verify: "Confirm the $3.69M floorplan figure and current availability against live documents." },
+      { label: "North Flagler corridor", bestUse: "Buyers deciding between the 2028-wave programs and the rest of the corridor.", links: ["/corridors/north-flagler/", "/answers/north-flagler-new-condos-compared/"], verify: "Confirm stack exposure, construction context, and fee structure per project." },
+    ],
+    faqs: [
+      { question: "Which is larger, Olara or Shorecrest?", answer: "Olara at 275 residences is the larger program; Shorecrest is about 100 residences. Larger programs usually mean more plan variety and more construction activity nearby during the build." },
+      { question: "Which has the lower starting price?", answer: "Olara's developer-published guidance starts at $1.7M; Shorecrest's current official floorplans start from $3.69M (February 2026 coverage cited from $3M). Verify both against live availability before comparing." },
+      { question: "Will both deliver in 2028?", answer: "Both target the 2028 wave, but targeted is not guaranteed. Confirm the current construction schedule for the specific stack under consideration." },
+    ],
+    sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
+  },
+  {
+    slug: "move-in-ready-new-condos-west-palm-beach",
+    shortLabel: "Move-in ready",
+    title: "Move-In-Ready New Condos in West Palm Beach",
+    question: "Which new West Palm Beach condos are move-in ready?",
+    description: "The completed new condos in West Palm Beach — Alba, La Clara, Forté on Flagler — and how to verify specific residence availability.",
+    bluf:
+      "Three projects offer a delivery date of today: Alba Palm Beach (55 residences, completed, developer offering immediate occupancy, from just under $3M guidance), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). Alba is the active developer sale; La Clara and Forté trade on resale — confirm the specific residence, fees, reserves, and condition before comparing.",
+    explanation:
+      "Move-in-ready removes construction timing risk but adds a different checklist: specific residence availability, resale versus developer inventory, association reserves and fees, building condition, and what the HOA documents actually say. Use the completed set as both a purchase lane and a reality check for finishes and fees against pre-construction promises elsewhere.",
+    projectIds: ["alba-palm-beach", "la-clara", "forte-on-flagler"],
+    corridorKeys: ["north-flagler", "south-flagler"],
+    tableRows: [
+      { label: "Alba Palm Beach", bestUse: "Buyers who want a completed North Flagler building with developer inventory.", links: ["/projects/alba-palm-beach/", "/floorplans/alba-palm-beach/residence-a/"], verify: "Confirm the specific residence — completed inventory moves — and the just-under-$3M guidance." },
+      { label: "La Clara", bestUse: "Buyers comparing a 2023-delivered South Flagler building on resale.", links: ["/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, and condition." },
+      { label: "Forté on Flagler", bestUse: "Buyers comparing a recently completed South Flagler building on resale.", links: ["/projects/forte-on-flagler/", "/floorplans/forte-on-flagler/penthouse-residence/"], verify: "Confirm occupancy and resale status, fees, and the specific residence." },
+    ],
+    faqs: [
+      { question: "Can I tour the actual residence before buying?", answer: "At completed buildings, often yes — that is the advantage. Confirm which specific residences are available and tour those, not just a model or a comparable line." },
+      { question: "Are La Clara and Forté developer sales?", answer: "No — they are completed comps that trade on resale. Pricing, availability, and terms come from the resale market and HOA documents, not a developer price list." },
+      { question: "How does move-in-ready change the fee question?", answer: "Completed buildings have operating history: ask for actual budgets, reserve studies, insurance costs, and any pending special assessments instead of developer estimates." },
+    ],
+    sourceNotes: ["Status and delivery guidance come from the existing WPB New Construction source catalog.", "Resale inventory, fees, and condition are verification items — confirm the specific residence."],
+  },
+  {
+    slug: "new-construction-penthouses-west-palm-beach",
+    shortLabel: "Penthouses",
+    title: "New Construction Penthouses in West Palm Beach",
+    question: "Which West Palm Beach new developments have penthouses?",
+    description: "Where penthouse plans are released in West Palm Beach new construction — and what to verify about pricing, exposure, and availability.",
+    bluf:
+      "Released penthouse plans exist at Maison d'Or, Forté on Flagler (a two-level penthouse residence with 4–8 bedroom options at 10,840 sq ft), and La Clara — each with a public per-plan page and PDF on this site. Other luxury programs describe penthouse collections without released per-plan drawings; treat every penthouse claim as a verification item and confirm pricing, exposure, and availability directly.",
+    explanation:
+      "A penthouse label covers very different products: full-floor units, two-level plans, and top-floor collections with premium exposures. Compare released drawings where they exist against request-only penthouse material elsewhere, and verify which specific unit the pricing applies to — penthouse pricing is almost always request-only and moves with the release phase.",
+    projectIds: ["maison-dor", "forte-on-flagler", "la-clara", "shorecrest", "ritz-carlton-wpb"],
+    corridorKeys: ["north-flagler", "south-flagler"],
+    tableRows: [
+      { label: "Released penthouse plans", bestUse: "Buyers who want to compare actual penthouse drawings today.", links: ["/floorplans/maison-dor/penthouse/", "/floorplans/forte-on-flagler/penthouse-residence/", "/floorplans/la-clara/ph/"], verify: "Confirm the plan is still available and which pricing applies to the penthouse line." },
+      { label: "Luxury programs", bestUse: "Buyers comparing penthouse positioning across the flagship towers.", links: ["/projects/maison-dor/", "/projects/shorecrest/", "/projects/ritz-carlton-wpb/"], verify: "Ask whether penthouse drawings are released or request-only, and confirm exposure and pricing." },
+      { label: "Penthouse verification", bestUse: "Buyers who want the exact questions before engaging.", links: ["/inquire/"], verify: "Confirm floor, exposure, outdoor space, private elevator access, pricing, and HOA and fee impact." },
+    ],
+    faqs: [
+      { question: "Which new WPB developments have released penthouse floor plans?", answer: "Maison d'Or, Forté on Flagler, and La Clara each have a public per-plan penthouse page with a released PDF on this site. Other projects may describe penthouses without released drawings." },
+      { question: "Are penthouse prices published?", answer: "Rarely. Penthouse pricing is typically request-only and tied to the specific unit and release phase — ask for the current penthouse price list rather than relying on press figures." },
+      { question: "What should buyers verify beyond the floor plan?", answer: "Exposure and view corridor, outdoor space dimensions, ceiling heights, private elevator or lobby access, parking allocation, and how penthouse HOA contributions are structured." },
+    ],
+    sourceNotes: ["Released penthouse plans come from the existing WPB New Construction floorplan library.", "Penthouse pricing, exposure, and availability are verification items — confirm the specific unit."],
+  },
+  {
+    slug: "nora-house-vs-the-berkeley",
+    shortLabel: "NORA vs Berkeley",
+    title: "NORA House vs The Berkeley",
+    question: "Should I buy at NORA House or The Berkeley?",
+    description: "Compare NORA House and The Berkeley in Downtown WPB — district positioning, pricing guidance, status, and which buyer each fits.",
+    bluf:
+      "NORA House (sales open, from the low $2Ms guidance, NORA district-anchored) and The Berkeley (under construction, reported from $2M to over $10M) are Downtown's two most accessible luxury entries. NORA House suits buyers who want district energy and an open sales gallery now; The Berkeley suits buyers who want an under-construction boutique program. Verify live pricing, availability, and fee structure for both.",
+    explanation:
+      "Both give Downtown walkability at a lower entry than the Flagler waterfront flagships, but they sell different things: NORA House sells the NORA district's restaurant and cultural energy with released plans to compare; The Berkeley sells a boutique under-construction program with a wide reported price band. Compare district position, service model, delivery certainty, and what the entry price actually buys — then verify current documents.",
+    projectIds: ["nora-house", "berkeley"],
+    corridorKeys: ["downtown"],
+    tableRows: [
+      { label: "NORA House", bestUse: "Buyers who want NORA district positioning with sales already open.", links: ["/projects/nora-house/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the low-$2Ms guidance, current availability, and district phasing." },
+      { label: "The Berkeley", bestUse: "Buyers who prefer an under-construction boutique program.", links: ["/projects/berkeley/"], verify: "Confirm the reported $2M entry against the live price list — the band runs wide." },
+      { label: "Downtown corridor", bestUse: "Buyers deciding whether Downtown's entry lane fits before picking a building.", links: ["/corridors/downtown-west-palm-beach/", "/answers/downtown-west-palm-beach-new-condos-compared/"], verify: "Confirm parking, fees, noise, and how each building's position affects the daily routine." },
+    ],
+    faqs: [
+      { question: "Which is cheaper, NORA House or The Berkeley?", answer: "NORA House guides from the low $2Ms; The Berkeley is reported from $2M to over $10M. The bands overlap at entry — verify which specific residences each entry figure applies to." },
+      { question: "Which will deliver first?", answer: "The Berkeley is under construction while NORA House is sales open and preconstruction. Confirm live schedules — status labels move." },
+      { question: "What is the NORA district?", answer: "A developing district neighborhood with restaurants, culture, and walkability that anchors NORA House's positioning. Confirm phasing and what is actually open versus planned." },
+    ],
+    sourceNotes: ["Project status and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
+  },
+  {
+    slug: "palm-beach-island-new-construction-guide",
+    shortLabel: "Island guide",
+    title: "Palm Beach Island New Construction Guide",
+    question: "What new construction is coming to Palm Beach Island?",
+    description: "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
+    bluf:
+      "This site tracks two reviewed projects on Palm Beach Island: OLIN Palm Beach (pre-construction sales, timing not released) and 3031 S. Ocean (town approved and announced, timing not released). The island is a separate low-density market shaped by scarce sites and coastal approvals — press-covered island projects that are not independently verified are excluded here. Compare the two tracked projects, then look to South Flagler for the nearest West Palm Beach waterfront alternatives.",
+    explanation:
+      "Palm Beach Island new construction is thin by nature: scarce sites, strict approvals, and low-density formats keep new supply rare. This page stays inside what the catalog confirms rather than repeating press rumors. OLIN and 3031 S. Ocean are the two reviewed island projects; both are early-stage with timing not released. Treat every island delivery claim as a verification item and confirm approvals, timing, and pricing directly.",
+    projectIds: ["olin-palm-beach", "3031-s-ocean-palm-beach", "south-flagler-house", "maison-dor"],
+    corridorKeys: ["palm-beach", "south-flagler"],
+    tableRows: [
+      { label: "OLIN Palm Beach", bestUse: "Buyers tracking the island's pre-construction sales option.", links: ["/projects/olin-palm-beach/"], verify: "Confirm timing releases, pricing, and current sales status — timing is not released." },
+      { label: "3031 S. Ocean", bestUse: "Buyers tracking the town-approved island project.", links: ["/projects/3031-s-ocean-palm-beach/"], verify: "Confirm approval status, timing, and when buyer materials release." },
+      { label: "Nearest WPB waterfront", bestUse: "Buyers who want new waterfront condos near the island.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/"], verify: "Confirm Palm Beach bridge access and how South Flagler compares on density and timing." },
+    ],
+    faqs: [
+      { question: "What about other island projects covered in the press?", answer: "Press-covered island projects that are not independently verified in this catalog are excluded here rather than repeated as fact. Verify any such project through independent sources before treating it as a comparable." },
+      { question: "Why is island new construction so limited?", answer: "Scarce sites, coastal approvals, and low-density zoning keep the island's new supply thin. Most island transactions are existing homes, not new development." },
+      { question: "Should island buyers also consider West Palm Beach?", answer: "Many do — South Flagler offers new waterfront condos minutes from the island with deeper project data. Compare the island's privacy and density against South Flagler's newer programs." },
+    ],
+    sourceNotes: ["Island facts come from the existing WPB New Construction source catalog.", "Press-reported island projects not independently verified are excluded — verify them through independent sources."],
+  },
 ];
 
 const answerTopicSections: AnswerTopicSection[] = [

@@ -7256,6 +7256,48 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/answers/south-flagler-new-condos-compared/",
+    "title": "South Flagler New Condos Compared | WPB Answers",
+    "description": "Compare South Flagler new condos — South Flagler House, Maison d'Or, Forté on Flagler, La Clara — on status, scale, timing, and buyer fit.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/downtown-west-palm-beach-new-condos-compared/",
+    "title": "Downtown West Palm Beach New Condos Compared | WPB Answers",
+    "description": "Compare Downtown WPB new condos — NORA House, Mr. C, The Berkeley, Banyan Tree — on status, service model, pricing guidance, and buyer fit.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/olara-vs-shorecrest/",
+    "title": "Olara vs Shorecrest | WPB Answers",
+    "description": "Compare Olara and Shorecrest on North Flagler — scale, pricing guidance, delivery timing, and which 2028-wave buyer each fits.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/move-in-ready-new-condos-west-palm-beach/",
+    "title": "Move-In-Ready New Condos in West Palm Beach | WPB Answers",
+    "description": "The completed new condos in West Palm Beach — Alba, La Clara, Forté on Flagler — and how to verify specific residence availability.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/new-construction-penthouses-west-palm-beach/",
+    "title": "New Construction Penthouses in West Palm Beach | WPB Answers",
+    "description": "Where penthouse plans are released in West Palm Beach new construction — and what to verify about pricing, exposure, and availability.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/nora-house-vs-the-berkeley/",
+    "title": "NORA House vs The Berkeley | WPB Answers",
+    "description": "Compare NORA House and The Berkeley in Downtown WPB — district positioning, pricing guidance, status, and which buyer each fits.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/palm-beach-island-new-construction-guide/",
+    "title": "Palm Beach Island New Construction Guide | WPB Answers",
+    "description": "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
