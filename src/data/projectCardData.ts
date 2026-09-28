@@ -25,6 +25,7 @@ export const projectCardDataById = Object.fromEntries([
 const corridorLabels: Record<string, string> = {
   downtown: "DOWNTOWN",
   "north-flagler": "NORTH FLAGLER",
+  "palm-beach": "PALM BEACH",
   "south-flagler": "SOUTH FLAGLER",
 };
 

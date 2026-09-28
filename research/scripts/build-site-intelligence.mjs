@@ -4,6 +4,7 @@ import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { readTsArray } from "./article-market-note-utils.mjs";
+import { residence3DModels } from "../../src/data/residence3DModels.ts";
 
 const execFileAsync = promisify(execFile);
 const workspace = process.cwd();
@@ -1423,6 +1424,13 @@ function approvedRevenueFloorplanProjects(projects) {
 }
 
 async function main() {
+  if (process.argv.includes("--llms-only")) {
+    const plans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
+    const news = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
+    await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(plans, news));
+    console.log("Crawler orientation regenerated without refreshing facts, news or assets.");
+    return;
+  }
   if (process.argv.includes("--answer-blocks-only")) {
     const answerPath = path.join(publicDataRoot, "answer-engine-faq.json");
     const nextBlocks = await preserveExistingVolatileMetadata(answerPath, sanitizePublicPayload(answerBlocks));
@@ -2673,6 +2681,8 @@ function renderLlmsTxt(floorplans, newsFeed) {
     .map((project) => `- ${project.name}: ${project.count} floorplan records`);
   const newsLines = newsFeed.items.map((item) => `- ${item.title}: ${item.summary}`);
   const routeLines = buildPrerenderRoutes().map((route) => `- ${route.title}: ${route.path}`);
+  const approved3DModels = residence3DModels.filter((model) => model.status === "approved");
+  const threeDLines = approved3DModels.length ? `## Interactive 3D Floor Plans\n\n- Interactive 3D floor plan gallery: /3d-floorplans/\n${approved3DModels.map((model) => `- ${model.projectId} ${model.residenceSlug}: /floorplans/${model.projectId}/${model.residenceSlug}/`).join("\n")}\n\n` : "";
   return `# WPB New Construction
 
 West Palm Beach new-construction condo buyer guide presented by The Scott Gordon Group at Douglas Elliman, with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
@@ -2725,7 +2735,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 
 ${projectLines.join("\n")}
 
-## Current Updates
+${threeDLines}## Current Updates
 
 ${newsLines.join("\n")}
 

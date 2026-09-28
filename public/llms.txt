@@ -60,6 +60,16 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Maison d’Or: 1 floorplan records
 - South Flagler House: 8 floorplan records
 
+## Interactive 3D Floor Plans
+
+- Interactive 3D floor plan gallery: /3d-floorplans/
+- olara residence-c: /floorplans/olara/residence-c/
+- olara residence-d: /floorplans/olara/residence-d/
+- shorecrest residence-0704: /floorplans/shorecrest/residence-0704/
+- shorecrest residence-1602: /floorplans/shorecrest/residence-1602/
+- ritz-carlton-wpb residence-02: /floorplans/ritz-carlton-wpb/residence-02/
+- ritz-carlton-wpb residence-06: /floorplans/ritz-carlton-wpb/residence-06/
+
 ## Current Updates
 
 - Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings: Recent reporting highlighted the first interior renderings for Mandarin Oriental Residences, West Palm Beach, giving buyers more to compare than tower massing and brand name alone.

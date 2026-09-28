@@ -48,6 +48,12 @@ async function start() {
   // heavier legacy enhancement chain. The panel body remains interaction-lazy.
   void installConcierge();
 
+  if (cleanFloorplanPath(location.pathname) === '/3d-floorplans/') {
+    const { mountResidence3DDiscoveryPage } = await import('./residence3DPage.ts');
+    mountResidence3DDiscoveryPage();
+    return;
+  }
+
   const comparison = comparisonForPath(location.pathname);
   if (comparison) {
     const { mountComparison } = await import('./comparisonPage.ts');
@@ -79,8 +85,16 @@ async function start() {
   await installAuthorshipTrust(app);
 
   window.addEventListener("click", (event) => {
-    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[data-floorplan-entity-link]") : null;
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
     if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (link.origin !== window.location.origin) return;
+    // These pages have their own entrypoint. Preserve native navigation before
+    // the legacy project-page router intercepts same-origin links.
+    if (cleanFloorplanPath(link.pathname) === "/3d-floorplans/") {
+      event.stopImmediatePropagation();
+      return;
+    }
+    if (!link.hasAttribute("data-floorplan-entity-link")) return;
     const entity = floorplanForPath(link.pathname);
     if (!entity) return;
     event.stopImmediatePropagation();
@@ -109,7 +123,12 @@ async function start() {
     }
     if (old?.dataset.page === path) return;
     old?.remove();
-    (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
+    const projectId = path.match(/^\/projects\/([a-z0-9-]+)\/$/)?.[1];
+    // Library cards share floorplans-* IDs with some project layouts. Scope the
+    // placement to the project view so links cannot land in a hidden library.
+    const projectView = projectId ? app.querySelector(`[data-route-view="project"][data-project-id="${projectId}"]`) : null;
+    const floorplans = projectView?.querySelector('[data-project-section="residences"], .brochure-floorplans-section, [data-project-section="offering"]');
+    (floorplans ?? projectView ?? app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
   };
 
   const observerOptions: MutationObserverInit = {

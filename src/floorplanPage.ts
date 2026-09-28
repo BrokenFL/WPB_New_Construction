@@ -1,6 +1,8 @@
 import { track } from "./lib/analytics.ts";
 import { captureLeadLandingContext, rememberLeadAttribution } from "./lib/leadCapture.ts";
 import { floorplanDescription, floorplanJson, floorplanSchema, floorplanTitle, renderFloorplanPage, type FloorplanEntity } from "./lib/floorplanEntities.ts";
+import { mountResidence3DViewers } from "./residence3DViewer.ts";
+import "./residence3DViewer.css";
 
 export function mountFloorplanPage(plan: FloorplanEntity) {
   const app = document.getElementById("app");
@@ -27,6 +29,7 @@ export function mountFloorplanPage(plan: FloorplanEntity) {
   }
   schema.textContent = floorplanJson(floorplanSchema(plan));
   if (app.querySelector<HTMLElement>("[data-floorplan-id]")?.dataset.floorplanId !== plan.planId) app.innerHTML = renderFloorplanPage(plan);
+  mountResidence3DViewers(app, track);
   captureLeadLandingContext();
   track("page_view", { route: "floorplan", path: plan.path, projectId: plan.projectId });
   app.addEventListener("click", (event) => {

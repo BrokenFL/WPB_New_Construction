@@ -92,6 +92,13 @@ function stripStaticPrerender(content) {
 }
 
 function isAllowedTechnicalOccurrence(rel, content, phrase) {
+  // Three.js uses "internal format" in a WebGL console diagnostic. This is
+  // renderer terminology, not editorial approval language. Permit only that
+  // exact occurrence in the isolated vendor chunk; scan all other copy normally.
+  if (/^dist\/assets\/residence-three-webgl-[^/]+\.js$/.test(rel) && /^internal$/i.test(phrase)) {
+    const remainder = content.replaceAll("WebGLRenderer: Attempt to use non-existing WebGL internal format", "");
+    if (!/\binternal\b/i.test(remainder)) return true;
+  }
   if (/record/i.test(phrase) && /\brecord-setting\b/i.test(content)) return true;
   // Bootstrap emits the unchanged application as main-*.js instead of index-*.js.
   // Preserve the same technical-context test; do not exempt visible copy or hosts.

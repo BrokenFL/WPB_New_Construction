@@ -18,14 +18,17 @@ const allowedFields = new Set([
   "landingPath",
   "leadCaptureContext",
   "location",
+  "modelId",
   "pageType",
   "path",
+  "placement",
   "planName",
   "projectId",
   "projectName",
   "projectSlug",
   "referrerHost",
   "route",
+  "residenceId",
   "salesStatus",
   "source",
   "sourceHost",
@@ -39,7 +42,7 @@ const allowedFields = new Set([
 ]);
 
 const pathFields = new Set(["landingPath", "path", "sourcePath"]);
-const identifierFields = new Set(["articleId", "articleSlug", "buildingSlug", "corridorKey", "errorCode", "projectId", "projectSlug", "route"]);
+const identifierFields = new Set(["articleId", "articleSlug", "buildingSlug", "corridorKey", "errorCode", "modelId", "projectId", "projectSlug", "residenceId", "route"]);
 const hostFields = new Set(["referrerHost", "sourceHost"]);
 const emailPattern = /\b[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+\b/i;
 const phonePattern = /(?:\+?\d[\s().-]*){7,}/;
