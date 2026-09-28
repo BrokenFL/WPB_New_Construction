@@ -1634,12 +1634,12 @@ const projectStartingPrices = {
 function projectStartingOffer(projectId) {
   const entry = projectStartingPrices[projectId];
   if (!entry) return null;
+  // No availability field: starting guidance is not verified live inventory.
   return {
     "@type": "Offer",
     price: entry.amount,
     priceCurrency: "USD",
     description: entry.label,
-    availability: "https://schema.org/LimitedAvailability",
   };
 }
 
