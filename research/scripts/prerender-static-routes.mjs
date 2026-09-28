@@ -393,17 +393,11 @@ function renderMethodologyRoute(route) {
 }
 
 function renderBuildingsRoute(route, payload) {
-  const tableProjects = priorityProjectFacts(payload);
   return pageShell(
     "buildings",
     "West Palm Beach New Construction Buildings",
     route.description,
     `
-      <section>
-        <h2>Master comparison table</h2>
-        <p>Every tracked project on one table: corridor, status, delivery language, pricing guidance, released floorplan depth, and best-fit buyer lane. Sort by corridor first, then compare status and delivery before treating two buildings as substitutes. All figures are orientation only — confirm current pricing, availability, fees, and timing from the current buyer packet.</p>
-        ${renderStaticComparisonTable(payload, tableProjects)}
-      </section>
       <section>
         <h2>Tracked building entities</h2>
         <p>Each project page is the canonical entity page for that building or benchmark. Public details are useful for orientation, but pricing, availability, incentives, fees, square footage, and timing require current buyer-side confirmation.</p>
@@ -937,7 +931,6 @@ function renderCorridorRoute(route, payload, slug) {
       </section>
       ${projectSections}
       ${slug === "north-flagler" ? northFlaglerBuyerGuide(payload) : ""}
-      ${slug === "south-end" ? southEndBuyerGuide(payload) : ""}
       <section>
         <h2>Buyer fit and verification notes</h2>
         <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
@@ -1406,18 +1399,6 @@ function northFlaglerBuyerGuide(payload) {
           <li><strong>Service model.</strong> Hotel-branded programs (Ritz-Carlton, Mandarin Oriental, Rosewood) and independent projects run different operating models — compare fees and services, not just amenities.</li>
         </ul>
         <p>Want quieter waterfront positioning instead of the North Flagler tower set? Compare the <a href="/corridors/south-flagler/">South Flagler corridor</a> — the South Flagler House and Maison d'Or flagships with Forté on Flagler and La Clara as completed benchmarks.</p>
-      </section>`;
-}
-
-function southEndBuyerGuide(payload) {
-  const projects = payload.projectFacts.filter(
-    (p) => normalize(p.area).includes("south end") || normalize(p.area).includes("south dixie"),
-  );
-  return `
-      <section>
-        <h2>South End buyer guide</h2>
-        <p>The South End and South Dixie corridor is a rental and mixed-use development lane, not a new-construction condo comparison set. The only tracked project here is ${linkedProjectNames(projects) || "currently under review"} — compare leasing status, neighborhood retail access, traffic patterns, and delivery details rather than condo floor plans.</p>
-        <p>Buyers comparing new-construction condos should start with the <a href="/corridors/north-flagler/">North Flagler</a>, <a href="/corridors/south-flagler/">South Flagler</a>, or <a href="/corridors/downtown-west-palm-beach/">Downtown</a> corridors, where the active condo comparison sets live.</p>
       </section>`;
 }
 
