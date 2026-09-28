@@ -3482,9 +3482,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "/maps/wpb-atlas-map-editorial.svg",
-      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
-      "credit": "Source: WPB New Construction map"
+      "path": "",
+      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -7302,6 +7302,12 @@ export const prerenderRoutes = [
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/updates/610-evernia-related-ross-development-2026-09-27/",
+    "title": "Related Ross Clears 610 Evernia Site for Future West Palm Beach Development",
+    "description": "Related Ross will spend $3.2 million relocating two Evernia Street homes as it clears a strategic CityPlace block for parking and potential future redevelopment.",
+    "ogImage": "/assets/editorial/610-evernia-related-ross-development-2026-09-27-hero.jpg"
   },
   {
     "path": "/updates/west-palm-point-tent-site-delay-2029-2026-09-25/",

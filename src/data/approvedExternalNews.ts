@@ -81,6 +81,116 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "610-evernia-related-ross-development-2026-09-27",
+    "slug": "610-evernia-related-ross-development-2026-09-27",
+    "title": "Related Ross to Move 610 Evernia House, Clearing CityPlace Block for Future Development",
+    "sourceName": "Stet News",
+    "sourceUrl": "https://stetnews.org/2026/09/26/clearing-a-path-related-moves-former-mayors-house/",
+    "canonicalUrl": "https://www.wpbnewconstruction.com/updates/610-evernia-related-ross-development-2026-09-27/",
+    "sourceTitle": "Clearing a path: Related Ross moves former mayor’s house",
+    "publishedAt": "2026-09-28T03:30:31.353Z",
+    "sourcePublishedAt": "2026-09-26",
+    "sourcePublishedDate": "2026-09-26",
+    "eventDate": "2026-09-28",
+    "dateDiscovered": "2026-09-28",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-28T03:30:31.353Z",
+    "titleTag": "Related Ross Clears 610 Evernia Site for Future West Palm Beach Development",
+    "metaDescription": "Related Ross will spend $3.2 million relocating two Evernia Street homes as it clears a strategic CityPlace block for parking and potential future redevelopment.",
+    "deck": "The $3.2 million relocation of two older downtown homes preserves the structures as affordable housing — while quietly preparing another Related Ross-controlled block for whatever comes next.",
+    "description": "The $3.2 million relocation of two older downtown homes preserves the structures as affordable housing — while quietly preparing another Related Ross-controlled block for whatever comes next.",
+    "summary": "The $3.2 million relocation of two older downtown homes preserves the structures as affordable housing — while quietly preparing another Related Ross-controlled block for whatever comes next.",
+    "bodySections": [
+      {
+        "heading": "The move and the development story",
+        "body": "A small house at 610 Evernia Street is about to make a very expensive trip.\n\nRelated Ross is preparing to relocate the former home of West Palm Beach Mayor Joel Daves from the corner of Evernia Street and Rosemary Avenue to 900 Sixth Street in the Historic Northwest. A second house at 520 Evernia Street is part of the same relocation effort.\n\nRelated Ross is spending approximately $3.2 million to move and rehabilitate the two structures, according to Stet News. The 610 Evernia house is expected to make the roughly mile-long move in October.\n\nThe preservation story is interesting. The development story behind it may be more important."
+      },
+      {
+        "heading": "What Changed",
+        "body": "610 Evernia has sat in an increasingly unusual position: a small residential structure surrounded by some of downtown West Palm Beach’s most valuable development land.\n\nDaves bought the property for roughly $26,000 in the late 1970s, when living downtown was a very different proposition. Related Companies eventually purchased it from him for $2.85 million in 2006 and held the property for future development. Public records put the parcel at nearly 0.6 acres.\n\nTwenty years later, that future is beginning to take shape.\n\nStet reports that Related Ross already controls and has cleared the remainder of the block. Once the house moves, the property is expected to operate as surface parking for at least five years.\n\nThat last detail is important.\n\nThis is assemblage staging, not an announced new tower.\n\nNo replacement development has been publicly unveiled for the site, and the stated five-year parking use suggests Related Ross is preserving flexibility rather than preparing for immediate vertical construction.",
+        "image": "/assets/editorial/610-evernia-related-ross-development-2026-09-27-body-2.jpg",
+        "imageAlt": "Archival view of a small wood-frame home among tropical landscaping.",
+        "imageCaption": "An archival image of one of the Evernia Street homes before the planned relocation.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "The Bigger CityPlace Puzzle",
+        "body": "The block becomes considerably more interesting when viewed alongside Related Ross’ plans for the existing downtown Publix.\n\nThe current CityPlace Publix sits immediately nearby at Rosemary Avenue and Fern Street. Related Ross has been working with Publix on a substantially larger replacement grocery store farther north near Banyan Boulevard, potentially allowing the existing CityPlace location to eventually be demolished.\n\nStet reports that removing the current Publix would ultimately clear the full block containing the Daves property.\n\nThat is what makes the 610 Evernia move worth watching.\n\nOn its own, relocating a house doesn’t create a development site. Combined with Related’s surrounding ownership and a potential Publix relocation, it begins to create something much more valuable downtown: a consolidated block with few remaining physical constraints and no need for Related Ross to decide immediately what to build there.\n\nIn a land-constrained downtown, optionality has value."
+      },
+      {
+        "heading": "The Houses Aren’t Being Demolished",
+        "body": "There is another side to the transaction.\n\nWest Palm Beach’s CRA has been working with Related on plans to relocate both 520 and 610 Evernia to CRA-controlled land in the Historic Northwest.\n\nCity documents say the structures are to be rehabilitated and eventually offered for sale to households earning no more than 120% of area median income, adding owner-occupied housing while retaining pieces of downtown’s older building stock.\n\nBoth addresses also appear on the city’s list of eligible historic TDR sending sites. That designation identifies buildings potentially eligible for historic treatment and transferable development-right programs; it should not be confused with a formal landmark designation. The city’s code specifically notes that inclusion on the list does not guarantee historic designation.\n\nFor Related Ross, the result is an unusual two-for-one: the structures survive, while their original downtown land becomes substantially easier to redevelop.",
+        "image": "/assets/editorial/610-evernia-related-ross-development-2026-09-27-body-3.jpg",
+        "imageAlt": "The second Evernia Street house in its current downtown setting beside a high-rise.",
+        "imageCaption": "The other Evernia Street house in its current downtown setting before its planned relocation.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "The Planned Destination",
+        "body": "The two homes are planned to move to the CRA-controlled site at 900 Sixth Street in the Historic Northwest.",
+        "image": "/assets/editorial/610-evernia-related-ross-development-2026-09-27-body-1.jpg",
+        "imageAlt": "Illustrative aerial view of the Historic Northwest neighborhood around the planned relocation destination.",
+        "imageCaption": "Illustrative view of the Historic Northwest neighborhood around the planned 900 Sixth Street destination.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "Why It Matters",
+        "body": "This is the sort of move that can look insignificant until viewed on a map.\n\nRelated Ross has spent years assembling and repositioning property across downtown West Palm Beach, from CityPlace and its new office towers to additional land north of Banyan Boulevard. The company currently describes its West Palm Beach portfolio as a long-term effort to create a more integrated downtown district rather than a collection of isolated projects.\n\n610 Evernia fits that strategy.\n\nThere is no announced tower to attach to this site yet, and the proposed parking use means buyers shouldn’t interpret the house move as evidence that another major construction project is about to begin.\n\nBut land assembly usually happens before renderings.\n\nMoving the house removes a constraint. Relocating the existing Publix would remove a much larger one. And Related Ross already controls the surrounding property.\n\nFor now, the correct status is watchlist, not pipeline."
+      },
+      {
+        "heading": "What We’re Watching",
+        "body": "The next signals will be more consequential than the October house move itself: whether the larger Banyan Boulevard Publix advances, when the existing CityPlace Publix is scheduled to close, whether Related files zoning or site-plan documents covering the Evernia and Rosemary block, and whether the planned five-year parking use proves to be a genuine holding period or simply the maximum flexibility Related wants to preserve.\n\nUntil one of those happens, 610 Evernia is best understood as another piece of downtown West Palm Beach being put into position."
+      }
+    ],
+    "imageAlt": "Former West Palm Beach Mayor Joel Daves’ home at 610 Evernia Street in its current downtown setting.",
+    "imageCaption": "Former Mayor Joel Daves’ 610 Evernia home in its current downtown setting before the planned move.",
+    "imageCredit": "Image provided by Brooke Snader.",
+    "whyItMatters": "Relocating the two homes preserves them as affordable housing while removing a constraint from a Related Ross-controlled CityPlace block. The move is a long-term development signal, not evidence of imminent construction.",
+    "buyerContext": "",
+    "buyerTakeaway": "No replacement project has been announced. The relocation removes a constraint from a Related Ross-controlled block, so buyers should treat it as a long-term land-use signal rather than evidence of imminent construction.",
+    "marketSignal": "Strategic land assembly and future development staging",
+    "bestFor": "",
+    "watchPoints": "Watch for progress on the larger Banyan Boulevard Publix, a closure date for the existing CityPlace Publix, zoning or site-plan filings for the Evernia and Rosemary block, and the planned five-year parking use.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "CityPlace",
+      "Historic Northwest"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Related Ross to Move 610 Evernia House, Clearing CityPlace Block for Future Development",
+    "newsletterBlurb": "The $3.2 million relocation of two older downtown homes preserves the structures as affordable housing — while quietly preparing another Related Ross-controlled block for whatever comes next.",
+    "newsletterCta": "Read the article",
+    "query": "610 Evernia Related Ross relocation West Palm Beach CityPlace",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/610-evernia-related-ross-development-2026-09-27-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Stet News: Clearing a path — Related Ross moves former mayor’s house",
+        "url": "https://stetnews.org/2026/09/26/clearing-a-path-related-moves-former-mayors-house/",
+        "type": "independent local reporting"
+      },
+      {
+        "label": "West Palm Beach CRA Annual Report 2024",
+        "url": "https://www.wpb.org/files/content/city/v/23/departments/community-redevelopment-agency/reports-and-plans/common-wpbcra-annual-report-2024-final.pdf",
+        "type": "official primary source"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-point-tent-site-delay-2029-2026-09-25",
     "slug": "west-palm-point-tent-site-delay-2029-2026-09-25",
     "title": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward",
