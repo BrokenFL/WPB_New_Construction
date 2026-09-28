@@ -50,8 +50,13 @@ async function main() {
     const lines = text.split(/\n/);
     lines.forEach((line, index) => {
       if (ignoredFragments.some((fragment) => line.includes(fragment))) return;
+      // model-viewer's bundled fflate decoder defines this exact error string.
+      // Remove only that vendor diagnostic; all other words on the line and
+      // all customer-facing surfaces retain the normal checks.
+      const checkedLine = /^dist\/assets\/model-viewer-[^/]+\.js$/.test(rel)
+        ? line.replaceAll("no stream handler", "") : line;
       for (const pattern of blockedPatterns) {
-        const match = line.match(pattern);
+        const match = checkedLine.match(pattern);
         if (match) findings.push(`${rel}:${index + 1}: "${match[0]}"`);
       }
     });

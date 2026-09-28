@@ -13,10 +13,10 @@ const fixture = '<!doctype html><html lang="en"><head><title>Old</title>' +
   [['name','description'],['property','og:title'],['property','og:description'],['property','og:url'],['property','og:image'],['name','twitter:title'],['name','twitter:description'],['name','twitter:image']].map(([key, name]) => `<meta ${key}="${name}" content="Old" />`).join('') +
   '<meta name="robots" content="index,follow" /><link rel="canonical" href="https://www.wpbnewconstruction.com/" /><script id="wpb-static-structured-data" type="application/ld+json">{"old":true}</script></head><body><div id="app"><main><h1>Old</h1><div><div>nested</div></div></main></div><script>window.__WPB_PRERENDER_PATH__="/";</script><script type="module" src="/assets/index.js"></script></body></html>';
 
-test("pilot has exactly one entity per project/plan, not one per source", () => {
-  assert.equal(plans.length, 7);
-  assert.equal(new Set(plans.map((plan) => plan.planId)).size, 7);
-  assert.equal(new Set(plans.map((plan) => plan.canonical)).size, 7);
+test("reviewed set has one entity per project/plan, not one per source filename", () => {
+  assert.equal(plans.length, 11);
+  assert.equal(new Set(plans.map((plan) => plan.planId)).size, 11);
+  assert.equal(new Set(plans.map((plan) => plan.canonical)).size, 11);
   for (const plan of plans) assert.equal(plan.path, `/floorplans/${plan.projectId}/${plan.slug}/`);
 });
 test("clean canonical lookup strips tracking, fragments and index filename", () => {
@@ -62,7 +62,8 @@ test("entity HTML is useful without JavaScript and has clean buyer actions", () 
     const html = renderFloorplanPage(plan);
     assert.equal((html.match(/<h1>/g) ?? []).length, 1);
     for (const content of [plan.pdf, plan.preview, '/inquire/', '/compare/', `/projects/${plan.projectId}/`, plan.reviewedOn]) assert.ok(html.includes(content));
-    assert.doesNotMatch(html, /href="[^"\s]*[?]/);
+    const queryLinks = [...html.matchAll(/href="([^"\s]*\?[^"\s]*)"/g)].map((match) => match[1].replaceAll('&amp;', '&'));
+    assert.deepEqual(queryLinks, [], 'Attribution must not create crawlable query URLs');
     assert.ok(floorplanTitle(plan).length < 80);
     assert.ok(floorplanDescription(plan).length <= 165);
   }
@@ -72,7 +73,9 @@ test("schema describes documents, not invented inventory or prices", () => {
     const schema = floorplanSchema(plan);
     assert.equal(schema['@graph'][0]['@type'], 'WebPage');
     assert.equal(schema['@graph'][1]['@type'], 'BreadcrumbList');
-    assert.equal(schema['@graph'][0].mainEntity.encoding.contentUrl, `https://www.wpbnewconstruction.com${plan.pdf}`);
+    const encodings = [schema['@graph'][0].mainEntity.encoding].flat();
+    assert.equal(encodings[0].contentUrl, `https://www.wpbnewconstruction.com${plan.pdf}`);
+    assert.equal(encodings.filter((item) => item.encodingFormat === 'model/gltf-binary').length, plan.models3D.filter((model) => model.status === 'approved').length);
     assert.doesNotMatch(JSON.stringify(schema), /"(?:Offer|price|availability|Person)"/);
   }
 });
@@ -93,8 +96,11 @@ test("static template preserves assets, replaces nested app safely, and is idemp
   assert.throws(() => renderEntityDocument(fixture.replace('id="app"', 'id="different"'), plans[0]), /Unexpected template/);
 });
 test("only the library and matching project expose discovery links", () => {
-  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 6);
-  for (const plan of publishedFloorplanEntities()) assert.equal((renderFloorplanDiscovery(`/projects/${plan.projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, 6);
+  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 10);
+  for (const projectId of ['olara','shorecrest','ritz-carlton-wpb']) {
+    const count = publishedFloorplanEntities().filter((plan) => plan.projectId === projectId).length;
+    assert.equal((renderFloorplanDiscovery(`/projects/${projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, count);
+  }
   assert.equal(renderFloorplanDiscovery('/'), '');
   const result = addDiscovery(fixture, '/floorplans/');
   assert.equal(addDiscovery(result, '/floorplans/'), result);
@@ -152,8 +158,8 @@ test("availability CTA precedes the drawing and preserves the facts CTA", () => 
 });
 
 
-test("publication scope is Olara-only while Alba source/rendering remain reviewable", () => {
-  assert.deepEqual(publishedFloorplanEntities().map((plan) => plan.projectId), Array(6).fill('olara'));
+test("publication scope adds Shorecrest and Ritz residences while Alba remains withheld", () => {
+  assert.deepEqual(publishedFloorplanEntities().map((plan) => plan.projectId), [...Array(6).fill('olara'), 'shorecrest','shorecrest','ritz-carlton-wpb','ritz-carlton-wpb']);
   assert.equal(floorplanForPath('/floorplans/alba-palm-beach/residence-d/'), undefined);
   assert.equal(renderFloorplanDiscovery('/projects/alba-palm-beach/'), '');
   assert.ok(renderFloorplanPage(plans[1]).includes('Area clarification'));

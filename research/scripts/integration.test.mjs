@@ -60,7 +60,11 @@ test('postbuild composes both page families and production keeps the reachable-g
   assert.ok(scripts.postbuild.indexOf('prerender-commercial-routes') < scripts.postbuild.indexOf('prerender-floorplan-entities'));
   for(const name of ['test:floorplan-entities','test:commercial','test:deploy-preflight','test:integration']) assert.ok(scripts.test.includes(name));
   assert.match(await fs.readFile('research/scripts/deploy-cloudflare-pages-with-retry.mjs','utf8'),/production-map-preflight.mjs/);
-  assert.deepEqual(publishedFloorplanEntities().map(p=>[p.projectId,p.slug]),['d','a','c','f','i','l'].map(letter=>['olara',`residence-${letter}`]));
+  assert.deepEqual(publishedFloorplanEntities().map(p=>[p.projectId,p.slug]),[
+    ...['d','a','c','f','i','l'].map(letter=>['olara',`residence-${letter}`]),
+    ['shorecrest','residence-0704'], ['shorecrest','residence-1602'],
+    ['ritz-carlton-wpb','residence-02'], ['ritz-carlton-wpb','residence-06'],
+  ]);
   assert.ok(buildFloorplanEntities().some(p=>p.projectId==='alba-palm-beach'));
 });
 

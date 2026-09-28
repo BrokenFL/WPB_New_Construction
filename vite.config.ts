@@ -135,6 +135,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          // These dependencies are reached only through the click-triggered
+          // model-viewer import. Split its renderer for caching and retain the
+          // existing per-chunk performance budget.
+          if (id.includes("/node_modules/three/build/three.core.js")) return "residence-three-core";
+          if (id.includes("/node_modules/three/build/three.module.js")) return "residence-three-webgl";
           if (id.includes("/src/data/approvedExternalNews.ts")) {
             return "index-news-data";
           }

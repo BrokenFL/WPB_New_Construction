@@ -16,7 +16,7 @@
     "p2:shadow:snapshot": "node research/scripts/p2/shadow-snapshot.mjs",
     "p2:shadow:owner": "node research/scripts/p2/shadow-owner-server.mjs",
     "qa:launch": "QA_NO_WRITE=1 npm run qa:launch:run",
-    "qa:launch:run": "node research/scripts/qa-launch-readiness.mjs && npm run qa:copy && npm run qa:hero-images && npm run qa:renamed-images && npm run qa:public-json && npm run qa:agent-skills && npm run qa:project-types && npm run qa:north-flagler && npm run qa:analytics && npm run qa:a11y-forms && npm run qa:performance && npm run qa:image-mapping && npm run qa:image-repetition && npm run qa:homepage-visual && npm run qa:news-images && npm run qa:project-pages && npm run qa:project-logos && npm run qa:approved-news && npm run qa:news && npm run qa:customer-copy && npm run qa:seo && npm run qa:geo && npm run qa:image-alt && npm run qa:internal-links && npm run qa:content-studio && npm run qa:builder-remote && npm run qa:builder-remote-images && npm run qa:builder-visual && npm run qa:map && npm run qa:untracked-assets && npm run qa:floorplan-entities && npm run qa:commercial",
+    "qa:launch:run": "node research/scripts/qa-launch-readiness.mjs && npm run qa:copy && npm run qa:hero-images && npm run qa:renamed-images && npm run qa:public-json && npm run qa:agent-skills && npm run qa:project-types && npm run qa:north-flagler && npm run qa:analytics && npm run qa:a11y-forms && npm run qa:performance && npm run qa:image-mapping && npm run qa:image-repetition && npm run qa:homepage-visual && npm run qa:news-images && npm run qa:project-pages && npm run qa:project-logos && npm run qa:approved-news && npm run qa:news && npm run qa:customer-copy && npm run qa:seo && npm run qa:geo && npm run qa:image-alt && npm run qa:internal-links && npm run qa:content-studio && npm run qa:builder-remote && npm run qa:builder-remote-images && npm run qa:builder-visual && npm run qa:map && npm run qa:untracked-assets && npm run qa:floorplan-entities && npm run qa:residence-3d:assets && npm run qa:commercial",
     "qa:launch:no-write": "QA_NO_WRITE=1 npm run qa:launch:run",
     "qa:launch:write-reports": "npm run qa:launch:run",
     "qa:gatekeeper": "node research/scripts/qa-gatekeeper-surface.mjs",
@@ -113,7 +113,7 @@
     "test:floorplan-entities": "node --experimental-strip-types --test research/scripts/floorplan-entities.test.mjs",
     "test:project-seo-batch4": "node --test research/scripts/project-seo-batch4.test.mjs",
     "test:project-field-resolver": "node --experimental-strip-types --test research/scripts/project-field-resolver.test.mjs",
-    "test": "npm run test:integration && npm run test:deploy-preflight && npm run test:floorplan-entities && npm run test:commercial && npm run test:building-master && npm run test:article-publisher && npm run test:project-field-resolver && npm run qa:launch:no-write && npm run qa:gatekeeper",
+    "test": "npm run test:integration && npm run test:deploy-preflight && npm run test:floorplan-entities && npm run test:residence-3d && npm run test:commercial && npm run test:building-master && npm run test:article-publisher && npm run test:project-field-resolver && npm run qa:launch:no-write && npm run qa:gatekeeper",
     "test:leads": "node research/scripts/test-leads-endpoint.mjs",
     "lint": "node research/scripts/lint-public-surface.mjs",
     "check:updates": "node research/scripts/check-imported-updates.mjs",
@@ -129,14 +129,26 @@
     "qa:commercial": "node --experimental-strip-types research/scripts/check-commercial-growth.mjs",
     "qa:integration": "node --experimental-strip-types research/scripts/check-integrated-journeys.mjs",
     "p2:fast:cycle": "node research/scripts/p2/fast-cycle-cli.mjs",
-    "test:p2:fast": "node --test research/scripts/p2/fast-mode.test.mjs"
+    "test:p2:fast": "node --test research/scripts/p2/fast-mode.test.mjs",
+    "assets:publish:models:dry": "node --experimental-strip-types scripts/publish-assets-from-asset-repo.mjs --models --dry-run",
+    "assets:publish:models": "node --experimental-strip-types scripts/publish-assets-from-asset-repo.mjs --models --write",
+    "qa:residence-3d:assets": "node --experimental-strip-types research/scripts/check-residence-model-assets.mjs",
+    "test:residence-3d:assets": "node --test research/scripts/residence-model-assets.test.mjs",
+    "qa:residence-3d": "node --experimental-strip-types research/scripts/check-residence-model-assets.mjs --dist && node --experimental-strip-types research/scripts/residence-3d-browser-qa.mjs",
+    "discovery:llms": "node --experimental-strip-types research/scripts/build-site-intelligence.mjs --llms-only",
+    "test:residence-3d": "node --experimental-strip-types --test research/scripts/residence-3d-manifest.test.mjs research/scripts/residence-model-assets.test.mjs"
   },
   "devDependencies": {
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
+    "@gltf-transform/functions": "^4.5.0",
+    "meshoptimizer": "^1.3.0",
     "playwright": "^1.60.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.9"
   },
   "dependencies": {
+    "@google/model-viewer": "^4.3.1",
     "csv-parse": "^6.2.1",
     "sharp": "^0.34.5"
   }

@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { residence3DModels } from "../src/data/residence3DModels.ts";
 
 const websiteRoot = process.cwd();
 const assetRepoRoot = path.join("/", "Volumes", "ExternalSSD", ["WPB", "NewConstruction", "Assets"].join("_"));
@@ -62,9 +63,11 @@ const report = {
   safeToProceedToICloudIntake: summary.blockers === 0 && summary.strictBlockers === 0,
 };
 
-fs.mkdirSync(path.dirname(reportJsonPath), { recursive: true });
-fs.writeFileSync(reportJsonPath, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(reportMdPath, renderMarkdownReport(report));
+if (process.env.QA_NO_WRITE !== "1") {
+  fs.mkdirSync(path.dirname(reportJsonPath), { recursive: true });
+  fs.writeFileSync(reportJsonPath, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(reportMdPath, renderMarkdownReport(report));
+}
 
 console.log(JSON.stringify({
   assetPipelineAudit: strict
@@ -416,6 +419,7 @@ function auditWebsitePublicAssets() {
     const rel = path.relative(root, filePath).split(path.sep).join("/");
     const [projectSlug, category] = rel.split("/");
     if (record.extension === ".pdf" && category === "floorplans") record.unsupported = false;
+    if (record.extension === ".glb" && category === "3d" && /^[a-z0-9-]+\/3d\/[a-z0-9-]+\/model(?:-[a-z0-9-]+)?\.glb$/.test(rel)) record.unsupported = false;
     const dimensions = imageDimensions(filePath, record.extension);
     const optimizationWarnings = optimizationWarningsFor({ ...record, projectSlug, category, dimensions });
     return {
@@ -621,13 +625,25 @@ function auditWebsiteReferences() {
       localPathLeaks.push({ file: rel, match: leak[0], index: leak.index });
     }
     const refs = [...content.matchAll(/["'`]((?:\/assets\/|\/projects\/)[^"'`<>\s?#)]+)["'`]/g)].map((match) => match[1]);
+    // The reviewed model manifest constructs paths from exact residence keys.
+    // Validate every resolved URL, rather than treating its template as a file.
+    if (rel === "src/data/residence3DModels.ts") {
+      for (let index = refs.length - 1; index >= 0; index--) {
+        if (refs[index] === "/assets/projects/${projectId}/3d/${residenceSlug}/model.glb"
+          || refs[index] === "/assets/projects/${projectId}/3d/${residenceSlug}/poster.webp"
+          || refs[index] === "/assets/projects/${projectId}/3d/${residenceSlug}/poster-mobile.webp") refs.splice(index, 1);
+      }
+      refs.push(...residence3DModels.flatMap((model) => [model.modelUrl, model.posterUrl, model.mobilePosterUrl].filter(Boolean)));
+    }
     const seenInFile = new Map();
     for (const ref of refs) {
       const ext = path.extname(ref).toLowerCase();
       const record = { file: rel, ref, extension: ext || "(none)" };
       if (ref.startsWith("/assets/")) assetReferences.push(record);
       if (ref.startsWith("/projects/")) legacyProjectReferences.push(record);
-      if (ext && !safeWebsiteExtensions.has(ext) && ext !== ".pdf" && ext !== ".html") unsupportedFormatReferences.push(record);
+      const residenceModel = /^\/assets\/projects\/[a-z0-9-]+\/3d\/[a-z0-9-]+\/model(?:-[a-z0-9-]+)?\.glb$/.test(ref);
+      const modelDecoder = ref === "/assets/vendor/meshopt_decoder.js";
+      if (ext && !safeWebsiteExtensions.has(ext) && ext !== ".pdf" && ext !== ".html" && !residenceModel && !modelDecoder) unsupportedFormatReferences.push(record);
       const key = ref.toLowerCase();
       seenInFile.set(key, (seenInFile.get(key) ?? 0) + 1);
     }

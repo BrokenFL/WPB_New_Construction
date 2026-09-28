@@ -4,6 +4,19 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 import sharp from "sharp";
+import { publishResidenceModels } from './lib/residence-model-assets.mjs';
+
+// Residence assets use exact reviewed model/poster pairs, never a folder sweep.
+if (process.argv.includes('--models')) {
+  const projectIndex = process.argv.indexOf('--project');
+  console.log(JSON.stringify(await publishResidenceModels({
+    websiteRoot: process.cwd(),
+    assetRepoRoot: process.env.WPB_ASSET_REPO_ROOT || path.join('/', 'Volumes', 'ExternalSSD', 'WPB_NewConstruction_Assets'),
+    write: process.argv.includes('--write'),
+    projectIds: projectIndex >= 0 ? process.argv[projectIndex + 1]?.split(',') : undefined,
+  }), null, 2));
+  process.exit(0);
+}
 
 const websiteRoot = process.cwd();
 const assetRepoRoot = path.join("/", "Volumes", "ExternalSSD", ["WPB", "NewConstruction", "Assets"].join("_"));

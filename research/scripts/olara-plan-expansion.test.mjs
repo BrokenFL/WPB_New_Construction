@@ -4,18 +4,18 @@ import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { olaraPlanExpansion } from '../../src/data/olaraPlanExpansion.ts';
 import { approvedFloorplanLibrary } from '../../src/data/floorplanApprovedLibrary.ts';
-import { buildFloorplanEntities, publishedFloorplanEntities, floorplanForPath, renderFloorplanPage, floorplanSchema } from '../../src/lib/floorplanEntities.ts';
+import { buildFloorplanEntities, publishedFloorplanEntities, floorplanForPath, renderFloorplanPage, floorplanSchema, floorplanModifiedOn } from '../../src/lib/floorplanEntities.ts';
 import { resolveInquiryContext } from '../../src/lib/inquiryContext.ts';
 import { addSitemapEntities } from './prerender-floorplan-entities.mjs';
 const additions = ['a','c','f','i','l'];
-const published = publishedFloorplanEntities();
+const published = publishedFloorplanEntities().filter((plan) => plan.projectId === 'olara');
 const ledger = JSON.parse(await fs.readFile('research/source-material-review/olara-plan-expansion-verified.json','utf8'));
 const sha256 = b => createHash('sha256').update(b).digest('hex');
 
 test('five distinct additional Olara layouts reuse the existing entity scope; D and Alba remain intact', () => {
   assert.deepEqual(olaraPlanExpansion.map(p=>p.slug), additions.map(l=>`residence-${l}`));
   assert.deepEqual(published.map(p=>p.slug), ['d',...additions].map(l=>`residence-${l}`));
-  assert.equal(buildFloorplanEntities().length,7);
+  assert.equal(buildFloorplanEntities().length,11);
   const d=published[0];assert.equal(d.reviewedOn,'2026-09-05');assert.equal(d.updatedOn,'2026-09-05');
   assert.equal(d.interiorSqFt,1774);assert.equal(d.terraceSqFt,381);assert.equal(d.totalSqFt,2155);
   assert.equal(floorplanForPath('/floorplans/alba-palm-beach/residence-d/'),undefined);
@@ -58,11 +58,11 @@ test('all added plans retain exact availability inquiry context and early CTA wi
 });
 
 test('publication preserves original dates/PDF URLs, rejects changed source facts and keeps Alba out of sitemap', () => {
-  const xml=addSitemapEntities('<urlset><url><loc>https://www.wpbnewconstruction.com/</loc></url></urlset>',published);
-  assert.equal(addSitemapEntities(xml,published),xml);assert.ok(!xml.includes('alba-palm-beach'));
+  const xml=addSitemapEntities('<urlset><url><loc>https://www.wpbnewconstruction.com/</loc></url></urlset>',publishedFloorplanEntities());
+  assert.equal(addSitemapEntities(xml,publishedFloorplanEntities()),xml);assert.ok(!xml.includes('alba-palm-beach'));
   for(const p of published){
     const block=xml.split('<url>').find(b=>b.includes(`<loc>${p.canonical}</loc>`));
-    assert.ok(block.includes(`<lastmod>${p.slug==='residence-d'?'2026-09-05':'2026-09-08'}</lastmod>`));
+    assert.ok(block.includes(`<lastmod>${floorplanModifiedOn(p)}</lastmod>`));
     assert.ok(p.pdf.endsWith('-v01.pdf'));assert.ok(!p.path.includes('v01'));
   }
   for(const entry of olaraPlanExpansion){
