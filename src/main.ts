@@ -2770,6 +2770,7 @@ app.innerHTML = `
         <a href="/corridors/" data-nav-item="corridors">Corridors</a>
         <a href="/compare/" data-nav-item="compare">Compare</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floor plans</a>
+        <a href="/3d-floorplans/" data-nav-item="3d-floorplans">3D Floor Plans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group at ${advisorProfile.mobile}">${advisorProfile.mobile}</a>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire" ${renderCtaTrackingAttrs("header", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
@@ -3028,6 +3029,7 @@ app.innerHTML = `
             <p>Explore released layouts by building. Review room sizes, outdoor space and circulation, then open the plans that fit your shortlist.</p>
             <div class="hero-actions">
               <a class="button primary" href="#floorplan-library">Browse by building <span aria-hidden="true">↓</span></a>
+              <a class="button ghost" href="/3d-floorplans/">Explore 3D floor plans <span aria-hidden="true">↗</span></a>
               <a class="button ghost" href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", "Request current packet", { leadCaptureContext: "floorplans_page" })}>Request current packet <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -8264,6 +8266,7 @@ function renderGeneratedFloorplanLink(
   }
   if (/^https?:\/\//i.test(plan.href) || /\.html?(?:$|[?#])/i.test(plan.href)) {
     return `
+    <div class="floorplan-card">
     <button
       class="floorplan-link floorplan-link-button"
       type="button"
@@ -8281,10 +8284,12 @@ function renderGeneratedFloorplanLink(
       ${metrics}
     </button>
     ${planPageLink}
+    </div>
   `;
   }
 
   return `
+    <div class="floorplan-card">
     <button
       class="floorplan-link floorplan-link-button"
       type="button"
@@ -8302,6 +8307,7 @@ function renderGeneratedFloorplanLink(
       ${metrics}
     </button>
     ${planPageLink}
+    </div>
   `;
 }
 
