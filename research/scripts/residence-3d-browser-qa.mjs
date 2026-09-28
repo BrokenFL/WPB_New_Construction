@@ -15,8 +15,9 @@ import { publicProjectRecords } from "../../src/generated/projectModelPublic.ts"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dist = path.join(root, "dist");
-const shots = path.join(root, "output/playwright/residence-3d-2026-09-27");
-const reportFile = path.join(root, ".runtime/residence-3d-continuation/browser-qa.json");
+const controlsOnly = process.argv.includes("--controls-only");
+const shots = path.join(root, controlsOnly ? ".runtime/residence-3d-continuation/controls-only-shots" : "output/playwright/residence-3d-2026-09-27");
+const reportFile = path.join(root, `.runtime/residence-3d-continuation/${controlsOnly ? "browser-qa-controls" : "browser-qa"}.json`);
 const models = residence3DModels.filter((model) => model.status === "approved");
 const publishedEntities = publishedFloorplanEntities();
 const entityByModelId = new Map();
@@ -161,7 +162,7 @@ function assertNoHeavyRequests(requests, label) {
   assert.deepEqual(heavy, [], `${label}: unexpected initial 3D requests`);
 }
 
-async function checkCameraInteraction(section, page, label) {
+async function checkCameraInteraction(section, page, label, browserName) {
   const viewer = section.locator("model-viewer");
   const orbit = () => viewer.evaluate((element) => {
     const { theta, radius } = element.getCameraOrbit();
@@ -173,11 +174,29 @@ async function checkCameraInteraction(section, page, label) {
   await page.waitForTimeout(350);
   const afterKey = await orbit();
   assert.ok(Math.abs(afterKey.theta - before.theta) > 0.005, `${label}: arrow key did not orbit`);
-  await viewer.hover();
-  await page.mouse.wheel(0, -450);
+  await page.keyboard.press("PageDown");
   await page.waitForTimeout(400);
-  const afterZoom = await orbit();
-  assert.ok(Math.abs(afterZoom.radius - afterKey.radius) > 0.001, `${label}: wheel did not zoom`);
+  const afterKeyboardZoom = await orbit();
+  assert.ok(Math.abs(afterKeyboardZoom.radius - afterKey.radius) > 0.001, `${label}: PageDown did not zoom`);
+  if (browserName === "webkit") {
+    // Playwright WebKit's mouse.wheel scrolls the page without dispatching a
+    // DOM wheel event. Verify the installed viewer handler directly; keyboard
+    // zoom above remains a genuine browser input in both engines.
+    const handled = await viewer.evaluate((element) => {
+      const surface = element.shadowRoot?.querySelector('.userInput');
+      if (!surface) return false;
+      const wheel = new WheelEvent("wheel", { deltaY: -450, bubbles: true, composed: true, cancelable: true });
+      surface.dispatchEvent(wheel);
+      return wheel.defaultPrevented;
+    });
+    assert.equal(handled, true, `${label}: WebKit viewer wheel handler did not prevent scrolling`);
+  } else {
+    await viewer.hover();
+    await page.mouse.wheel(0, -450);
+  }
+  await page.waitForTimeout(400);
+  const afterWheel = await orbit();
+  assert.ok(Math.abs(afterWheel.radius - afterKeyboardZoom.radius) > 0.001, `${label}: ${browserName === "webkit" ? "synthetic wheel handler" : "native wheel"} did not zoom`);
 }
 
 async function assertKeyboardInteractionFocus(viewer, label) {
@@ -401,6 +420,7 @@ async function main() {
   await fs.mkdir(path.dirname(reportFile), { recursive: true });
   const { server, origin } = await serveDist();
   const report = {
+    mode: controlsOnly ? "controls-only" : "full",
     origin,
     modelIds: models.map((model) => model.modelId),
     modelRoutes: Object.fromEntries(models.map((model) => [model.modelId, routeFor(model)])),
@@ -415,6 +435,7 @@ async function main() {
     const webkitBrowser = await webkit.launch({ headless: true });
     browsers.push(webkitBrowser);
 
+    if (!controlsOnly) {
     // Every published route must render a usable poster before any model data.
     for (const model of models) {
       const { context, page, errors } = await newPage(chrome, origin, viewports.desktop);
@@ -561,6 +582,7 @@ async function main() {
         }
       }
     }
+    }
 
     // Exercise actual viewer controls in both browser engines. Attribution
     // covers each project's last model plus Shorecrest 0704 so the established
@@ -575,13 +597,13 @@ async function main() {
           const label = `${browserName}-controls-${model.modelId}`;
           const section = await assertPoster(page, model, origin, label, report.screenshots);
           await activate(section, model, label, report.screenshots);
-          await checkCameraInteraction(section, page, `${label}: camera controls`);
+          await checkCameraInteraction(section, page, `${label}: camera controls`, browserName);
           await assertResetAndFullscreen(section, page, label);
           if (browserName === "chromium") {
             await assertInquiryAttribution(section, page, model, label);
             await assertEntityIntroAttribution(page, model, origin, label);
           }
-          report.checks.push(`${label}: camera, reset, fullscreen where available${browserName === "chromium" ? ", and inquiry attribution" : ""}`);
+          report.checks.push(`${label}: keyboard orbit and zoom, ${browserName === "webkit" ? "synthetic wheel handler" : "native wheel"}, reset, fullscreen where available${browserName === "chromium" ? ", and inquiry attribution" : ""}`);
         } finally { await context.close(); }
       }
     }
