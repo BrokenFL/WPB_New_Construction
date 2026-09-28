@@ -6554,6 +6554,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/3d-floorplans/",
+    "title": "Interactive 3D Floor Plans | West Palm Beach New Construction",
+    "description": "Explore West Palm Beach new-construction residences in interactive 3D. Rotate furnished models, review layouts, and request current availability.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-07/",
     "title": "Lake Home 07 Floor Plan | Ritz-Carlton WPB",
     "description": "Lake Home 07 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,750 sq ft. Released drawing and current availability.",

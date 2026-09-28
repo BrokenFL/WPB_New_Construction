@@ -2857,6 +2857,12 @@ function buildPrerenderRoutes() {
       description: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
       ogImage: siteMeta.defaultImage,
     },
+    {
+      path: "/3d-floorplans/",
+      title: "Interactive 3D Floor Plans | West Palm Beach New Construction",
+      description: "Explore West Palm Beach new-construction residences in interactive 3D. Rotate furnished models, review layouts, and request current availability.",
+      ogImage: siteMeta.defaultImage,
+    },
     ...floorplanPlanPageRoutes.map((plan) => ({
       path: `/floorplans/${plan.projectId}/${plan.planSlug}/`,
       title: plan.seoTitle,

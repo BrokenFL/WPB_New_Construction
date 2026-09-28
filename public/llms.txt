@@ -86,6 +86,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 
 - West Palm Beach New Construction Condos | Buyer Guide: /
 - West Palm Beach Condo Floor Plans | New Construction Guide: /floorplans/
+- Interactive 3D Floor Plans | West Palm Beach New Construction: /3d-floorplans/
 - Lake Home 07 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-07/
 - Lake Home 08 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-08/
 - Lake Home 09 Floor Plan | Ritz-Carlton WPB: /floorplans/ritz-carlton-wpb/lake-home-09/
