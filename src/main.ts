@@ -4251,6 +4251,10 @@ const projectStartingPrices: Record<string, { amount: number; label: string }> =
   "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
   berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
   "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
+  "maison-dor": { amount: 5700000, label: "From $5.7M developer guidance (Aug 2026 coverage); verify current availability" },
+  edgeworth: { amount: 2500000, label: "From $2.5M Related Ross launch guidance; verify current availability" },
+  "banyan-tree": { amount: 1900000, label: "From $1.9M developer release (Mar 2026); verify current availability" },
+  "forte-on-flagler": { amount: 4900000, label: "$4.9M developer launch guidance (current listings higher); verify current availability" },
 };
 
 applyRoute();
