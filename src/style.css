@@ -2928,6 +2928,33 @@ h3 {
   text-align: left;
 }
 
+.floorplan-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.floorplan-card .floorplan-link-button {
+  flex: 1 1 auto;
+}
+
+.floorplan-plan-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--bronze);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.floorplan-plan-link:hover {
+  color: var(--ink);
+}
+
+.floorplan-plan-detail h3 {
+  color: var(--ink);
+}
+
 .floorplan-viewer[hidden] {
   display: none;
 }
