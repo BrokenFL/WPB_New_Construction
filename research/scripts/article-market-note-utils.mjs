@@ -64,8 +64,43 @@ export function findMatchingBracket(source, start) {
 function findObjectBlock(arrayText, editKey) {
   if (!editKey) return "";
   const key = escapeRegExp(editKey);
-  const pattern = new RegExp(`\\{[\\s\\S]*?(?:id|slug):\\s*["']${key}["'][\\s\\S]*?\\},?`, "m");
-  return arrayText.match(pattern)?.[0] || "";
+  // Key names are JSON-quoted ("slug": ...) in the generated TS output.
+  const idPattern = new RegExp(`["']?(?:id|slug)["']?\\s*:\\s*["']${key}["']`);
+  // Walk top-level {...} blocks with a brace-depth scanner (string-aware for
+  // " and ' only; the entries are JSON-style) and return the block whose
+  // id/slug matches. A regex alone can't reliably span nested objects.
+  let depth = 0;
+  let quote = "";
+  let escaped = false;
+  let blockStart = -1;
+  for (let i = 0; i < arrayText.length; i++) {
+    const ch = arrayText[i];
+    if (quote) {
+      if (escaped) { escaped = false; continue; }
+      if (ch === "\\") { escaped = true; continue; }
+      if (ch === quote) quote = "";
+      continue;
+    }
+    if (ch === '"' || ch === "'") { quote = ch; continue; }
+    if (ch === "{") {
+      if (depth === 0) blockStart = i;
+      depth += 1;
+      continue;
+    }
+    if (ch === "}") {
+      depth -= 1;
+      if (depth === 0 && blockStart !== -1) {
+        let blockEnd = i + 1;
+        // Include the entry's trailing comma when present so the upsert
+        // replacement (which already ends with a comma) stays 1-for-1.
+        if (arrayText[blockEnd] === ",") blockEnd += 1;
+        const block = arrayText.slice(blockStart, blockEnd);
+        if (idPattern.test(block)) return block;
+        blockStart = -1;
+      }
+    }
+  }
+  return "";
 }
 
 function collectTopLevelConstants(source) {
