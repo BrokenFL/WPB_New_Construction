@@ -141,6 +141,78 @@ export const marketNotes = [
   },
 
   {
+    "id": "porsche-design-concours-west-palm-beach-2026-09-28",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "Porsche Design is building a private car-collector clubhouse in West Palm Beach",
+    "slug": "porsche-design-concours-west-palm-beach-2026-09-28",
+    "excerpt": "Porsche Design and Newgard Development Group have unveiled Porsche Design Concours: 22 privately owned automobile studios and a members-only clubhouse at 2500 N. Florida Mango Road, targeting a 2028 opening. Studio sales are by invitation only.",
+    "buyerThesis": "Porsche Design and Newgard Development Group have unveiled Porsche Design Concours: 22 privately owned automobile studios and a members-only clubhouse at 2500 N. Florida Mango Road, targeting a 2028 opening. Studio sales are by invitation only.",
+    "buyerTakeaway": "Porsche Design and Newgard Development Group have unveiled Porsche Design Concours: 22 privately owned automobile studios and a members-only clubhouse at 2500 N. Florida Mango Road, targeting a 2028 opening. Studio sales are by invitation only.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/porsche-design-concours-west-palm-beach-2026-09-28-hero.jpg",
+      "alt": "Exterior rendering of the Porsche Design Concours West Palm Beach destination at dusk, with collector Porsches outside the clubhouse entrance.",
+      "caption": "The Porsche Design Concours West Palm Beach destination at 2500 N. Florida Mango Road, targeting a 2028 opening.",
+      "credit": "Porsche Design Concours",
+      "mode": "provided-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "Porsche Newsroom",
+    "sourceLinks": [
+      {
+        "label": "Porsche Newsroom USA: Porsche Design and Newgard Development Group Introduce Porsche Design Concours",
+        "href": "https://newsroom.porsche.com/en_US/2026/company/porsche-design-newgard-development-group-ownership-club-concept-43330.html",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "GlobeNewswire: Newgard Group Acquires West Palm Beach Site for First Luxury Automotive Lifestyle Destination",
+        "href": "https://markets.financialcontent.com/winslow/article/gnwcq-2026-8-13-newgard-group-acquires-west-palm-beach-site-for-first-luxury-automotive-lifestyle-destination",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-09-29",
+    "dateModified": "2026-09-29",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "Porsche Design and Newgard Development Group unveiled Porsche Design Concours on September 28, a new ownership concept built around privately owned automobile studios and a private, membership-based clubhouse. The first two destinations are West Palm Beach and Dallas, with openings targeted for 2028 and additional U.S. markets planned after that.\n\nEach destination gets 22 studios ranging from 2,700 to 6,000 square feet, sold by invitation only with deeded ownership. Every studio has a mezzanine level, a full bathroom, wet bar facilities, and a climate-controlled environment built for both valuable cars and the people spending time around them. At the architectural heart of each building is The Concours, an interior automotive promenade designed as a gallery-like spine that the private studios open onto.\n\nIn West Palm Beach, the project sits on a 2.6-acre site at 2500 N. Florida Mango Road, acquired in August by PB Vaults Development LLC, a Newgard Group affiliate. The architecture and interiors were designed in close collaboration with Porsche Design and executed locally by Urban Robot Associates in West Palm Beach and Gensler in Dallas.",
+        "image": "/assets/editorial/porsche-design-concours-west-palm-beach-2026-09-28-body-1.jpg"
+      },
+      {
+        "heading": "Why this is a downtown story",
+        "body": "On paper this is car storage. In practice it is luxury infrastructure, and that is why it belongs in the downtown conversation. The buyer who keeps a multi-car collection is very often the same buyer touring $3-million-plus new construction on Flagler. Projects like this do not follow wealth to West Palm Beach; they are part of why wealth keeps choosing it.\n\nThe concept is explicit about that overlap. The studios are designed for an owner who works there in the morning, rests there in the afternoon, and hosts friends there in the evening. The clubhouse stacks padel, spa and wellness, dining, private lounges, coworking, outdoor terraces, event spaces, concierge, and 24-hour security. That is not a garage with perks. It is a third place for the collector class, deliberately positioned within about 10 to 15 minutes of where its owners already live and spend their time.\n\nPorsche ownership is not required, and the studios are built for collections across marques and eras. The bet is on shared passion rather than brand loyalty, which widens the buyer pool to the whole collector community rather than one marque's faithful.",
+        "image": "/assets/editorial/porsche-design-concours-west-palm-beach-2026-09-28-body-2.jpg"
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The near-term question is the invitation-only sales process: who gets in, at what price, and how fast the 22 West Palm Beach studios move. Newgard has not published pricing, and the announcement keeps the focus on the concept rather than the transaction. Watch whether sales open quietly to a known collector list or make a broader public push.\n\nThe longer question is the network. West Palm Beach and Dallas are framed as the opening chapter of a curated national rollout. If the first two destinations fill on schedule for 2028, expect the concept to become a recurring reference point in how luxury developers talk about car-centric markets.\n\nFor West Palm Beach specifically, the signal is cumulative. Marina capacity, private clubs, wellness, dining, and now a Porsche Design collector destination: the city keeps adding the pieces that let a wealthy buyer live a complete life inside a 15-minute radius. That is the backdrop every new-construction buyer on Flagler is buying into, whether they own a collector car or not.",
+        "image": "/assets/editorial/porsche-design-concours-west-palm-beach-2026-09-28-body-3.jpg"
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Porsche Design is building a private car-collector clubhouse in West Palm Beach",
+      "secondaryQueries": [],
+      "suggestedSlug": "porsche-design-concours-west-palm-beach-2026-09-28",
+      "titleTag": "Porsche Design is building a private car-collector clubhouse in West Palm Beach | Downtown Spotlight",
+      "metaDescription": "Porsche Design and Newgard unveiled Porsche Design Concours: 22 invitation-only automobile studios and a members clubhouse at 2500 N. Florida Mango Road, opening 2028."
+    }
+  },
+
+  {
     "id": "rivian-cityplace-downtown-street-2026-08-28",
     "status": "published",
     "category": "Downtown Spotlight",
