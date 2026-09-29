@@ -3482,9 +3482,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "",
-      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
+      "path": "/maps/wpb-atlas-map-editorial.svg",
+      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
+      "credit": "Source: WPB New Construction map"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -7560,6 +7560,12 @@ export const prerenderRoutes = [
     "title": "How NORA Could Reshape Downtown WPB | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
+  },
+  {
+    "path": "/downtown-spotlight/porsche-design-concours-west-palm-beach-2026-09-28/",
+    "title": "Porsche Design is building a private car-collector clubhouse in West Palm Beach | Downtown Spotlight",
+    "description": "Porsche Design and Newgard unveiled Porsche Design Concours: 22 invitation-only automobile studios and a members clubhouse at 2500 N. Florida Mango Road, opening 2028.",
+    "ogImage": "/assets/editorial/porsche-design-concours-west-palm-beach-2026-09-28-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/rivian-cityplace-downtown-street-2026-08-28/",
