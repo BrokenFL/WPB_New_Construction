@@ -7562,6 +7562,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/los-mochis-phillips-point-west-palm-beach-2027/",
+    "title": "Los Mochis plans a Phillips Point restaurant for 2027 | Downtown Spotlight",
+    "description": "Los Mochis plans a 2027 Phillips Point opening in West Palm Beach, with Japanese-Mexican dining and a reported 12-seat omakase counter.",
+    "ogImage": "/assets/editorial/los-mochis-phillips-point-west-palm-beach-2027-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/porsche-design-concours-west-palm-beach-2026-09-28/",
     "title": "Porsche Design is building a private car-collector clubhouse in West Palm Beach | Downtown Spotlight",
     "description": "Porsche Design and Newgard unveiled Porsche Design Concours: 22 invitation-only automobile studios and a members clubhouse at 2500 N. Florida Mango Road, opening 2028.",

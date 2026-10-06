@@ -73,6 +73,108 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "los-mochis-phillips-point-west-palm-beach-2027",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "Los Mochis plans a Phillips Point restaurant for 2027",
+    "slug": "los-mochis-phillips-point-west-palm-beach-2027",
+    "excerpt": "The London-born Japanese-Mexican restaurant is heading to West Palm Beach’s waterfront, with a planned 12-seat omakase counter adding to the downtown dining pipeline.",
+    "buyerThesis": "A planned restaurant at Phillips Point adds a waterfront address to downtown’s future dining mix.",
+    "buyerTakeaway": "Treat Los Mochis as a future dining option when comparing downtown locations. Visit the restaurants and streets that are open today, then consider the 2027 opening as a plan whose timing and details may change.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "Downtown waterfront",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/los-mochis-phillips-point-west-palm-beach-2027-hero.jpg",
+      "alt": "Waterfront skyline with a palm-lined shoreline and a bridge in the foreground",
+      "caption": "Waterfront skyline image supplied for this article. Los Mochis West Palm Beach is planned for 2027; this image does not depict a completed restaurant.",
+      "credit": "Image supplied by Brooke Snader",
+      "showCaption": true,
+      "mode": "provided-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "Los Mochis",
+    "sourceLinks": [
+      {
+        "label": "Los Mochis: West Palm Beach, coming in 2027",
+        "href": "https://www.losmochis.co.uk/west-palm-beach",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Thesleff Group: Los Mochis West Palm Beach announcement",
+        "href": "https://www.thesleffgroup.com/los-mochis-west-palm-beach",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Restaurant: Los Mochis heads to Florida — October 2, 2026",
+        "href": "https://www.restaurantonline.co.uk/Article/2026/10/02/mexican-japanese-restaurant-los-mochis-to-launch-florida-outpost/",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Propel: Thesleff Group interview — October 5, 2026",
+        "href": "https://www.propelinfonews.com/pi-Newsletter.php?datetime=2026-10-05+08%3A00%3A00",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "A new dining plan for the waterfront",
+        "body": "Los Mochis plans to open at Phillips Point in 2027, bringing its Japanese-Mexican restaurant concept to West Palm Beach’s downtown waterfront. The London-born brand has announced the West Palm Beach destination, with trade reporting identifying Phillips Point as the address and describing a planned 12-seat omakase restaurant within the larger venue."
+      },
+      {
+        "heading": "What the Phillips Point address adds",
+        "body": "The waterfront address puts the announcement in a different part of downtown’s dining map from the retail streets around CityPlace or the warehouse setting of NORA. Phillips Point brings the story to the Intracoastal edge, where office activity, Flagler Drive and access toward Palm Beach are part of the setting. The announcement is another reason to follow that stretch of downtown as a place to dine, alongside its established role as a business address."
+      },
+      {
+        "heading": "Japanese-Mexican dining, with an omakase counter",
+        "body": "Los Mochis built its London identity around Japanese-Mexican cuisine. The West Palm Beach announcement carries that same combination forward, along with cocktails and a hospitality program adapted to the waterfront setting. The reported 12-seat omakase counter would add a small, chef-led format within the broader restaurant. Design, menus, chefs and programming are still to come, so neither a finished dining room nor a specific Florida dish list should be assumed from the announcement.",
+        "image": "/assets/editorial/los-mochis-phillips-point-west-palm-beach-2027-body-1.jpg",
+        "imageAlt": "Tacos, small plates, tortilla chips and two cocktails arranged on a wooden table",
+        "imageCaption": "Food and cocktails image supplied for this article. The West Palm Beach menu has yet to be announced.",
+        "imageCredit": "Image supplied by Brooke Snader"
+      },
+      {
+        "heading": "An opening target, with details still ahead",
+        "body": "The useful date is 2027; a precise opening day has yet to be announced. The brand currently invites people to join a waitlist for updates and previews. That is an expression of the planned opening, rather than confirmation that the restaurant is operating. The sources checked for this article do not establish a restaurant-specific permit or construction milestone."
+      },
+      {
+        "heading": "How to read the news as a downtown buyer",
+        "body": "For someone comparing downtown homes, a restaurant announcement helps explain the direction of the neighborhood’s amenity mix. A waterfront dining option may matter to a buyer who expects to meet friends near Flagler Drive or spend evenings in the core. Its practical value depends on the buyer’s own routine, the route from a particular home, and the restaurant’s eventual offering. There is no supported basis here for translating the announcement into a property-value forecast. Keep today’s dining choices and future plans separate when touring."
+      },
+      {
+        "heading": "What to watch before making dinner plans",
+        "body": "The next useful updates will be a firmer opening timetable and the release of venue, menu and reservation details. Until then, Los Mochis belongs on the list of planned downtown additions. The restaurant is a specific new name for the waterfront pipeline, with enough confirmed information to follow and enough outstanding detail to keep expectations measured."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers compare downtown locations around the daily routines and neighborhood amenities they expect to use.",
+    "factCheckRequired": [
+      "Confirm the opening timetable, menu and reservation availability directly with Los Mochis before planning a visit.",
+      "Check for restaurant-specific permit and construction updates separately from the announced 2027 opening target."
+    ],
+    "seo": {
+      "primaryQuery": "Los Mochis West Palm Beach",
+      "secondaryQueries": [
+        "Los Mochis Phillips Point",
+        "Los Mochis West Palm Beach 2027",
+        "Phillips Point restaurant"
+      ],
+      "suggestedSlug": "los-mochis-phillips-point-west-palm-beach-2027",
+      "titleTag": "Los Mochis Plans Phillips Point Restaurant for 2027 | WPB",
+      "metaDescription": "Los Mochis plans a 2027 Phillips Point opening in West Palm Beach, with Japanese-Mexican dining and a reported 12-seat omakase counter."
+    }
+  },
+
+  {
     "id": "porsche-design-concours-west-palm-beach-2026-09-28",
     "status": "published",
     "category": "Downtown Spotlight",
