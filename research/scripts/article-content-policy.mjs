@@ -1,6 +1,17 @@
 export const minimumFinalImages = 2;
 export const minimumBodyImages = 1;
 
+export function projectedArticleImageOccurrences(imagePath, occurrences, existing) {
+  const retainedPaths = new Set([
+    existing?.image?.path,
+    existing?.imagePath,
+    ...(existing?.sections || []).map(section => section.image),
+    ...(existing?.bodySections || []).map(section => section.image),
+    ...(existing?.bodyImages || []).map(image => image.path),
+  ].filter(Boolean));
+  return occurrences + (retainedPaths.has(imagePath) ? 0 : 1);
+}
+
 export function validateArticleImages({ heroImage, bodyImages = [], bodySections = [] }) {
   const findings = [];
   const images = [heroImage, ...bodyImages].filter(Boolean);

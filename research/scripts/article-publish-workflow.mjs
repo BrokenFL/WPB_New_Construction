@@ -11,7 +11,7 @@ import {
   runBoundedCommand,
   validateUniqueNewsCandidate,
 } from "./article-publish-safety.mjs";
-import { validateArticleImages } from "./article-content-policy.mjs";
+import { projectedArticleImageOccurrences, validateArticleImages } from "./article-content-policy.mjs";
 import { scanArticlePackagePublicCopy } from "./public-copy-safety.mjs";
 import { marketNotePath, marketNoteRouteBase, validateBuyerRouteBase } from "../../src/lib/marketNoteRouting.ts";
 
@@ -289,9 +289,9 @@ async function validateImageRepetitionBeforeMutation({ destination, routeSlug, n
   for (const image of images) {
     if (/^\/(?:assets|projects)\//.test(image.path)) {
       const occurrences = sourceTexts.reduce((count, source) => count + source.split(image.path).length - 1, 0);
-      const proposedUse = image.path === existingImagePath ? 0 : 1;
-      if (occurrences + proposedUse > 3) {
-        findings.push(`Image repetition preflight failed: ${image.path} would appear ${occurrences + proposedUse} times in source mappings.`);
+      const projectedOccurrences = projectedArticleImageOccurrences(image.path, occurrences, existing);
+      if (projectedOccurrences > 3) {
+        findings.push(`Image repetition preflight failed: ${image.path} would appear ${projectedOccurrences} times in source mappings.`);
       }
       continue;
     }

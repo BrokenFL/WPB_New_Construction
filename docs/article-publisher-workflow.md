@@ -119,6 +119,8 @@ truth. The route base survives edits; new articles refuse an existing route.
 No second Market Notes URL is generated. The shared article renderer preserves
 paragraph breaks and site-local links from approved copy. Building Comparisons
 appear in the Answers and Compare hubs and in relevant project discovery links.
+Those discovery anchors use each guide's reviewed search title so the building
+pair and West Palm Beach context remain clear beside the editorial headline.
 Prerendered article schema uses the source article's headline and stored
 publication/update dates; supplied hero credits remain visible before hydration.
 
@@ -135,6 +137,8 @@ caption visibility unless this option is set.
 - Buyer / Downtown destinations use the existing `build-site-intelligence.mjs
   --buyer-content-only` discovery refresh, preserving approved news and source
   image catalogs.
+- Image repetition preflight counts retained hero and inline images as existing
+  mappings during an edit; the three-mapping limit still applies to new uses.
 - Ship additionally runs `npm run ship:live` and `npm run qa:live`.
 - After build/QA, the workflow restores any unexpected tracked files it did not
   intend to change, keeping the article output set clean.

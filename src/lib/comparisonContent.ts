@@ -113,7 +113,7 @@ function sourceCitation(key: SourceKey): string {
 }
 export function renderComparisonLinks(projectId = '') {
   const guides = marketNotes.filter(note => note.status === 'published' && note.category === 'Building Comparisons' && (!projectId || note.projectIds.some(id => id === projectId)));
-  return `<section class="comparison-discovery" data-comparison-discovery><h2>Compare a focused shortlist</h2><p><a href="${comparisonPaths.flagler}">North Flagler vs. South Flagler</a> · <a href="${comparisonPaths.trio}">Olara vs. Ritz-Carlton vs. Shorecrest</a></p>${guides.length ? `<ul>${guides.map(note => `<li><a href="${marketNotePath(note)}">${e(note.title)}</a></li>`).join('')}</ul>` : ''}</section>`;
+  return `<section class="comparison-discovery" data-comparison-discovery><h2>West Palm Beach condo comparisons</h2><p><a href="${comparisonPaths.flagler}">North Flagler vs. South Flagler</a> · <a href="${comparisonPaths.trio}">Olara vs. Ritz-Carlton vs. Shorecrest</a></p>${guides.length ? `<ul>${guides.map(note => `<li><a href="${marketNotePath(note)}">${e(note.seo.titleTag || note.title)}</a></li>`).join('')}</ul>` : ''}</section>`;
 }
 export function renderComparison(key: ComparisonKey) {
   const c=comparisonPages[key],ids=comparisonProjectIds[key];
