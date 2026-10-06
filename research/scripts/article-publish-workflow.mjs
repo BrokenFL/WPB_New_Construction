@@ -153,7 +153,11 @@ async function main() {
     } else {
       await publishMarketNoteArticle({ sourceFile, normalized, articleId, routeSlug, input, existing, destination });
     }
-    await runChecked("npm", ["run", "news:refresh"]);
+    if (destination === "news") {
+      await runChecked("npm", ["run", "news:refresh"]);
+    } else {
+      await runChecked("node", ["--experimental-strip-types", "research/scripts/build-site-intelligence.mjs", "--buyer-content-only"]);
+    }
     await markStageOutputsAsIntentToAdd({ destination, normalized });
     await runChecked("npm", ["run", "build"]);
     await runChecked("npm", ["run", "qa:launch:no-write"]);

@@ -123,6 +123,9 @@ caption visibility unless this option is set.
 
 - Stage and Publish run `npm run build` and `npm run qa:launch:no-write`.
 - News destinations also run `npm run news:promote` and `npm run news:refresh`.
+- Buyer / Downtown destinations use the existing `build-site-intelligence.mjs
+  --buyer-content-only` discovery refresh, preserving approved news and source
+  image catalogs.
 - Ship additionally runs `npm run ship:live` and `npm run qa:live`.
 - After build/QA, the workflow restores any unexpected tracked files it did not
   intend to change, keeping the article output set clean.
