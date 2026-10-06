@@ -1010,30 +1010,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["Lifestyle framing uses existing corridor and project positioning.", "Amenity and service claims should be verified in current project materials."],
   },
-  {
-    slug: "maison-dor-vs-south-flagler-house",
-    shortLabel: "Flagship compare",
-    title: "Maison d'Or vs South Flagler House",
-    question: "Should I buy at Maison d'Or or South Flagler House?",
-    description: "Compare Maison d'Or and South Flagler House on South Flagler — scale, delivery timing, pricing guidance, and which buyer each flagship fits.",
-    bluf:
-      "Maison d'Or (39 residences, pre-construction sales, late-2028 targeted delivery, from $5.7M published guidance) and South Flagler House (about 105 residences, under construction, from $7.98M advertised) are the two South Flagler waterfront flagships. Maison d'Or suits buyers who want a smaller, newer project and can wait for delivery; South Flagler House suits buyers who want an under-construction building with a larger residence program.",
-    explanation:
-      "Both sit on the South Flagler waterfront, so the choice is not corridor but project: boutique scale and a longer timeline versus a larger under-construction program. Compare residence count, delivery timing, published pricing guidance, view exposure, privacy, and service structure — then verify current availability, fees, and contract terms directly before deciding.",
-    projectIds: ["maison-dor", "south-flagler-house"],
-    corridorKeys: ["south-flagler"],
-    tableRows: [
-      { label: "Maison d'Or", bestUse: "Buyers who want a boutique 39-residence project and can work with a late-2028 targeted delivery.", links: ["/projects/maison-dor/", "/corridors/south-flagler/"], verify: "Confirm current pricing, availability, delivery language, and residence features in the latest packet." },
-      { label: "South Flagler House", bestUse: "Buyers who prefer an under-construction building with a larger residence program.", links: ["/projects/south-flagler-house/", "/corridors/south-flagler/"], verify: "Confirm construction progress, current availability, fees, and advertised pricing against live documents." },
-      { label: "South Flagler corridor", bestUse: "Buyers deciding whether the quieter South Flagler waterfront lane fits before picking a building.", links: ["/corridors/south-flagler/"], verify: "Confirm Palm Beach access, daily drive pattern, and how each building's position affects views and privacy." },
-    ],
-    faqs: [
-      { question: "Which is more expensive, Maison d'Or or South Flagler House?", answer: "Published guidance points to South Flagler House from $7.98M advertised and Maison d'Or from $5.7M published guidance, but both figures need verification against current availability — request the live packet for each before comparing." },
-      { question: "Which will deliver first?", answer: "South Flagler House is under construction while Maison d'Or targets late 2028. Confirm the current construction schedule for each with the sales teams, since timelines move." },
-      { question: "Are both on the waterfront?", answer: "Yes — both are South Flagler waterfront projects. Compare the specific view exposure, privacy, and Intracoastal frontage of the actual residence lines under consideration." },
-    ],
-    sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are treated as verification items — confirm against current project materials."],
-  },
+  
   {
     slug: "branded-residences-west-palm-beach",
     shortLabel: "Branded residences",

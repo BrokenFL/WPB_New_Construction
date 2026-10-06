@@ -74,6 +74,144 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "maison-dor-vs-south-flagler-house",
+    "slug": "maison-dor-vs-south-flagler-house",
+    "title": "Maison d’Or vs South Flagler House in West Palm Beach",
+    "excerpt": "Maison d’Or or South Flagler House? Explore their different waterfront settings, building scale, homes and amenities before narrowing your West Palm Beach search.",
+    "routeBase": "/answers/",
+    "category": "Building Comparisons",
+    "projectIds": [
+      "maison-dor",
+      "south-flagler-house"
+    ],
+    "status": "published",
+    "buyerThesis": "Two distinct locations along South Flagler",
+    "buyerTakeaway": "Related Ross currently expects South Flagler House’s completion in early 2027; Tutto Caffe is separately scheduled for fall 2027. Maison d’Or’s current delivery target was not established in the official materials reviewed for this comparison. Request a written schedule before coordinating a move, a sale or a seasonal stay around either project.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp",
+      "alt": "Maison d’Or conceptual exterior rendering with terraces beside South Flagler Drive",
+      "caption": "Maison d’Or exterior, artist's rendering. A current delivery target was not established in the official materials reviewed for this comparison.",
+      "credit": "Maison d’Or project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "maison-dor",
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "Maison d’Or official homepage",
+        "href": "https://livemaisondor.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Kolter’s Maison d’Or portfolio page",
+        "href": "https://www.kolter.com/portfolio/maison-dor/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Maison d’Or developer launch release, reproduced by Resident",
+        "href": "https://resident.com/press-releases/2026/01/09/kolter-urban-and-perko-development-launch-sales-for-maison-dor",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Maison d’Or residences",
+        "href": "https://livemaisondor.com/the-residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Maison d’Or amenities",
+        "href": "https://livemaisondor.com/the-amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Maison d’Or fact sheet currently linked by the project",
+        "href": "https://livemaisondor.com/download/MaisondOrFactSheet",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House homepage",
+        "href": "https://www.southflaglerhouse.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House residences",
+        "href": "https://www.southflaglerhouse.com/residences",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House amenities",
+        "href": "https://www.southflaglerhouse.com/amenities",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Related Ross release, September 21, 2026",
+        "href": "https://www.relatedross.com/press-releases/2026-09-21/related-ross-bring-tutto-caffe-south-flagler-house-west-palm-beach",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "Two distinct locations along South Flagler",
+        "body": "[Maison d’Or](https://www.wpbnewconstruction.com/projects/maison-dor/) and [South Flagler House](https://www.wpbnewconstruction.com/projects/south-flagler-house/) share a waterfront road, but they deserve separate visits to understand their settings. Maison d’Or is farther south, in a residential stretch associated with Antique Row and the surrounding historic neighborhoods. South Flagler House sits closer to downtown, with a larger residential collection and an extensive private amenity program.\n\nBoth can appeal if you want a generous waterfront home with services close at hand. The decision begins with where you want to spend your days, then becomes more personal as you compare the homes themselves."
+      },
+      {
+        "heading": "Spend time around each address",
+        "body": "Maison d’Or’s location brings a different part of West Palm Beach into the conversation. Its developer describes access to Antique Row and the area’s established cultural destinations as part of the appeal. If you enjoy exploring design shops and galleries or already spend time in the neighborhoods farther south, that setting may feel familiar from the start.\n\nSouth Flagler House’s position brings you closer to central West Palm Beach. That may matter if your usual week revolves around downtown appointments, restaurants or cultural outings.\n\nBefore choosing, try the routes you would use most often. Visit each site at a time that resembles your normal day, then continue to the places you expect to frequent. A broad “South Flagler” label cannot tell you which location will make your own routine easier."
+      },
+      {
+        "heading": "A smaller collection or a broader residential community",
+        "body": "Maison d’Or is planned with 39 homes. South Flagler House’s current official materials describe 105 residences across two towers. That difference is substantial enough to consider early, particularly if the scale of the community matters to you.\n\nMaison d’Or may appeal to someone who wants a relatively small residential collection while still having a pool, wellness spaces and places to host friends. South Flagler House offers a broader range of shared spaces and activities that could become a regular part of life there.\n\nThe numbers are a starting point. Staffing, occupancy and how spaces are managed will also shape the experience. A smaller building should not automatically be assumed to have lower ownership costs or more personal service.",
+        "image": "/assets/home/south-flagler-house-project-card-main-v01.jpg",
+        "imageAlt": "South Flagler House conceptual exterior image showing two waterfront towers",
+        "imageCaption": "South Flagler House exterior, artist's rendering. Its setting closer to downtown differs from Maison d’Or’s farther-south location; visit each actual site.",
+        "imageCredit": "South Flagler House imagery supplied for WPB New Construction"
+      },
+      {
+        "heading": "Find the rooms that make a home work",
+        "body": "Maison d’Or’s published collection includes two- to four-bedroom layouts, with dens appearing throughout its named residence plans. For someone who works from home or wants a separate sitting room, that extra space could be an important part of the appeal.\n\nSouth Flagler House has several residence types and generously scaled loggias. Some homes offer optional attached or detached guesthouse suites, while the project also describes a limited number of owner-only guest suites. The arrangement, availability, purchase or booking rights, and costs need to be confirmed for the residence you are considering.\n\nStart with [Maison d’Or’s floor-plan materials](https://www.wpbnewconstruction.com/floorplans/#floorplans-maison-dor) and the [South Flagler House collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-south-flagler-house), then request current drawings for suitable homes. Compare interior and terrace areas separately. Think about how visitors would use the home, whether a den offers enough separation, and how comfortably your furniture would fit.",
+        "image": "/assets/projects/maison-dor/residences/maison-dor-residences-patio-v01.webp",
+        "imageAlt": "Maison d’Or terrace rendering with outdoor seating overlooking the Intracoastal",
+        "imageCaption": "Maison d’Or terrace, artist’s rendering. The image illustrates outdoor living, not a guaranteed view, finish package or available residence.",
+        "imageCredit": "Maison d’Or project marketing materials"
+      },
+      {
+        "heading": "The amenities you would come back to",
+        "body": "Maison d’Or’s planned pool and spa, fitness facilities, wine lounge and screening room give its smaller collection a substantial amenity offering. The published program also includes two furnished guest suites and a boat dock. Guest-suite reservations, dock use, vessel suitability and charges require confirmation; buying a home should not be treated as a guarantee of a boat slip.\n\nSouth Flagler House adds a wide range of recreation and social possibilities, including pickleball, Pilates, resident dining and concierge services. Its advertised private-club setting may be particularly appealing if you enjoy organizing much of your week close to home. Review the actual access terms, service inclusions and charges before deciding what that convenience is worth to you."
+      },
+      {
+        "heading": "Put timing beside lifestyle",
+        "body": "Related Ross currently expects South Flagler House’s completion in early 2027; Tutto Caffe is separately scheduled for fall 2027. Maison d’Or’s current delivery target was not established in the official materials reviewed for this comparison. Request a written schedule before coordinating a move, a sale or a seasonal stay around either project.\n\nPut Maison d’Or first if its farther-south setting, smaller scale and residence layouts speak to you. Start with South Flagler House if proximity to downtown and a more extensive on-site program are stronger priorities. Current residence-specific prices and ownership costs should help finish the comparison.\n\n[Get in touch with The Scott Gordon Group about Maison d’Or and South Flagler House](https://www.wpbnewconstruction.com/inquire/). Tell us how you plan to use the home and when you hope to move, and we can help narrow the search around those details."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "Maison d’Or vs South Flagler House",
+      "secondaryQueries": [
+        "Maison dOr vs South Flagler House",
+        "South Flagler waterfront condos",
+        "Maison d’Or floor plans and amenities"
+      ],
+      "suggestedSlug": "maison-dor-vs-south-flagler-house",
+      "titleTag": "Maison d’Or vs South Flagler House | West Palm Beach",
+      "metaDescription": "Maison d’Or or South Flagler House? Explore their different waterfront settings, building scale, homes and amenities before narrowing your West Palm Beach search."
+    }
+  },
+
+  {
     "id": "forte-vs-south-flagler-house",
     "status": "published",
     "category": "Building Comparisons",

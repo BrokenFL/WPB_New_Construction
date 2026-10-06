@@ -546,10 +546,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/answers/maison-dor-vs-south-flagler-house/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.wpbnewconstruction.com/answers/branded-residences-west-palm-beach/</loc>
     <priority>0.8</priority>
   </url>
@@ -933,6 +929,11 @@
   <url>
     <loc>https://www.wpbnewconstruction.com/market-notes/downtown-west-palm-beach-condo-corridors-explained/</loc>
     <lastmod>2026-05-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/answers/maison-dor-vs-south-flagler-house/</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>

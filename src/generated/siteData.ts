@@ -7214,12 +7214,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
-    "path": "/answers/maison-dor-vs-south-flagler-house/",
-    "title": "Maison d'Or vs South Flagler House | WPB Answers",
-    "description": "Compare Maison d'Or and South Flagler House on South Flagler — scale, delivery timing, pricing guidance, and which buyer each flagship fits.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
-  },
-  {
     "path": "/answers/branded-residences-west-palm-beach/",
     "title": "Branded Residences in West Palm Beach | WPB Answers",
     "description": "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
@@ -7674,6 +7668,12 @@ export const prerenderRoutes = [
     "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/answers/maison-dor-vs-south-flagler-house/",
+    "title": "Maison d’Or vs South Flagler House | West Palm Beach",
+    "description": "Maison d’Or or South Flagler House? Explore their different waterfront settings, building scale, homes and amenities before narrowing your West Palm Beach search.",
+    "ogImage": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp"
   },
   {
     "path": "/answers/forte-vs-south-flagler-house/",
