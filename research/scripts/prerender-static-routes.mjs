@@ -1091,7 +1091,7 @@ function renderMarketNoteRoute(route, payload, slug) {
     route.description,
     `
       <article>
-        ${hero?.path ? `<figure class="market-note-hero-image"><img src="${safeHref(hero.path)}" alt="${publicText(hero.alt || note?.title || route.title)}" loading="eager" decoding="async" />${hero.caption ? `<figcaption>${publicText(hero.caption)}</figcaption>` : ""}</figure>` : ""}
+        ${hero?.path ? `<figure class="market-note-hero-image"><img src="${safeHref(hero.path)}" alt="${escapeHtml(hero.alt || note?.title || route.title)}" loading="eager" decoding="async" />${hero.caption ? `<figcaption>${escapeHtml([hero.caption, hero.showCaption && hero.credit ? `Credit: ${hero.credit}` : ""].filter(Boolean).join(" · "))}</figcaption>` : ""}</figure>` : ""}
         <h2>Bottom line</h2>
         <p>${publicText(note?.excerpt || route.description)}</p>
         ${renderRevenueBuyerResearch(slug)}
@@ -1590,7 +1590,7 @@ function buildRouteSchema(route, payload, canonical) {
     const item = payload.approvedNews.find((news) => (news.slug || news.id) === routeKind.slug);
     if (item) routeGraph.push(newsArticleSchema(item, canonical));
   } else if (routeKind.type === "market-note") {
-    routeGraph.push(articleSchema(route, canonical));
+    routeGraph.push(articleSchema(route, canonical, payload.marketNotes.find(note => note.slug === routeKind.slug)));
   }
 
   return {
@@ -1743,12 +1743,14 @@ function newsArticleSchema(item, canonical) {
   };
 }
 
-function articleSchema(route, canonical) {
+function articleSchema(route, canonical, note) {
   return {
     "@type": "Article",
     "@id": `${canonical}#article`,
-    headline: route.title.replace(/\s+\|\s+.*$/, ""),
+    headline: note?.title || route.title.replace(/\s+\|\s+.*$/, ""),
     description: route.description,
+    ...(note?.datePublished ? { datePublished: note.datePublished } : {}),
+    ...(note?.dateModified ? { dateModified: note.dateModified } : {}),
     author: { "@id": `${baseUrl}/#brooke-snader` },
     publisher: { "@id": `${baseUrl}/#advisor` },
     mainEntityOfPage: canonical,

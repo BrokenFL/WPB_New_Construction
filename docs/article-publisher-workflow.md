@@ -119,6 +119,8 @@ truth. The route base survives edits; new articles refuse an existing route.
 No second Market Notes URL is generated. The shared article renderer preserves
 paragraph breaks and site-local links from approved copy. Building Comparisons
 appear in the Answers and Compare hubs and in relevant project discovery links.
+Prerendered article schema uses the source article's headline and stored
+publication/update dates; supplied hero credits remain visible before hydration.
 
 Buyer / Downtown section images preserve `imageAlt`, `imageCaption`, and
 `imageCredit` from the input body image metadata and render them in a figure.
