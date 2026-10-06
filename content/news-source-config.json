@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dailyTarget": 1,
-  "reviewOnly": true,
+  "reviewOnly": false,
   "routeSearchPlans": [
     {
       "route": "Development Watch",

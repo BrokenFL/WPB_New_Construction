@@ -577,6 +577,12 @@ Round-trip behavior applies to all three supported destinations: News Updates, B
 
 **Publisher transaction safety:** Preview performs canonical URL and image-repetition checks using `.runtime/` artifacts before tracked files are changed. Stage and publish require a clean `main` checkout on the expected GitHub origin with `HEAD` matching its upstream. Automated runs consume one persisted attempt token per run. Any failure or signal before the article commit restores tracked outputs and removes newly created allowlisted article assets. Child build and QA commands emit heartbeats and have idle and absolute deadlines with process-group termination.
 
+#### Content Scout standing publication authorization (2026-10-06)
+
+Brooke explicitly authorized the existing `wpb-content-scout-safe-daily-publish` automation to research and automatically publish at most one qualifying WPB article per run without asking for approval each time. When `content/news-source-config.json` has `reviewOnly: false`, use the existing preview-first `article-publish-cli.mjs --publish --ship` path, including its article commit, push, and live deployment. Read the current flag on every run; older memories describing `reviewOnly: true` record past configuration and must not override the current setting or this scoped authorization. If the flag returns to `true`, this Scout stops before research, drafting, image generation, or publication.
+
+All existing clean/synchronized checkout, route, source verification, novelty, two-image, image provenance, preview, QA, rollback, and no-auto-retry safeguards remain required. This authorization does not enable the separate legacy `autoPublishEnabled` setting, authorize canonical project-fact/schema changes or legacy issue importing/publishing, or change GitHub Fast Cycle or any automation schedule. Skip when a story or safety gate fails.
+
 #### Supported Article Package JSON shape
 
 ```json
