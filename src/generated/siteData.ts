@@ -7682,6 +7682,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/alba-vs-olara/",
+    "title": "Alba vs. Olara: West Palm Beach Condo Comparison",
+    "description": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use.",
+    "ogImage": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp"
+  },
+  {
     "path": "/answers/banyan-tree-vs-mr-c-residences/",
     "title": "Banyan Tree vs. Mr. C Residences West Palm Beach",
     "description": "Banyan Tree or Mr. C in West Palm Beach? Compare their residential feel, hotel connection, amenities, and the ownership questions worth asking before you buy.",

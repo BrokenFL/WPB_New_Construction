@@ -74,6 +74,112 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "alba-vs-olara",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "Alba vs Olara and the choice between a finished home and future plans",
+    "slug": "alba-vs-olara",
+    "excerpt": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use.",
+    "routeBase": "/answers/",
+    "buyerThesis": "A completed waterfront building and a larger future offering",
+    "buyerTakeaway": "Alba’s completed status makes it the logical first stop if you want to evaluate a finished property. Ask which homes can be shown and what closing timetable applies to each available residence. Completion alone does not establish current inventory or when a particular home can be occupied.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "alt": "Aerial project rendering of Alba Palm Beach on the North Flagler waterfront",
+      "caption": "Alba Palm Beach waterfront context, project rendering. Blue Road lists the building as completed; this illustrative image does not establish current inventory or the condition of a specific home.",
+      "credit": "Alba Palm Beach project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "alba-palm-beach",
+    "projectIds": [
+      "alba-palm-beach",
+      "olara"
+    ],
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "Blue Road Alba project page",
+        "href": "https://blueroad.us/portfolio-items/alba-palm-beach/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Alba official homepage",
+        "href": "https://www.albapalmbeach.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Alba residences page",
+        "href": "https://www.albapalmbeach.com/residences",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara March 2026 brochure",
+        "href": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara lifestyle page",
+        "href": "https://www.olarawestpalmbeach.com/lifestyle/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara current floor-plan page",
+        "href": "https://www.olarawestpalmbeach.com/floorplans",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "A completed waterfront building and a larger future offering",
+        "body": "For buyers comparing [Alba Palm Beach](https://www.wpbnewconstruction.com/projects/alba-palm-beach/) and [Olara](https://www.wpbnewconstruction.com/projects/olara/), timing is a good place to start. Blue Road, one of Alba’s developers, now lists the project as completed. Olara’s March 2026 brochure schedules completion for 2028. If you want to assess a finished building rather than make your decision around plans and renderings, Alba deserves an early look.\n\nThere is also a meaningful difference in scale and location. Alba has 55 residences at 4714 North Flagler Drive, farther north than Olara at 1919 North Flagler Drive. Olara is planned with 275 condominium residences and a broad mix of wellness, dining and marina amenities. Both make the water a central part of their appeal, but the experience of coming home could feel quite different."
+      },
+      {
+        "heading": "Start with the size of the community",
+        "body": "Alba’s smaller residence count is one of its clearest attractions. A buyer drawn to a more intimate building may prefer knowing there are only 55 homes sharing the common spaces. That does not guarantee an empty pool or a particular social atmosphere, but it gives you a useful starting point for deciding whether the scale feels right.\n\nAlba still offers more than 25,000 square feet of amenities. Its published offering includes fitness and spa facilities, sunrise and sunset pools, and spaces for gathering. There is plenty to consider beyond the apartment itself.\n\nOlara’s larger planned community comes with more than 80,000 square feet of wellness and leisure space. The appeal is the breadth of things to do close to home. For someone who wants to exercise, dine and spend time on the water without planning a separate outing for each, that can be compelling.",
+        "image": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
+        "imageAlt": "Olara exterior rendering showing the planned waterfront residential towers",
+        "imageCaption": "Olara exterior, artist's rendering. The March 2026 brochure schedules completion for 2028; confirm current construction and closing guidance.",
+        "imageCredit": "Olara imagery supplied for WPB New Construction"
+      },
+      {
+        "heading": "How would you use the waterfront",
+        "body": "At Alba, the residences place a strong emphasis on outdoor living. The official specifications include generous terraces and summer kitchens, which makes the space outside the living room worth particular attention. If you imagine quiet dinners outdoors or coffee overlooking the Intracoastal, look closely at the terrace attached to the home you are considering.\n\nAlba also advertises a private dock with boat slips. Confirm the rights, availability and costs tied to a particular residence if keeping a boat nearby matters to you.\n\nOlara builds more of its planned lifestyle around shared experiences, including a private marina and José Andrés Group dining. Its published plans also include a substantial indoor and outdoor fitness offering.\n\nThe useful question is how often you would participate. A waterfront restaurant may be a genuine convenience if you expect to eat there regularly. A marina deserves closer investigation if you own a boat or want to spend more time aboard one. Ask for the access arrangements, availability and costs before treating either as part of your everyday routine."
+      },
+      {
+        "heading": "Compare the homes before the amenities",
+        "body": "The [Alba floor-plan collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-alba-palm-beach) includes two- and three-bedroom condominium homes and four-bedroom townhomes. The townhome option is especially worth exploring if you prefer a home arranged over multiple levels. It brings a different set of practical questions, including stairs, outdoor space and how you move between rooms.\n\nThe [Olara floor-plan collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-olara) offers several two-, three- and four-bedroom configurations, many with a den. A separate workspace or a better guest-bedroom arrangement may be more useful to you than extra space in a room you rarely use.\n\nBring a short list of furniture you want to keep. Check where a dining table fits, whether a desk has a natural place and how much privacy guests would have. These are often the details that turn an attractive floor plan into a home that works."
+      },
+      {
+        "heading": "Make timing part of the decision",
+        "body": "Alba’s completed status makes it the logical first stop if you want to evaluate a finished property. Ask which homes can be shown and what closing timetable applies to each available residence. Completion alone does not establish current inventory or when a particular home can be occupied.\n\nIf your move is further out and Olara’s broader lifestyle offering appeals to you, the planned 2028 completion may fit your schedule. Review the current construction update and purchase terms before coordinating a sale or move around that target.\n\nFor Alba, the strongest draw is a smaller, completed waterfront building. For Olara, it is the planned combination of a larger residential community, wellness, dining and boating. Your preferred home, location and timing should make the final decision.\n\nIf you are weighing Alba and Olara, [get in touch](https://www.wpbnewconstruction.com/inquire/) with your target move date and the way you expect to use the home. That will help focus the comparison on residences worth considering."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "Alba vs Olara and the choice between a finished home and future plans",
+      "secondaryQueries": [],
+      "suggestedSlug": "alba-vs-olara",
+      "titleTag": "Alba vs. Olara: West Palm Beach Condo Comparison",
+      "metaDescription": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use."
+    }
+  },
+
+  {
     "id": "banyan-tree-vs-mr-c-residences",
     "status": "published",
     "category": "Building Comparisons",
