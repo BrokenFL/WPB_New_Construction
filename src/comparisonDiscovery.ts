@@ -4,7 +4,7 @@ import { renderComparisonLinks } from './lib/comparisonContent.ts';
 let installed = false;
 export function installComparisonDiscovery(app: HTMLElement) {
   if (installed) return; installed = true;
-  const paths = new Set(['/answers/', '/compare/', ...['olara', 'ritz-carlton-wpb', 'shorecrest', 'nora-house', 'banyan-tree', 'mr-c', 'alba-palm-beach'].map(id => `/projects/${id}/`)]);
+  const paths = new Set(['/answers/', '/compare/', ...['olara', 'ritz-carlton-wpb', 'shorecrest', 'nora-house', 'banyan-tree', 'mr-c', 'alba-palm-beach', 'berkeley', 'forte-on-flagler', 'south-flagler-house', 'maison-dor'].map(id => `/projects/${id}/`)]);
   const refresh = () => {
     if (!paths.has(location.pathname)) return;
     const view = app.querySelector<HTMLElement>('[data-route-view]:not([hidden])');

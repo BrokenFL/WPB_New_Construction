@@ -14,6 +14,28 @@ export function readTsArray(source, exportName) {
   }
 }
 
+const buyerAnswerMarker = "const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [";
+
+export function readBuyerIntentAnswerPages(source) {
+  const start = source.indexOf(buyerAnswerMarker);
+  if (start === -1) return [];
+  const arrayStart = start + buyerAnswerMarker.length - 1;
+  const arrayEnd = findMatchingBracket(source, arrayStart);
+  if (arrayEnd === -1) throw new Error("Could not parse existing Answers records.");
+  return Function(`"use strict"; return (${source.slice(arrayStart, arrayEnd + 1)});`)();
+}
+
+export function removeBuyerIntentAnswerPage(source, slug) {
+  const matches = readBuyerIntentAnswerPages(source).filter(answer => answer.slug === slug);
+  if (matches.length !== 1) throw new Error(`Expected one existing Answers record for ${slug}.`);
+  const arrayStart = source.indexOf(buyerAnswerMarker) + buyerAnswerMarker.length - 1;
+  const arrayEnd = findMatchingBracket(source, arrayStart);
+  const arrayText = source.slice(arrayStart + 1, arrayEnd);
+  const block = findObjectBlock(arrayText, slug);
+  if (!block) throw new Error(`Could not locate existing Answers record for ${slug}.`);
+  return source.slice(0, arrayStart + 1) + arrayText.replace(block, "") + source.slice(arrayEnd);
+}
+
 export function upsertTsArrayObject(source, exportName, nextObject, editKey) {
   const marker = `export const ${exportName} = [`;
   const start = source.indexOf(marker);

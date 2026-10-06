@@ -124,6 +124,13 @@ pair and West Palm Beach context remain clear beside the editorial headline.
 Prerendered article schema uses the source article's headline and stored
 publication/update dates; supplied hero credits remain visible before hydration.
 
+An explicit buyer `--edit` (or JSON `edit`) can also refresh an existing short
+Answers guide from `src/main.ts`. The publisher preserves that exact Answers
+URL, writes the approved article into `marketNotes.ts`, and removes only the
+matching old answer/FAQ record in the same rollback-protected transaction.
+Only that edit adds `src/main.ts` to the output allowlist. A new article still
+refuses an existing route, and previews never remove an answer record.
+
 Buyer / Downtown section images preserve `imageAlt`, `imageCaption`, and
 `imageCredit` from the input body image metadata and render them in a figure.
 Set `heroImage.showCaption: true` to display the supplied hero caption and

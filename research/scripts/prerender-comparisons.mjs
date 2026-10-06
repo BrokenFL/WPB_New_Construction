@@ -33,7 +33,7 @@ export async function prerenderComparisons(root=process.cwd()){
     html=html.replace('</head>',css.map(file=>`<link data-comparison-styles rel="stylesheet" href="/${file}" />`).join('\n')+'\n</head>');
     const file=path.join(dist,c.path,'index.html');await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file,html);
   }
-  for(const route of ['/answers/','/compare/', ...['olara','ritz-carlton-wpb','shorecrest','nora-house','banyan-tree','mr-c','alba-palm-beach'].map(id=>`/projects/${id}/`)]){
+  for(const route of ['/answers/','/compare/', ...['olara','ritz-carlton-wpb','shorecrest','nora-house','banyan-tree','mr-c','alba-palm-beach','berkeley','forte-on-flagler','south-flagler-house','maison-dor'].map(id=>`/projects/${id}/`)]){
     const file=path.join(dist,route,'index.html');let html=await fs.readFile(file,'utf8');
     if(!html.includes('data-comparison-discovery'))html=html.replace('</main>',renderComparisonLinks(route.match(/^\/projects\/([^/]+)\/$/)?.[1] || '')+'</main>');
     html=html.replace('</head>',css.map(file=>`<link data-comparison-styles rel="stylesheet" href="/${file}" />`).join('\n')+'\n</head>');

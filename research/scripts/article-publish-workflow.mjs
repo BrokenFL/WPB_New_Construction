@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 import sharp from "sharp";
-import { readTsArray, upsertTsArrayObject } from "./article-market-note-utils.mjs";
+import { readBuyerIntentAnswerPages, readTsArray, removeBuyerIntentAnswerPage, upsertTsArrayObject } from "./article-market-note-utils.mjs";
 import {
   PublishSafetyError,
   acquireAttemptJournal,
@@ -51,7 +51,7 @@ async function main() {
     ? path.join(workspace, "research/news-review/approved-development-news.json")
     : path.join(workspace, "src/data/marketNotes.ts");
   const editKey = clean(editTarget || input.edit || input.slug || input.id || "");
-  const existing = editKey ? await loadExistingArticle(destination, sourceFile, editKey) : null;
+  const existing = editKey ? await loadExistingArticle(destination, sourceFile, editKey, Boolean(editTarget || input.edit)) : null;
   validateBuyerRouteBase(input.routeBase ?? existing?.routeBase, destination);
   const title = clean(input.title || existing?.title);
   const deck = clean(input.deck || input.excerpt || input.summary || input.description || existing?.deck || existing?.excerpt || existing?.summary || existing?.description);
@@ -66,6 +66,9 @@ async function main() {
         : [];
   const routeSlug = normalizeSlug(input.slug || existing?.slug || title || input.id || "article", destination, existing);
   const articleId = clean(existing?.id || input.id || routeSlug);
+  if (existing?.legacyBuyerAnswerSlug && (routeSlug !== existing.slug || marketNoteRouteBase({ ...existing, ...input }) !== "/answers/")) {
+    fail("Editing an existing Answers guide must preserve its Answers URL.");
+  }
 
   if (!title) fail("Title is required.");
   if (!deck) fail("Deck / summary is required.");
@@ -182,6 +185,8 @@ async function main() {
   let pushed = false;
   if (publishMode) {
     const filesToCommit = articleOutputPaths({ destination, normalized });
+    await runChecked("git", ["status", "--short"]);
+    await runChecked("git", ["diff", "--stat"]);
     await runChecked("git", ["add", "--", ...filesToCommit]);
     const commitMessage = clean(input.commitMessage || input.commit || `Publish ${title}`);
     await runChecked("git", ["commit", "-m", commitMessage]);
@@ -423,6 +428,7 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
 
   return {
     mode,
+    ...(existing?.legacyBuyerAnswerSlug ? { legacyBuyerAnswerSlug: existing.legacyBuyerAnswerSlug } : {}),
     warnings,
     errors,
     heroImage,
@@ -503,8 +509,9 @@ async function publishNewsArticle({ sourceFile, normalized, articleId, routeSlug
 async function publishMarketNoteArticle({ sourceFile, normalized, articleId, routeSlug, input, existing, destination }) {
   const source = await fs.readFile(sourceFile, "utf8");
   const hero = normalized.heroImage;
+  const { legacyBuyerAnswerSlug, ...existingNote } = existing || {};
   const note = {
-    ...(existing || {}),
+    ...existingNote,
     id: articleId,
     status: "published",
     category: destination === "downtown" ? "Downtown Spotlight" : clean(input.category || existing?.category || "Buyer Intelligence"),
@@ -556,16 +563,31 @@ async function publishMarketNoteArticle({ sourceFile, normalized, articleId, rou
   };
   const next = upsertTsArrayObject(source, "marketNotes", note, existing?.slug || existing?.id || routeSlug);
   await fs.writeFile(sourceFile, next);
+  if (legacyBuyerAnswerSlug) {
+    const appSourceFile = path.join(workspace, "src/main.ts");
+    const appSource = await fs.readFile(appSourceFile, "utf8");
+    await fs.writeFile(appSourceFile, removeBuyerIntentAnswerPage(appSource, legacyBuyerAnswerSlug));
+  }
 }
 
-async function loadExistingArticle(destination, sourceFile, editKey) {
+async function loadExistingArticle(destination, sourceFile, editKey, allowLegacyAnswer = false) {
   if (destination === "news") {
     const items = JSON.parse(await fs.readFile(sourceFile, "utf8"));
     return items.find((item) => item.id === editKey || item.slug === editKey) || null;
   }
   const source = await fs.readFile(sourceFile, "utf8");
   const items = readTsArray(source, "marketNotes");
-  return items.find((item) => item.id === editKey || item.slug === editKey) || null;
+  const note = items.find((item) => item.id === editKey || item.slug === editKey);
+  if (note || destination !== "buyer" || !allowLegacyAnswer) return note || null;
+  const appSource = await fs.readFile(path.join(workspace, "src/main.ts"), "utf8");
+  const answers = readBuyerIntentAnswerPages(appSource).filter(answer => answer.slug === editKey);
+  if (answers.length > 1) fail(`Ambiguous existing Answers record: ${editKey}`);
+  const answer = answers[0];
+  return answer ? {
+    id: answer.slug, slug: answer.slug, title: answer.title, excerpt: answer.description,
+    routeBase: "/answers/", category: "Buyer Intelligence", projectIds: answer.projectIds,
+    legacyBuyerAnswerSlug: answer.slug,
+  } : null;
 }
 
 async function resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, errors, mode }) {
@@ -717,7 +739,7 @@ function parseMarkdownBody(bodyText) {
   return { usedFallback: sections.length > 0, sections };
 }
 
-function articleOutputPaths({ destination }) {
+function articleOutputPaths({ destination, normalized }) {
   const files = [
     "public/assets/editorial",
     // news:refresh regenerates this shared intelligence set for every route.
@@ -739,12 +761,13 @@ function articleOutputPaths({ destination }) {
     files.push("research/news-review/approved-development-news.json", "src/data/approvedExternalNews.ts");
   } else {
     files.push("src/data/marketNotes.ts");
+    if (normalized?.legacyBuyerAnswerSlug) files.push("src/main.ts");
   }
   return files;
 }
 
 function rollbackOutputPaths({ destination, normalized }) {
-  const files = articleOutputPaths({ destination }).filter((file) => file !== "public/assets/editorial");
+  const files = articleOutputPaths({ destination, normalized }).filter((file) => file !== "public/assets/editorial");
   for (const image of [normalized.heroImage, ...(normalized.bodyImages?.values || [])].filter(Boolean)) {
     const fileName = path.basename(image.path || "");
     if (fileName && !isPublicImagePath(image.path)) files.push(`public/assets/editorial/${fileName}`);
