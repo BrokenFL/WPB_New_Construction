@@ -33,6 +33,7 @@ export type MarketNote = {
   category: string;
   title: string;
   slug: string;
+  routeBase?: "/answers/";
   excerpt: string;
   buyerThesis: string;
   buyerTakeaway: string;

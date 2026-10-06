@@ -1,5 +1,7 @@
 import { commercialEscape as e, commercialOrigin } from './commercialContent.ts';
 import { comparisonPaths, comparisonProjectIds, shortlistProjects, type ComparisonKey, type ShortlistProjectId } from './shortlist.ts';
+import { marketNotes } from '../data/marketNotes.ts';
+import { marketNotePath } from './marketNoteRouting.ts';
 export { comparisonForPath } from './shortlist.ts';
 export const comparisonReviewed = '2026-09-07';
 const sources = {
@@ -109,8 +111,9 @@ function sourceCitation(key: SourceKey): string {
     ? `<a href="${source.url}" target="_blank" rel="noopener noreferrer">${e(source.label)}</a>`
     : `<cite>${e(source.label)}</cite>`;
 }
-export function renderComparisonLinks() {
-  return `<section class="comparison-discovery" data-comparison-discovery><h2>Compare a focused shortlist</h2><p><a href="${comparisonPaths.flagler}">North Flagler vs. South Flagler</a> · <a href="${comparisonPaths.trio}">Olara vs. Ritz-Carlton vs. Shorecrest</a></p></section>`;
+export function renderComparisonLinks(projectId = '') {
+  const guides = marketNotes.filter(note => note.status === 'published' && note.category === 'Building Comparisons' && (!projectId || note.projectIds.some(id => id === projectId)));
+  return `<section class="comparison-discovery" data-comparison-discovery><h2>Compare a focused shortlist</h2><p><a href="${comparisonPaths.flagler}">North Flagler vs. South Flagler</a> · <a href="${comparisonPaths.trio}">Olara vs. Ritz-Carlton vs. Shorecrest</a></p>${guides.length ? `<ul>${guides.map(note => `<li><a href="${marketNotePath(note)}">${e(note.title)}</a></li>`).join('')}</ul>` : ''}</section>`;
 }
 export function renderComparison(key: ComparisonKey) {
   const c=comparisonPages[key],ids=comparisonProjectIds[key];

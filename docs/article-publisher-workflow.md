@@ -113,6 +113,13 @@ Stage / Publish (news destination) write/regenerate:
 Buyer / Downtown destinations write: `src/data/marketNotes.ts`,
 `src/generated/siteData.ts`, `public/sitemap.xml`, editorial assets.
 
+Reviewed buyer articles may set `"routeBase": "/answers/"` to use an Answers
+URL while retaining `marketNotes.ts` and this same publisher as their source of
+truth. The route base survives edits; new articles refuse an existing route.
+No second Market Notes URL is generated. The shared article renderer preserves
+paragraph breaks and site-local links from approved copy. Building Comparisons
+appear in the Answers and Compare hubs and in relevant project discovery links.
+
 Buyer / Downtown section images preserve `imageAlt`, `imageCaption`, and
 `imageCredit` from the input body image metadata and render them in a figure.
 Set `heroImage.showCaption: true` to display the supplied hero caption and

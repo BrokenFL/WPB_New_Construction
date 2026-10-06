@@ -7276,7 +7276,7 @@ export const prerenderRoutes = [
   {
     "path": "/answers/olara-vs-shorecrest/",
     "title": "Olara vs Shorecrest | WPB Answers",
-    "description": "Compare Olara and Shorecrest on North Flagler — scale, pricing guidance, delivery timing, and which 2028-wave buyer each fits.",
+    "description": "Compare Olara and Shorecrest on North Flagler — building scale, daily life and the dated Shorecrest 2027 and Olara 2028 developer targets.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {

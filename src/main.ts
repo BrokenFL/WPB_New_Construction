@@ -30,6 +30,8 @@ import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
 import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrides.json";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
+import { marketNotePath, marketNoteRouteBase, marketNoteForPath } from "./lib/marketNoteRouting.ts";
+import { renderMarketNoteBody } from "./lib/marketNoteBody.ts";
 import { track } from "./lib/analytics";
 import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, getLeadAttribution, rememberLeadAttribution } from "./lib/leadCapture";
 import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
@@ -1254,22 +1256,22 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "Olara vs Shorecrest",
     title: "Olara vs Shorecrest",
     question: "Should I buy at Olara or Shorecrest?",
-    description: "Compare Olara and Shorecrest on North Flagler — scale, pricing guidance, delivery timing, and which 2028-wave buyer each fits.",
+    description: "Compare Olara and Shorecrest on North Flagler — building scale, daily life and the dated Shorecrest 2027 and Olara 2028 developer targets.",
     bluf:
-      "Olara (275 residences, under construction, 2028, from $1.7M developer-published) and Shorecrest (about 100 residences, under construction, from $3.69M on current official floorplans) are the two large 2028-wave programs on North Flagler. Olara suits buyers who want the deepest plan variety and the clearest sub-$2M entry; Shorecrest suits buyers who want a smaller program at a higher entry point. Both are under construction — verify the live schedule, stack, and availability for each.",
+      "Olara and Shorecrest offer different North Flagler waterfront programs. Olara's March 2026 brochure describes 275 condominium residences and schedules completion for 2028. Related Ross's April 3, 2026 announcement describes 98 residences at Shorecrest and anticipates completion in 2027. These are dated developer targets, not guaranteed closing dates or statements of available inventory. Compare the individual home and the amenities you would use, then request a current construction and closing update.",
     explanation:
-      "Both sit on the North Flagler waterfront and target 2028 delivery, so the choice is program, not corridor: Olara's 275-residence scale means more plan variety and more construction context; Shorecrest's roughly 100 residences mean a smaller community at a higher published entry. Compare residence count, published pricing guidance, view exposure, and fee structure — then verify current availability and contract terms directly.",
+      "Both sit on the North Flagler waterfront. Olara's broader resort-style program includes planned wellness, dining and marina offerings; Shorecrest's smaller residential collection includes rooftop and club-level amenities. Read the full comparison for released layout examples and the dated 2027 and 2028 targets. Confirm residence-specific pricing, association costs, service terms and timing before deciding.",
     projectIds: ["olara", "shorecrest"],
     corridorKeys: ["north-flagler"],
     tableRows: [
-      { label: "Olara", bestUse: "Buyers who want the largest North Flagler program with the clearest sub-$2M entry.", links: ["/projects/olara/", "/corridors/north-flagler/"], verify: "Confirm the $1.7M figure against current availability and which plans it applies to." },
-      { label: "Shorecrest", bestUse: "Buyers who prefer a smaller program of about 100 residences at a higher entry point.", links: ["/projects/shorecrest/", "/corridors/north-flagler/"], verify: "Confirm the $3.69M floorplan figure and current availability against live documents." },
-      { label: "North Flagler corridor", bestUse: "Buyers deciding between the 2028-wave programs and the rest of the corridor.", links: ["/corridors/north-flagler/", "/answers/north-flagler-new-condos-compared/"], verify: "Confirm stack exposure, construction context, and fee structure per project." },
+      { label: "Olara", bestUse: "Buyers who expect to use a broad planned wellness, dining and boating program.", links: ["/projects/olara/", "/floorplans/olara/residence-d/"], verify: "Refresh the March 2026 brochure's 2028 target and confirm the selected residence and marina terms." },
+      { label: "Shorecrest", bestUse: "Buyers who value a smaller residential collection with rooftop and club-level amenities.", links: ["/projects/shorecrest/", "/floorplans/shorecrest/residence-1602/"], verify: "Refresh the April 2026 announcement's 2027 target and confirm current offering documents." },
+      { label: "Full waterfront comparison", bestUse: "Buyers weighing daily life, released floor plans and the dated development targets.", links: ["/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/", "/corridors/north-flagler/"], verify: "Confirm the actual residence, ownership costs, service inclusions and contractual timing." },
     ],
     faqs: [
-      { question: "Which is larger, Olara or Shorecrest?", answer: "Olara at 275 residences is the larger program; Shorecrest is about 100 residences. Larger programs usually mean more plan variety and more construction activity nearby during the build." },
+      { question: "Which is larger, Olara or Shorecrest?", answer: "Olara's March 2026 brochure describes 275 condominium residences. Related Ross's April 3, 2026 announcement describes 98 at Shorecrest. Published project counts are not available-unit counts." },
       { question: "Which has the lower starting price?", answer: "Olara's developer-published guidance starts at $1.7M; Shorecrest's current official floorplans start from $3.69M (February 2026 coverage cited from $3M). Verify both against live availability before comparing." },
-      { question: "Will both deliver in 2028?", answer: "Both target the 2028 wave, but targeted is not guaranteed. Confirm the current construction schedule for the specific stack under consideration." },
+      { question: "Do Olara and Shorecrest have the same completion target?", answer: "The dated materials differ: Related Ross anticipated Shorecrest completion in 2027 in April 2026; Olara's March 2026 brochure scheduled completion for 2028. Neither is a guaranteed closing date. Request a current construction and contractual timing update." },
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
   },
@@ -4569,7 +4571,7 @@ function getActiveNavItem(route: Route) {
     return "corridors";
   }
   if (route.type === "market-note-detail") {
-    return "market-notes";
+    return marketNoteRouteBase(marketNoteForSlug(route.articleSlug) || {}) === "/answers/" ? "answers" : "market-notes";
   }
   if (route.type === "floorplan-plan-detail") {
     return "floorplans";
@@ -4779,6 +4781,10 @@ function getCurrentRoute(): Route {
   }
 
   const answerPathMatch = window.location.pathname.match(/^\/answers\/([^/]+)\/?$/);
+  const answerArticle = marketNoteForPath(marketNotes, window.location.pathname);
+  if (answerPathMatch && answerArticle) {
+    return { type: "market-note-detail", articleSlug: answerArticle.slug };
+  }
   if (answerPathMatch && buyerIntentAnswerForSlug(answerPathMatch[1])) {
     return { type: "answer-detail", answerSlug: answerPathMatch[1] };
   }
@@ -4839,6 +4845,9 @@ function getCurrentRoute(): Route {
 }
 
 function canonicalAliasTarget(pathname: string) {
+  const articleAlias = pathname.match(/^\/(?:market-notes|blog|guidance)\/([^/]+)\/?$/);
+  const answersArticle = articleAlias && marketNotes.find(note => note.status === "published" && note.slug === articleAlias[1] && marketNoteRouteBase(note) === "/answers/");
+  if (answersArticle) return marketNotePath(answersArticle);
   if (pathname === "/brooke-builder/" || pathname === "/brooke-builder" || pathname === "/content-studio/" || pathname === "/content-studio") return "/";
   if (pathname === "/blog/" || pathname === "/blog") return "/market-notes/";
   if (pathname === "/guidance/" || pathname === "/guidance") return "/market-notes/";
@@ -5046,8 +5055,8 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
                   buildBreadcrumbSchema([
                     { name: "Home", path: "/" },
                     {
-                      name: isDowntownSpotlight(activeMarketNote) ? "Downtown Spotlight" : "Guidance",
-                      path: isDowntownSpotlight(activeMarketNote) ? "/downtown-spotlight/" : "/market-notes/",
+                      name: activeMarketNote.routeBase === "/answers/" ? "Buyer answers" : isDowntownSpotlight(activeMarketNote) ? "Downtown Spotlight" : "Guidance",
+                      path: marketNoteRouteBase(activeMarketNote),
                     },
                     { name: activeMarketNote.title, path: marketNotePath(activeMarketNote) },
                   ]),
@@ -6585,10 +6594,6 @@ function isDowntownSpotlight(note: MarketNote) {
   return note.category === "Downtown Spotlight";
 }
 
-function marketNotePath(note: MarketNote) {
-  return isDowntownSpotlight(note) ? `/downtown-spotlight/${note.slug}/` : `/market-notes/${note.slug}/`;
-}
-
 function publicGuidanceLabel(category: string) {
   if (/downtown spotlight/i.test(category)) return "Downtown Spotlight";
   if (/floor/i.test(category)) return "Floor Plan Strategy";
@@ -6681,7 +6686,7 @@ function renderMarketNoteArticle(note: MarketNote) {
     <article class="market-note-article">
       <header class="section market-note-hero">
         <div>
-          <a class="market-note-back" href="${isDowntownSpotlight(note) ? "/downtown-spotlight/" : "/market-notes/"}">${isDowntownSpotlight(note) ? "All Downtown Spotlights" : "Guidance"}</a>
+          <a class="market-note-back" href="${marketNoteRouteBase(note)}">${note.routeBase === "/answers/" ? "Buyer answers" : isDowntownSpotlight(note) ? "All Downtown Spotlights" : "Guidance"}</a>
           <p class="eyebrow">${escapeHtml(note.category)}</p>
           <h1>${escapeHtml(note.title)}</h1>
           <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
@@ -6721,7 +6726,7 @@ function renderMarketNoteArticle(note: MarketNote) {
               (section) => `
                 <section>
                   <h2>${escapeHtml(section.heading)}</h2>
-                  <p>${escapeHtml(section.body)}</p>
+                  ${renderMarketNoteBody(section.body)}
                   ${
                     section.bullets?.length
                       ? `<ul class="market-note-list">${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`

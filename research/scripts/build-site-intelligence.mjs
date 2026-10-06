@@ -209,7 +209,8 @@ function publishedMarketNoteRoutes(destination) {
     .filter((note) => (isDowntown ? note.category === "Downtown Spotlight" : note.category !== "Downtown Spotlight"))
     .map((note) => ({
       slug: note.slug,
-      title: `${note.title} | ${isDowntown ? "Downtown Spotlight" : "Buyer Intelligence"}`,
+      title: (note.category === "Building Comparisons" && note.seo?.titleTag) || `${note.title} | ${isDowntown ? "Downtown Spotlight" : "Buyer Intelligence"}`,
+      routeBase: note.routeBase,
       description: note.seo?.metaDescription || note.excerpt || note.buyerThesis || "West Palm Beach buyer context with source links.",
       ogImage: note.image?.path || siteMeta.defaultImage,
       lastmod: normalizedDate(note.dateModified || note.datePublished),
@@ -2944,7 +2945,7 @@ function buildPrerenderRoutes() {
     },
     ...buyerRoutes.map((note) => (
       {
-        path: `/market-notes/${note.slug}/`,
+        path: `${note.routeBase || "/market-notes/"}${note.slug}/`,
         title: note.title,
         description: note.description,
         ogImage: note.ogImage || siteMeta.defaultImage,
@@ -3088,7 +3089,7 @@ function renderSitemap() {
     { pathPart: "downtown-spotlight/", priority: "0.8", lastmod: maxDate(...downtownRoutes.map((item) => item.lastmod)) },
     ...downtownRoutes.map((note) => ({ pathPart: `downtown-spotlight/${note.slug}/`, priority: "0.8", lastmod: note.lastmod })),
     { pathPart: "market-notes/", priority: "0.8", lastmod: maxDate(...buyerRoutes.map((item) => item.lastmod)) },
-    ...buyerRoutes.map((note) => ({ pathPart: `market-notes/${note.slug}/`, priority: "0.8", lastmod: note.lastmod })),
+    ...buyerRoutes.map((note) => ({ pathPart: `${(note.routeBase || "/market-notes/").slice(1)}${note.slug}/`, priority: "0.8", lastmod: note.lastmod })),
     { pathPart: "methodology/", priority: "0.7" },
     { pathPart: "fair-housing/", priority: "0.6" },
     { pathPart: "privacy/", priority: "0.5" },

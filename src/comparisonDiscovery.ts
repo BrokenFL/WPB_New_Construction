@@ -4,11 +4,11 @@ import { renderComparisonLinks } from './lib/comparisonContent.ts';
 let installed = false;
 export function installComparisonDiscovery(app: HTMLElement) {
   if (installed) return; installed = true;
-  const paths = new Set(['/answers/', '/compare/', '/projects/olara/', '/projects/ritz-carlton-wpb/', '/projects/shorecrest/']);
+  const paths = new Set(['/answers/', '/compare/', ...['olara', 'ritz-carlton-wpb', 'shorecrest', 'nora-house', 'banyan-tree', 'mr-c', 'alba-palm-beach'].map(id => `/projects/${id}/`)]);
   const refresh = () => {
     if (!paths.has(location.pathname)) return;
     const view = app.querySelector<HTMLElement>('[data-route-view]:not([hidden])');
-    if (view && !view.querySelector('[data-comparison-discovery]')) view.insertAdjacentHTML('beforeend', renderComparisonLinks());
+    if (view && !view.querySelector('[data-comparison-discovery]')) view.insertAdjacentHTML('beforeend', renderComparisonLinks(location.pathname.match(/^\/projects\/([^/]+)\/$/)?.[1] || ''));
   };
   new MutationObserver(refresh).observe(app, { childList:true, subtree:true, attributes:true, attributeFilter:['hidden'] });
   window.addEventListener('popstate', refresh);

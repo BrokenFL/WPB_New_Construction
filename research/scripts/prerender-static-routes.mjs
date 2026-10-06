@@ -2,6 +2,8 @@ import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
+import { marketNoteForPath } from "../../src/lib/marketNoteRouting.ts";
+import { renderMarketNoteBody } from "../../src/lib/marketNoteBody.ts";
 import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "../../src/lib/floorplanEntities.ts";
 
 const workspace = process.cwd();
@@ -256,7 +258,7 @@ function canonicalPathForRoute(routePath) {
 }
 
 function renderStaticRouteContent(route, payload) {
-  const routeKind = routeKindForPath(route.path);
+  const routeKind = routeKindForPath(route.path, payload.marketNotes);
   if (routeKind.type === "project") return renderProjectRoute(route, payload, routeKind.slug);
   if (routeKind.type === "corridor") return renderCorridorRoute(route, payload, routeKind.slug);
   if (routeKind.type === "answer") return renderBuyerIntentAnswerRoute(route, payload, routeKind.slug);
@@ -304,7 +306,9 @@ function renderPrivacyRoute(route) {
   );
 }
 
-function routeKindForPath(routePath) {
+function routeKindForPath(routePath, notes = []) {
+  const article = marketNoteForPath(notes, routePath);
+  if (article) return { type: "market-note", slug: article.slug };
   const project = routePath.match(/^\/projects\/([^/]+)\/$/);
   if (project) return { type: "project", slug: project[1] };
   const corridor = routePath.match(/^\/corridors\/([^/]+)\/$/);
@@ -1083,7 +1087,7 @@ function renderMarketNoteRoute(route, payload, slug) {
   const sections = Array.isArray(note?.sections) ? note.sections : [];
   return pageShell(
     `market-note-${slug}`,
-    route.title.replace(/\s+\|\s+.*$/, ""),
+    note?.title || route.title,
     route.description,
     `
       <article>
@@ -1093,7 +1097,8 @@ function renderMarketNoteRoute(route, payload, slug) {
         ${renderRevenueBuyerResearch(slug)}
         <h2>How to use this guidance</h2>
         <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and The Scott Gordon Group at Douglas Elliman for the details that can change.</p>
-        ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${note?.title || route.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
+        ${sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${renderMarketNoteBody(stripImageTokens(section.body))}${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${escapeHtml(section.imageAlt || `${note?.title || route.title}: ${section.heading}`)}" loading="lazy" decoding="async" />${section.imageCaption || section.imageCredit ? `<figcaption>${escapeHtml([section.imageCaption, section.imageCredit ? `Credit: ${section.imageCredit}` : ""].filter(Boolean).join(" · "))}</figcaption>` : ""}</figure>` : ""}</section>`).join("")}
+        ${note?.sourceLinks?.length ? `<section><h2>Reviewed sources</h2><ul>${note.sourceLinks.map(source => `<li><a href="${safeHref(source.href)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join("")}</ul></section>` : ""}
         <p><a href="/methodology/">How changing project information is checked</a></p>
       </article>
     `,
@@ -1507,7 +1512,7 @@ function renderStaticSourceLink(href, projectId) {
 }
 
 function buildRouteSchema(route, payload, canonical) {
-  const routeKind = routeKindForPath(route.path);
+  const routeKind = routeKindForPath(route.path, payload.marketNotes);
   const schemaDescription = route.description;
   const baseGraph = [
     {
@@ -1601,6 +1606,7 @@ function breadcrumbSchema(route, canonical) {
     if (segments[0] === "projects") parts.push({ name: "Buildings", item: `${baseUrl}/buildings/` });
     if (segments[0] === "updates") parts.push({ name: "Updates", item: `${baseUrl}/updates/` });
     if (segments[0] === "market-notes") parts.push({ name: "Guidance", item: `${baseUrl}/market-notes/` });
+    if (segments[0] === "answers") parts.push({ name: "Buyer answers", item: `${baseUrl}/answers/` });
     if (segments[0] === "corridors") parts.push({ name: "Corridors", item: `${baseUrl}/buildings/` });
     parts.push({ name: route.title.replace(/\s+\|\s+.*$/, ""), item: canonical });
   }

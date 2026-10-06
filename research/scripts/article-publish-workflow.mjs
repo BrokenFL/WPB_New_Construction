@@ -13,6 +13,7 @@ import {
 } from "./article-publish-safety.mjs";
 import { validateArticleImages } from "./article-content-policy.mjs";
 import { scanArticlePackagePublicCopy } from "./public-copy-safety.mjs";
+import { marketNotePath, marketNoteRouteBase, validateBuyerRouteBase } from "../../src/lib/marketNoteRouting.ts";
 
 const workspace = process.cwd();
 const inputPath = argValue("--input");
@@ -51,6 +52,7 @@ async function main() {
     : path.join(workspace, "src/data/marketNotes.ts");
   const editKey = clean(editTarget || input.edit || input.slug || input.id || "");
   const existing = editKey ? await loadExistingArticle(destination, sourceFile, editKey) : null;
+  validateBuyerRouteBase(input.routeBase ?? existing?.routeBase, destination);
   const title = clean(input.title || existing?.title);
   const deck = clean(input.deck || input.excerpt || input.summary || input.description || existing?.deck || existing?.excerpt || existing?.summary || existing?.description);
   const bodyText = clean(input.body || input.bodyText || input.bodySectionsText || "");
@@ -97,7 +99,15 @@ async function main() {
     bodySectionsInput,
     mode: "preview",
   });
-  const routePath = `${routeBase(destination)}${routeSlug}/`;
+  const routePath = `${destination === "buyer" ? marketNoteRouteBase({ ...existing, ...input }) : routeBase(destination)}${routeSlug}/`;
+  if (destination === "buyer" && input.routeBase === "/answers/" && !existing) {
+    const siteData = await fs.readFile(path.join(workspace, "src/generated/siteData.ts"), "utf8");
+    const notes = readTsArray(await fs.readFile(sourceFile, "utf8"), "marketNotes");
+    if (readTsArray(siteData, "prerenderRoutes").some(route => route.path === routePath)
+      || notes.some(note => marketNotePath(note) === routePath)) {
+      previewNormalized.errors.push(`Article route already exists: ${routePath}`);
+    }
+  }
   const preview = buildPreview({ destination, articleId, routeSlug, routePath, title, deck, normalized: previewNormalized, existing });
   preview.errors.push(...await preMutationValidation({ destination, sourceFile, articleId, routeSlug, input, existing, normalized: previewNormalized }));
   await writePreviewArtifacts(preview);
@@ -501,6 +511,7 @@ async function publishMarketNoteArticle({ sourceFile, normalized, articleId, rou
     title: normalized.article.title,
     slug: routeSlug,
     excerpt: normalized.article.deck,
+    ...(input.routeBase ? { routeBase: input.routeBase } : {}),
     buyerThesis: clean(input.buyerThesis || existing?.buyerThesis || input.buyerContext || normalized.article.deck),
     buyerTakeaway: clean(input.buyerTakeaway || existing?.buyerTakeaway || input.buyerContext || input.whyItMatters || normalized.article.deck),
     marketSignal: clean(input.marketSignal || existing?.marketSignal || ""),
