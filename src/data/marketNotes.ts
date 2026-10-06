@@ -2396,66 +2396,132 @@ export const marketNotes = [
       metaDescription: "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing."
     }
   },
+  
   {
-    id: "olara-vs-shorecrest",
-    status: "published",
-    category: "Building Comparisons",
-    title: "Olara vs. Shorecrest buyer profiles",
-    slug: "olara-vs-shorecrest-waterfront-buyer-profiles",
-    excerpt: "Both sit in the North Flagler waterfront conversation, but they should not be evaluated as interchangeable tower choices.",
-    buyerThesis: "Olara and Shorecrest both belong in the North Flagler comparison set, but the buyer profile is different. The better shortlist asks what kind of waterfront ownership you want before treating price or delivery as the only filter.",
-    buyerTakeaway: "Ask for current availability, floor-plan depth, view-stack context, amenity details, and delivery assumptions for both. The decision is not simply which tower is newer or closer; it is which operating model fits the way you want to live.",
-    imageId: "flagler-waterfront-corridor",
-    primaryProjectId: "shorecrest",
-    projectIds: [
+    "id": "olara-vs-shorecrest",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "Olara vs Shorecrest and the waterfront life you want",
+    "slug": "olara-vs-shorecrest-waterfront-buyer-profiles",
+    "excerpt": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits.",
+    "buyerThesis": "A smaller residential collection or a broader resort-style program",
+    "buyerTakeaway": "Choose Olara for the possibilities you genuinely expect to use. Choose Shorecrest if its smaller scale and residential program feel closer to the way you want to live. A strong floor plan, the right outlook and comfortable ownership costs should support either choice.",
+    "imageId": "flagler-waterfront-corridor",
+    "primaryProjectId": "shorecrest",
+    "projectIds": [
       "olara",
-      "shorecrest",
-      "ritz-carlton-wpb"
+      "shorecrest"
     ],
-    sourceName: "Reviewed project materials and public updates",
-    sourceLinks: [
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
       {
-        label: "Market updates",
-        href: "/updates/",
-        sourceType: "development news coverage"
+        "label": "Related Ross, April 3, 2026 groundbreaking announcement",
+        "href": "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara, March 2026 brochure",
+        "href": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara official lifestyle page",
+        "href": "https://www.olarawestpalmbeach.com/lifestyle/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Shorecrest official amenities page",
+        "href": "https://www.shorecrestwpb.com/amenities",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Released Olara Residence D drawing, preserved on the site",
+        "href": "https://www.wpbnewconstruction.com/assets/projects/olara/floorplans/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Shorecrest official Unit 2 drawing, March 2026 URL",
+        "href": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+        "sourceType": "official project site"
       }
     ],
-    datePublished: "2026-05-22",
-    dateModified: "2026-05-22",
-    sections: [
+    "datePublished": "2026-05-22",
+    "dateModified": "2026-10-06",
+    "sections": [
       {
-        heading: "The shared North Flagler frame",
-        body: "Both buildings sit inside the same waterfront conversation: Intracoastal exposure, Palm Beach proximity, large amenity programs, and a growing cluster of luxury condominium inventory. That shared context is useful, but it can hide the real buyer questions."
+        "heading": "A smaller residential collection or a broader resort-style program",
+        "body": "Olara and Shorecrest can appeal to the same buyer at first glance. Both put North Flagler waterfront living at the center of the conversation, with new residences, substantial amenities and Palm Beach across the Intracoastal. The more useful distinction emerges when you imagine an ordinary day at home.\n\nAt [Olara](https://www.wpbnewconstruction.com/projects/olara/), the draw is how much of that day could happen within the development: a workout, a swim, a waterfront meal and time on the water. [Shorecrest](https://www.wpbnewconstruction.com/projects/shorecrest/) offers a smaller residential collection, with a rooftop pool and club-level spaces that may suit someone who wants a well-serviced home base.\n\nOur starting point: look at Olara if you expect to use a broad resort-style program regularly. Put Shorecrest high on the list if the scale of the community matters as much as the amenities. Then let the individual residence sharpen the decision."
       },
       {
-        heading: "Olara tends to reward amenity-depth buyers",
-        body: "Olara is useful for buyers who want a deeper public packet, a large amenity story, marina context, and more material to compare before touring. That does not make it automatically better; it means the diligence path can start with more visible pieces."
+        "heading": "A different sense of scale",
+        "body": "Olara's March 2026 materials describe 275 condominium residences. Related Ross's April 3, 2026 announcement describes 98 at Shorecrest, with four residences per floor. Those numbers set up different residential experiences, although the eventual feel will also depend on staffing, occupancy and how shared spaces operate.\n\nOlara's larger program gives buyers more to build a routine around. Its planned marina, José Andrés dining and extensive wellness facilities are meaningful reasons to consider the property if boating, fitness and entertaining are part of your week. Someone who uses these spaces often may get considerably more out of the offering than someone who spends most days elsewhere.\n\nShorecrest's appeal is more concentrated. The published program includes a 75-foot rooftop pool, fitness and spa spaces, private dining, a concierge and an on-site Lifestyle Director. Buyers can still have help with daily arrangements and places to gather without choosing a residential collection on Olara's scale.",
+        "image": "/projects/olara/media/olara-marina-boat-dock-1600x1067.jpg",
+        "imageAlt": "Rendering of the planned Olara marina with boats and waterfront seating",
+        "imageCaption": "Olara's planned marina, artist's rendering. Slip allocation, access and charges require confirmation.",
+        "imageCredit": "Olara imagery supplied for WPB New Construction"
       },
       {
-        heading: "Shorecrest needs careful current verification",
-        body: "Shorecrest is important because it adds another active North Flagler waterfront option, but buyers should preserve details to verify and verify residence counts, available lines, pricing guidance, and construction timing before relying on broad summaries."
+        "heading": "The floor plan can change your preference",
+        "body": "A two-bedroom label does not tell you how a home will live. One buyer needs a proper work space; another would rather have more room for dinner with friends.\n\nConsider two released drawings. [Olara Residence D](https://www.wpbnewconstruction.com/floorplans/olara/residence-d/) shows two bedrooms plus a den, with 1,774 interior square feet and 381 exterior square feet. [Shorecrest's Unit 2 drawing](https://www.wpbnewconstruction.com/floorplans/shorecrest/residence-1602/), catalogued as Residence 1602, shows two bedrooms, a private elevator entry, 2,015 interior square feet and 192 exterior square feet.\n\nThese are layout references, not a matched pair of available listings. Still, they make the decision more tangible: Olara's example has a separate den and more outdoor area, while Shorecrest's has more interior area. Neither total tells you whether your dining table fits comfortably or whether you like the bedroom arrangement. Study the rooms, terrace access and arrival sequence before choosing a favorite building.",
+        "image": "/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg",
+        "imageAlt": "Released Olara Residence D drawing showing two bedrooms, a den and terrace",
+        "imageCaption": "Released Olara Residence D: 1,774 interior and 381 exterior square feet. This drawing is a layout reference; current availability and final dimensions require confirmation.",
+        "imageCredit": "Olara released floor plan"
       },
       {
-        heading: "How to compare without getting lost",
-        body: "Compare the same facts across both buildings: available lines, floor height, view exposure, terrace usability, fees, parking, storage, amenity access, deposit structure, and delivery risk. Anything else is brochure fog."
+        "heading": "Shorecrest Unit 2 released drawing",
+        "body": "",
+        "image": "/assets/projects/shorecrest/floorplans/previews/shorecrest-floorplans-residence-1602-floor-plan-4891242d-v01.jpg",
+        "imageAlt": "Released Shorecrest Unit 2 drawing showing two bedrooms, private elevator entry and terrace",
+        "imageCaption": "Released Shorecrest Unit 2, catalogued as Residence 1602, for floors 3–28: 2,015 interior and 192 exterior square feet. Current availability and final dimensions require confirmation.",
+        "imageCredit": "Shorecrest released floor plan"
+      },
+      {
+        "heading": "How much of the amenity program will you use",
+        "body": "For a boat owner, Olara's marina warrants an early conversation about vessel size, slip allocation and costs. For someone who enjoys occasional outings, the advertised captained boating experiences may be the more relevant benefit. Ownership alone should not be treated as a guarantee of a slip.\n\nAt Shorecrest, the rooftop pool and wellness spaces may be enough to anchor a satisfying daily routine. The practical question is whether you value having more destinations within your own development or prefer to make more of your plans around town.\n\nThis is also how to approach ownership costs. Compare the services you expect to use, what the association budget covers and what is charged separately. Amenity square footage alone cannot tell you which property offers better value for your life."
+      },
+      {
+        "heading": "Timing deserves a fresh look",
+        "body": "The published schedules are different. Related Ross's April 2026 groundbreaking announcement anticipated Shorecrest completion in 2027. Olara's March 2026 brochure scheduled completion for 2028. Both are development targets that need a current update, especially if you are coordinating a sale or seasonal move.\n\nFor buyers with flexibility, lifestyle and layout can lead the shortlist. For buyers with a fixed move, the latest construction and closing guidance should be an early part of the conversation."
+      },
+      {
+        "heading": "Narrow the choice to a home",
+        "body": "Choose Olara for the possibilities you genuinely expect to use. Choose Shorecrest if its smaller scale and residential program feel closer to the way you want to live. A strong floor plan, the right outlook and comfortable ownership costs should support either choice.\n\n[Ask The Scott Gordon Group to compare current residences at Olara and Shorecrest](https://www.wpbnewconstruction.com/inquire/). Tell us your preferred bedroom count, budget and timing so the next conversation starts with homes that could fit."
       }
     ],
-    ctaText: "Want help applying this to your search? Request current availability and private comparison notes.",
-    factCheckRequired: [
-      "Confirm current Shorecrest residence count and construction status before publication updates.",
-      "Confirm current Olara and Shorecrest pricing and availability before making a decision."
+    "ctaText": "Want help applying this to your search? Request current availability and private comparison notes.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
     ],
-    seo: {
-      primaryQuery: "Olara vs Shorecrest West Palm Beach",
-      secondaryQueries: [
+    "seo": {
+      "primaryQuery": "Olara vs Shorecrest West Palm Beach",
+      "secondaryQueries": [
         "North Flagler waterfront condos",
         "West Palm Beach waterfront condos"
       ],
-      suggestedSlug: "olara-vs-shorecrest-waterfront-buyer-profiles",
-      titleTag: "Olara vs. Shorecrest buyer profiles | Buyer Intelligence",
-      metaDescription: "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps."
+      "suggestedSlug": "olara-vs-shorecrest-waterfront-buyer-profiles",
+      "titleTag": "Olara vs Shorecrest | Which Waterfront Condo Fits You?",
+      "metaDescription": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits."
+    },
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/home/shorecrest-project-card-main-v01.jpg",
+      "alt": "Exterior rendering of Shorecrest beside the Intracoastal Waterway on North Flagler Drive",
+      "caption": "Shorecrest waterfront exterior, artist's rendering. The April 2026 developer announcement anticipated completion in 2027; request a current update.",
+      "credit": "Shorecrest imagery supplied for WPB New Construction",
+      "showCaption": true,
+      "mode": "approved-local"
     }
   },
+
   {
     id: "why-published-floor-plans-matter",
     status: "published",

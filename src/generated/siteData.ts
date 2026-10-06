@@ -7659,9 +7659,9 @@ export const prerenderRoutes = [
   },
   {
     "path": "/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/",
-    "title": "Olara vs. Shorecrest buyer profiles | Buyer Intelligence",
-    "description": "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+    "title": "Olara vs Shorecrest | Which Waterfront Condo Fits You?",
+    "description": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits.",
+    "ogImage": "/assets/home/shorecrest-project-card-main-v01.jpg"
   },
   {
     "path": "/market-notes/why-published-floor-plans-matter/",
