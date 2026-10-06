@@ -7676,6 +7676,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/forte-vs-south-flagler-house/",
+    "title": "Forté vs South Flagler House | West Palm Beach Condos",
+    "description": "Compare Forté on Flagler and South Flagler House in West Palm Beach by floor plans, amenities, building scale and completed versus planned living.",
+    "ogImage": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp"
+  },
+  {
     "path": "/answers/nora-house-vs-the-berkeley/",
     "title": "NORA House vs The Berkeley | West Palm Beach Condos",
     "description": "Compare NORA House and The Berkeley in West Palm Beach, from neighborhood life and Clear Lake views to flexible layouts, amenities and ownership details.",

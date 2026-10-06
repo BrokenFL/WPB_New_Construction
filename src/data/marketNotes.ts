@@ -74,6 +74,130 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "forte-vs-south-flagler-house",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "Forté vs South Flagler House in West Palm Beach",
+    "slug": "forte-vs-south-flagler-house",
+    "excerpt": "Compare Forté on Flagler and South Flagler House in West Palm Beach by floor plans, amenities, building scale and completed versus planned living.",
+    "routeBase": "/answers/",
+    "buyerThesis": "A completed building and a broader future amenity program",
+    "buyerTakeaway": "Begin with Forté if a smaller completed building and its flow-through layouts are your strongest priorities. Give South Flagler House equal attention if its architecture and extensive on-site lifestyle program are central to the way you want to live.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp",
+      "alt": "Forté on Flagler exterior rendering overlooking the Intracoastal Waterway",
+      "caption": "Forté on Flagler exterior, artist's rendering from the project collection. Two Roads lists Forté among completed projects; this illustration does not establish current residence availability or present conditions.",
+      "credit": "Forté on Flagler project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "forte-on-flagler",
+    "projectIds": [
+      "forte-on-flagler",
+      "south-flagler-house"
+    ],
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "Two Roads Development homepage",
+        "href": "https://tworoadsre.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Two Roads’ Forté project page",
+        "href": "https://tworoadsre.com/projects/forte-on-flagler/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Forté residences",
+        "href": "https://fortewpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Forté amenities and services",
+        "href": "https://fortewpb.com/amenities-services/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House homepage",
+        "href": "https://www.southflaglerhouse.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House residences",
+        "href": "https://www.southflaglerhouse.com/residences",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "South Flagler House amenities",
+        "href": "https://www.southflaglerhouse.com/amenities",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Related Ross announcement, September 21, 2026",
+        "href": "https://www.relatedross.com/press-releases/2026-09-21/related-ross-bring-tutto-caffe-south-flagler-house-west-palm-beach",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "A completed building and a broader future amenity program",
+        "body": "[Forté on Flagler](https://www.wpbnewconstruction.com/projects/forte-on-flagler/) and [South Flagler House](https://www.wpbnewconstruction.com/projects/south-flagler-house/) offer two different approaches to new-construction condo living on West Palm Beach’s South Flagler waterfront. Both put generous living spaces and outdoor rooms at the heart of the home. Their scale, design and stage of development create different ways to approach the purchase.\n\nForté is the smaller collection, with 41 residences, and developer Two Roads now lists it among its completed projects. South Flagler House has 105 residences across two towers, with a broad private amenity program and an expected early-2027 completion. For buyers considering both, the useful question is how much of your life you want to build around the home itself and how much you want the wider property to offer.",
+        "image": "/assets/home/south-flagler-house-project-card-main-v01.jpg",
+        "imageAlt": "South Flagler House conceptual exterior image showing its two towers on Flagler Drive",
+        "imageCaption": "South Flagler House exterior, artist's rendering. The September 2026 announcement anticipates residential completion in early 2027; Tutto Caffe is separately scheduled for fall 2027.",
+        "imageCredit": "South Flagler House imagery supplied for WPB New Construction"
+      },
+      {
+        "heading": "Start with the feeling of the residence",
+        "body": "Forté’s published collection focuses on four- and five-bedroom homes, while South Flagler House offers two- to five-bedroom homes as well as penthouses. That difference can help narrow your search before you compare individual drawings.\n\nForté’s published design emphasizes two flow-through residences per typical floor, private elevator foyers and wraparound balconies. That arrangement deserves a closer look if you are moving from a house and want room to spread out, entertain and spend time outdoors.\n\nPicture an ordinary evening. You might want the kitchen open to conversation, a separate place to read, and a terrace where dinner feels as comfortable as it does indoors. The [Forté floor-plan collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-forte-on-flagler) is a starting point for considering those preferences. In a completed residence, check the actual configuration rather than assuming that every original customization option remains available.\n\nSouth Flagler House takes a more classically inspired architectural direction through Robert A.M. Stern Architects, paired with interiors by Pembrooke & Ives. Its collection offers different residence types, with generous loggias figuring prominently in the design. Review the [South Flagler House plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-south-flagler-house) with the same practical eye: where would you work, where would guests stay, and which outdoor space would you use most?\n\nThe most persuasive choice may be a particular home. Compare its outlook, arrival sequence and bedroom arrangement before letting a favorite exterior make the decision.",
+        "image": "/assets/projects/south-flagler-house/residences/south-flagler-residence-living-room-04-v01.jpg",
+        "imageAlt": "South Flagler House living-room rendering with broad windows and furnished gathering areas",
+        "imageCaption": "South Flagler House residence, artist's rendering. The room, finishes and outlook shown are illustrative and depend on the selected home.",
+        "imageCredit": "South Flagler House project marketing materials"
+      },
+      {
+        "heading": "How much would you use the shared spaces",
+        "body": "Forté’s published amenities include a 75-foot pool, fitness and yoga spaces, spa facilities, a private dining room and lounges. There is plenty here to support a full week without making the building’s amenity program the focus of every day.\n\nSouth Flagler House’s planned offering extends across 50,000 square feet. Pickleball, Pilates, a sports simulator, spa spaces and resident dining give it particular appeal for someone who enjoys having several activities and places to gather close to home.\n\nThink about the week you already enjoy. If you regularly arrange a workout, lunch and an evening with friends, having more of those possibilities within the property could be valuable. If your favorite restaurants, clubs and activities already anchor your routine elsewhere, Forté’s smaller residential collection may carry more weight.\n\nNeither residence count nor amenity size tells you how attentive service will be. At both buildings, ask which services are included, which require reservations and which have separate charges. South Flagler House’s private-club description should be read alongside its actual access terms and operating costs."
+      },
+      {
+        "heading": "Completion changes the buying process",
+        "body": "Forté’s completed status gives buyers a different starting point. When a suitable residence is available to tour, you can assess its light, finishes and proportions in person. Availability and possession still depend on the individual home and transaction.\n\nFor South Flagler House, Related Ross’s September 21, 2026 announcement anticipates completion in early 2027. The same announcement schedules Tutto Caffe for fall 2027. Those are separate milestones, so buyers should confirm both residential delivery and the opening schedule for amenities they expect to use.\n\nIf a move is tied to selling another property or arriving for a particular season, timing belongs near the beginning of the conversation."
+      },
+      {
+        "heading": "Choose the balance that suits you",
+        "body": "Begin with Forté if a smaller completed building and its flow-through layouts are your strongest priorities. Give South Flagler House equal attention if its architecture and extensive on-site lifestyle program are central to the way you want to live.\n\nThen compare suitable residences using current prices, association budgets, service charges and purchase terms. A building-level preference becomes much more useful when it leads to a home that works comfortably for you.\n\n[Ask The Scott Gordon Group to compare Forté and South Flagler House](https://www.wpbnewconstruction.com/inquire/). Share your preferred bedroom count, timing and what you most want to keep from your present home, so we can help shape a more personal shortlist."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "Forte vs South Flagler House",
+      "secondaryQueries": [
+        "Forté on Flagler vs South Flagler House",
+        "South Flagler new condos",
+        "completed condos vs preconstruction West Palm Beach"
+      ],
+      "suggestedSlug": "forte-vs-south-flagler-house",
+      "titleTag": "Forté vs South Flagler House | West Palm Beach Condos",
+      "metaDescription": "Compare Forté on Flagler and South Flagler House in West Palm Beach by floor plans, amenities, building scale and completed versus planned living."
+    }
+  },
+
+  {
     "id": "nora-house-vs-the-berkeley",
     "slug": "nora-house-vs-the-berkeley",
     "title": "NORA House vs The Berkeley in West Palm Beach",
