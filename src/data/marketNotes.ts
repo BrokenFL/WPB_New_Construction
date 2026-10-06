@@ -73,11 +73,12 @@ export type MarketNote = {
 };
 
 export const marketNotes = [
+  
   {
     "id": "alba-vs-olara",
     "status": "published",
     "category": "Building Comparisons",
-    "title": "Alba vs Olara and the choice between a finished home and future plans",
+    "title": "Alba vs Olara: A finished home or future plans in West Palm Beach",
     "slug": "alba-vs-olara",
     "excerpt": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use.",
     "routeBase": "/answers/",
@@ -142,7 +143,7 @@ export const marketNotes = [
     "sections": [
       {
         "heading": "A completed waterfront building and a larger future offering",
-        "body": "For buyers comparing [Alba Palm Beach](https://www.wpbnewconstruction.com/projects/alba-palm-beach/) and [Olara](https://www.wpbnewconstruction.com/projects/olara/), timing is a good place to start. Blue Road, one of Alba’s developers, now lists the project as completed. Olara’s March 2026 brochure schedules completion for 2028. If you want to assess a finished building rather than make your decision around plans and renderings, Alba deserves an early look.\n\nThere is also a meaningful difference in scale and location. Alba has 55 residences at 4714 North Flagler Drive, farther north than Olara at 1919 North Flagler Drive. Olara is planned with 275 condominium residences and a broad mix of wellness, dining and marina amenities. Both make the water a central part of their appeal, but the experience of coming home could feel quite different."
+        "body": "For buyers comparing [Alba Palm Beach](https://www.wpbnewconstruction.com/projects/alba-palm-beach/) and [Olara](https://www.wpbnewconstruction.com/projects/olara/) in West Palm Beach, timing is a good place to start. Blue Road, one of Alba’s developers, now lists the project as completed. Olara’s March 2026 brochure schedules completion for 2028. If you want to assess a finished building rather than make your decision around plans and renderings, Alba deserves an early look.\n\nThere is also a meaningful difference in scale and location. Alba has 55 residences at 4714 North Flagler Drive, farther north than Olara at 1919 North Flagler Drive. Olara is planned with 275 condominium residences and a broad mix of wellness, dining and marina amenities. Both make the water a central part of their appeal, but the experience of coming home could feel quite different."
       },
       {
         "heading": "Start with the size of the community",
@@ -157,7 +158,7 @@ export const marketNotes = [
         "body": "At Alba, the residences place a strong emphasis on outdoor living. The official specifications include generous terraces and summer kitchens, which makes the space outside the living room worth particular attention. If you imagine quiet dinners outdoors or coffee overlooking the Intracoastal, look closely at the terrace attached to the home you are considering.\n\nAlba also advertises a private dock with boat slips. Confirm the rights, availability and costs tied to a particular residence if keeping a boat nearby matters to you.\n\nOlara builds more of its planned lifestyle around shared experiences, including a private marina and José Andrés Group dining. Its published plans also include a substantial indoor and outdoor fitness offering.\n\nThe useful question is how often you would participate. A waterfront restaurant may be a genuine convenience if you expect to eat there regularly. A marina deserves closer investigation if you own a boat or want to spend more time aboard one. Ask for the access arrangements, availability and costs before treating either as part of your everyday routine."
       },
       {
-        "heading": "Compare the homes before the amenities",
+        "heading": "Compare Alba and Olara floor plans",
         "body": "The [Alba floor-plan collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-alba-palm-beach) includes two- and three-bedroom condominium homes and four-bedroom townhomes. The townhome option is especially worth exploring if you prefer a home arranged over multiple levels. It brings a different set of practical questions, including stairs, outdoor space and how you move between rooms.\n\nThe [Olara floor-plan collection](https://www.wpbnewconstruction.com/floorplans/#floorplans-olara) offers several two-, three- and four-bedroom configurations, many with a den. A separate workspace or a better guest-bedroom arrangement may be more useful to you than extra space in a room you rarely use.\n\nBring a short list of furniture you want to keep. Check where a dining table fits, whether a desk has a natural place and how much privacy guests would have. These are often the details that turn an attractive floor plan into a home that works."
       },
       {
@@ -171,13 +172,14 @@ export const marketNotes = [
       "Confirm development targets and planned facilities against current written project documents."
     ],
     "seo": {
-      "primaryQuery": "Alba vs Olara and the choice between a finished home and future plans",
+      "primaryQuery": "Alba vs Olara West Palm Beach",
       "secondaryQueries": [],
       "suggestedSlug": "alba-vs-olara",
       "titleTag": "Alba vs. Olara: West Palm Beach Condo Comparison",
       "metaDescription": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use."
     }
   },
+
 
   
   {
