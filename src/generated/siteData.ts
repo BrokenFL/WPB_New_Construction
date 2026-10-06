@@ -7682,6 +7682,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/shorecrest-vs-ritz-carlton-west-palm-beach/",
+    "title": "Shorecrest vs Ritz-Carlton | West Palm Beach Condos",
+    "description": "Compare Shorecrest and Ritz-Carlton Residences in West Palm Beach by floor plans, services, amenities and timing to find the better fit for your life.",
+    "ogImage": "/projects/shorecrest/media/showcase/shorecrest-hero-render-exterior-v01-web.jpg"
+  },
+  {
     "path": "/answers/alba-vs-olara/",
     "title": "Alba vs. Olara: West Palm Beach Condo Comparison",
     "description": "Alba and Olara offer different ways to live on West Palm Beach’s waterfront. Compare building scale, timing, outdoor space and the amenities you would use.",

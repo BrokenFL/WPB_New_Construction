@@ -73,6 +73,142 @@ export type MarketNote = {
 };
 
 export const marketNotes = [
+  {
+    "id": "shorecrest-vs-ritz-carlton-west-palm-beach",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "Shorecrest vs The Ritz-Carlton Residences in West Palm Beach",
+    "slug": "shorecrest-vs-ritz-carlton-west-palm-beach",
+    "excerpt": "Compare Shorecrest and Ritz-Carlton Residences in West Palm Beach by floor plans, services, amenities and timing to find the better fit for your life.",
+    "routeBase": "/answers/",
+    "buyerThesis": "Home layouts and everyday service on North Flagler",
+    "buyerTakeaway": "Start with Shorecrest if the smaller collection, rooftop setting and published layouts feel right. Start with The Ritz-Carlton Residences if its branded service model and broader selection of home types are especially appealing.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/projects/shorecrest/media/showcase/shorecrest-hero-render-exterior-v01-web.jpg",
+      "alt": "Shorecrest conceptual exterior rendering with curved balconies on North Flagler Drive",
+      "caption": "Shorecrest exterior, artist's rendering. The image illustrates the published design, not completed conditions or an available residence.",
+      "credit": "Shorecrest project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "shorecrest",
+    "projectIds": [
+      "shorecrest",
+      "ritz-carlton-wpb"
+    ],
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "Related Ross Shorecrest groundbreaking announcement",
+        "href": "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Shorecrest residences",
+        "href": "https://www.shorecrestwpb.com/residences",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "amenities and services",
+        "href": "https://www.shorecrestwpb.com/amenities",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Shorecrest Unit 2 official drawing",
+        "href": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Ritz-Carlton official floor plans",
+        "href": "https://theresidenceswestpalmbeach.com/floorplans/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Ritz-Carlton services",
+        "href": "https://theresidenceswestpalmbeach.com/services/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "amenities",
+        "href": "https://theresidenceswestpalmbeach.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "BH Group project page",
+        "href": "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "Home layouts and everyday service on North Flagler",
+        "body": "[Shorecrest](https://www.wpbnewconstruction.com/projects/shorecrest/) and [The Ritz-Carlton Residences, West Palm Beach](https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/) belong on a West Palm Beach condo shortlist when North Flagler living, service and a water outlook are priorities. Both plan new homes overlooking the water, places to exercise and unwind, and residential staff to help with everyday arrangements. Choosing between them takes a closer look at how you want to live.\n\nShorecrest may appeal first if you prefer a smaller collection of homes and a rooftop-centered amenity program. The Ritz-Carlton Residences brings a familiar hospitality name and a detailed residential service offering. The individual floor plans can make the difference surprisingly clear, even before you discuss finishes or views.",
+        "image": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
+        "imageAlt": "Rendering of The Ritz-Carlton Residences West Palm Beach tower beside the Intracoastal",
+        "imageCaption": "The Ritz-Carlton Residences, West Palm Beach, artist's rendering. Confirm the current plans and development schedule.",
+        "imageCredit": "Ritz-Carlton Residences project marketing materials"
+      },
+      {
+        "heading": "Begin with the home you would use every day",
+        "body": "Shorecrest's published collection centers on two- and three-bedroom residences. The Ritz-Carlton Residences releases a wider range of layouts, including two-, three- and four-bedroom homes. Start with the rooms you need, then look beyond the bedroom count.\n\nFor example, Shorecrest's [Unit 2 drawing, catalogued as Residence 1602](https://www.wpbnewconstruction.com/floorplans/shorecrest/residence-1602/), shows two bedrooms, a private elevator lobby, 2,015 interior square feet and 192 exterior square feet. The Ritz-Carlton's [Residence 02](https://www.wpbnewconstruction.com/floorplans/ritz-carlton-wpb/residence-02/) is also a two-bedroom plan, with 1,566 interior square feet and 302 exterior square feet.\n\nThese published drawings are layout examples, with current availability to confirm. They illustrate why a bedroom count alone makes an incomplete comparison. The Shorecrest example offers more interior area; the Ritz-Carlton example gives more space outdoors. The dimensions, furniture arrangement and terrace shape will tell you more about which would be comfortable for you.\n\nIf you work from home, decide where a desk would go when guests are visiting. If you host dinner often, look at the route from kitchen to dining table and terrace. An appealing building should also offer a home that makes these ordinary moments easy.",
+        "image": "/assets/projects/shorecrest/floorplans/previews/shorecrest-floorplans-residence-1602-floor-plan-4891242d-v01.jpg",
+        "imageAlt": "Released Shorecrest Unit 2 two-bedroom floor plan with private elevator lobby and terrace",
+        "imageCaption": "Released Shorecrest Unit 2, catalogued as Residence 1602: 2,015 interior and 192 exterior square feet. Published drawing for layout comparison; current availability and final dimensions require confirmation.",
+        "imageCredit": "Shorecrest released floor plan"
+      },
+      {
+        "heading": "Ritz-Carlton Residence 02 released drawing",
+        "body": "",
+        "image": "/assets/projects/ritz-carlton-wpb/floorplans/previews/ritz-residence-02.jpg",
+        "imageAlt": "Released Ritz-Carlton Residence 02 two-bedroom drawing with elevator arrival and terrace",
+        "imageCaption": "Released Ritz-Carlton Residence 02: 1,566 interior and 302 exterior square feet. Published drawing for layout comparison; current availability and final dimensions require confirmation.",
+        "imageCredit": "Ritz-Carlton Residences released floor plan"
+      },
+      {
+        "heading": "Service is part of both offerings",
+        "body": "Shorecrest publishes a concierge and an on-site Lifestyle Director, alongside arrangements for services such as housekeeping and pre-arrival grocery stocking. That could be useful for someone who divides time between homes or wants help getting settled after a trip.\n\nThe Ritz-Carlton Residences makes its branded residential service a central part of the experience. Its published program separates inclusive services, such as valet and reservations assistance, from à la carte options including in-residence dining, grocery shopping and vacant-home care. Some à la carte services may be supplied by third parties.\n\nPut the same practical questions to both teams. Can the home be prepared before you arrive? Who handles a request while you are away? What is included in the regular ownership costs, and what is billed separately? The answers will be more useful than assuming either building takes care of everything."
+      },
+      {
+        "heading": "Think about your favorite way to spend an afternoon",
+        "body": "Shorecrest's plans include a 75-foot rooftop pool, fitness and spa facilities, private dining and meeting spaces. Related Ross's April 2026 announcement describes 98 homes, with four residences per floor. That scale may suit a buyer who wants a relatively small residential community with places to gather.\n\nThe Ritz-Carlton Residences is planned with 138 homes. Its amenity offering includes a pool deck with dining, spa and fitness spaces, and two guest suites. It also advertises membership to The Cove Club; eligibility, dues and access terms need confirmation before you count it among the benefits of ownership.\n\nImagine which spaces you would use without a special occasion. A rooftop swim, a treatment downstairs or a convenient meal by the pool can each be a good reason to choose a building. Ask how reservations, guest access and charges work for the facilities that matter to you."
+      },
+      {
+        "heading": "Leave room in the calendar",
+        "body": "Related Ross's April 3, 2026 groundbreaking announcement anticipated Shorecrest's completion in 2027. Ritz-Carlton developer BH Group currently lists a first-quarter 2028 completion target. These are development schedules, so request an updated construction and closing timetable before arranging your move.\n\nNeither date establishes when a particular residence will be available. If you need to move by a fixed month, that conversation belongs near the beginning of your search."
+      },
+      {
+        "heading": "Which would you choose first",
+        "body": "Start with Shorecrest if the smaller collection, rooftop setting and published layouts feel right. Start with The Ritz-Carlton Residences if its branded service model and broader selection of home types are especially appealing.\n\nThen compare suitable residences with current prices, association budgets and the services you would actually use. There is no reliable shortcut from a brand name or residence count to the better ownership value.\n\n[Get in touch to compare Shorecrest and The Ritz-Carlton Residences](https://www.wpbnewconstruction.com/inquire/) with your preferred bedroom count, budget and timing. Those details will help turn two appealing buildings into a focused search for the right home."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "Shorecrest vs Ritz-Carlton West Palm Beach",
+      "secondaryQueries": [
+        "Shorecrest and Ritz-Carlton floor plans",
+        "North Flagler condo services",
+        "Shorecrest vs Ritz-Carlton amenities"
+      ],
+      "suggestedSlug": "shorecrest-vs-ritz-carlton-west-palm-beach",
+      "titleTag": "Shorecrest vs Ritz-Carlton | West Palm Beach Condos",
+      "metaDescription": "Compare Shorecrest and Ritz-Carlton Residences in West Palm Beach by floor plans, services, amenities and timing to find the better fit for your life."
+    }
+  },
+
   
   {
     "id": "alba-vs-olara",
