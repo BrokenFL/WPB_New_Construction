@@ -1505,6 +1505,7 @@ async function main() {
     await fs.writeFile(publicProjectCopyPackagePath, JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2) + String.fromCharCode(10));
     const buyerNewsFeedSnapshot = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
     await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(currentPlans, buyerNewsFeedSnapshot));
+    await fs.writeFile(path.join(workspace, "public/sitemap.xml"), addSitemapEntities(renderSitemap(), publishedFloorplanEntities()));
     console.log("Buyer discovery regenerated; approved plans aligned; source assets and news unchanged.");
     return;
   }
