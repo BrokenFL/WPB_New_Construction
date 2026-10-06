@@ -7262,12 +7262,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
-    "path": "/answers/downtown-west-palm-beach-new-condos-compared/",
-    "title": "Downtown West Palm Beach New Condos Compared | WPB Answers",
-    "description": "Compare Downtown WPB new condos — NORA House, Mr. C, The Berkeley, Banyan Tree — on status, service model, pricing guidance, and buyer fit.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
-  },
-  {
     "path": "/answers/olara-vs-shorecrest/",
     "title": "Olara vs Shorecrest | WPB Answers",
     "description": "Compare Olara and Shorecrest on North Flagler — building scale, daily life and the dated Shorecrest 2027 and Olara 2028 developer targets.",
@@ -7668,6 +7662,12 @@ export const prerenderRoutes = [
     "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/answers/downtown-west-palm-beach-new-condos-compared/",
+    "title": "Downtown West Palm Beach New Condos Compared",
+    "description": "Explore NORA House, Banyan Tree, Mr. C and The Berkeley in downtown West Palm Beach, with a practical guide to locations, layouts, services and buyer fit.",
+    "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
   },
   {
     "path": "/answers/maison-dor-vs-south-flagler-house/",

@@ -1203,31 +1203,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
   },
-  {
-    slug: "downtown-west-palm-beach-new-condos-compared",
-    shortLabel: "Downtown compare",
-    title: "Downtown West Palm Beach New Condos Compared",
-    question: "How do Downtown West Palm Beach's new condos compare?",
-    description: "Compare Downtown WPB new condos — NORA House, Mr. C, The Berkeley, Banyan Tree — on status, service model, pricing guidance, and buyer fit.",
-    bluf:
-      "Downtown's new-condo set is four deep: NORA House (sales open, from the low $2Ms guidance, NORA district), Mr. C Residences (146 residences, under construction, completion estimates vary), The Berkeley (under construction, reported from $2M to over $10M), and Banyan Tree Residences (88 residences, sales open). Compare service model and district position first — hotel-branded versus district-anchored versus boutique — then verify pricing, fees, parking, and delivery.",
-    explanation:
-      "Downtown buyers are choosing a daily life, not just a floor plan: NORA district energy, hotel-brand service, or boutique positioning near The Square and Clematis. The corridor mixes under-construction programs with sales-open launches, so sort by delivery certainty and service expectations before comparing published pricing guidance — and confirm parking, fees, and current availability per project.",
-    projectIds: ["nora-house", "mr-c", "berkeley", "banyan-tree"],
-    corridorKeys: ["downtown"],
-    tableRows: [
-      { label: "NORA House", bestUse: "Buyers who want NORA district positioning with sales already open.", links: ["/projects/nora-house/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the low-$2Ms guidance, current availability, district phasing, and fee structure." },
-      { label: "Mr. C Residences", bestUse: "Buyers who want hotel-brand service in an under-construction downtown tower.", links: ["/projects/mr-c/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the construction schedule — completion estimates vary — plus fees and what the brand operates." },
-      { label: "The Berkeley", bestUse: "Buyers comparing downtown's boutique luxury option on reported pricing.", links: ["/projects/berkeley/"], verify: "Confirm the reported $2M entry against the live price list and current availability." },
-      { label: "Banyan Tree Residences", bestUse: "Buyers who want a branded sales-open option at 88 residences.", links: ["/projects/banyan-tree/"], verify: "Confirm delivery guidance, pricing releases, and deposit structure." },
-    ],
-    faqs: [
-      { question: "Which Downtown condo is closest to delivery?", answer: "Mr. C and The Berkeley are under construction; NORA House and Banyan Tree are sales open/preconstruction. Completion estimates vary by source — confirm the live schedule with each sales team." },
-      { question: "What does Downtown offer that Flagler Drive doesn't?", answer: "Walkability: restaurants, NORA, The Square, Clematis, Brightline, and the Kravis Center close by, with less reliance on a car. Flagler Drive trades that for waterfront exposure and quieter residential positioning." },
-      { question: "How do service models differ Downtown?", answer: "Mr. C brings a hotel-brand service program; NORA House is district-anchored; Banyan Tree carries its own brand promise. Verify staffing, amenity rules, and fee structures — service is an operating cost, not just a marketing line." },
-    ],
-    sourceNotes: ["Project status, scale, and pricing guidance come from the existing WPB New Construction source catalog.", "Delivery timing and pricing are verification items — confirm against current project materials."],
-  },
+  
   {
     slug: "olara-vs-shorecrest",
     shortLabel: "Olara vs Shorecrest",

@@ -204,7 +204,6 @@ The site is built to help buyers understand which West Palm Beach condo building
 - West Palm Beach vs Fort Lauderdale New Condos | WPB Answers: /answers/west-palm-beach-vs-fort-lauderdale-new-condos/
 - Pet-Friendly New Condos in West Palm Beach | WPB Answers: /answers/pet-friendly-new-construction-condos-west-palm-beach/
 - South Flagler New Condos Compared | WPB Answers: /answers/south-flagler-new-condos-compared/
-- Downtown West Palm Beach New Condos Compared | WPB Answers: /answers/downtown-west-palm-beach-new-condos-compared/
 - Olara vs Shorecrest | WPB Answers: /answers/olara-vs-shorecrest/
 - Move-In-Ready New Condos in West Palm Beach | WPB Answers: /answers/move-in-ready-new-condos-west-palm-beach/
 - New Construction Penthouses in West Palm Beach | WPB Answers: /answers/new-construction-penthouses-west-palm-beach/
@@ -272,6 +271,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Why published floor plans matter | Buyer Intelligence: /market-notes/why-published-floor-plans-matter/
 - Verifying new-construction pricing | Buyer Intelligence: /market-notes/what-buyers-should-verify-before-trusting-pricing/
 - Downtown WPB condo corridors explained | Buyer Intelligence: /market-notes/downtown-west-palm-beach-condo-corridors-explained/
+- Downtown West Palm Beach New Condos Compared: /answers/downtown-west-palm-beach-new-condos-compared/
 - Maison d’Or vs South Flagler House | West Palm Beach: /answers/maison-dor-vs-south-flagler-house/
 - Forté vs South Flagler House | West Palm Beach Condos: /answers/forte-vs-south-flagler-house/
 - NORA House vs The Berkeley | West Palm Beach Condos: /answers/nora-house-vs-the-berkeley/

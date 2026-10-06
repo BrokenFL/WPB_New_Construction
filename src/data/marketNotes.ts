@@ -74,6 +74,173 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "downtown-west-palm-beach-new-condos-compared",
+    "slug": "downtown-west-palm-beach-new-condos-compared",
+    "title": "Downtown West Palm Beach new condos compared",
+    "excerpt": "Explore NORA House, Banyan Tree, Mr. C and The Berkeley in downtown West Palm Beach, with a practical guide to locations, layouts, services and buyer fit.",
+    "routeBase": "/answers/",
+    "category": "Building Comparisons",
+    "projectIds": [
+      "nora-house",
+      "banyan-tree",
+      "mr-c",
+      "berkeley"
+    ],
+    "status": "published",
+    "buyerThesis": "NORA House, Banyan Tree, Mr. C and The Berkeley",
+    "buyerTakeaway": "Choose the two projects whose strongest features you would use most often. Then compare homes with the bedrooms, usable space and outdoor areas you need, using current written prices and availability.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "nora-house-vs-the-berkeley",
+      "nora-house-vs-banyan-tree",
+      "banyan-tree-vs-mr-c-residences"
+    ],
+    "image": {
+      "path": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg",
+      "alt": "NORA House conceptual exterior rendering with terraces above a landscaped street",
+      "caption": "NORA House exterior, artist's rendering. The evolving NORA District and planned residential amenities require current phasing and operating details.",
+      "credit": "NORA House project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "nora-house",
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "NORA District residential overview",
+        "href": "https://norawpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA House official homepage",
+        "href": "https://norahouse.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "amenities",
+        "href": "https://norahouse.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Banyan Group launch announcement, March 25, 2026",
+        "href": "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Banyan Tree official residences",
+        "href": "https://www.banyantreeresidenceswpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "amenities and services",
+        "href": "https://www.banyantreeresidenceswpb.com/amenities-and-services/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Mr. C official fact sheet",
+        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "official downloads page",
+        "href": "https://www.mrcresidenceswpb.com/downloads/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Mr. C official amenities and services",
+        "href": "https://www.mrcresidenceswpb.com/amenities-services/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Berkeley homepage",
+        "href": "https://www.theberkeleypalmbeach.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "residences",
+        "href": "https://www.theberkeleypalmbeach.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "amenities",
+        "href": "https://www.theberkeleypalmbeach.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "groundbreaking announcement",
+        "href": "https://www.theberkeleypalmbeach.com/the-berkeley-palm-beach-celebrates-groundbreaking-and-grand-opening-of-sales-gallery/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "NORA House, Banyan Tree, Mr. C and The Berkeley",
+        "body": "Choosing a new condominium in downtown West Palm Beach starts with the kind of day you want to have. Would you rather head out into a neighborhood of restaurants and shops, come home to a substantial wellness offering, have hotel-style services close at hand, or spend the evening looking across a lake?\n\n[NORA House](https://www.wpbnewconstruction.com/projects/nora-house/), [Banyan Tree Residences](https://www.wpbnewconstruction.com/projects/banyan-tree/), [Mr. C Residences](https://www.wpbnewconstruction.com/projects/mr-c/) and [The Berkeley](https://www.wpbnewconstruction.com/projects/berkeley/) give buyers four different places to begin. They belong in the same broad downtown search, but their surroundings and residential programs deserve separate attention. Use the lifestyle to narrow your list, then let a specific home, its costs and its timing decide the rest."
+      },
+      {
+        "heading": "NORA House for a neighborhood you want to be part of",
+        "body": "NORA House is the for-sale condominium offering within the NORA District. Restaurants, shops and restored warehouse buildings help define the setting, while future development will continue to shape it.\n\nIt is a compelling starting point for buyers who like exploring close to home. The planned residential amenities carry some of that social energy upstairs, with rooftop pickleball and bowling alongside pools, lounges and wellness spaces.\n\nLook at the [NORA House floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-nora-house), then spend time in the district itself. If the places around you would become part of your regular routine, the location could carry real weight in the decision. Ask about surrounding construction and the timing of later phases, too."
+      },
+      {
+        "heading": "Banyan Tree for corner homes and a wellness focus",
+        "body": "Banyan Tree is planned with 88 private residences. Its all-corner design and wraparound terraces give the homes a distinctive starting point, with direct private elevator entry in most residences.\n\nThe amenity program places particular emphasis on wellness, including a dedicated floor with spa, fitness and meditation spaces. For someone who would regularly use those facilities, that could make everyday life feel more convenient and restorative.\n\nStart with the [Banyan Tree floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-banyan-tree). Think about where the light enters, how the terrace connects to the rooms and whether the arrival arrangement suits you. Then ask which wellness services are included, which require appointments and what carries an additional charge.",
+        "image": "/projects/banyan-tree/media/showcase/banyan-tree-hero-front-v01-web.jpg",
+        "imageAlt": "Conceptual exterior rendering of Banyan Tree Residences in West Palm Beach",
+        "imageCaption": "Banyan Tree Residences exterior, artist's rendering. The all-corner residential program and amenities are published plans, not a guarantee of completed facilities.",
+        "imageCredit": "Banyan Tree project marketing materials"
+      },
+      {
+        "heading": "Mr. C for a home with a hotel connection",
+        "body": "Mr. C’s plans combine 146 private residences with 110 hotel suites in its published development program. The planned Bellini dining, in-residence dining and housekeeping services make it particularly interesting for buyers who enjoy a hospitality-oriented setting.\n\nIts residential plans include a dedicated lobby and private residents' pool. The hotel connection is still an important part of the comparison: understand the residential arrival, guest circulation and access rules for the facilities you expect to use.\n\nOne detail deserves attention early. The official fact sheet says private-club membership is not included with a condominium purchase. Review membership separately if it matters to you. The [Mr. C floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-mr-c) are a useful next step once the service model appeals.",
+        "image": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp",
+        "imageAlt": "Mr. C exterior rendering showing the proposed arrival and street-level facade",
+        "imageCaption": "Mr. C exterior, artist's rendering. Condominium ownership does not include private-club membership; confirm residential, hotel and membership access separately.",
+        "imageCredit": "Mr. C project marketing materials"
+      },
+      {
+        "heading": "The Berkeley for Clear Lake and room to adapt",
+        "body": "The Berkeley offers a different orientation within this group, with its setting along Clear Lake on the western side of the downtown area. Buyers should distinguish that lake frontage from the Intracoastal views advertised for some higher residences.\n\nThe published layouts emphasize flex rooms and flow-through living with terraces on both sides. Those features make The Berkeley worth considering if you need a proper office, a place for a favorite pursuit or space whose purpose could change over time.\n\nIts planned family pool, separate rooftop adult pool and social spaces add to the appeal. Review the [Berkeley floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-berkeley), paying particular attention to how the extra room and outdoor areas would work for you.",
+        "image": "/assets/projects/berkeley/hero/berkeley-hero-exterior-reflection-v01.webp",
+        "imageAlt": "The Berkeley exterior rendering with landscaped frontage and a Clear Lake reflection",
+        "imageCaption": "The Berkeley at Clear Lake, artist's rendering. Lake frontage and any higher-floor Intracoastal or ocean outlook are different considerations; verify the actual residence.",
+        "imageCredit": "The Berkeley project marketing materials"
+      },
+      {
+        "heading": "Test the location against your real week",
+        "body": "A downtown label cannot tell you how convenient an address will feel. Choose a few places you already use, such as your office, a favorite restaurant or a regular fitness class, and try the routes from each finalist. Consider street crossings, heat, parking and the times you would be coming and going.\n\nViews deserve the same attention. Ask about the orientation and floor of the actual residence, surrounding buildings and nearby development. A rendering is useful for understanding a design, but it cannot establish the outlook from a home you may buy."
+      },
+      {
+        "heading": "Bring the shortlist down to two",
+        "body": "Choose the two projects whose strongest features you would use most often. Then compare homes with the bedrooms, usable space and outdoor areas you need, using current written prices and availability.\n\nPut association budgets, service charges, parking, storage and purchase terms alongside those plans. Request updated construction and closing guidance before matching a project to your moving schedule. A published floor plan or projected completion year alone cannot settle either question.\n\n[Get in touch to compare downtown residences](https://www.wpbnewconstruction.com/inquire/). Tell us which two buildings interest you, what you need from the home and when you would like to move. That is enough to begin a focused search."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "downtown West Palm Beach new condos",
+      "secondaryQueries": [
+        "downtown West Palm Beach new construction condos",
+        "NORA House Banyan Tree Mr C Berkeley comparison",
+        "downtown condo floor plans"
+      ],
+      "suggestedSlug": "downtown-west-palm-beach-new-condos-compared",
+      "titleTag": "Downtown West Palm Beach New Condos Compared",
+      "metaDescription": "Explore NORA House, Banyan Tree, Mr. C and The Berkeley in downtown West Palm Beach, with a practical guide to locations, layouts, services and buyer fit."
+    }
+  },
+
+  {
     "id": "maison-dor-vs-south-flagler-house",
     "slug": "maison-dor-vs-south-flagler-house",
     "title": "Maison d’Or vs South Flagler House in West Palm Beach",
