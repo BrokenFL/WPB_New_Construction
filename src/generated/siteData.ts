@@ -7659,7 +7659,7 @@ export const prerenderRoutes = [
   },
   {
     "path": "/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/",
-    "title": "Olara vs Shorecrest | Which Waterfront Condo Fits You?",
+    "title": "Olara vs Shorecrest: West Palm Beach Waterfront Living",
     "description": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits.",
     "ogImage": "/assets/home/shorecrest-project-card-main-v01.jpg"
   },

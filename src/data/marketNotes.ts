@@ -2821,11 +2821,12 @@ export const marketNotes = [
     }
   },
   
+  
   {
     "id": "olara-vs-shorecrest",
     "status": "published",
     "category": "Building Comparisons",
-    "title": "Olara vs Shorecrest and the waterfront life you want",
+    "title": "Olara vs Shorecrest: The waterfront life you want in West Palm Beach",
     "slug": "olara-vs-shorecrest-waterfront-buyer-profiles",
     "excerpt": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits.",
     "buyerThesis": "A smaller residential collection or a broader resort-style program",
@@ -2874,7 +2875,7 @@ export const marketNotes = [
     "sections": [
       {
         "heading": "A smaller residential collection or a broader resort-style program",
-        "body": "Olara and Shorecrest can appeal to the same buyer at first glance. Both put North Flagler waterfront living at the center of the conversation, with new residences, substantial amenities and Palm Beach across the Intracoastal. The more useful distinction emerges when you imagine an ordinary day at home.\n\nAt [Olara](https://www.wpbnewconstruction.com/projects/olara/), the draw is how much of that day could happen within the development: a workout, a swim, a waterfront meal and time on the water. [Shorecrest](https://www.wpbnewconstruction.com/projects/shorecrest/) offers a smaller residential collection, with a rooftop pool and club-level spaces that may suit someone who wants a well-serviced home base.\n\nOur starting point: look at Olara if you expect to use a broad resort-style program regularly. Put Shorecrest high on the list if the scale of the community matters as much as the amenities. Then let the individual residence sharpen the decision."
+        "body": "Olara and Shorecrest can appeal to the same buyer at first glance. Both put North Flagler waterfront living in West Palm Beach at the center of the conversation, with new residences, substantial amenities and Palm Beach across the Intracoastal. The more useful distinction emerges when you imagine an ordinary day at home.\n\nAt [Olara](https://www.wpbnewconstruction.com/projects/olara/), the draw is how much of that day could happen within the development: a workout, a swim, a waterfront meal and time on the water. [Shorecrest](https://www.wpbnewconstruction.com/projects/shorecrest/) offers a smaller residential collection, with a rooftop pool and club-level spaces that may suit someone who wants a well-serviced home base.\n\nOur starting point: look at Olara if you expect to use a broad resort-style program regularly. Put Shorecrest high on the list if the scale of the community matters as much as the amenities. Then let the individual residence sharpen the decision."
       },
       {
         "heading": "A different sense of scale",
@@ -2885,7 +2886,7 @@ export const marketNotes = [
         "imageCredit": "Olara imagery supplied for WPB New Construction"
       },
       {
-        "heading": "The floor plan can change your preference",
+        "heading": "Compare Olara and Shorecrest floor plans",
         "body": "A two-bedroom label does not tell you how a home will live. One buyer needs a proper work space; another would rather have more room for dinner with friends.\n\nConsider two released drawings. [Olara Residence D](https://www.wpbnewconstruction.com/floorplans/olara/residence-d/) shows two bedrooms plus a den, with 1,774 interior square feet and 381 exterior square feet. [Shorecrest's Unit 2 drawing](https://www.wpbnewconstruction.com/floorplans/shorecrest/residence-1602/), catalogued as Residence 1602, shows two bedrooms, a private elevator entry, 2,015 interior square feet and 192 exterior square feet.\n\nThese are layout references, not a matched pair of available listings. Still, they make the decision more tangible: Olara's example has a separate den and more outdoor area, while Shorecrest's has more interior area. Neither total tells you whether your dining table fits comfortably or whether you like the bedroom arrangement. Study the rooms, terrace access and arrival sequence before choosing a favorite building.",
         "image": "/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg",
         "imageAlt": "Released Olara Residence D drawing showing two bedrooms, a den and terrace",
@@ -2925,7 +2926,7 @@ export const marketNotes = [
         "West Palm Beach waterfront condos"
       ],
       "suggestedSlug": "olara-vs-shorecrest-waterfront-buyer-profiles",
-      "titleTag": "Olara vs Shorecrest | Which Waterfront Condo Fits You?",
+      "titleTag": "Olara vs Shorecrest: West Palm Beach Waterfront Living",
       "metaDescription": "Compare Olara and Shorecrest in West Palm Beach through daily life, floor plans, amenities and timing, with a practical look at who each building suits."
     },
     "marketSignal": "",
@@ -2945,6 +2946,7 @@ export const marketNotes = [
       "mode": "approved-local"
     }
   },
+
 
   {
     id: "why-published-floor-plans-matter",
