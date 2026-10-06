@@ -179,11 +179,12 @@ export const marketNotes = [
     }
   },
 
+  
   {
     "id": "banyan-tree-vs-mr-c-residences",
     "status": "published",
     "category": "Building Comparisons",
-    "title": "Banyan Tree vs Mr. C and the appeal of branded living",
+    "title": "Banyan Tree vs Mr. C: The appeal of branded living in West Palm Beach",
     "slug": "banyan-tree-vs-mr-c-residences",
     "excerpt": "Banyan Tree or Mr. C in West Palm Beach? Compare their residential feel, hotel connection, amenities, and the ownership questions worth asking before you buy.",
     "routeBase": "/answers/",
@@ -246,7 +247,7 @@ export const marketNotes = [
         "body": "For some buyers, the appeal of a branded residence is familiar: thoughtful service, beautiful shared spaces, and a little of the ease they enjoy at a favorite hotel. [Banyan Tree](https://www.wpbnewconstruction.com/projects/banyan-tree/) and [Mr. C](https://www.wpbnewconstruction.com/projects/mr-c/) both bring hospitality names to West Palm Beach, but their plans point toward different experiences of home.\n\nIf a restorative routine and a home with windows facing more than one direction are high on your list, start with Banyan Tree. If you picture evenings over dinner and an easy connection to hotel services, give Mr. C a closer look. Both belong on a downtown shortlist, for different reasons."
       },
       {
-        "heading": "How much hotel life do you want close by",
+        "heading": "How much of Mr. C’s hotel life do you want close by",
         "body": "Mr. C's published fact sheet describes 146 private residences and 110 hotel guest suites at 327 Okeechobee Boulevard. The planned dining offering includes Bellini Café and Bellini Restaurant, as well as in-residence dining and catering.\n\nFor a buyer who likes the idea of dinner downstairs or arranging a meal at home without cooking, that connection has a clear appeal. It may also be attractive when friends visit and you want convenient options for getting together.\n\nThe practical question is how the different parts of the property work together. Mr. C advertises a residential lobby and a private residents' pool. Ask to see the routes between the residential entrance, elevators, amenities, dining venues, and hotel areas. That is more useful than assuming a hotel component automatically makes a residence either more convenient or less private.",
         "image": "/assets/projects/mr-c/amenities/mr-c-amenities-owner-lobby-v01.webp",
         "imageAlt": "Mr. C residential lobby rendering with reception desk, lounge chairs and tall windows",
@@ -272,13 +273,14 @@ export const marketNotes = [
       "Confirm development targets and planned facilities against current written project documents."
     ],
     "seo": {
-      "primaryQuery": "Banyan Tree vs Mr. C and the appeal of branded living",
+      "primaryQuery": "Banyan Tree vs Mr. C West Palm Beach",
       "secondaryQueries": [],
       "suggestedSlug": "banyan-tree-vs-mr-c-residences",
       "titleTag": "Banyan Tree vs. Mr. C Residences West Palm Beach",
       "metaDescription": "Banyan Tree or Mr. C in West Palm Beach? Compare their residential feel, hotel connection, amenities, and the ownership questions worth asking before you buy."
     }
   },
+
 
   
   {
