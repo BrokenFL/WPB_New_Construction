@@ -280,11 +280,12 @@ export const marketNotes = [
     }
   },
 
+  
   {
     "id": "nora-house-vs-banyan-tree",
     "status": "published",
     "category": "Building Comparisons",
-    "title": "NORA House vs Banyan Tree and two ways to live downtown",
+    "title": "NORA House vs Banyan Tree: Two ways to live in downtown West Palm Beach",
     "slug": "nora-house-vs-banyan-tree",
     "excerpt": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review.",
     "routeBase": "/answers/",
@@ -378,13 +379,14 @@ export const marketNotes = [
       "Confirm development targets and planned facilities against current written project documents."
     ],
     "seo": {
-      "primaryQuery": "NORA House vs Banyan Tree and two ways to live downtown",
+      "primaryQuery": "NORA House vs Banyan Tree West Palm Beach",
       "secondaryQueries": [],
       "suggestedSlug": "nora-house-vs-banyan-tree",
       "titleTag": "NORA House vs. Banyan Tree Residences West Palm Beach",
       "metaDescription": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review."
     }
   },
+
 
   
   {
