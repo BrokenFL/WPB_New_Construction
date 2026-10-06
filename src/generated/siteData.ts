@@ -7682,6 +7682,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/olara-vs-ritz-carlton-west-palm-beach/",
+    "title": "Olara vs. Ritz-Carlton Residences West Palm Beach",
+    "description": "Compare Olara and The Ritz-Carlton Residences, West Palm Beach, from marina and wellness plans to service, floor plans and the details buyers should check.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg"
+  },
+  {
     "path": "/market-notes/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping/",
     "title": "South Flagler House line-shopping guide | Buyer Intelligence",
     "description": "South Flagler House's official pricing ladder and the latest downtown condo report show a luxury market that still rewards line-by-line comparison.",

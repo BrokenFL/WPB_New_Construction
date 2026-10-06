@@ -74,6 +74,117 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "olara-vs-ritz-carlton-west-palm-beach",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "Olara vs The Ritz-Carlton Residences in West Palm Beach",
+    "slug": "olara-vs-ritz-carlton-west-palm-beach",
+    "excerpt": "Compare Olara and The Ritz-Carlton Residences, West Palm Beach, from marina and wellness plans to service, floor plans and the details buyers should check.",
+    "routeBase": "/answers/",
+    "buyerThesis": "Marina and wellness plans alongside branded residential service",
+    "buyerTakeaway": "Start with Olara if wellness, waterfront dining and boating would shape your weekly routine. Start with The Ritz-Carlton Residences if the branded residential service experience is a major reason you are buying.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
+      "alt": "Rendering of The Ritz-Carlton Residences West Palm Beach tower beside Flagler Drive and the Intracoastal",
+      "caption": "The Ritz-Carlton Residences, West Palm Beach, artist's rendering. BH Group's first-quarter 2028 completion guidance is a developer target.",
+      "credit": "Ritz-Carlton Residences imagery supplied for WPB New Construction",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "olara",
+    "projectIds": [
+      "olara",
+      "ritz-carlton-wpb"
+    ],
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "Olara March 2026 brochure",
+        "href": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara lifestyle page",
+        "href": "https://www.olarawestpalmbeach.com/lifestyle/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Olara residences page",
+        "href": "https://www.olarawestpalmbeach.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "BH Group project page",
+        "href": "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Ritz-Carlton Residences amenities page",
+        "href": "https://theresidenceswestpalmbeach.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Ritz-Carlton Residences services page",
+        "href": "https://theresidenceswestpalmbeach.com/services/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Ritz-Carlton Residences residences page",
+        "href": "https://theresidenceswestpalmbeach.com/residences/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "Marina and wellness plans alongside branded residential service",
+        "body": "[Olara](https://www.wpbnewconstruction.com/projects/olara/) and [The Ritz-Carlton Residences, West Palm Beach](https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/) belong on the same shortlist if you want a new home along North Flagler Drive with water views, substantial amenities and help with the everyday details. The difference comes into focus when you consider what you want the building and its staff to take care of.\n\nAt Olara, the appeal is having a broad mix of fitness, dining and boating experiences close at hand. At The Ritz-Carlton Residences, the familiar hospitality brand and dedicated residential service are central to the offering. Both are planned for buyers looking ahead: Olara’s March 2026 brochure lists completion in 2028, while developer BH Group currently targets the first quarter of 2028 for The Ritz-Carlton Residences. Those are development targets, so your own moving plans need some flexibility."
+      },
+      {
+        "heading": "A broader lifestyle program or a familiar service model",
+        "body": "Olara’s plans bring together 275 condominium residences and more than 80,000 square feet of wellness and leisure space. The fitness component alone is advertised at 13,000 square feet, with indoor and outdoor areas. Add a planned private marina and dining by José Andrés Group, and the building becomes especially interesting for someone who would genuinely use several of those offerings each week.\n\nThink about your existing routine. Would you use an on-site fitness studio instead of driving to one? Would a waterfront restaurant become a regular dinner spot? Is boating already part of your life? The answers matter more than the length of the amenity list.\n\nThe Ritz-Carlton Residences is planned with 138 homes. Its amenity offering includes a pool deck with dining, a spa, a fitness and wellness center, and an advertised membership to The Cove Club. Confirm eligibility, dues and terms before treating club access as part of your ownership plan. That smaller residence count may appeal to buyers who prefer fewer homes in their building, though the number alone cannot tell you how busy the pool will feel or how quickly a request will be handled.",
+        "image": "/projects/olara/media/olara-amenity-gym-1600x1067.jpg",
+        "imageAlt": "Rendering of Olara fitness space with exercise equipment and water-facing windows",
+        "imageCaption": "Olara's planned fitness space, artist's rendering. Confirm the current amenity program and service charges.",
+        "imageCredit": "Olara imagery supplied for WPB New Construction"
+      },
+      {
+        "heading": "Look closely at the service you would actually use",
+        "body": "The Ritz-Carlton Residences publishes a service program built around a concierge, valet and a dedicated residential team. It also distinguishes between included services and à la carte offerings, such as grocery shopping, in-residence dining and vacant-home care.\n\nFor an owner who travels frequently, those practical details deserve a careful conversation. Who can prepare the home before you arrive? What can be arranged while you are away? Which requests carry an additional charge?\n\nOlara also plans a resident manager, concierge and staffed amenities. Its wider lifestyle offering should not obscure those day-to-day questions. At either property, ask for the current service schedule and costs. At The Ritz-Carlton Residences, request The Cove Club membership terms.\n\nFor Olara, make the boating questions specific. If you own a boat, can a suitable slip be secured for your vessel, and on what terms? If you do not, ask how the planned captained excursions would be booked and charged. That is how the marina becomes a useful part of the comparison."
+      },
+      {
+        "heading": "Give the floor plan equal attention",
+        "body": "The interiors take different design directions. Olara’s homes are by Gabellini Sheppard, with advertised ten-foot-deep terraces. The Ritz-Carlton Residences features Rockwell Group interiors, private balconies and dedicated elevator access to each home.\n\nReview the released [Olara floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-olara) and [Ritz-Carlton floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-ritz-carlton-wpb) before settling on a favorite building. A den that comfortably works as an office, a guest bedroom with privacy or a terrace with room for a proper dining table can matter every day. Compare the actual view direction and floor as well. Neither a building name nor a rendering can establish the view from a particular residence."
+      },
+      {
+        "heading": "Which one should you see first",
+        "body": "Start with Olara if wellness, waterfront dining and boating would shape your weekly routine. Start with The Ritz-Carlton Residences if the branded residential service experience is a major reason you are buying.\n\nThen put two suitable residences side by side, with current asking prices, association budgets, service charges and purchase terms. That comparison will tell you much more than choosing a winner at the building level.\n\nTo compare Olara and The Ritz-Carlton Residences, [get in touch](https://www.wpbnewconstruction.com/inquire/) with your preferred bedroom count, timing and the two or three things you want your next home to make easier. Those details are a useful starting point for narrowing the search."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "Olara vs The Ritz-Carlton Residences in West Palm Beach",
+      "secondaryQueries": [],
+      "suggestedSlug": "olara-vs-ritz-carlton-west-palm-beach",
+      "titleTag": "Olara vs. Ritz-Carlton Residences West Palm Beach",
+      "metaDescription": "Compare Olara and The Ritz-Carlton Residences, West Palm Beach, from marina and wellness plans to service, floor plans and the details buyers should check."
+    }
+  },
+
+  {
     "id": "los-mochis-phillips-point-west-palm-beach-2027",
     "status": "published",
     "category": "Downtown Spotlight",
