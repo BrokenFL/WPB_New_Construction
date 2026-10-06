@@ -7682,6 +7682,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/banyan-tree-vs-mr-c-residences/",
+    "title": "Banyan Tree vs. Mr. C Residences West Palm Beach",
+    "description": "Banyan Tree or Mr. C in West Palm Beach? Compare their residential feel, hotel connection, amenities, and the ownership questions worth asking before you buy.",
+    "ogImage": "/assets/home/banyan-tree-project-card-main-v01.jpg"
+  },
+  {
     "path": "/answers/nora-house-vs-banyan-tree/",
     "title": "NORA House vs. Banyan Tree Residences West Palm Beach",
     "description": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review.",
