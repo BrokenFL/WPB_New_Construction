@@ -113,6 +113,12 @@ Stage / Publish (news destination) write/regenerate:
 Buyer / Downtown destinations write: `src/data/marketNotes.ts`,
 `src/generated/siteData.ts`, `public/sitemap.xml`, editorial assets.
 
+Buyer / Downtown section images preserve `imageAlt`, `imageCaption`, and
+`imageCredit` from the input body image metadata and render them in a figure.
+Set `heroImage.showCaption: true` to display the supplied hero caption and
+credit on these article pages. Existing articles keep their current hero
+caption visibility unless this option is set.
+
 ## QA / build steps
 
 - Stage and Publish run `npm run build` and `npm run qa:launch:no-write`.

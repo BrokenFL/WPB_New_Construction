@@ -6687,7 +6687,7 @@ function renderMarketNoteArticle(note: MarketNote) {
           <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
           <p class="market-note-hero-thesis">${escapeHtml(note.buyerThesis)}</p>
         </div>
-        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image", { caption: false })}
+        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image", { caption: note.image?.showCaption === true })}
       </header>
       <section class="market-note-meta-strip" aria-label="Article metadata">
         <div><span>Category</span><strong>${escapeHtml(note.category)}</strong></div>
@@ -6728,7 +6728,15 @@ function renderMarketNoteArticle(note: MarketNote) {
                       : ""
                   }
                   ${section.imageId ? renderEditorialImagePanel(section.imageId, { className: "market-note-inline-image", caption: false, credit: false }) : ""}
-                  ${inlineImg(section.image)}
+                  ${section.image && (section.imageAlt || section.imageCaption || section.imageCredit)
+                    ? renderResolvedContentImage({
+                        src: section.image,
+                        alt: section.imageAlt || section.heading,
+                        caption: section.imageCaption || "",
+                        credit: section.imageCredit || "",
+                        source: "explicit",
+                      }, "market-note-inline-image", { caption: Boolean(section.imageCaption || section.imageCredit) })
+                    : inlineImg(section.image)}
                 </section>
               `,
             )

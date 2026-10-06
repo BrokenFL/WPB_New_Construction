@@ -512,6 +512,7 @@ async function publishMarketNoteArticle({ sourceFile, normalized, articleId, rou
       alt: hero.alt,
       caption: hero.caption,
       credit: hero.credit,
+      showCaption: input.heroImage?.showCaption ?? existing?.image?.showCaption ?? false,
       mode: hero.mode,
     },
     primaryProjectId: clean(input.primaryProjectId || existing?.primaryProjectId || asArray(input.relatedProjectIds || input.projectIds || existing?.projectIds || [])[0]),
@@ -524,10 +525,7 @@ async function publishMarketNoteArticle({ sourceFile, normalized, articleId, rou
     })),
     datePublished: clean(existing?.datePublished || input.datePublished || today),
     dateModified: today,
-    // MarketNoteSection only carries the image path (the downtown renderer
-    // renders section images as plain <img src>); strip the news-only
-    // image metadata keys so the marketNotes.ts typecheck passes.
-    sections: normalized.bodySections.map(({ imageAlt, imageCaption, imageCredit, ...section }) => section),
+    sections: normalized.bodySections,
     ctaText: clean(input.ctaText || existing?.ctaText || "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options."),
     factCheckRequired: asArray(input.factCheckRequired || existing?.factCheckRequired || [
       "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",

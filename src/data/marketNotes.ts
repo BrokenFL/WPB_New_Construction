@@ -22,6 +22,9 @@ export type MarketNoteSection = {
   bullets?: string[];
   imageId?: string;
   image?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  imageCredit?: string;
 };
 
 export type MarketNote = {
@@ -46,6 +49,7 @@ export type MarketNote = {
     credit: string;
     alt?: string;
     caption?: string;
+    showCaption?: boolean;
     mode?: "approved-local" | "generated-editorial" | "provided-editorial";
   };
   imageId?: string;
