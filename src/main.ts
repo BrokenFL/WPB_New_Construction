@@ -1323,30 +1323,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     sourceNotes: ["Released penthouse plans come from the existing WPB New Construction floorplan library.", "Penthouse pricing, exposure, and availability are verification items — confirm the specific unit."],
   },
-  {
-    slug: "nora-house-vs-the-berkeley",
-    shortLabel: "NORA vs Berkeley",
-    title: "NORA House vs The Berkeley",
-    question: "Should I buy at NORA House or The Berkeley?",
-    description: "Compare NORA House and The Berkeley in Downtown WPB — district positioning, pricing guidance, status, and which buyer each fits.",
-    bluf:
-      "NORA House (sales open, from the low $2Ms guidance, NORA district-anchored) and The Berkeley (under construction, reported from $2M to over $10M) are Downtown's two most accessible luxury entries. NORA House suits buyers who want district energy and an open sales gallery now; The Berkeley suits buyers who want an under-construction boutique program. Verify live pricing, availability, and fee structure for both.",
-    explanation:
-      "Both give Downtown walkability at a lower entry than the Flagler waterfront flagships, but they sell different things: NORA House sells the NORA district's restaurant and cultural energy with released plans to compare; The Berkeley sells a boutique under-construction program with a wide reported price band. Compare district position, service model, delivery certainty, and what the entry price actually buys — then verify current documents.",
-    projectIds: ["nora-house", "berkeley"],
-    corridorKeys: ["downtown"],
-    tableRows: [
-      { label: "NORA House", bestUse: "Buyers who want NORA district positioning with sales already open.", links: ["/projects/nora-house/", "/corridors/downtown-west-palm-beach/"], verify: "Confirm the low-$2Ms guidance, current availability, and district phasing." },
-      { label: "The Berkeley", bestUse: "Buyers who prefer an under-construction boutique program.", links: ["/projects/berkeley/"], verify: "Confirm the reported $2M entry against the live price list — the band runs wide." },
-      { label: "Downtown corridor", bestUse: "Buyers deciding whether Downtown's entry lane fits before picking a building.", links: ["/corridors/downtown-west-palm-beach/", "/answers/downtown-west-palm-beach-new-condos-compared/"], verify: "Confirm parking, fees, noise, and how each building's position affects the daily routine." },
-    ],
-    faqs: [
-      { question: "Which is cheaper, NORA House or The Berkeley?", answer: "NORA House guides from the low $2Ms; The Berkeley is reported from $2M to over $10M. The bands overlap at entry — verify which specific residences each entry figure applies to." },
-      { question: "Which will deliver first?", answer: "The Berkeley is under construction while NORA House is sales open and preconstruction. Confirm live schedules — status labels move." },
-      { question: "What is the NORA district?", answer: "A developing district neighborhood with restaurants, culture, and walkability that anchors NORA House's positioning. Confirm phasing and what is actually open versus planned." },
-    ],
-    sourceNotes: ["Project status and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
-  },
+  
   {
     slug: "palm-beach-island-new-construction-guide",
     shortLabel: "Island guide",

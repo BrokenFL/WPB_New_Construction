@@ -74,6 +74,121 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "nora-house-vs-the-berkeley",
+    "slug": "nora-house-vs-the-berkeley",
+    "title": "NORA House vs The Berkeley in West Palm Beach",
+    "excerpt": "Compare NORA House and The Berkeley in West Palm Beach, from neighborhood life and Clear Lake views to flexible layouts, amenities and ownership details.",
+    "routeBase": "/answers/",
+    "category": "Building Comparisons",
+    "projectIds": [
+      "nora-house",
+      "berkeley"
+    ],
+    "status": "published",
+    "buyerThesis": "NORA District life and a Clear Lake setting",
+    "buyerTakeaway": "Once a layout at each property feels promising, ask for current availability and written pricing for those particular homes. An advertised entry price cannot tell you what your preferred floor, outlook or terrace will cost.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/nora-house/hero/nora-house-hero-exterior-night-v01.jpg",
+      "alt": "NORA House conceptual exterior rendering at dusk with terraces and landscaped surroundings",
+      "caption": "NORA House exterior, artist's rendering. The district and residential facilities remain subject to current plans and phasing.",
+      "credit": "NORA House project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "nora-house",
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "NORA District residential overview",
+        "href": "https://norawpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA House official residences",
+        "href": "https://norahouse.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA House official amenities",
+        "href": "https://norahouse.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Berkeley official homepage",
+        "href": "https://www.theberkeleypalmbeach.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Berkeley official residences",
+        "href": "https://www.theberkeleypalmbeach.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Berkeley official amenities",
+        "href": "https://www.theberkeleypalmbeach.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "The Berkeley groundbreaking announcement",
+        "href": "https://www.theberkeleypalmbeach.com/the-berkeley-palm-beach-celebrates-groundbreaking-and-grand-opening-of-sales-gallery/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "NORA District life and a Clear Lake setting",
+        "body": "[NORA House](https://www.wpbnewconstruction.com/projects/nora-house/) and [The Berkeley](https://www.wpbnewconstruction.com/projects/berkeley/) make an interesting pair for buyers who want a new condominium with access to downtown West Palm Beach. Their strongest attractions, however, start in different places. NORA House offers ownership within the evolving NORA District. The Berkeley brings a Clear Lake setting and a particular emphasis on adaptable layouts.\n\nBegin with NORA House if you want the surrounding neighborhood to play a big part in your day. Give The Berkeley a close look if a lake outlook, generous outdoor space and an extra room for changing needs are high on your list. Both settings deserve a visit before you decide which version of city living feels right."
+      },
+      {
+        "heading": "Get to know the two settings",
+        "body": "NORA House is the for-sale condominium offering within a district of restored warehouses, restaurants, shops and newer development. Its appeal extends beyond the front door. You might be buying partly for the pleasure of becoming a regular at a nearby café or having a familiar place for dinner close to home.\n\nSpend time in the district before making that your deciding factor. Which destinations would you actually use? What is open today, and what belongs to a later phase? NORA continues to evolve, so it is worth understanding the work expected around the residence during your first years there.\n\nThe Berkeley sits along Clear Lake, on the western side of the downtown area. The water that defines its immediate setting is the lake; any Intracoastal or ocean outlook depends on the individual residence. Take the same practical approach here: try your route to dinner, work or a performance at the Kravis Center, and notice how you prefer to make those trips.",
+        "image": "/assets/projects/berkeley/hero/berkeley-hero-exterior-reflection-v01.webp",
+        "imageAlt": "Conceptual rendering of The Berkeley with landscaped frontage and reflections on Clear Lake",
+        "imageCaption": "The Berkeley at Clear Lake, artist's rendering. This is lake frontage; the image does not guarantee the outlook from an individual residence.",
+        "imageCredit": "The Berkeley project marketing materials"
+      },
+      {
+        "heading": "Pay attention to the extra room",
+        "body": "The Berkeley's published residence program includes a flex room in each home, along with flow-through layouts and east- and west-facing terraces. For someone who works from home or regularly has visitors, that flexibility could be a meaningful reason to buy.\n\nThe next question is what the room can comfortably do. Check its dimensions, doors, access to a bathroom and relationship to the rest of the home. A space that works beautifully as an office may suit occasional visitors differently. Let the drawing and offering documents establish its intended use.\n\nNORA House also offers choices worth studying beyond the bedroom count. Its official residences page highlights Residence 09 as a through-floor layout with three bedrooms and a den. That gives buyers a useful alternative to examine if they want room for both guests and work.\n\nUse the released [NORA House plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-nora-house) and [Berkeley plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-berkeley) to shortlist layouts. Compare interior and terrace areas separately, and trace an ordinary day through each home. Published drawings help with that exercise; they do not establish which residences are currently available."
+      },
+      {
+        "heading": "Picture the time you would spend at home",
+        "body": "NORA House's planned amenities include rooftop pickleball and bowling, pools, a sports and games lounge, and wellness spaces. Buyers who enjoy having friends over may find that combination particularly appealing. It creates several possible ways to spend time together without organizing an outing.\n\nThe Berkeley's planned program includes a family pool and splash pad, a separate rooftop adult pool, fitness and spa facilities, co-working space and private dining. Those options could work well for a household whose members want different things from an afternoon at home.\n\nThere is plenty of overlap in the basics. The useful comparison is how the spaces would fit your week. Ask about reservations, guest policies and additional charges for the amenities you expect to use most often. More choices only add value when they are choices you want."
+      },
+      {
+        "heading": "Put the ownership details beside the lifestyle",
+        "body": "Once a layout at each property feels promising, ask for current availability and written pricing for those particular homes. An advertised entry price cannot tell you what your preferred floor, outlook or terrace will cost.\n\nReview the proposed association budget, parking and storage arrangements, and separately charged services. If you expect to spend part of the year elsewhere, explain that routine and ask what assistance can be arranged while you are away.\n\nTiming belongs in the same conversation. Request current construction milestones, deposit schedules and expected closing windows for both before organizing a move around either purchase.\n\nNORA House may win you over with its neighborhood. The Berkeley may win you over with the home itself and its lake setting. [Ask The Scott Gordon Group to compare current residences at NORA House and The Berkeley](https://www.wpbnewconstruction.com/inquire/), with your bedroom needs, budget and timing as the starting point."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "NORA House vs The Berkeley",
+      "secondaryQueries": [
+        "NORA House vs Berkeley West Palm Beach",
+        "Clear Lake new condos",
+        "NORA House and Berkeley floor plans"
+      ],
+      "suggestedSlug": "nora-house-vs-the-berkeley",
+      "titleTag": "NORA House vs The Berkeley | West Palm Beach Condos",
+      "metaDescription": "Compare NORA House and The Berkeley in West Palm Beach, from neighborhood life and Clear Lake views to flexible layouts, amenities and ownership details."
+    }
+  },
+
+  {
     "id": "shorecrest-vs-ritz-carlton-west-palm-beach",
     "status": "published",
     "category": "Building Comparisons",

@@ -7292,12 +7292,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
-    "path": "/answers/nora-house-vs-the-berkeley/",
-    "title": "NORA House vs The Berkeley | WPB Answers",
-    "description": "Compare NORA House and The Berkeley in Downtown WPB — district positioning, pricing guidance, status, and which buyer each fits.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
-  },
-  {
     "path": "/answers/palm-beach-island-new-construction-guide/",
     "title": "Palm Beach Island New Construction Guide | WPB Answers",
     "description": "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
@@ -7680,6 +7674,12 @@ export const prerenderRoutes = [
     "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/answers/nora-house-vs-the-berkeley/",
+    "title": "NORA House vs The Berkeley | West Palm Beach Condos",
+    "description": "Compare NORA House and The Berkeley in West Palm Beach, from neighborhood life and Clear Lake views to flexible layouts, amenities and ownership details.",
+    "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-exterior-night-v01.jpg"
   },
   {
     "path": "/answers/shorecrest-vs-ritz-carlton-west-palm-beach/",
