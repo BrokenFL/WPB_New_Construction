@@ -386,6 +386,7 @@ export const marketNotes = [
     }
   },
 
+  
   {
     "id": "olara-vs-ritz-carlton-west-palm-beach",
     "status": "published",
@@ -475,7 +476,7 @@ export const marketNotes = [
         "body": "The Ritz-Carlton Residences publishes a service program built around a concierge, valet and a dedicated residential team. It also distinguishes between included services and à la carte offerings, such as grocery shopping, in-residence dining and vacant-home care.\n\nFor an owner who travels frequently, those practical details deserve a careful conversation. Who can prepare the home before you arrive? What can be arranged while you are away? Which requests carry an additional charge?\n\nOlara also plans a resident manager, concierge and staffed amenities. Its wider lifestyle offering should not obscure those day-to-day questions. At either property, ask for the current service schedule and costs. At The Ritz-Carlton Residences, request The Cove Club membership terms.\n\nFor Olara, make the boating questions specific. If you own a boat, can a suitable slip be secured for your vessel, and on what terms? If you do not, ask how the planned captained excursions would be booked and charged. That is how the marina becomes a useful part of the comparison."
       },
       {
-        "heading": "Give the floor plan equal attention",
+        "heading": "Compare Olara and Ritz-Carlton floor plans",
         "body": "The interiors take different design directions. Olara’s homes are by Gabellini Sheppard, with advertised ten-foot-deep terraces. The Ritz-Carlton Residences features Rockwell Group interiors, private balconies and dedicated elevator access to each home.\n\nReview the released [Olara floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-olara) and [Ritz-Carlton floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-ritz-carlton-wpb) before settling on a favorite building. A den that comfortably works as an office, a guest bedroom with privacy or a terrace with room for a proper dining table can matter every day. Compare the actual view direction and floor as well. Neither a building name nor a rendering can establish the view from a particular residence."
       },
       {
@@ -489,13 +490,14 @@ export const marketNotes = [
       "Confirm development targets and planned facilities against current written project documents."
     ],
     "seo": {
-      "primaryQuery": "Olara vs The Ritz-Carlton Residences in West Palm Beach",
+      "primaryQuery": "Olara vs Ritz-Carlton West Palm Beach",
       "secondaryQueries": [],
       "suggestedSlug": "olara-vs-ritz-carlton-west-palm-beach",
       "titleTag": "Olara vs. Ritz-Carlton Residences West Palm Beach",
       "metaDescription": "Compare Olara and The Ritz-Carlton Residences, West Palm Beach, from marina and wellness plans to service, floor plans and the details buyers should check."
     }
   },
+
 
   {
     "id": "los-mochis-phillips-point-west-palm-beach-2027",
