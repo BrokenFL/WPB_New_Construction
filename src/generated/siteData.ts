@@ -7682,6 +7682,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/answers/nora-house-vs-banyan-tree/",
+    "title": "NORA House vs. Banyan Tree Residences West Palm Beach",
+    "description": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review.",
+    "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
+  },
+  {
     "path": "/answers/olara-vs-ritz-carlton-west-palm-beach/",
     "title": "Olara vs. Ritz-Carlton Residences West Palm Beach",
     "description": "Compare Olara and The Ritz-Carlton Residences, West Palm Beach, from marina and wellness plans to service, floor plans and the details buyers should check.",

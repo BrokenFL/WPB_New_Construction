@@ -74,6 +74,112 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "nora-house-vs-banyan-tree",
+    "status": "published",
+    "category": "Building Comparisons",
+    "title": "NORA House vs Banyan Tree and two ways to live downtown",
+    "slug": "nora-house-vs-banyan-tree",
+    "excerpt": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review.",
+    "routeBase": "/answers/",
+    "buyerThesis": "Neighborhood life and a downtown residential retreat",
+    "buyerTakeaway": "A promising comparison starts with two actual residences: similar bedroom counts, the space you need, and a purchase price you are comfortable considering. From there, look at interior and outdoor square footage separately, the floor level, the direction each home faces, and what could affect its outlook.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg",
+      "alt": "Exterior rendering of NORA House with terraces above a landscaped street",
+      "caption": "NORA House exterior, artist's rendering. The evolving district and advertised facilities should be checked against current plans.",
+      "credit": "NORA House project marketing materials",
+      "showCaption": true,
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "nora-house",
+    "projectIds": [
+      "nora-house",
+      "banyan-tree"
+    ],
+    "sourceName": "Published project sources reviewed October 6, 2026",
+    "sourceLinks": [
+      {
+        "label": "NORA District residential overview",
+        "href": "https://norawpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA House residences",
+        "href": "https://norahouse.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA House amenities",
+        "href": "https://norahouse.com/amenities/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Banyan Group launch announcement, March 25, 2026",
+        "href": "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Banyan Tree residences",
+        "href": "https://www.banyantreeresidenceswpb.com/residences/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Banyan Tree amenities and services",
+        "href": "https://www.banyantreeresidenceswpb.com/amenities-and-services/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "sections": [
+      {
+        "heading": "Neighborhood life and a downtown residential retreat",
+        "body": "[NORA House](https://www.wpbnewconstruction.com/projects/nora-house/) and [Banyan Tree Residences](https://www.wpbnewconstruction.com/projects/banyan-tree/) offer two appealing ways to make a home in West Palm Beach. NORA House puts the growing NORA District at the center of the experience, with restaurants, shops, and places to gather shaping the neighborhood around it. Banyan Tree puts more emphasis on the home as a retreat, with corner layouts, wraparound terraces, and a substantial wellness offering.\n\nFor buyers considering both, begin with the streets around them. NORA House offers a place in an evolving district; Banyan Tree brings a branded residential setting to central downtown. Neither has direct Intracoastal frontage, so the draw is city living, with the waterfront as a nearby destination."
+      },
+      {
+        "heading": "NORA House makes the neighborhood part of the purchase",
+        "body": "NORA House is the for-sale condominium offering within the NORA District, where restored warehouses sit alongside newer development. Its appeal is easy to understand if you like the idea of having familiar places for coffee, a workout, or dinner close to home.\n\nThat setting deserves as much attention as the building. Walk the streets at the times you would actually use them. Visit on a weekday morning and again around dinner. Notice which businesses you would return to and how comfortable the route feels in the heat or after dark.\n\nThe district is also still evolving. For some buyers, participating in that next chapter is part of the draw. If you prefer a more settled setting, ask which nearby projects and streetscape changes are expected during your first years of ownership."
+      },
+      {
+        "heading": "Banyan Tree gives the residence a distinctive starting point",
+        "body": "Banyan Tree is planned as a collection of 88 private residences. Every home is designed as a corner residence with a wraparound terrace, and most have direct elevator entry. That last detail is worth checking for the specific floor plan you like.\n\nThose features may have a greater effect on daily life than another room on an amenity list. Windows facing more than one direction can change how a home feels throughout the day. A well-proportioned terrace can become the place you use most often.\n\nThe released [NORA House floor plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-nora-house) span two to four bedrooms; [Banyan Tree's plans](https://www.wpbnewconstruction.com/floorplans/#floorplans-banyan-tree) include one- to four-bedroom options. Beyond bedroom count, compare how each plan would hold your furniture, accommodate guests, and give you a comfortable place to work. A beautiful living room matters less if the only suitable desk space is beside the television.",
+        "image": "/assets/projects/banyan-tree/residences/banyan-tree-residences-living-room-v01.jpg",
+        "imageAlt": "Banyan Tree living-room rendering with corner windows and a terrace",
+        "imageCaption": "Banyan Tree residence, artist's rendering. Views and features are conceptual and depend on the selected home.",
+        "imageCredit": "Banyan Tree project marketing materials"
+      },
+      {
+        "heading": "Which amenities would become habits",
+        "body": "NORA House's planned amenities have a sociable, playful streak, including rooftop pickleball and bowling, alongside pools, lounges, and wellness spaces. That mix could be especially appealing if you enjoy inviting friends over or want activities close at hand.\n\nBanyan Tree makes wellness a particularly prominent part of its offering, with a dedicated floor that includes a spa and spaces for fitness and meditation. It also plans social spaces, so the choice is more nuanced than simply lively versus quiet.\n\nThink about the amenities you already use in your life. If a convenient workout would change your week, look closely at the fitness facilities. If visitors are a priority, understand the guest arrangements. Ask about hours, reservations, and charges for the services you expect to use regularly."
+      },
+      {
+        "heading": "Choose the home first, then examine the ownership details",
+        "body": "A promising comparison starts with two actual residences: similar bedroom counts, the space you need, and a purchase price you are comfortable considering. From there, look at interior and outdoor square footage separately, the floor level, the direction each home faces, and what could affect its outlook.\n\nThen compare the full cost of ownership, including the proposed association budget and any separately charged services. Public marketing does not establish the final cost or guarantee that every advertised service is included.\n\nNORA House may rise to the top if neighborhood discovery and easy social plans are central to your idea of home. Banyan Tree may be more compelling if the corner layout, terrace, and wellness program are what you keep coming back to. The better choice is the one whose everyday advantages you will actually enjoy.\n\nConsidering both? [Get in touch](https://www.wpbnewconstruction.com/inquire/) to compare the floor plans, current availability, and ownership details that fit the way you want to live in West Palm Beach."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Request current residence-specific availability, pricing, ownership costs and service terms.",
+      "Confirm development targets and planned facilities against current written project documents."
+    ],
+    "seo": {
+      "primaryQuery": "NORA House vs Banyan Tree and two ways to live downtown",
+      "secondaryQueries": [],
+      "suggestedSlug": "nora-house-vs-banyan-tree",
+      "titleTag": "NORA House vs. Banyan Tree Residences West Palm Beach",
+      "metaDescription": "Compare NORA House and Banyan Tree Residences in West Palm Beach, from neighborhood life and floor plans to amenities and the details buyers should review."
+    }
+  },
+
+  {
     "id": "olara-vs-ritz-carlton-west-palm-beach",
     "status": "published",
     "category": "Building Comparisons",
