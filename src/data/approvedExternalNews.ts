@@ -81,6 +81,121 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07",
+    "slug": "related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07",
+    "title": "Related Ross Moves to Buy Family Church Land for Edgeworth",
+    "sourceName": "The Palm Beach Post",
+    "sourceUrl": "https://bluewaterhealthyliving.com/news/national-news/florida/related-ross-family-church-switch-to-west-palm-land-sale-exclusive/",
+    "canonicalUrl": "https://www.wpbnewconstruction.com/updates/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07/",
+    "sourceTitle": "Related Ross Moves to Buy Family Church Land for Edgeworth",
+    "publishedAt": "2026-10-07T22:51:33.604Z",
+    "sourcePublishedAt": "2026-10-05",
+    "sourcePublishedDate": "2026-10-05",
+    "eventDate": "2026-10-05",
+    "dateDiscovered": "2026-10-07",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-10-07T22:51:33.604Z",
+    "titleTag": "Edgeworth Land Deal Shifts From Lease to Sale",
+    "metaDescription": "Related Ross plans to buy Family Church land for Edgeworth. What the reported deal changes and what West Palm Beach condo buyers should watch next.",
+    "deck": "A proposed land purchase would replace the 99-year lease behind Edgeworth and bring Family Church its proceeds sooner.",
+    "description": "Related Ross plans to buy Family Church land for Edgeworth. What the reported deal changes and what West Palm Beach condo buyers should watch next.",
+    "summary": "A proposed land purchase would replace the 99-year lease behind Edgeworth and bring Family Church its proceeds sooner.",
+    "bodySections": [
+      {
+        "heading": "The proposed land purchase",
+        "body": "Related Ross is changing a central piece of its Edgeworth plan. The developer intends to buy the Family Church land needed for the condominium project, replacing a 99-year lease, according to an October 5 report by Alexandra Clough in The Palm Beach Post.\n\nThe purchase price has not been disclosed. The Post reports that it is expected to exceed the roughly $100 million lease agreement, with closing anticipated within the next couple of months.\n\nFor buyers following South Flagler, the change puts the land arrangement behind Edgeworth back in focus. It also explains how the condominium development could help finance the next chapter of an established downtown church campus."
+      },
+      {
+        "heading": "Why Family Church wants a sale",
+        "body": "The appeal for Family Church is receiving its money sooner. Under the lease arrangement, the final payment would have come in February 2028. The sale would accelerate those proceeds to support school expansion and additional church locations, according to the Post.\n\nThat makes the campus an important part of the development story. The towers and the church’s long-term plans are advancing together on one of South Flagler’s most visible sites.",
+        "image": "/assets/editorial/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07-body-1.jpg",
+        "imageAlt": "Illustration of church buildings and a steeple beside surface parking, with a residential tower in the background",
+        "imageCaption": "Church buildings and surface parking beside a residential tower at sunset. Illustration provided by NewsDesk.",
+        "imageCredit": "NewsDesk"
+      },
+      {
+        "heading": "A new chapter for the church campus",
+        "body": "In April 2024, the Post described a new four-story Palm Beach Christian Academy building with classrooms through eighth grade, meeting space and offices. The existing sanctuary was to remain. School rebuilding has accompanied the residential proposal from an early stage.\n\nThe project has also moved through city review. West Palm Beach’s March 2, 2026 meeting record shows approval of a major amendment to the Family Church Residential Planned Development, covering the campus, residential towers, commercial use and parking.",
+        "image": "/assets/editorial/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07-body-2.jpg",
+        "imageAlt": "Illustration of a glass-fronted entrance labeled Family Church, framed by trees with a steeple behind it",
+        "imageCaption": "A glass-fronted entrance labeled Family Church, framed by trees with a steeple behind it. Illustration provided by NewsDesk.",
+        "imageCredit": "NewsDesk"
+      },
+      {
+        "heading": "What Edgeworth is marketing today",
+        "body": "Edgeworth’s current official website presents two towers with 184 residences, two- to four-bedroom layouts and pricing from $5.5 million. The project address is 1155 South Flagler Drive, with architecture by Kohn Pedersen Fox and interiors by March and White Design. Related Ross describes more than 93,000 square feet of amenity space.\n\nThose are the developer’s current published figures. They should be checked against the latest offering and residence-specific availability when a buyer is ready to compare homes."
+      },
+      {
+        "heading": "What buyers should watch next",
+        "body": "The most useful next step is a clear account of the completed land transaction and how it is reflected in the condominium offering. Buyers should ask their sales team and counsel to explain the final ownership structure and any shared access, parking or operating arrangements with the surrounding campus.\n\nLocation still deserves a residence-by-residence look. The tower, floor, orientation and surrounding buildings will matter when evaluating an individual home’s outlook. A visit to the site can also help buyers understand the relationship between the residential entrances and the active church and school setting.\n\nAlongside the land closing, the next practical signals are a confirmed construction schedule, current floor plans and the documents governing the purchase. Those details will show how the revised deal translates into the homes being offered.\n\nEdgeworth remains worth watching for the combination it brings to South Flagler: a substantial new residential offering and a renewed community campus. The planned land purchase is the latest step in bringing those pieces together."
+      }
+    ],
+    "imageAlt": "Illustration of two residential towers beside a waterfront at dusk, with palm trees and reflected evening light",
+    "imageCaption": "Two waterfront residential towers at dusk, with landscaped grounds and lights reflecting on the water. Illustration provided by NewsDesk.",
+    "imageCredit": "NewsDesk",
+    "whyItMatters": "The appeal for Family Church is receiving its money sooner. Under the lease arrangement, the final payment would have come in February 2028. The sale would accelerate those proceeds to support school expansion and additional church locations, according to the Post.",
+    "buyerContext": "The most useful next step is a clear account of the completed land transaction and how it is reflected in the condominium offering. Buyers should ask their sales team and counsel to explain the final ownership structure and any shared access, parking or operating arrangements with the surrounding campus.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Related Ross Moves to Buy Family Church Land for Edgeworth",
+    "newsletterBlurb": "A proposed land purchase would replace the 99-year lease behind Edgeworth and bring Family Church its proceeds sooner.",
+    "newsletterCta": "Read the article",
+    "query": "Related Ross Moves to Buy Family Church Land for Edgeworth",
+    "category": "development",
+    "relatedProjectIds": [
+      "edgeworth"
+    ],
+    "relatedCorridorIds": [
+      "south-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "edgeworth"
+    ],
+    "relatedCorridors": [
+      "south-flagler"
+    ],
+    "primaryProjectSlug": "edgeworth",
+    "corridorLabel": "South Flagler",
+    "imagePath": "/assets/editorial/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach Post reporting, syndicated by Blue Water Healthy Living",
+        "url": "https://bluewaterhealthyliving.com/news/national-news/florida/related-ross-family-church-switch-to-west-palm-land-sale-exclusive/",
+        "type": "news"
+      },
+      {
+        "label": "Palm Beach Post’s April 2024 campus report",
+        "url": "https://www.aol.com/news/family-church-related-cos-plan-091335733.html",
+        "type": "news"
+      },
+      {
+        "label": "City of West Palm Beach, March 2, 2026 approval record, pages 21–23",
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-03-mar-pfa/pf-03_02_26-city-commission-agenda.pdf#page=21",
+        "type": "official"
+      },
+      {
+        "label": "Official Edgeworth website",
+        "url": "https://www.edgeworthwpb.com/",
+        "type": "official"
+      },
+      {
+        "label": "Related Ross residential portfolio",
+        "url": "https://www.relatedross.com/residential",
+        "type": "official"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "610-evernia-related-ross-development-2026-09-27",
     "slug": "610-evernia-related-ross-development-2026-09-27",
     "title": "Related Ross to Move 610 Evernia House, Clearing CityPlace Block for Future Development",

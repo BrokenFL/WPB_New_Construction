@@ -7292,6 +7292,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07/",
+    "title": "Edgeworth Land Deal Shifts From Lease to Sale",
+    "description": "Related Ross plans to buy Family Church land for Edgeworth. What the reported deal changes and what West Palm Beach condo buyers should watch next.",
+    "ogImage": "/assets/editorial/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07-hero.jpg"
+  },
+  {
     "path": "/updates/610-evernia-related-ross-development-2026-09-27/",
     "title": "Related Ross Clears 610 Evernia Site for Future West Palm Beach Development",
     "description": "Related Ross will spend $3.2 million relocating two Evernia Street homes as it clears a strategic CityPlace block for parking and potential future redevelopment.",
