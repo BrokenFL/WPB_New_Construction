@@ -67,3 +67,8 @@ references, or local path leaks), typecheck, production build, the full `npm tes
 suite, launch QA, and gatekeeper QA. The existing push-to-`main` Cloudflare Pages
 workflow is the authorized deployment path. Commit, remote push, workflow result,
 and live verification are recorded separately in the release handoff.
+
+Live review found that returning browsers could retain the prior unversioned
+editorial stylesheet for four hours. The stylesheet link in `index.html` now
+uses `?v=20261007-spotlight`; prerendered pages inherit that version so returning
+visitors load the new heading and archive rules.
