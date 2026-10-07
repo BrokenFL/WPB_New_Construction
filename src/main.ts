@@ -32,6 +32,7 @@ import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImag
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { marketNotePath, marketNoteRouteBase, marketNoteForPath } from "./lib/marketNoteRouting.ts";
 import { renderMarketNoteBody } from "./lib/marketNoteBody.ts";
+import { publishedDowntownSpotlights, renderDowntownSpotlightDesk } from "./lib/downtownSpotlight.ts";
 import { track } from "./lib/analytics";
 import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, getLeadAttribution, rememberLeadAttribution } from "./lib/leadCapture";
 import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
@@ -2793,20 +2794,7 @@ app.innerHTML = `
 
       ${renderHomepageCompareLauncher()}
 
-      <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
-        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" fetchpriority="low" />
-        <div class="home-spotlight-content">
-          <div class="home-spotlight-meta">
-            <p class="eyebrow">Downtown Spotlight</p>
-            <a class="home-spotlight-parent-link" href="/downtown-spotlight/">View all Downtown Spotlights <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="home-spotlight-copy">
-            <h2>Why the NORA District could reshape Downtown.</h2>
-            <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward. See <a href="/projects/nora-house/">NORA House</a>, the district condominium, for the residential angle.</p>
-          </div>
-          <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
-        </div>
-      </section>
+      ${renderDowntownSpotlightDesk(marketNotes, { resolveImage: imageForContentItem })}
 
       <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact" id="atlas" aria-label="West Palm Beach project atlas">
         <div class="home-atlas-compact-heading">
@@ -4976,7 +4964,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
             ? [
                 buildWebPageSchema(routeType),
                 buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Downtown Spotlight", path: "/downtown-spotlight/" }]),
-                ...marketNotes.filter(isDowntownSpotlight).map(buildMarketNoteSchema),
+                ...publishedDowntownSpotlights(marketNotes).map(buildMarketNoteSchema),
               ]
           : routeType === "market-notes"
             ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guidance", path: "/market-notes/" }]), ...buyerResourceNotes.map(buildMarketNoteSchema)]
@@ -5441,29 +5429,7 @@ function renderHomeSectionJumpControls() {
 }
 
 function renderDowntownSpotlightIndex() {
-  const spotlightNotes = marketNotes.filter((note) => note.category === "Downtown Spotlight");
-  return `
-    <section class="section intelligence-hero downtown-spotlight-hero" style="position:relative;display:block;width:100%;max-width:none;margin:0;min-height:clamp(640px,78vh,900px);padding:0;overflow:hidden;border-bottom:1px solid var(--line);background:var(--obsidian);">
-      ${renderEditorialImagePanel("downtown-spotlight-night-skyline-hero", { hero: true, caption: false, credit: false, className: "downtown-spotlight-hero-image", style: "position:absolute;inset:0;width:100%;height:100%;margin:0;border:0;border-radius:0;box-shadow:none;" })}
-      <div class="downtown-spotlight-hero-copy" style="position:relative;z-index:2;display:grid;align-content:end;gap:18px;width:min(760px, calc(100% - 36px));min-height:clamp(640px,78vh,900px);padding:clamp(126px,15vh,190px) 0 clamp(64px,9vw,110px);margin:0 auto;color:#fffaf1;">
-        <div>
-          <p class="eyebrow" style="color:rgba(255,250,241,0.76);">Downtown Spotlight</p>
-          <h1 style="max-width:13ch;margin:0;color:#fffaf1;font-family:Iowan Old Style,Palatino Linotype,Georgia,serif;font-size:clamp(3.8rem,7vw,7.4rem);font-weight:400;letter-spacing:-0.06em;line-height:0.9;text-wrap:balance;">Downtown West Palm Beach, one story at a time.</h1>
-          <p style="max-width:66ch;margin-top:12px;color:rgba(255,250,241,0.86);font-size:clamp(1.02rem,1.3vw,1.28rem);">Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
-        </div>
-        <aside class="answer-meta-panel" style="width:min(100%,420px);border-color:rgba(255,250,241,0.22);background:rgba(255,250,241,0.08);backdrop-filter:blur(12px);">
-          <span style="color:#fffaf1;">${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
-          <strong style="color:#fffaf1;">Start with the newest signal.</strong>
-          <small style="color:rgba(255,250,241,0.72);">Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
-        </aside>
-      </div>
-    </section>
-    <section class="section">
-      <div class="home-blog-grid market-note-grid">
-        ${spotlightNotes.map(renderMarketNoteCard).join("")}
-      </div>
-    </section>
-  `;
+  return renderDowntownSpotlightDesk(marketNotes, { index: true, resolveImage: imageForContentItem });
 }
 
 function renderHomepageMarketNoteFeature(note: MarketNote) {

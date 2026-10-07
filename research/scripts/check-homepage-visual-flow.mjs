@@ -69,7 +69,7 @@ async function inspectHomepage(browser, viewport) {
         guide: sectionTop("[data-commercial-guide=home]"),
         atlas: sectionTop(".home-atlas-feature"),
         featured: sectionTop(".home-featured-section"),
-        spotlight: sectionTop(".home-spotlight-module"),
+        spotlight: sectionTop("#downtown-spotlight"),
         resources: sectionTop(".home-advisory-resources"),
         compare: sectionTop(".home-compare-launcher"),
         bridge: sectionTop(".home-end-bridge"),

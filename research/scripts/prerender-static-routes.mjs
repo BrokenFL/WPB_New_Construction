@@ -4,6 +4,7 @@ import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
 import { marketNoteForPath } from "../../src/lib/marketNoteRouting.ts";
 import { renderMarketNoteBody } from "../../src/lib/marketNoteBody.ts";
+import { renderDowntownSpotlightDesk } from "../../src/lib/downtownSpotlight.ts";
 import { entityForPerPlanPage, floorplanModifiedOn, renderReviewedPerPlan3D, reviewedPerPlanCreativeWork } from "../../src/lib/floorplanEntities.ts";
 
 const workspace = process.cwd();
@@ -348,6 +349,7 @@ function renderHomeRoute(route, payload) {
         </ul>
       </section>
       ${renderLatestUpdates(payload)}
+      <div class="site-shell">${renderDowntownSpotlightDesk(payload.marketNotes)}</div>
     `,
   );
 }
@@ -1122,19 +1124,7 @@ function renderMarketNotesIndex(route, payload) {
 }
 
 function renderDowntownSpotlightIndex(route, payload) {
-  const notes = payload.prerenderRoutes.filter((item) => item.path.startsWith("/downtown-spotlight/") && item.path !== "/downtown-spotlight/");
-  return pageShell(
-    "downtown-spotlight",
-    "Downtown Spotlight",
-    route.description,
-    `
-      <section>
-        <h2>Downtown series</h2>
-        <p>Follow the districts, buildings, restaurants, streets, and planning signals shaping the Downtown West Palm Beach condo decision.</p>
-        ${notes.map((note) => `<article><h3><a href="${safeHref(note.path)}">${publicText(note.title)}</a></h3><p>${publicText(note.description)}</p></article>`).join("")}
-      </section>
-    `,
-  );
+  return `<main class="site-shell" data-static-prerender="downtown-spotlight">${renderDowntownSpotlightDesk(payload.marketNotes, { index: true })}</main>`;
 }
 
 function renderSimpleRoute(route) {
