@@ -3482,9 +3482,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "/maps/wpb-atlas-map-editorial.svg",
-      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
-      "credit": "Source: WPB New Construction map"
+      "path": "",
+      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -7290,6 +7290,12 @@ export const prerenderRoutes = [
     "title": "West Palm Beach Condo Updates | Sales & Construction",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/updates/convention-center-hotel-lawsuit-west-palm-beach-2026-10-08/",
+    "title": "A lawsuit puts West Palm’s second convention-center hotel into a new holding pattern | WPB Updates",
+    "description": "A new lawsuit challenges West Palm Beach approvals for the proposed second convention-center hotel, while the County’s land and lease package remains in place.",
+    "ogImage": "/assets/editorial/convention-center-hotel-lawsuit-west-palm-beach-2026-10-08-hero.jpg"
   },
   {
     "path": "/updates/related-ross-moves-to-buy-family-church-land-for-edgeworth-2026-10-07/",
