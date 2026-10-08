@@ -115,7 +115,7 @@ function mergeSchema(html, route, family, assignment) {
     graph.push({ "@type": registry.organization.type, "@id": registry.organization.id, name: registry.organization.name, url: registry.organization.url });
   }
 
-  return html.replace(pattern, `<script id="wpb-static-structured-data" type="application/ld+json"${match[1]}>${jsonForHtml(schema)}</script>`);
+  return html.replace(pattern, () => `<script id="wpb-static-structured-data" type="application/ld+json"${match[1]}>${jsonForHtml(schema)}</script>`);
 }
 
 async function htmlFiles(dir) {

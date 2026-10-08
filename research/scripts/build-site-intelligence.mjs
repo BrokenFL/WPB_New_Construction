@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { projectPageSeo } from "../../shared/project-page-seo.mjs";
 import fsSync from "node:fs";
 import path from "node:path";
 import { execFile } from "node:child_process";
@@ -2838,11 +2839,11 @@ function buildPrerenderRoutes() {
   );
   const projectRoutes = readPublishedProjectRecords().map((project) => {
     const copy = copyByProjectId.get(project.publicSlug);
-    const isTheSound = project.publicSlug === "the-sound-west-palm-beach";
+    const seo = projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey, summary: project.presentation?.summary }, copy);
     return [
       project.publicSlug,
-      isTheSound ? "The Sound Apartments West Palm Beach | Rental Guide" : copy?.seoTitle || `${project.displayName} | WPB New Construction`,
-      isTheSound ? "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify." : copy?.metaDescription || project.presentation?.summary || `${project.displayName} project guide and buyer verification notes.`,
+      seo.title,
+      seo.description,
       copy?.showcase?.heroImage?.src || project.presentation?.heroImage || project.presentation?.image || siteMeta.defaultImage,
     ];
   });

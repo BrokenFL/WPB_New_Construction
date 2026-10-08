@@ -1,4 +1,5 @@
 import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.mjs";
+import { projectPageHeading } from "../../shared/project-page-seo.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
@@ -708,7 +709,7 @@ function renderProjectRoute(route, payload, slug) {
 
   return pageShell(
     `project-${slug}`,
-    project.name,
+    projectPageHeading(project.name, corridorKeyForProject(project)),
     route.description,
     `<div data-project-type="${safeHref(project.projectType)}">
       <section data-project-section="hero">
@@ -717,6 +718,7 @@ function renderProjectRoute(route, payload, slug) {
         <p>${publicText(project.summary || route.description)}</p>
       </section>
       <section data-project-section="overview">
+        ${copyItem?.showcase?.intro || copyItem?.overview ? `<h2>Overview</h2><p>${publicText(copyItem.showcase?.intro || copyItem.overview)}</p>` : ""}
         <h2>${editorial?.localTake ? "The buyer's read" : "Project context"}</h2>
         <p>${publicText(editorial?.localTake || presentation.bottomLine)}</p>
         ${editorial?.bestFor?.length ? `<h3>Best suited to</h3><ul>${editorial.bestFor.slice(0, 3).map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>` : ""}
@@ -739,8 +741,8 @@ function renderProjectRoute(route, payload, slug) {
         </dl>
       </section>
       <section data-project-section="neighborhood">
-        <h2>Location and corridor context</h2>
-        <p>${publicText(project.name)} is in the ${publicText(project.area || "West Palm Beach")} area. The corridor guide places it alongside nearby alternatives; the map helps compare the setting and access.</p>
+        <h2>${publicText(copyItem?.showcase?.neighborhoodHeadline || "Location and corridor context")}</h2>
+        ${copyItem?.location ? `<p>${publicText(copyItem.location)}</p>` : `<p>${publicText(project.name)} is in the ${publicText(project.area || "West Palm Beach")} area. The corridor guide places it alongside nearby alternatives; the map helps compare the setting and access.</p>`}
         <p><a href="/map/">Open the building map</a></p>
       </section>
       ${renderProjectCorridorCta(project, payload)}
@@ -1651,9 +1653,9 @@ const projectStartingPrices = {
   "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
   "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
   "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
-  "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
+  // Alba's "just under $3M" guidance does not establish an exact Offer price.
   berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
-  "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
+  // NORA's "from the low $2Ms" guidance does not establish an exact Offer price.
   "maison-dor": { amount: 5700000, label: "From $5.7M developer guidance (Aug 2026 coverage); verify current availability" },
   edgeworth: { amount: 2500000, label: "From $2.5M Related Ross launch guidance; verify current availability" },
   "banyan-tree": { amount: 1900000, label: "From $1.9M developer release (Mar 2026); verify current availability" },

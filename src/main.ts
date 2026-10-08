@@ -1,4 +1,5 @@
 import { renderRevenueBuyerResearch } from "../shared/revenue-buyer-research.mjs";
+import { projectPageHeading, projectPageSeo } from "../shared/project-page-seo.mjs";
 import "./style.css";
 import {
   answerEngineFaq,
@@ -4170,9 +4171,9 @@ const projectStartingPrices: Record<string, { amount: number; label: string }> =
   "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
   "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
   "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
-  "alba-palm-beach": { amount: 3000000, label: "Starting just under $3M on the current official home page; verify live inventory" },
+  // Alba's "just under $3M" guidance does not establish an exact Offer price.
   berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
-  "nora-house": { amount: 2000000, label: "Official site lists residences from the low $2Ms; verify current availability" },
+  // NORA's "from the low $2Ms" guidance does not establish an exact Offer price.
   "maison-dor": { amount: 5700000, label: "From $5.7M developer guidance (Aug 2026 coverage); verify current availability" },
   edgeworth: { amount: 2500000, label: "From $2.5M Related Ross launch guidance; verify current availability" },
   "banyan-tree": { amount: 1900000, label: "From $1.9M developer release (Mar 2026); verify current availability" },
@@ -4292,7 +4293,7 @@ function applyRoute() {
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
   if (activePlanPage) document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", activePlanPage.seoDescription);
-  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
+  if (activeProject || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
   updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer, activePlanPage);
@@ -4449,7 +4450,7 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
-  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
+  const buyerSeo = activeProject ? projectPageSeo(activeProject, batch1ProjectCopyByProjectId.get(activeProject.id)) : undefined;
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const projectTitleSuffix = activeProject?.projectType === "rental"
@@ -4473,8 +4474,8 @@ function routeSeoDetails(
   const description = activePlanPage?.seoDescription ?? activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
-    title: buyerSeo?.seoTitle || title,
-    description: buyerSeo?.metaDescription || description,
+    title: buyerSeo?.title || title,
+    description: buyerSeo?.description || description,
     image: image.startsWith("http") ? image : `${productionOrigin}${image}`,
     url: `${productionOrigin}${path}`,
   };
@@ -6174,7 +6175,7 @@ function compareVerificationNeed(project: FeaturedProject) {
 
 function renderCompareWorkspaceCard(project: FeaturedProject) {
   const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
-  return `<article class="compare-route-card">${image ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />` : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}<div><span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span><h2><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></h2><p>${escapeHtml(compareBuyerFit(project))}</p><a href="${projectPath(project)}">View building guide <b aria-hidden="true">→</b></a></div></article>`;
+  return `<article class="compare-route-card">${image ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />` : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}<div><span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span><h2><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></h2><p>${escapeHtml(compareBuyerFit(project))}</p><a href="${projectPath(project)}">Explore ${escapeHtml(project.name)} <b aria-hidden="true">→</b></a></div></article>`;
 }
 
 function compareAddress(project: FeaturedProject) {
@@ -6705,7 +6706,7 @@ function renderRelatedBuildingCard(project: FeaturedProject) {
         <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
         <strong>${escapeHtml(project.name)}</strong>
         <p>${escapeHtml(project.summary)}</p>
-        <a href="${projectPath(project)}">View building <span aria-hidden="true">→</span></a>
+        <a href="${projectPath(project)}">Explore ${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -7076,7 +7077,7 @@ function renderFeaturedProject(project: FeaturedProject) {
         </div>
         <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">View building <span aria-hidden="true">→</span></a>
+          <a href="${projectPath(project)}">Explore ${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
@@ -7330,7 +7331,7 @@ function renderMapProjectDetail(project: FeaturedProject) {
     <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
     <p>${escapeHtml(project.summary)}</p>
     <nav aria-label="Continue from ${escapeHtml(project.name)}">
-      <a href="${projectPath(project)}">View building guide <span aria-hidden="true">→</span></a>
+      <a href="${projectPath(project)}">Explore ${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>
       <a href="${corridorPath(project.corridorKey)}">See all ${corridorCount} ${escapeHtml(project.corridor)} ${corridorCount === 1 ? "building" : "buildings"}</a>
       <a href="/compare/">Compare buildings</a>
     </nav>
@@ -8765,7 +8766,7 @@ function renderProjectIdentityHeader(project: FeaturedProject, rules: ProjectPre
       <div class="project-identity-mark">${logo}</div>
       <div class="project-identity-copy">
         <p class="eyebrow">${publicText(rules.identityLabel)}</p>
-        <h1>${publicText(project.name)}</h1>
+        <h1>${publicText(projectPageHeading(project.name, project.corridorKey))}</h1>
         <p><a class="project-identity-corridor-link" href="${corridorPath(project.corridorKey)}">${publicText(project.corridor)}</a> · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
       <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel}</a>
@@ -9574,7 +9575,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const residenceSectionHeadingHref = rules.showFloorplans && /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
     ? floorplanLibraryPath(project.id)
     : residenceSectionLinkHref;
-  const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
+  const titleLines = [projectPageHeading(project.name, project.corridorKey)];
   const intro = showcase?.intro ?? heroBlurb;
   const salesGalleryAddress = ["maison-dor", "alba-palm-beach"].includes(project.id)
     ? copyFactValue(copyPackage, /^sales gallery$/i)
@@ -9781,8 +9782,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
       <section class="brochure-hero" id="${project.id}" data-project-section="hero">
         ${renderProjectHeroSlideshow(project, draft, heroImage, heroMobileImage, approvedHeroAsset)}
         <div class="brochure-hero-copy">
-          <p class="eyebrow">${project.corridor} · West Palm Beach</p>
-          ${project.id === "fern-and-gardenia-related-ross-fern-street" ? "" : `<h1 class="hero-building-name">${escapeHtml(project.name)}</h1>`}
+          <p class="eyebrow">${project.corridor} · ${project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach"}</p>
+          ${project.id === "fern-and-gardenia-related-ross-fern-street" ? "" : `<p class="hero-building-name">${escapeHtml(project.name)}</p>`}
           <h2 class="hero-headline">${copyPackage ? publicText(copyPackage.introHeadline) : brochureHeadline(project)}</h2>
           <p class="hero-intro-text">${publicText(copyPackage?.introDek ?? project.editorialIntro ?? draft.intro)}</p>
 

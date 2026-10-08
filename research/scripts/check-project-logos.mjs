@@ -30,7 +30,7 @@ if (!mainSource.includes("`<strong>${publicText(project.name)}</strong>`")) {
   findings.push("Project identity header text fallback is missing.");
 }
 
-if (!mainSource.includes("<h1>${publicText(project.name)}</h1>")) {
+if (!mainSource.includes("<h1>${publicText(projectPageHeading(project.name, project.corridorKey))}</h1>")) {
   findings.push("Project identity header must render readable project name text even when a logo exists.");
 }
 

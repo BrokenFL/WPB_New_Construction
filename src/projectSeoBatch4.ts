@@ -1,3 +1,7 @@
+import { projectPageHeading, projectPageSeo } from "../shared/project-page-seo.mjs";
+import { batch1ProjectCopyByProjectId, loadBatch1ProjectCopyPackage } from "./data/projectCopyPackage.ts";
+import { publicProjectRecords } from "./generated/projectModelPublic.ts";
+
 type Batch4Link = { label: string; href: string };
 type Batch4Source = { label: string; url: string; kind: "official" | "reporting" };
 type Batch4Project = {
@@ -33,6 +37,16 @@ async function loadRecords() {
     .then((response) => {
       if (!response.ok) throw new Error(`Batch 4 project SEO data failed to load: ${response.status}`);
       return response.json() as Promise<Batch4Project[]>;
+    })
+    .then(async records => {
+      await loadBatch1ProjectCopyPackage();
+      return records.map(record => {
+        const project = publicProjectRecords.find(project => project.publicRoute === record.path);
+        if (!project) return record;
+        const copy = batch1ProjectCopyByProjectId.get(project.publicSlug) ?? batch1ProjectCopyByProjectId.get(record.projectId);
+        const seo = projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey }, copy);
+        return { ...record, ...seo, h1: projectPageHeading(project.displayName, project.corridorKey) };
+      });
     });
   return recordsPromise;
 }
@@ -78,7 +92,7 @@ function patchCanonicalPageNode(script: HTMLScriptElement, record: Batch4Project
   if (!Array.isArray(schema["@graph"])) throw new Error(`${record.path}: canonical schema has no @graph`);
   const page = schema["@graph"].find((node) => node["@id"] === `${record.canonical}#webpage`);
   if (!page) throw new Error(`${record.path}: canonical WebPage node missing`);
-  page.name = record.h1;
+  page.name = record.title;
   page.description = record.description;
   page.dateModified = record.reviewedOn;
   script.textContent = JSON.stringify(schema);
@@ -174,9 +188,8 @@ async function installForRecord(app: HTMLElement, record: Batch4Project) {
   await updateHead(record);
   if (cleanPath(location.pathname) !== cleanPath(record.path)) return;
 
-  // Batch 5 demotes the duplicate compact project identity H1. Batch 4 must
-  // therefore synchronize the approved buyer-guide title onto the one active
-  // semantic H1, rather than targeting the old project-view heading slot.
+  // Synchronize the same reviewed building-and-city heading used by the main
+  // renderer; legacy guide records must not replace it with a different title.
   const main = activeMain(app);
   const h1 = main ? Array.from(main.querySelectorAll<HTMLHeadingElement>("h1")).find(isRendered) ?? main.querySelector<HTMLHeadingElement>("h1") : null;
   if (h1 && h1.textContent?.trim() !== record.h1) h1.textContent = record.h1;

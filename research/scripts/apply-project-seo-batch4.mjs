@@ -50,17 +50,15 @@ function patchGraph(html, record) {
   const graph = Array.isArray(schema?.["@graph"]) ? schema["@graph"] : [];
   const webPage = graph.find((node) => node?.["@type"] === "WebPage" || node?.["@type"] === "CollectionPage");
   if (webPage) {
-    webPage.name = record.h1;
+    webPage.name = record.title;
     webPage.description = record.description;
     webPage.dateModified = record.reviewedOn;
   }
-  return html.replace(pattern, `<script id="wpb-static-structured-data" type="application/ld+json" data-static-path="${esc(record.path)}">${jsonForHtml(schema)}</script>`);
+  return html.replace(pattern, () => `<script id="wpb-static-structured-data" type="application/ld+json" data-static-path="${esc(record.path)}">${jsonForHtml(schema)}</script>`);
 }
 
 for (const record of records) {
-  // Maison d'Or has new reviewed Revenue SEO copy. Keep the other Phase 2
-  // records on their existing metadata until they receive a scoped review.
-  const authored = record.projectId === "maison-dor" ? copyByProjectId.get(record.projectId) : undefined;
+  const authored = copyByProjectId.get(record.projectId);
   const pageRecord = {
     ...record,
     title: authored?.seoTitle || record.title,
@@ -69,18 +67,17 @@ for (const record of records) {
   const file = path.join(dist, record.path.replace(/^\/|\/$/g, ""), "index.html");
   let html = await fs.readFile(file, "utf8");
   html = html
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(pageRecord.title)}</title>`)
-    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(pageRecord.description)}" />`)
-    .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(pageRecord.title)}" />`)
-    .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(pageRecord.description)}" />`)
-    .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${esc(record.canonical)}" />`)
-    .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(pageRecord.title)}" />`)
-    .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(pageRecord.description)}" />`)
-    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${esc(record.canonical)}" />`)
-    .replace(/<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/, `<h1>${esc(record.h1)}</h1>`);
+    .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${esc(pageRecord.title)}</title>`)
+    .replace(/<meta name="description" content="[^"]*" \/>/, () => `<meta name="description" content="${esc(pageRecord.description)}" />`)
+    .replace(/<meta property="og:title" content="[^"]*" \/>/, () => `<meta property="og:title" content="${esc(pageRecord.title)}" />`)
+    .replace(/<meta property="og:description" content="[^"]*" \/>/, () => `<meta property="og:description" content="${esc(pageRecord.description)}" />`)
+    .replace(/<meta property="og:url" content="[^"]*" \/>/, () => `<meta property="og:url" content="${esc(record.canonical)}" />`)
+    .replace(/<meta name="twitter:title" content="[^"]*" \/>/, () => `<meta name="twitter:title" content="${esc(pageRecord.title)}" />`)
+    .replace(/<meta name="twitter:description" content="[^"]*" \/>/, () => `<meta name="twitter:description" content="${esc(pageRecord.description)}" />`)
+    .replace(/<link rel="canonical" href="[^"]*" \/>/, () => `<link rel="canonical" href="${esc(record.canonical)}" />`);
   if (!html.includes('data-project-seo-batch4-style="true"')) html = html.replace("</head>", `  ${styleLink}\n</head>`);
   html = patchGraph(html, pageRecord);
-  if (!html.includes('id="wpb-project-seo-batch4"')) html = html.replace("</main>", `${guide(record)}</main>`);
+  if (!html.includes('id="wpb-project-seo-batch4"')) html = html.replace("</main>", () => `${guide(record)}</main>`);
   await fs.writeFile(file, html);
 }
 

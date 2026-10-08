@@ -297,11 +297,11 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Privacy | WPB New Construction: /privacy/
 - Terms | WPB New Construction: /terms/
 - West Palm Beach Condo Buyer Research Desk | Inquiry: /inquire/
-- Alba Palm Beach | Completed North Flagler Waterfront Condos: /projects/alba-palm-beach/
+- Alba Palm Beach | West Palm Beach Waterfront Condos: /projects/alba-palm-beach/
 - Olara West Palm Beach | Prices, Floor Plans & Condos: /projects/olara/
 - Shorecrest West Palm Beach | Condos & Floor Plans: /projects/shorecrest/
 - Ritz-Carlton Residences West Palm Beach | Floor Plans: /projects/ritz-carlton-wpb/
-- The Berkeley Palm Beach | Clear Lake Condos & Floor Plans: /projects/berkeley/
+- The Berkeley Palm Beach | West Palm Beach Condos & Plans: /projects/berkeley/
 - NORA House West Palm Beach | Prices & Floor Plans: /projects/nora-house/
 - South Flagler House West Palm Beach | Prices & Floor Plans: /projects/south-flagler-house/
 - Mr. C Residences West Palm Beach | Downtown Condos: /projects/mr-c/
@@ -310,10 +310,10 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Mandarin Oriental Residences | West Palm Beach Waterfront: /projects/mandarin-oriental/
 - Banyan Tree Residences West Palm Beach | Buyer Guide: /projects/banyan-tree/
 - Alba Reserve West Palm Beach | North Flagler Watchlist: /projects/alba-reserve/
-- Forte on Flagler | Completed South Flagler Luxury Comp: /projects/forte-on-flagler/
+- Forté on Flagler West Palm Beach | Completed Waterfront Condos: /projects/forte-on-flagler/
 - La Clara West Palm Beach | Completed South Flagler Condos: /projects/la-clara/
 - Residences at 464 Fern Street | Downtown West Palm Beach: /projects/fern-and-gardenia-related-ross-fern-street/
-- Rybovich Marina Redevelopment | Waterfront District: /projects/rybovich-marina-redevelopment/
+- Rybovich Marina Redevelopment West Palm Beach | District Guide: /projects/rybovich-marina-redevelopment/
 - Rosewood Residences West Palm Beach | Branded Pipeline: /projects/rosewood-residences-west-palm-beach/
 - OLIN Palm Beach | Ocean-to-Lagoon New Construction: /projects/olin-palm-beach/
 - 3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences: /projects/3031-s-ocean-palm-beach/

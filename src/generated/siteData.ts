@@ -7821,8 +7821,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/alba-palm-beach/",
-    "title": "Alba Palm Beach | Completed North Flagler Waterfront Condos",
-    "description": "Alba Palm Beach: completed 55-residence North Flagler waterfront condo by BGI Companies. Day docks, terraces, from $2.5M. Request current pricing.",
+    "title": "Alba Palm Beach | West Palm Beach Waterfront Condos",
+    "description": "Explore Alba Palm Beach in West Palm Beach: a completed 55-residence North Flagler waterfront condominium with terraces and day docks. Request current pricing.",
     "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
@@ -7845,8 +7845,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/berkeley/",
-    "title": "The Berkeley Palm Beach | Clear Lake Condos & Floor Plans",
-    "description": "The Berkeley Palm Beach: 193 Clear Lake / downtown-adjacent condos with large terraces and family amenities. Compare layouts; request current pricing.",
+    "title": "The Berkeley Palm Beach | West Palm Beach Condos & Plans",
+    "description": "Explore The Berkeley Palm Beach in West Palm Beach: Clear Lake condos with large terraces and family amenities. Compare layouts; request current pricing.",
     "ogImage": "/projects/berkeley/media/card.jpg"
   },
   {
@@ -7899,7 +7899,7 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/forte-on-flagler/",
-    "title": "Forte on Flagler | Completed South Flagler Luxury Comp",
+    "title": "Forté on Flagler West Palm Beach | Completed Waterfront Condos",
     "description": "Forte on Flagler is a completed South Flagler luxury condominium useful for comparing newer West Palm Beach waterfront residences and resale context.",
     "ogImage": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp"
   },
@@ -7917,7 +7917,7 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/rybovich-marina-redevelopment/",
-    "title": "Rybovich Marina Redevelopment | Waterfront District",
+    "title": "Rybovich Marina Redevelopment West Palm Beach | District Guide",
     "description": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina, private club space, retail, and promenade access.",
     "ogImage": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg"
   },
@@ -7930,7 +7930,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/olin-palm-beach/",
     "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
-    "description": "OLIN Palm Beach: 32 ocean-to-lagoon island residences by OKO Group and Cain, OMA design. Sales launched, under $20M to over $40M. Request availability.",
+    "description": "Explore OLIN Palm Beach's ocean-to-lagoon setting, OMA architecture and GACHOT interiors. Request current residence and offering information.",
     "ogImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp"
   },
   {

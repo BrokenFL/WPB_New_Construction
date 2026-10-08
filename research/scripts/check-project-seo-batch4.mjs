@@ -3,10 +3,19 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import http from "node:http";
 import { normalizeRequestIntent } from "../../shared/request-intents.js";
+import { projectPageHeading, projectPageSeo } from "../../shared/project-page-seo.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
-const records = JSON.parse(await fs.readFile(path.join(root, "public/data/project-seo-batch4.json"), "utf8"));
+const guideRecords = JSON.parse(await fs.readFile(path.join(root, "public/data/project-seo-batch4.json"), "utf8"));
+const projects = JSON.parse(await fs.readFile(path.join(root, "src/generated/projectModelPublic.json"), "utf8")).projects;
+const copies = JSON.parse(await fs.readFile(path.join(root, "content/project-copy-package.json"), "utf8"));
+const records = guideRecords.map(record => {
+  const project = projects.find(project => project.publicRoute === record.path);
+  assert.ok(project, `${record.path}: published project identity`);
+  const copy = copies.find(copy => copy.repoProjectId === project.publicSlug || copy.slug === project.publicSlug || copy.repoProjectId === record.projectId);
+  return { ...record, ...projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey }, copy), h1: projectPageHeading(project.displayName, project.corridorKey) };
+});
 const artifactDir = path.join(root, ".runtime/phase-2-project-seo");
 await fs.mkdir(artifactDir, { recursive: true });
 
@@ -25,7 +34,7 @@ async function staticChecks() {
   const sitemap = await fs.readFile(path.join(dist, "sitemap.xml"), "utf8");
   for (const record of records) {
     const html = await htmlAt(record);
-    assert.ok(html.includes(`<title>${record.title.replace(/&/g, "&amp;")}</title>`) || html.includes(`<title>${record.title}</title>`));
+    assert.ok(html.includes(`<title>${record.title.replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]))}</title>`) || html.includes(`<title>${record.title}</title>`));
     assert.ok(html.includes(`rel="canonical" href="${record.canonical}"`));
     assert.equal((html.match(/<h1(?:\s[^>]*)?>/g) ?? []).length, 1);
     assert.ok(html.includes(record.h1.replace(/&/g, "&amp;")) || html.includes(record.h1));
@@ -39,7 +48,7 @@ async function staticChecks() {
     const schema = JSON.parse(schemaMatch[1]);
     const graph = schema["@graph"] ?? [];
     const page = graph.find((node) => node["@type"] === "WebPage" || node["@type"] === "CollectionPage");
-    assert.equal(page?.name, record.h1);
+    assert.equal(page?.name, record.title);
     assert.equal(page?.dateModified, record.reviewedOn);
     const locIndex = sitemap.indexOf(`<loc>${record.canonical}</loc>`);
     assert.ok(locIndex >= 0, `${record.path}: sitemap missing`);
