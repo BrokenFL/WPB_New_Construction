@@ -146,6 +146,13 @@ caption visibility unless this option is set.
   image catalogs.
 - Image repetition preflight counts retained hero and inline images as existing
   mappings during an edit; the three-mapping limit still applies to new uses.
+- Content Scout must treat missing, unsuitable, broken or overused local images
+  as a request for fresh native editorial illustrations. Generate a distinct
+  hero and inline image from the verified article, prefer visibly drawn artwork,
+  inspect both, and show conceptual-image captions and AI-generation credits.
+  Targeted native corrections are allowed. Repair image-only preview failures
+  in `.runtime/` and preview again before publishing; this is not a publish
+  attempt. Do not disable the repetition guard or retry a failed publish.
 - Ship additionally runs `npm run ship:live` and `npm run qa:live`.
 - After build/QA, the workflow restores any unexpected tracked files it did not
   intend to change, keeping the article output set clean.

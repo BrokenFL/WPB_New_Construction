@@ -378,6 +378,8 @@ If current files contradict this guide, inspect carefully and report the contrad
 
 Article publishing is transaction-protected: preview validates canonical URLs, public-copy safety, the two-image article contract, and image repetition in `.runtime/`; stage/publish require clean synchronized `main`; automated runs get one persisted attempt; and pre-commit failures, signals, or command timeouts roll back article outputs. The implementation remains `research/scripts/article-publish-cli.mjs` plus `research/scripts/article-publish-workflow.mjs`. Automated image briefs use the native Codex `image_gen` tool outside the publisher, with two distinct final images required before the publisher is called.
 
+Brooke's 2026-10-07 illustration fallback is required for Content Scout: missing, unsuitable, broken or overused local photographs count as unavailable and trigger a fresh article-specific hero plus a distinct inline illustration. Prefer visibly drawn artwork, use `generated-editorial` mode, display the conceptual-image caption and `AI-generated editorial illustration` credit, and inspect both images. Targeted native corrections are allowed. An image-only preview rejection must be repaired in `.runtime/` and previewed again before publishing; it is not a publish attempt. Preserve the repetition guard and one-publish-attempt rule. Skip only if generation or validation fails or another safety gate remains unresolved. See `content/news-source-config.json` and the automated article image contract in `docs/AI_PROJECT_GUIDE.md`.
+
 ## 13. Content Studio / Builder — Current State (updated 2026-06-19)
 
 This section mirrors `docs/AI_PROJECT_GUIDE.md` section 13. Read that file for full workflow detail.
