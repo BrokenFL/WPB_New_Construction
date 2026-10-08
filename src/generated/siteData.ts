@@ -7670,6 +7670,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/market-notes/downtown-west-palm-resale-vs-new-build-october-2026/",
+    "title": "Resale or new construction: which condo should you buy in West Palm Beach? | Buyer Intelligence",
+    "description": "Compare a resale condo with a new-construction contract in West Palm Beach using current market evidence, ownership costs, deposits and move timing.",
+    "ogImage": "/assets/editorial/downtown-west-palm-resale-vs-new-build-october-2026-hero.jpg"
+  },
+  {
     "path": "/answers/downtown-west-palm-beach-new-condos-compared/",
     "title": "Downtown West Palm Beach New Condos Compared",
     "description": "Explore NORA House, Banyan Tree, Mr. C and The Berkeley in downtown West Palm Beach, with a practical guide to locations, layouts, services and buyer fit.",

@@ -74,6 +74,98 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "buyer-resale-vs-new-build-october-2026",
+    "status": "published",
+    "category": "Buyer Intelligence",
+    "title": "Resale or new construction: which condo should you buy in West Palm Beach?",
+    "slug": "downtown-west-palm-resale-vs-new-build-october-2026",
+    "excerpt": "September's downtown resale slowdown gives buyers a reason to compare a finished home with a future closing. Price tier, total ownership cost and the move date should shape the choice.",
+    "buyerThesis": "Use the new September resale evidence to compare an available completed condominium with a specific new-build contract on cost, terms and timing.",
+    "buyerTakeaway": "If your move date is firm, inspect a completed condo early in the search. If your timing is flexible, compare its actual ownership costs and condition with the deposit schedule, current delivery guidance and service program of the new-build home you would buy.",
+    "marketSignal": "The September downtown resale report records 17 closings and 112 active listings, with supply varying sharply by price. Official August data covers a broader market and supports checking fees and assessments; neither dataset establishes a developer's remaining inventory.",
+    "bestFor": "Buyers weighing a completed downtown or waterfront condo against a new-construction residence with a later closing.",
+    "watchPoints": "Small samples can move supply figures; asking prices are not completed sales; MLS coverage omits some direct developer contracts. Confirm the exact residence, ownership budget, condition, deposit schedule and current delivery guidance.",
+    "buyerQuestions": "What recently closed in this building, and how does the actual residence compare? What association costs or known assessments would I inherit? When is each deposit due, and what does the contract say if delivery changes? Which option fits my move date and the way I want to live?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "Downtown West Palm Beach",
+    "relatedArticleIds": [
+      "verify-new-construction-pricing",
+      "pre-construction-condo-due-diligence"
+    ],
+    "image": {
+      "path": "/assets/editorial/downtown-west-palm-resale-vs-new-build-october-2026-hero.jpg",
+      "alt": "Painted illustration of a furnished coastal condo room beside a sketched future room, keys and plans",
+      "caption": "Conceptual illustration of the choice between a home you can inspect today and a future condominium. It does not depict a real project.",
+      "credit": "AI-generated editorial illustration",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "MIAMI REALTORS® + RWorld",
+    "sourceLinks": [
+      {
+        "label": "MIAMI REALTORS® + RWorld: August 2026 housing market analysis, September 17",
+        "href": "https://www.miamirealtors.com/2026/09/17/south-florida-housing-market-shows-continued-strength-as-luxury-sales-surge/",
+        "sourceType": "market report"
+      },
+      {
+        "label": "CondoWPB: September 2026 downtown condo report, updated October 2",
+        "href": "https://www.condowpb.com/guides/wpb-condo-market-report-2026",
+        "sourceType": "market report"
+      },
+      {
+        "label": "Palm Beach Luxury: New-construction categories and MLS market coverage, checked October 7",
+        "href": "https://www.palmbeachluxury.com/properties/new-construction/",
+        "sourceType": "market report"
+      }
+    ],
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-08",
+    "sections": [
+      {
+        "heading": "Start with the date you need the home",
+        "body": "September's downtown West Palm Beach resale market closed just 17 condos, following 16 in August. The October 2 snapshot counted 112 active resale listings. For someone choosing between a finished condo and a new-construction contract, that slower pace makes it sensible to inspect ready homes while reviewing the future options.\n\nThe first filter is your move date. If you need a home for a particular season, a completed residence lets you evaluate the space and building now. If you can wait, a new development may offer a layout or service program you prefer. Either way, choose an actual home to compare, then work through its price, ownership costs and timetable."
+      },
+      {
+        "heading": "The resale picture changes with your price range",
+        "body": "The downtown report puts supply near three to four months below $2 million and about eight months between $2 million and $5 million. Its $5 million-plus tier reaches 15 months, but nine of those 15 listings are at Forté on Flagler. The upper tiers also rest on small annual sales counts, so one or two listings can change the figures substantially.\n\nTreat that spread as a reason to research your building, rather than a guaranteed discount. Ask for recent closed comparables, the full listing history and the competing homes you could realistically choose. A patient seller with a desirable line may respond differently from an owner who has a firm closing deadline. The broad supply number cannot tell you which situation you are facing."
+      },
+      {
+        "heading": "Keep completed sales separate from future contracts",
+        "body": "The datasets describe different markets. MIAMI REALTORS® + RWorld's August analysis recorded West Palm Beach condo and townhome sales up 21% from a year earlier. That citywide category and month differ from the September downtown resale sample; neither supplies a tower's current sales inventory.\n\nPalm Beach Luxury's new-construction page also combines recently built homes, pre-construction opportunities and custom builds. Its MLS table covers completed and listed inventory, while some developer allocations trade outside those listings. A broad new-build median therefore cannot establish the price of your preferred condo or how much a particular project has sold.\n\nRequest a dated availability sheet and written terms for the specific floor, exposure and plan. Compare that quote with a real resale alternative. Published starting prices and headline sales counts are useful background, but they do not settle the purchase."
+      },
+      {
+        "heading": "Compare what each price includes",
+        "body": "On resale, inspect the actual finishes, outlook and room proportions. Review the association's financial documents, reserve information, insurance costs and any known assessments with your advisers. The official August analysis identifies higher condo fees and repair assessments as added costs buyers face. Ask what applies to the building you are considering.\n\nFor new construction, request the deposit schedule, included finishes, allowances, projected association budget and current written delivery guidance. Have your attorney explain what the agreement says if the timetable changes. Ask about incentives or closing-cost contributions without assuming they are available.\n\nA lower purchase price can lose its appeal if immediate work or ongoing charges strain your budget. A compelling new residence can also be the wrong fit if its deposit requirements or closing horizon make your move difficult.",
+        "image": "/assets/editorial/downtown-west-palm-resale-vs-new-build-october-2026-body-1.jpg",
+        "imageAlt": "Painted comparison folders with a completed condo interior, a proposed building, keys, plans and a calendar",
+        "imageCaption": "Conceptual illustration: compare the home's daily use, total ownership cost and timetable alongside the documents. No real residence or floor plan is shown.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Make the shortlist personal and specific",
+        "body": "Put one completed condo and one new-build residence on the same comparison sheet. Include usable interior and terrace space, floor and outlook, parking, services, cash due before closing, recurring costs and the date you could occupy each home. For a downtown buyer, test the routes you would use to CityPlace, Clematis or the waterfront rather than judging daily convenience from a map alone.\n\nA buyer with a fixed move date may place more value on seeing the home and operating building now. Someone with flexibility may prefer the future property's particular layout and services. The useful outcome of September's evidence is a more informed shortlist. Ask each seller or sales team to answer the questions that would actually change your choice."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Resale or new construction: which condo should you buy in West Palm Beach?",
+      "secondaryQueries": [],
+      "suggestedSlug": "downtown-west-palm-resale-vs-new-build-october-2026",
+      "titleTag": "Resale or new construction: which condo should you buy in West Palm Beach? | Buyer Intelligence",
+      "metaDescription": "Compare a resale condo with a new-construction contract in West Palm Beach using current market evidence, ownership costs, deposits and move timing."
+    }
+  },
+
+  {
     "id": "downtown-west-palm-beach-new-condos-compared",
     "slug": "downtown-west-palm-beach-new-condos-compared",
     "title": "Downtown West Palm Beach new condos compared",
