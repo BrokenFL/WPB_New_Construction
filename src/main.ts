@@ -1124,8 +1124,8 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     corridorKeys: ["north-flagler", "south-flagler", "downtown"],
     tableRows: [
       { label: "Completed now", bestUse: "Buyers who want a delivery date of today, not a target.", links: ["/projects/alba-palm-beach/", "/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm specific residence availability — completed inventory moves, and confirm developer and resale options for Forté/La Clara." },
-      { label: "Under construction — 2028 wave", bestUse: "Buyers comparing the large active programs on schedule and scale.", links: ["/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/", "/projects/south-flagler-house/"], verify: "Confirm the current construction schedule and what 2028 means for the specific stack — estimates move." },
-      { label: "Pre-construction and pipeline", bestUse: "Buyers tracking later timelines for future decisions.", links: ["/projects/maison-dor/", "/projects/mr-c/"], verify: "Confirm Maison d'Or's late-2028 target and Mr. C's varying completion estimates against the latest guidance." },
+      { label: "Under construction — dated targets", bestUse: "Buyers comparing the large active programs on schedule and scale.", links: ["/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/", "/projects/south-flagler-house/"], verify: "Olara and Ritz-Carlton publish qualified 2028 guidance; Shorecrest and South Flagler House publish qualified 2027 guidance. Confirm the current schedule for the specific residence." },
+      { label: "Pre-construction and pipeline", bestUse: "Buyers tracking later timelines for future decisions.", links: ["/projects/maison-dor/", "/projects/mr-c/"], verify: "Request current primary delivery guidance for Maison d'Or and confirm Mr. C's current construction schedule." },
     ],
     faqs: [
       { question: "Which new West Palm Beach condos are completed?", answer: "Alba Palm Beach is developer-reported completed; confirm residence-specific occupancy; La Clara opened to residents in 2023; Forté on Flagler is recently completed. Confirm the specific residence — completed inventory moves." },
@@ -1287,14 +1287,14 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "What new construction is coming to Palm Beach Island?",
     description: "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
     bluf:
-      "This site tracks two reviewed projects on Palm Beach Island: OLIN Palm Beach (pre-construction sales, timing not released) and 3031 S. Ocean (town approved and announced, timing not released). The island is a separate low-density market shaped by scarce sites and coastal approvals — press-covered island projects that are not independently verified are excluded here. Compare the two tracked projects, then look to South Flagler for the nearest West Palm Beach waterfront alternatives.",
+      "This site tracks two reviewed projects on Palm Beach Island: OLIN Palm Beach (pre-construction sales, timing not released) and 3031 S. Ocean (proposed redevelopment with architectural approval recorded; final zoning approval and timing to confirm). The island is a separate low-density market shaped by scarce sites and coastal approvals. Compare the two tracked projects, then look to South Flagler for the nearest West Palm Beach waterfront alternatives.",
     explanation:
       "Palm Beach Island new construction is thin by nature: scarce sites, strict approvals, and low-density formats keep new supply rare. This page stays inside what the catalog confirms rather than repeating press rumors. OLIN and 3031 S. Ocean are the two reviewed island projects; both are early-stage with timing not released. Treat every island delivery claim as a verification item and confirm approvals, timing, and pricing directly.",
     projectIds: ["olin-palm-beach", "3031-s-ocean-palm-beach", "south-flagler-house", "maison-dor"],
     corridorKeys: ["palm-beach", "south-flagler"],
     tableRows: [
       { label: "OLIN Palm Beach", bestUse: "Buyers tracking the island's pre-construction sales option.", links: ["/projects/olin-palm-beach/"], verify: "Confirm timing releases, pricing, and current sales status — timing is not released." },
-      { label: "3031 S. Ocean", bestUse: "Buyers tracking the town-approved island project.", links: ["/projects/3031-s-ocean-palm-beach/"], verify: "Confirm approval status, timing, and when buyer materials release." },
+      { label: "3031 S. Ocean", bestUse: "Buyers tracking a proposed villa-style island redevelopment.", links: ["/projects/3031-s-ocean-palm-beach/"], verify: "Architectural approval is recorded; confirm final Town Council zoning approval, permits, timing, and current buyer materials." },
       { label: "Nearest WPB waterfront", bestUse: "Buyers who want new waterfront condos near the island.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/"], verify: "Confirm Palm Beach bridge access and how South Flagler compares on density and timing." },
     ],
     faqs: [
@@ -9529,7 +9529,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   ];
   const factSource = showcase?.factStrip?.length ? showcase.factStrip : defaultFacts;
   const facts = [
-    ...factSource.map((fact) => /^status$/i.test(fact.label) ? { ...fact, value: canonicalStatus } : fact),
+    ...factSource.map((fact) => /^status$/i.test(fact.label)
+      ? { ...fact, value: canonicalStatus }
+      : /^delivery$/i.test(fact.label) ? { ...fact, value: deliveryGuidance } : fact),
   ].filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
@@ -9561,11 +9563,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ]
   );
   const heroTags = heroTagSource
-    .map((tag) => /^status$/i.test(tag.label) ? { ...tag, value: canonicalStatus } : tag)
+    .map((tag) => /^status$/i.test(tag.label)
+      ? { ...tag, value: canonicalStatus }
+      : /^delivery$/i.test(tag.label) ? { ...tag, value: deliveryGuidance } : tag)
     .filter((tag) => isBuyerFacingValue(tag.value));
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=building-fact-alignment-20261009" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" data-project-type="${project.projectType}" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">

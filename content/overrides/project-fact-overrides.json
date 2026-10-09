@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-09T02:03:52.023Z",
+  "updatedAt": "2026-10-09T20:03:43.680Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -377,12 +377,12 @@
         "schemaSafe": false
       },
       "status": {
-        "value": "Reported approved; final municipal record to confirm",
+        "value": "Proposed / final municipal approval to confirm",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "Prior approved context is retained as reported. March 25, 2026 ARCOM agenda supports a five-story/12-unit application, not its vote. A readable final decision/minutes record was not located in this review. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+        "reviewedBy": "Codex — Brooke-authorized copy/schema correction",
+        "reviewedAt": "2026-10-09T20:03:43.680Z",
+        "note": "Official application agenda file 15075 supports the proposed 12-unit concept. Architectural Commission minutes file 15185 record design approval; that is a separate scope from final Town Council zoning approval and construction permits. Secondary April approval reporting was found, but no final Town Council zoning decision was independently verified in this bounded review. Do not describe the entire project as Town-approved or construction-ready. Sources: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false) ; https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)",
         "schemaSafe": false
       },
       "residenceCount": {

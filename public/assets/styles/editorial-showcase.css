@@ -56,4 +56,4 @@ html:has(.route-view-editorial-showcase:not([hidden])){overflow-x:hidden}
 .berkeley-buyer-read a{display:inline-block;margin-top:12px;color:var(--berkeley-brass);text-underline-offset:4px}
 @media (max-width:760px){.berkeley-buyer-read{grid-template-columns:minmax(0,1fr);gap:18px;width:calc(100% - 32px);margin-top:24px;padding-top:22px}.berkeley-buyer-read aside{padding:18px 0 0;border-left:0;border-top:1px solid var(--berkeley-line)}}
 [data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content h1{font-size:clamp(3.1rem,5.4vw,5.35rem);white-space:nowrap}
-@media (max-width:760px){[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content{width:calc(100% - 36px)}[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content h1{font-size:clamp(2.45rem,11vw,3.35rem);letter-spacing:-.035em;white-space:nowrap}}
+@media (max-width:760px){[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content{width:calc(100% - 36px)}[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content h1{font-size:clamp(2.45rem,11vw,3.35rem);letter-spacing:-.035em;white-space:normal}}

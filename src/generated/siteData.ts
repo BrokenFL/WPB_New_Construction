@@ -3869,7 +3869,7 @@ export const projectFacts = [
     "name": "The Berkeley Palm Beach",
     "area": "Downtown",
     "projectType": "condo-active-sales",
-    "summary": "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
+    "summary": "A Clear Lake condominium marketed at 550 S. Australian Avenue, with a separate buyer appointment at 500 S. Australian Avenue, Suite 910. Compare the residence setting and downtown access.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)",
@@ -4074,7 +4074,7 @@ export const projectFacts = [
     "name": "Maison d’Or",
     "area": "South Flagler",
     "projectType": "condo-active-sales",
-    "summary": "A 39-residence South Flagler condominium in pre-construction sales, with released plans and published pricing guidance from $5.7M. Confirm current terms and the reported late-2028 target.",
+    "summary": "A 39-residence South Flagler condominium in pre-construction sales, with released plans and published pricing guidance from $5.7M. Request current delivery guidance and residence-specific terms.",
     "lastReviewedDate": "2026-09-23",
     "facts": {
       "projectAddress": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)",
@@ -4141,7 +4141,7 @@ export const projectFacts = [
     "name": "Mandarin Oriental Residences West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-pipeline",
-    "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture and private terraces. Confirm current pricing and delivery guidance with the sales team.",
+    "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture and private terraces. The brand anticipates opening in 2031; confirm the current schedule and residence-specific terms.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL",
@@ -4443,14 +4443,14 @@ export const projectFacts = [
     "name": "3031 S. Ocean",
     "area": "Palm Beach",
     "projectType": "condo-pipeline",
-    "summary": "A Town-approved, 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, designed by Fairfax & Sammons for Copperline Partners.",
+    "summary": "A proposed 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, with architectural approval recorded. Confirm final Town Council zoning approval, permits and timing.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Reported approved; final municipal record to confirm",
+      "status": "Proposed / final municipal approval to confirm",
       "residences": "12",
       "stories": "5",
       "completion": "Timing not released",

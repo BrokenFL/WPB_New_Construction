@@ -185,3 +185,36 @@ test("floorplan schema descriptions withhold unverified physical dimensions and 
   assert.deepEqual(auditedFaqItems([{answer:"Maison targets late 2028"},{answer:"Forté has resale-only inventory"},{answer:"Ask for current estimated monthly costs, reserves, parking/storage details, deposit schedule, and what services are included."}]), [{answer:"Ask for current estimated monthly costs, reserves, parking/storage details, deposit schedule, and what services are included."}]);
   assert.deepEqual(auditedFaqItems([{answer:"Ask for current estimated monthly costs, reserves, parking/storage details, deposit schedule, and what services are included. Fees are $800 monthly."}]), []);
 });
+
+test("secondary presentation and Compare explanations retain the reviewed fact scopes", async () => {
+  const overlays = (await readJson("content/project-page-overlays.json")).projects;
+  const presentation = slug => overlays.find(p => p.publicSlug === slug);
+  const copy = slug => copies.find(p => p.repoProjectId === slug);
+  const project = slug => model.find(p => p.publicSlug === slug);
+  assert.doesNotMatch(presentation("maison-dor").summary, /2028/);
+  assert.equal(presentation("maison-dor").deliveryYear, 0);
+  assert.equal(presentation("maison-dor").approvedFallback.delivery, project("maison-dor").delivery);
+
+  assert.match(project("3031-s-ocean-palm-beach").status, /^Proposed/);
+  assert.doesNotMatch(copy("3031-s-ocean-palm-beach").heroSubheadline, /Town-approved/i);
+  assert.match(copy("3031-s-ocean-palm-beach").overview, /Architectural Commission minutes record approval/);
+  assert.match(copy("3031-s-ocean-palm-beach").overview, /Final Town Council zoning approval.*not independently verified/);
+  assert.match(copy("3031-s-ocean-palm-beach").showcase.intro, /Architectural Commission minutes record approval.*Final Town Council zoning approval.*not independently verified/);
+  assert.equal(overrides["3031-s-ocean-palm-beach"].status.schemaSafe, false);
+
+  for (const text of [presentation("berkeley").summary, copy("berkeley").overview, copy("berkeley").location]) {
+    assert.match(text, /550 S\. Australian/);
+    assert.match(text, /500 S\. Australian/);
+    assert.doesNotMatch(text, /601[-–]621/);
+  }
+  assert.match(copy("berkeley").location, /Municipal.*parcel address/);
+  const shorecrest = rows.find(r => r.project_id === "shorecrest-wpb");
+  assert.doesNotMatch(shorecrest.tradeoffs, /still pre-construction/i);
+  assert.match(shorecrest.tradeoffs, /under construction.*anticipated 2027/);
+  const olara = rows.find(r => r.project_id === "olara-wpb");
+  assert.match(olara.landscape_architect, /EDSA.*official March 2026/);
+  assert.match(olara.storage_summary, /5-by-5-foot climate-controlled/);
+  assert.match(olara.storage_summary, /allocation.*ownership or use rights/);
+  assert.equal(copy("mandarin-oriental").showcase.heroTags.find(t => t.label === "Delivery").value, project("mandarin-oriental").delivery);
+  assert.match(project("mandarin-oriental").delivery, /^2031 anticipated opening.*brand target/);
+});
