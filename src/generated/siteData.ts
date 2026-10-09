@@ -2002,7 +2002,7 @@ export const answerEngineFaq = [
     "id": "when-will-projects-be-ready",
     "shortLabel": "Ready dates",
     "question": "When will the main West Palm Beach new-construction condos be ready?",
-    "answer": "Alba Palm Beach's project sponsor reported construction completion in June 2026 and advertised immediate occupancy in September 2026; confirm readiness and availability for a particular residence. Shorecrest and South Flagler House are positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental's delivery guidance conflicts across published sources, so its opening date needs direct confirmation. Treat every future date as a planning window until the sales team confirms it in writing.",
+    "answer": "Alba Palm Beach's project sponsor reported construction completion in June 2026 and advertised immediate occupancy in September 2026; confirm readiness and availability for a particular residence. Shorecrest and South Flagler House are positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. Request current primary delivery guidance for NORA House. Mandarin Oriental's February 2026 brand announcement anticipates opening in 2031; confirm the current schedule. Treat every future date as a planning window until the sales team confirms it in writing.",
     "concept": "Delivery timing",
     "relatedProjectIds": [
       "alba-palm-beach",
@@ -2054,7 +2054,7 @@ export const answerEngineFaq = [
     "id": "what-will-it-cost",
     "shortLabel": "Cost",
     "question": "What will these West Palm Beach new-construction condos cost?",
-    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest with current official floorplans showing select residences from about $3.69M while February 2026 financing coverage used from about $3M, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree reporting around $1.9M, and South Flagler House with current official inquiry filters starting around $6M while the current residences page spans roughly $7.98M to $70M including penthouses. The real answer is always line, floor, view, terrace, parking, and release phase.",
+    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from $3.5M in Related Ross's April 2026 announcement, subject to current pricing, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental with current pricing to confirm, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree with current official pricing to confirm, and South Flagler House with current official inquiry filters starting around $6M while the current residences page spans roughly $7.98M to $70M including penthouses. The real answer is always line, floor, view, terrace, parking, and release phase.",
     "concept": "Pricing guidance",
     "relatedProjectIds": [
       "olara",
@@ -3674,11 +3674,11 @@ export const projectFacts = [
       "salesGalleryAddress": "250 North Olive Avenue, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Completed",
+      "status": "Completed (project sponsor-reported); confirm occupancy",
       "residences": "55",
       "stories": "22",
-      "completion": "project sponsor offering immediate occupancy (Sep 2026); confirm specific residence",
-      "pricing": "From just under $3M (project sponsor guidance, Sep 2026)",
+      "completion": "Completion announced June 2026; confirm residence-specific occupancy",
+      "pricing": "From just under $3M (official project guidance); request current pricing",
       "team": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners",
       "amenities": "Staffed lobby, private dining with wine storage, conference/business center, sunrise and sunset pools, TechnoGym fitness/yoga/Pilates, bocce, lawn chess, pet spa, valet, lounge/library, catering kitchen, simulator, screening room, spa, package room with cold storage.",
       "residenceFeatures": [
@@ -3726,9 +3726,9 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "275",
+      "residences": "275 condominium residences (project offering)",
       "stories": "26",
-      "completion": "2028",
+      "completion": "2028 scheduled completion (official brochure); confirm current schedule",
       "pricing": "From $1.7M (project sponsor-published; verify current availability)",
       "team": "Savanna; Arquitectonica; Gabellini Sheppard",
       "amenities": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
@@ -3750,7 +3750,7 @@ export const projectFacts = [
         "Duravit toilets"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-07-07"
+      "effectiveDate": "2026-09-01"
     },
     "sources": [
       {
@@ -3780,10 +3780,10 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "98 in earlier sources; 100 on Related Ross",
+      "residences": "98 in Apr 2026 release; 100 in municipal map",
       "stories": "27–28 reported; confirm current plans",
-      "completion": "Request current delivery guidance",
-      "pricing": "From about $3.69M (current official floorplans; Feb 2026 coverage cited from $3M)",
+      "completion": "2027 anticipated completion (Apr 2026 project sponsor target); confirm current schedule",
+      "pricing": "From $3.5M (Apr 2026 project sponsor guidance); request current pricing",
       "team": "Related Ross; Roger Ferris + Partners; Rottet Studio",
       "amenities": "The official amenity program includes a rooftop pool, fitness, yoga and Pilates spaces, spa facilities, a golf simulator, private dining and work spaces. Related Life and concierge services are described separately; confirm which services are included and which are charged individually.",
       "residenceFeatures": [
@@ -3792,7 +3792,7 @@ export const projectFacts = [
         "Modern waterfront layouts"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-05-22"
+      "effectiveDate": "2026-09-01"
     },
     "sources": [
       {
@@ -3833,8 +3833,8 @@ export const projectFacts = [
       "status": "Under Construction",
       "residences": "138",
       "stories": "27",
-      "completion": "2028 estimate; confirm current schedule",
-      "pricing": "Request current pricing",
+      "completion": "Q1 2028 project sponsor target; confirm current schedule",
+      "pricing": "From $3M (official project guidance); request current pricing",
       "team": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group; Arquitectonica; Rockwell Group",
       "amenities": "Pool deck, fitness and wellness center, spa, indoor/outdoor lounges, branded service positioning, exclusive beach club membership.",
       "residenceFeatures": [
@@ -3872,7 +3872,7 @@ export const projectFacts = [
     "summary": "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "601–621 Clearwater Park Road, West Palm Beach, FL 33401",
+      "projectAddress": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)",
       "salesGalleryAddress": "500 S. Australian Ave Suite 910, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
@@ -3880,7 +3880,7 @@ export const projectFacts = [
       "residences": "193",
       "stories": "25",
       "completion": "Confirm with sales team",
-      "pricing": "$2M to over $10M (reported; request current pricing)",
+      "pricing": "$2M to over $10M (official project guidance); request current pricing",
       "team": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors",
       "amenities": "Rooftop adult pool, family pool, private cabanas, fitness/yoga, spas, sauna, treatment rooms, private dining, chef’s kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre/event lawn, UPLIN Health concierge medical care.",
       "residenceFeatures": [
@@ -3921,12 +3921,12 @@ export const projectFacts = [
     "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a buyer appointment at 955 N Railroad Avenue, Suite B. The project sponsor advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "NORA District, West Palm Beach, FL 33401; confirm building address",
+      "projectAddress": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
       "salesGalleryAddress": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Sales Open / Preconstruction",
-      "residences": "117",
+      "residences": "117 marketed residences; municipal plan lists 122",
       "stories": "11",
       "completion": "Request current delivery guidance",
       "pricing": "From the low $2Ms (project sponsor-published; verify current availability)",
@@ -3977,9 +3977,9 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "105 on project site; 108 on Related Ross",
+      "residences": "105 marketed residences; municipal count differs",
       "stories": "28",
-      "completion": "Request current delivery guidance",
+      "completion": "2027 scheduled delivery (Jun 2025 project sponsor target); confirm current schedule",
       "pricing": "From $7.98M advertised; request current pricing",
       "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; Rogers by Related Ross; Rogers General Contracting",
       "amenities": "The official program includes lakefront and lap pools, wellness and fitness spaces, pickleball, a golf simulator, private dining, a residents-only indoor/outdoor restaurant and business and social rooms. Guest suites are reserved for residence owners. Confirm operating arrangements, included services and any additional charges.",
@@ -4030,9 +4030,9 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "146",
+      "residences": "146 private residences (project fact sheet)",
       "stories": "27",
-      "completion": "Timing to confirm — completion estimates vary (2026 vs 2027 across sources)",
+      "completion": "2027 brand target; season and closing schedule to confirm",
       "pricing": "Request current pricing",
       "team": "Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate; Arquitectonica; Meyer Davis",
       "amenities": "Garden-level lap pool, cabanas, pool bar/lounge, hotel rooftop pool/bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Café/Restaurant/Rooftop lounge, billiards, outdoor cinema, library/business lounge, Little C’s playground, bocce.",
@@ -4077,15 +4077,15 @@ export const projectFacts = [
     "summary": "A 39-residence South Flagler condominium in pre-construction sales, with released plans and published pricing guidance from $5.7M. Confirm current terms and the reported late-2028 target.",
     "lastReviewedDate": "2026-09-23",
     "facts": {
-      "projectAddress": "South Flagler Drive, West Palm Beach, FL",
+      "projectAddress": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)",
       "salesGalleryAddress": "3014 S Dixie Highway, West Palm Beach, FL 33405",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Pre-Construction Sales",
       "residences": "39",
       "stories": "19",
-      "completion": "Late 2028 (targeted; reported)",
-      "pricing": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
+      "completion": "Request current delivery guidance",
+      "pricing": "From $5.7M (official project guidance); request current pricing",
       "team": "Kolter Urban; Perko Development; SB Architects / 10 Design; Hirsch Bedner Associates (HBA)",
       "amenities": "Detailed amenity program not yet verified from official public materials.",
       "residenceFeatures": [],
@@ -4116,11 +4116,11 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Announced / Pipeline",
-      "residences": "168",
+      "status": "Priority List Open / Preconstruction",
+      "residences": "184 marketed residences",
       "stories": "28",
-      "completion": "Pipeline watch",
-      "pricing": "$2.5M-$35.5M reported",
+      "completion": "Request current delivery guidance",
+      "pricing": "From $5.5M (official project guidance); request current pricing",
       "team": "Related Ross; Kohn Pedersen Fox; MAWD | March and White Design",
       "amenities": "Launch reporting references more than 90,000 sq. ft. of indoor/outdoor amenities; detailed amenity program not yet verified.",
       "residenceFeatures": [
@@ -4148,11 +4148,11 @@ export const projectFacts = [
       "salesGalleryAddress": "205 Worth Avenue, #321, Palm Beach, FL 33480",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Announced / Branded Pipeline",
-      "residences": "87",
+      "status": "Sales Open",
+      "residences": "87 branded residences (brand announcement)",
       "stories": "31",
-      "completion": "Timing to confirm — reports vary",
-      "pricing": "From $3.5M published starting guidance (Cervera); request current pricing and availability",
+      "completion": "2031 anticipated opening (brand target); confirm current schedule",
+      "pricing": "Request current pricing",
       "team": "Great Gulf Group; Safdie Architects / Moshe Safdie",
       "amenities": "Official high-level materials reference serene rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service.",
       "residenceFeatures": [
@@ -4185,7 +4185,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Sales Open / Preconstruction",
-      "residences": "88",
+      "residences": "88 marketed residences (official fact sheet)",
       "stories": "25",
       "completion": "Request current delivery guidance",
       "pricing": "Request current pricing",
@@ -4220,7 +4220,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Reported / Proposed",
-      "residences": "87",
+      "residences": "87 in municipal proposal; revised count to confirm",
       "stories": "31",
       "completion": "Pipeline watch",
       "pricing": "Not released",
@@ -4251,11 +4251,11 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Completed Comp",
-      "residences": "41",
+      "status": "Completed (project sponsor-confirmed)",
+      "residences": "41 marketed residences; total to confirm",
       "stories": "25",
-      "completion": "Completed / recently completed; occupancy/resale status to verify",
-      "pricing": "Resale inventory varies",
+      "completion": "Completed per project sponsor; confirm residence-specific occupancy",
+      "pricing": "Request current project sponsor and resale pricing",
       "team": "Two Roads Development; Alpha Blue Ventures; Arquitectonica; Jean-Louis Deniot",
       "amenities": "Three levels of amenities including 75-ft lap pool with heated spa, outdoor dining/lounge, private dining for 24, great room, library, evening lounge, his/hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security/lobby attendant, valet, house cars, EV charging, concierge.",
       "residenceFeatures": [
@@ -4293,9 +4293,9 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Completed Comp",
-      "residences": "83",
+      "residences": "83 marketed residences; municipal map lists 84",
       "stories": "25",
-      "completion": "Completed / opened to residents in 2023",
+      "completion": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history",
       "pricing": "Resale inventory varies",
       "team": "Great Gulf; Hariri Pontarini Architects; Stantec",
       "amenities": "Amenity/service list still needs refresh from resale/association sources.",
@@ -4325,7 +4325,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Proposed / Municipal Review",
-      "residences": "194 proposed residences",
+      "residences": "194 in reviewed proposal; 197 in municipal map",
       "stories": "25",
       "completion": "Not announced",
       "pricing": "Not released",
@@ -4360,8 +4360,8 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Pipeline / Planning Approved",
-      "residences": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
+      "status": "Pipeline / Approval scope to confirm",
+      "residences": "Up to 660 planned across four towers; phase counts to confirm",
       "stories": "34 and 36 stories for initial two towers; future towers up to 445 ft reported",
       "completion": "Pipeline watch",
       "pricing": "Not released",
@@ -4385,8 +4385,8 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Pipeline / Branded Residences",
-      "residences": "90",
+      "status": "Pipeline / Brand and construction status to confirm",
+      "residences": "90 in municipal program; branded offering unconfirmed",
       "stories": "27",
       "completion": "Timing not released",
       "pricing": "Not released",
@@ -4450,7 +4450,7 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Town Approved / Announced",
+      "status": "Reported approved; final municipal record to confirm",
       "residences": "12",
       "stories": "5",
       "completion": "Timing not released",
@@ -4491,7 +4491,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Approved / Announced",
-      "residences": "39",
+      "residences": "39 in prior review; 46 in municipal map",
       "stories": "21",
       "completion": "Timing not released",
       "pricing": "Not publicly released",
@@ -4527,9 +4527,9 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Announced / Planning",
-      "residences": "16",
+      "residences": "16 reported in proposal; primary plan to confirm",
       "stories": "26 proposed; review open",
-      "completion": "2029 estimate",
+      "completion": "Request current delivery guidance",
       "pricing": "Not publicly released",
       "team": "Easton Street Capital; 1789 Capital; SCB",
       "amenities": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported.",
@@ -4564,7 +4564,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Announced / Planning",
-      "residences": "281",
+      "residences": "281 reported in proposal; primary plan to confirm",
       "stories": "31 floors each",
       "completion": "Timing not released",
       "pricing": "Not publicly released",
@@ -4603,7 +4603,7 @@ export const projectFacts = [
       "status": "Under Construction",
       "residences": "358",
       "stories": "8",
-      "completion": "Under construction; 2026 delivery target",
+      "completion": "Request current completion and leasing guidance",
       "pricing": "Request current leasing information",
       "team": "Woodfield Development; Flagler Realty & Development; Spina O’Rourke + Partners; Verdex Construction",
       "amenities": "Coworking lounge, indoor pickleball courts, resort-style pool, top-level sky lounge, landscaped waterfront walkway, dock, and kayak or canoe launch were announced in March 2026.",
@@ -6562,571 +6562,571 @@ export const prerenderRoutes = [
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-07/",
     "title": "Lake Home 07 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 07 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,750 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 07 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-08/",
     "title": "Lake Home 08 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 08 floor plan at Ritz-Carlton WPB: 2 bd, 3 ba, 2,543 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 08 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-09/",
     "title": "Lake Home 09 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 09 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,117 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 09 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-10/",
     "title": "Lake Home 10 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 10 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,117 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 10 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-11/",
     "title": "Lake Home 11 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 11 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 2,078 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 11 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/lake-home-12/",
     "title": "Lake Home 12 Floor Plan | Ritz-Carlton WPB",
-    "description": "Lake Home 12 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 3,170 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Lake Home 12 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-01/",
     "title": "Residence 01 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 01 floor plan at Ritz-Carlton WPB: 4 bd, 4 + powder ba, 4,229 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 01 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-02/",
     "title": "Residence 02 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 02 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 1,868 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 02 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-03/",
     "title": "Residence 03 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 03 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 2,706 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 03 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-04/",
     "title": "Residence 04 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 04 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 2,798 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 04 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-05/",
     "title": "Residence 05 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 05 floor plan at Ritz-Carlton WPB: 2 bd, 2 + powder ba, 1,839 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 05 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/ritz-carlton-wpb/residence-06/",
     "title": "Residence 06 Floor Plan | Ritz-Carlton WPB",
-    "description": "Residence 06 floor plan at Ritz-Carlton WPB: 3 bd, 3 + powder ba, 4,141 sq ft. Released drawing and current availability.",
+    "description": "View the The Ritz-Carlton Residences, West Palm Beach Residence 06 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/residence-301/",
     "title": "Residence 301 Floor Plan | Shorecrest",
-    "description": "Residence 301 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,835 interior sq ft. Released drawing and current availability.",
+    "description": "View the Shorecrest Residence 301 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/residence-1602/",
     "title": "Residence 1602 Floor Plan | Shorecrest",
-    "description": "Residence 1602 floor plan at Shorecrest: 2 bd, 2 + powder ba, 2,015 interior sq ft. Released drawing and current availability.",
+    "description": "View the Shorecrest Residence 1602 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/shorecrest-1153-0303/",
     "title": "Shorecrest 1153 0303 Floor Plan | Shorecrest",
-    "description": "Shorecrest 1153 0303 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,706 interior sq ft. Released drawing and current availability.",
+    "description": "View the Shorecrest Shorecrest 1153 0303 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/shorecrest/shorecrest-1153-0704/",
     "title": "Shorecrest 1153 0704 Floor Plan | Shorecrest",
-    "description": "Shorecrest 1153 0704 floor plan at Shorecrest: 3 bd, 3 + powder ba, 2,470 interior sq ft. Released drawing and current availability.",
+    "description": "View the Shorecrest Shorecrest 1153 0704 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-n-residence/",
     "title": "Tier 1 N Residence Floor Plan | South Flagler House",
-    "description": "Tier 1 N Residence floor plan at South Flagler House: 4 bd, 5 ba, 5,385 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 1 N Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-s-residence/",
     "title": "Tier 1 S Residence Floor Plan | South Flagler House",
-    "description": "Tier 1 S Residence floor plan at South Flagler House: 3 bd, 4 + powder ba, 5,034 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 1 S Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-1-w-residence/",
     "title": "Tier 1 W Residence Floor Plan | South Flagler House",
-    "description": "Tier 1 W Residence floor plan at South Flagler House: 2 bd, 2 + powder ba, 2,196 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 1 W Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-n-residence/",
     "title": "Tier 2 N Residence Floor Plan | South Flagler House",
-    "description": "Tier 2 N Residence floor plan at South Flagler House: 4 bd, 5 ba, 5,177 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 2 N Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-s-residence/",
     "title": "Tier 2 S Residence Floor Plan | South Flagler House",
-    "description": "Tier 2 S Residence floor plan at South Flagler House: 5 bd, 6 + powder ba. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 2 S Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-2-w-residence/",
     "title": "Tier 2 W Residence Floor Plan | South Flagler House",
-    "description": "Tier 2 W Residence floor plan at South Flagler House: 2 bd, 2 + powder ba. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 2 W Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-3-n-residence/",
     "title": "Tier 3 N Residence Floor Plan | South Flagler House",
-    "description": "Tier 3 N Residence floor plan at South Flagler House: 3 bd, 4 + powder ba, 4,639 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 3 N Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/south-flagler-house/tier-3-s-residence/",
     "title": "Tier 3 S Residence Floor Plan | South Flagler House",
-    "description": "Tier 3 S Residence floor plan at South Flagler House: 4 bd, 5 + powder ba, 5,770 interior sq ft. Released drawing and current availability.",
+    "description": "View the South Flagler House Tier 3 S Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-01-l/",
     "title": "Residence 01-L Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 01-L floor plan at Mandarin Oriental WPB: 3 + den bd, 4 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 01-L floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-01-u/",
     "title": "Residence 01-U Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 01-U floor plan at Mandarin Oriental WPB: 4 + den bd, 5 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 01-U floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-02/",
     "title": "Residence 02 Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 02 floor plan at Mandarin Oriental WPB: 3 + den bd, 3.5 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 02 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-03/",
     "title": "Residence 03 Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 03 floor plan at Mandarin Oriental WPB: 2 bd, 2.5 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 03 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-04-l/",
     "title": "Residence 04-L Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 04-L floor plan at Mandarin Oriental WPB: 3 + den bd, 3.5 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 04-L floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/mandarin-oriental/residence-04-u/",
     "title": "Residence 04-U Floor Plan | Mandarin Oriental WPB",
-    "description": "Residence 04-U floor plan at Mandarin Oriental WPB: 2 + den bd, 2.5 ba. Released drawing and current availability.",
+    "description": "View the Mandarin Oriental Residences West Palm Beach Residence 04-U floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-01/",
     "title": "Residence 01 Floor Plan | NORA House",
-    "description": "Residence 01 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 01 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-02/",
     "title": "Residence 02 Floor Plan | NORA House",
-    "description": "Residence 02 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 02 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-03/",
     "title": "Residence 03 Floor Plan | NORA House",
-    "description": "Residence 03 floor plan at NORA House: 2 bd, 2.5 ba, 1,650 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 03 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-04/",
     "title": "Residence 04 Floor Plan | NORA House",
-    "description": "Residence 04 floor plan at NORA House: 3 bd, 3.5 ba, 2,435 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 04 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-05/",
     "title": "Residence 05 Floor Plan | NORA House",
-    "description": "Residence 05 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 05 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-06/",
     "title": "Residence 06 Floor Plan | NORA House",
-    "description": "Residence 06 floor plan at NORA House: 2 bd, 2.5 ba, 1,655 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 06 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-07/",
     "title": "Residence 07 Floor Plan | NORA House",
-    "description": "Residence 07 floor plan at NORA House: 2 bd, 2.5 ba, 1,695 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 07 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-08/",
     "title": "Residence 08 Floor Plan | NORA House",
-    "description": "Residence 08 floor plan at NORA House: 2 bd, 2.5 ba, 1,465 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 08 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-09/",
     "title": "Residence 09 Floor Plan | NORA House",
-    "description": "Residence 09 floor plan at NORA House: 3 bd, 3.5 ba, 2,645 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 09 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-10/",
     "title": "Residence 10 Floor Plan | NORA House",
-    "description": "Residence 10 floor plan at NORA House: 3 bd, 3.5 ba, 2,645 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 10 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-11/",
     "title": "Residence 11 Floor Plan | NORA House",
-    "description": "Residence 11 floor plan at NORA House: 2 bd, 2.5 ba, 1,465 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 11 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-12/",
     "title": "Residence 12 Floor Plan | NORA House",
-    "description": "Residence 12 floor plan at NORA House: 2 bd, 2.5 ba, 1,665 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 12 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-13/",
     "title": "Residence 13 Floor Plan | NORA House",
-    "description": "Residence 13 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 13 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-14/",
     "title": "Residence 14 Floor Plan | NORA House",
-    "description": "Residence 14 floor plan at NORA House: 2 bd, 2.5 ba, 1,660 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 14 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-15/",
     "title": "Residence 15 Floor Plan | NORA House",
-    "description": "Residence 15 floor plan at NORA House: 2 bd, 2.5 ba, 1,928 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 15 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-16/",
     "title": "Residence 16 Floor Plan | NORA House",
-    "description": "Residence 16 floor plan at NORA House: 4 bd, 3.5 ba, 2,960 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 16 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/residence-17/",
     "title": "Residence 17 Floor Plan | NORA House",
-    "description": "Residence 17 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Residence 17 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-401/",
     "title": "Terrace 401 Floor Plan | NORA House",
-    "description": "Terrace 401 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 401 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-402/",
     "title": "Terrace 402 Floor Plan | NORA House",
-    "description": "Terrace 402 floor plan at NORA House: 3 bd, 3.5 ba, 3,295 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 402 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-403/",
     "title": "Terrace 403 Floor Plan | NORA House",
-    "description": "Terrace 403 floor plan at NORA House: 2 bd, 2.5 ba, 2,190 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 403 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-404/",
     "title": "Terrace 404 Floor Plan | NORA House",
-    "description": "Terrace 404 floor plan at NORA House: 3 bd, 3.5 ba, 2,435 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 404 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-405/",
     "title": "Terrace 405 Floor Plan | NORA House",
-    "description": "Terrace 405 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 405 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-406/",
     "title": "Terrace 406 Floor Plan | NORA House",
-    "description": "Terrace 406 floor plan at NORA House: 2 bd, 2.5 ba, 1,910 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 406 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-407/",
     "title": "Terrace 407 Floor Plan | NORA House",
-    "description": "Terrace 407 floor plan at NORA House: 2 bd, 2.5 ba, 1,695 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 407 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-409/",
     "title": "Terrace 409 Floor Plan | NORA House",
-    "description": "Terrace 409 floor plan at NORA House: 2 bd, 2.5 ba, 3,325 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 409 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-410/",
     "title": "Terrace 410 Floor Plan | NORA House",
-    "description": "Terrace 410 floor plan at NORA House: 2 bd, 2.5 ba, 3,325 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 410 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-412/",
     "title": "Terrace 412 Floor Plan | NORA House",
-    "description": "Terrace 412 floor plan at NORA House: 2 bd, 2.5 ba, 1,665 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 412 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-413/",
     "title": "Terrace 413 Floor Plan | NORA House",
-    "description": "Terrace 413 floor plan at NORA House: 2 bd, 2.5 ba, 1,840 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 413 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-414/",
     "title": "Terrace 414 Floor Plan | NORA House",
-    "description": "Terrace 414 floor plan at NORA House: 2 bd, 2.5 ba, 4,175 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 414 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-415/",
     "title": "Terrace 415 Floor Plan | NORA House",
-    "description": "Terrace 415 floor plan at NORA House: 2 bd, 2.5 ba, 2,190 sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 415 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-416/",
     "title": "Terrace 416 Floor Plan | NORA House",
-    "description": "Terrace 416 floor plan at NORA House: 4 bd, 3.5 ba, 2,960 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 416 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/nora-house/terrace-417/",
     "title": "Terrace 417 Floor Plan | NORA House",
-    "description": "Terrace 417 floor plan at NORA House: 3 bd, 3.5 ba, 2,400 interior sq ft. Released drawing and current availability.",
+    "description": "View the Nora House Terrace 417 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-a/",
     "title": "Residence A Floor Plan | Alba Palm Beach",
-    "description": "Residence A floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 2,334 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-b/",
     "title": "Residence B Floor Plan | Alba Palm Beach",
-    "description": "Residence B floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 2,422 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence B floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-c/",
     "title": "Residence C Floor Plan | Alba Palm Beach",
-    "description": "Residence C floor plan at Alba Palm Beach: 2 bd, 2.5 ba, 2,369 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence C floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-d/",
     "title": "Residence D Floor Plan | Alba Palm Beach",
-    "description": "Residence D floor plan at Alba Palm Beach: 3 bd, 3 ba, 2,374 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence D floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-lph-a/",
     "title": "Residence LPH A Floor Plan | Alba Palm Beach",
-    "description": "Residence LPH A floor plan at Alba Palm Beach: 3 bd, 3.5 ba, 4,698 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence LPH A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/residence-lph-b/",
     "title": "Residence LPH B Floor Plan | Alba Palm Beach",
-    "description": "Residence LPH B floor plan at Alba Palm Beach: 3 bd, 4 ba, 4,895 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Residence LPH B floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/alba-palm-beach/townhouse-c/",
     "title": "Townhouse C Floor Plan | Alba Palm Beach",
-    "description": "Townhouse C floor plan at Alba Palm Beach: 4 bd, 5 + powder ba, 6,355 sq ft. Released drawing and current availability.",
+    "description": "View the Alba Palm Beach Townhouse C floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-01/",
     "title": "Residence 01 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 01 floor plan at Banyan Tree WPB: 3 bd, 3 ba, 2,906 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 01 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-02/",
     "title": "Residence 02 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 02 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,099 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 02 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-03/",
     "title": "Residence 03 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 03 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,011 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 03 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-04/",
     "title": "Residence 04 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 04 floor plan at Banyan Tree WPB: 2 bd, 2 + powder ba, 2,015 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 04 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-05/",
     "title": "Residence 05 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 05 floor plan at Banyan Tree WPB: 1 bd, 1 + powder ba, 1,655 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 05 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-06/",
     "title": "Residence 06 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 06 floor plan at Banyan Tree WPB: 2 bd, 2 ba, 2,125 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 06 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/banyan-tree/residence-2403/",
     "title": "Residence 2403 Floor Plan | Banyan Tree WPB",
-    "description": "Residence 2403 floor plan at Banyan Tree WPB: 4 bd, 4 + powder ba, 4,103 sq ft. Released drawing and current availability.",
+    "description": "View the Banyan Tree Residences West Palm Beach Residence 2403 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/ph/",
     "title": "PH Floor Plan | La Clara",
-    "description": "PH floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
+    "description": "View the La Clara PH floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-a/",
     "title": "Residence A Floor Plan | La Clara",
-    "description": "Residence A floor plan at La Clara: 1 bd, 1.5 ba, 1,203 interior sq ft. Released drawing and current availability.",
+    "description": "View the La Clara Residence A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-c/",
     "title": "Residence C Floor Plan | La Clara",
-    "description": "Residence C floor plan at La Clara: 2 bd, 2.5 ba. Released drawing and current availability.",
+    "description": "View the La Clara Residence C floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-d/",
     "title": "Residence D Floor Plan | La Clara",
-    "description": "Residence D floor plan at La Clara: 2 bd, 2.5 ba. Released drawing and current availability.",
+    "description": "View the La Clara Residence D floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-e/",
     "title": "Residence E Floor Plan | La Clara",
-    "description": "Residence E floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
+    "description": "View the La Clara Residence E floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/la-clara/residence-f/",
     "title": "Residence F Floor Plan | La Clara",
-    "description": "Residence F floor plan at La Clara: 3 bd, 3.5 ba. Released drawing and current availability.",
+    "description": "View the La Clara Residence F floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/north-open-kitchen-plan/",
     "title": "North Open Kitchen Plan Floor Plan | Forté on Flagler",
-    "description": "North Open Kitchen Plan floor plan at Forté on Flagler: 4 bd, 4.5 ba. Released drawing and current availability.",
+    "description": "View the Forté on Flagler North Open Kitchen Plan floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/penthouse-residence/",
     "title": "Penthouse Residence Floor Plan | Forté on Flagler",
-    "description": "Penthouse Residence floor plan at Forté on Flagler: 4-8 bed options, 10,840 sq ft. Released drawing and current availability.",
+    "description": "View the Forté on Flagler Penthouse Residence floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/forte-on-flagler/south/",
     "title": "South Floor Plan | Forté on Flagler",
-    "description": "South floor plan at Forté on Flagler: 4 bd, 4.5 ba. Released drawing and current availability.",
+    "description": "View the Forté on Flagler South floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-a/",
     "title": "Residence A Floor Plan | Maison d'Or",
-    "description": "Residence A floor plan at Maison d'Or: 3 bd, 4.5 ba, 5,046 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Residence A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-a1/",
     "title": "Residence A1 Floor Plan | Maison d'Or",
-    "description": "Residence A1 floor plan at Maison d'Or: 3 bd, 4.5 ba, 4,834 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Residence A1 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-b/",
     "title": "Residence B Floor Plan | Maison d'Or",
-    "description": "Residence B floor plan at Maison d'Or: 2 bd, 3 ba, 3,411 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Residence B floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-c/",
     "title": "Residence C Floor Plan | Maison d'Or",
-    "description": "Residence C floor plan at Maison d'Or: 3 bd, 4.5 ba, 5,123 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Residence C floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/residence-c1/",
     "title": "Residence C1 Floor Plan | Maison d'Or",
-    "description": "Residence C1 floor plan at Maison d'Or: 3 bd, 4.5 ba, 4,923 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Residence C1 floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/estate-a/",
     "title": "Estate A Floor Plan | Maison d'Or",
-    "description": "Estate A floor plan at Maison d'Or: 4 bd, 5.5 ba, 7,055 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Estate A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/estate-b/",
     "title": "Estate B Floor Plan | Maison d'Or",
-    "description": "Estate B floor plan at Maison d'Or: 4 bd, 5.5 ba, 6,872 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Estate B floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/lph-a/",
     "title": "LPH A Floor Plan | Maison d'Or",
-    "description": "LPH A floor plan at Maison d'Or: 4 bd, 5.5 ba, 7,055 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or LPH A floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/lph-b/",
     "title": "LPH B Floor Plan | Maison d'Or",
-    "description": "LPH B floor plan at Maison d'Or: 4 bd, 5.5 ba, 6,872 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or LPH B floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/floorplans/maison-dor/penthouse/",
     "title": "Penthouse Floor Plan | Maison d'Or",
-    "description": "Penthouse floor plan at Maison d'Or: 4 bd, 6 full bath + 3 half bath, 12,744 sq ft. Released drawing and current availability.",
+    "description": "View the Maison d'Or Penthouse floor-plan guide and drawing references. Confirm the latest developer drawing and residence-specific terms.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
@@ -7828,145 +7828,145 @@ export const prerenderRoutes = [
   {
     "path": "/projects/alba-palm-beach/",
     "title": "Alba Palm Beach | West Palm Beach Waterfront Condos",
-    "description": "Explore Alba Palm Beach in West Palm Beach: a completed 55-residence North Flagler waterfront condominium with terraces and day docks. Request current pricing.",
+    "description": "Review Alba Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
     "path": "/projects/olara/",
     "title": "Olara West Palm Beach | Prices, Floor Plans & Condos",
-    "description": "Compare Olara West Palm Beach floor plans, published starting pricing, marina amenities and North Flagler alternatives before requesting current availability.",
+    "description": "Review Olara West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg"
   },
   {
     "path": "/projects/shorecrest/",
     "title": "Shorecrest West Palm Beach | Condos & Floor Plans",
-    "description": "Explore Shorecrest West Palm Beach condos, released floor plans, rooftop amenities, and North Flagler comparisons. Request current pricing.",
+    "description": "Review Shorecrest in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/shorecrest/media/showcase/shorecrest-hero-aerial-v01-web.jpg"
   },
   {
     "path": "/projects/ritz-carlton-wpb/",
     "title": "Ritz-Carlton Residences West Palm Beach | Floor Plans",
-    "description": "Review Ritz-Carlton Residences West Palm Beach floor plans, branded services, North Flagler location and buyer questions before a private sales appointment.",
+    "description": "Review The Ritz-Carlton Residences, West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg"
   },
   {
     "path": "/projects/berkeley/",
     "title": "The Berkeley Palm Beach | West Palm Beach Condos & Plans",
-    "description": "Explore The Berkeley Palm Beach in West Palm Beach: Clear Lake condos with large terraces and family amenities. Compare layouts; request current pricing.",
+    "description": "Review The Berkeley Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/berkeley/media/card.jpg"
   },
   {
     "path": "/projects/nora-house/",
     "title": "NORA House West Palm Beach | Prices & Floor Plans",
-    "description": "Explore NORA House condos in West Palm Beach: published starting prices, released floor plans, rooftop amenities, and buyer guidance.",
+    "description": "Review Nora House in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
   },
   {
     "path": "/projects/south-flagler-house/",
     "title": "South Flagler House West Palm Beach | Prices & Floor Plans",
-    "description": "Research South Flagler House prices, released floor plans, loggias, and private-club amenities. Compare the waterfront residences.",
+    "description": "Review South Flagler House in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/south-flagler-house/media/showcase/south-flagler-house-hero-night-web.jpg"
   },
   {
     "path": "/projects/mr-c/",
     "title": "Mr. C Residences West Palm Beach | Downtown Condos",
-    "description": "Mr. C Residences West Palm Beach: 146 downtown branded condos with Cipriani hospitality and hotel services. Compare plans; request current pricing.",
+    "description": "Review Mr. C Residences West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp"
   },
   {
     "path": "/projects/maison-dor/",
     "title": "Maison d'Or West Palm Beach | South Flagler Buyer Guide",
-    "description": "Maison d'Or buyer guide: 39 South Flagler waterfront residences from $5.7M — Kolter Urban and Perko, 10 Design, late-2028 delivery. Request current pricing.",
+    "description": "Review Maison d’Or in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp"
   },
   {
     "path": "/projects/edgeworth/",
     "title": "Edgeworth West Palm Beach | South Flagler Condos",
-    "description": "Explore Edgeworth West Palm Beach — Related Ross’s two-tower South Flagler waterfront condominium with 168 residences and 90,000+ square feet of amenities.",
+    "description": "Review Edgeworth in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/edgeworth-north/media/showcase/edgeworth-hero-exterior-v01-web.jpg"
   },
   {
     "path": "/projects/mandarin-oriental/",
     "title": "Mandarin Oriental Residences | West Palm Beach Waterfront",
-    "description": "Mandarin Oriental Residences West Palm Beach: 87 branded waterfront residences on North Flagler. Request current pricing and delivery guidance.",
+    "description": "Review Mandarin Oriental Residences West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg"
   },
   {
     "path": "/projects/banyan-tree/",
     "title": "Banyan Tree Residences West Palm Beach | Buyer Guide",
-    "description": "Research Banyan Tree Residences West Palm Beach: corner layouts, OMA design, wellness amenities and an appointment-only sales gallery. Request current pricing.",
+    "description": "Review Banyan Tree Residences West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/banyan-tree/media/showcase/banyan-tree-hero-front-v01-web.jpg"
   },
   {
     "path": "/projects/alba-reserve/",
     "title": "Alba Reserve West Palm Beach | North Flagler Watchlist",
-    "description": "Alba Reserve is a reported / proposed North Flagler waterfront watchlist project that should be tracked separately from Alba Palm Beach.",
+    "description": "Review Alba Reserve in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/alba-reserve/media/card.jpg"
   },
   {
     "path": "/projects/forte-on-flagler/",
     "title": "Forté on Flagler West Palm Beach | Completed Waterfront Condos",
-    "description": "Forte on Flagler is a completed South Flagler luxury condominium useful for comparing newer West Palm Beach waterfront residences and resale context.",
+    "description": "Review Forté on Flagler in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp"
   },
   {
     "path": "/projects/la-clara/",
     "title": "La Clara West Palm Beach | Completed South Flagler Condos",
-    "description": "Explore La Clara West Palm Beach, a completed 83-residence South Flagler waterfront condominium with resort-style amenities and resale opportunities.",
+    "description": "Review La Clara in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/la-clara/media/showcase/la-clara-hero-4x3-web.jpg"
   },
   {
     "path": "/projects/fern-and-gardenia-related-ross-fern-street/",
     "title": "Residences at 464 Fern Street | Downtown West Palm Beach",
-    "description": "Explore the proposed 25-story, 194-residence Related Ross tower at 464 Fern Street, its Roger Ferris + Partners design, amenities, and municipal-review status.",
+    "description": "Review Residences at 464 Fern Street in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/related-ross-fern-street/media/464-fern-overall-1600.webp"
   },
   {
     "path": "/projects/rybovich-marina-redevelopment/",
     "title": "Rybovich Marina Redevelopment West Palm Beach | District Guide",
-    "description": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina, private club space, retail, and promenade access.",
+    "description": "Review Rybovich Marina Redevelopment in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg"
   },
   {
     "path": "/projects/rosewood-residences-west-palm-beach/",
-    "title": "Rosewood Residences West Palm Beach | Branded Pipeline",
-    "description": "Rosewood Residences West Palm Beach is a branded North Flagler pipeline project with 90 planned residences and filed-plan details emerging.",
+    "title": "Reported Rosewood Proposal | West Palm Beach Project Watch",
+    "description": "Review the reported Rosewood proposal in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"
   },
   {
     "path": "/projects/olin-palm-beach/",
     "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
-    "description": "Explore OLIN Palm Beach's ocean-to-lagoon setting, OMA architecture and GACHOT interiors. Request current residence and offering information.",
+    "description": "Review OLIN Palm Beach in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp"
   },
   {
     "path": "/projects/3031-s-ocean-palm-beach/",
     "title": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
-    "description": "3031 S. Ocean is a Town-approved 12-residence villa-style waterfront redevelopment planned by Copperline Partners on Palm Beach's South End.",
+    "description": "Review 3031 S. Ocean in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp"
   },
   {
     "path": "/projects/apogee-residences-wpb/",
     "title": "Apogee Residences West Palm Beach | North Flagler Watch",
-    "description": "Track Apogee Residences, an approved 39-residence North Flagler waterfront proposal at 4906 North Flagler Drive in West Palm Beach.",
+    "description": "Review Apogee Residences in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp"
   },
   {
     "path": "/projects/201-arkona-court/",
     "title": "201 Arkona Court West Palm Beach | Planning Watch",
-    "description": "Track 201 Arkona Court, a proposed 16-residence full-floor condominium and private cultural-club concept beside the Norton Museum.",
+    "description": "Review 201 Arkona Court in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp"
   },
   {
     "path": "/projects/2085-north-flagler/",
     "title": "2085 North Flagler West Palm Beach | Project Watch",
-    "description": "Track the early Terra and BH Group proposal for two 31-floor waterfront condominium towers at 2085 North Flagler across from Currie Park.",
+    "description": "Review 2085 North Flagler in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "ogImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp"
   },
   {
     "path": "/projects/the-sound-west-palm-beach/",
     "title": "The Sound Apartments West Palm Beach | Rental Guide",
-    "description": "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify.",
+    "description": "Track The Sound Apartments at 8111 South Dixie Highway: 358 apartments per contractor guidance. Request the current completion schedule, leasing terms and residence availability.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   }
 ] as const;

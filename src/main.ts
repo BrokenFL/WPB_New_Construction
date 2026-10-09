@@ -1,5 +1,6 @@
 import { renderRevenueBuyerResearch } from "../shared/revenue-buyer-research.mjs";
 import { projectPageHeading, projectPageSeo } from "../shared/project-page-seo.mjs";
+import { projectSchemaFactProperties, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../shared/project-schema-facts.mjs";
 import "./style.css";
 import {
   answerEngineFaq,
@@ -46,7 +47,7 @@ import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
 import { publicProjectRecords } from "./generated/projectModelPublic";
-import { resolveProjectField, resolvePublicFactDisplay, type ProjectModelField } from "./lib/projectFieldAccessors";
+import { resolveProjectField, resolvePublicFactDisplay, reviewedProjectFactOverride, type ProjectModelField } from "./lib/projectFieldAccessors";
 import { commercialPages } from "./lib/commercialContent";
 
 captureLeadLandingContext();
@@ -1020,7 +1021,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "Which branded residences are coming to West Palm Beach?",
     description: "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
     bluf:
-      "Five branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences, announced, from $3.5M published guidance), and Rosewood Residences (90 residences, pipeline, pricing not released). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
+      "Five branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and Rosewood Residences (90 residences, pipeline, pricing not released). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
     explanation:
       "A brand on the building is a service and positioning promise, not a guarantee of delivery timing or resale performance. Compare each project's construction status, residence count, published pricing guidance, corridor, and what the brand actually operates — then verify fees, availability, and contract terms in current documents.",
     projectIds: ["ritz-carlton-wpb", "rosewood-residences-west-palm-beach", "mandarin-oriental", "mr-c", "banyan-tree"],
@@ -1044,7 +1045,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "How do North Flagler's new condos compare?",
     description: "Compare North Flagler new condos — Olara, Shorecrest, Alba, Ritz-Carlton, Mandarin Oriental, Rosewood — on status, scale, timing, and buyer fit.",
     bluf:
-      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, immediate occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences, announced, from $3.5M guidance), and Rosewood Residences (90 residences, pipeline). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
+      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and Rosewood Residences (90 residences, pipeline). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
     explanation:
       "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and earlier-stage branded pipeline (Mandarin Oriental, Rosewood). Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
     projectIds: ["olara", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb", "mandarin-oriental", "rosewood-residences-west-palm-beach"],
@@ -1055,9 +1056,9 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
       { label: "Branded pipeline", bestUse: "Buyers tracking earlier-stage branded options for future decisions.", links: ["/projects/mandarin-oriental/", "/projects/rosewood-residences-west-palm-beach/"], verify: "Confirm entitlement status, timing guidance, and when pricing releases." },
     ],
     faqs: [
-      { question: "Which North Flagler condo can I move into now?", answer: "Alba Palm Beach is completed with the developer offering immediate occupancy — confirm the specific residence. The rest are under construction or earlier stage." },
-      { question: "Which North Flagler project has the most residences?", answer: "Olara at 275 residences is the largest program on the corridor, followed by The Ritz-Carlton Residences at 138. Larger programs mean more plan variety and more construction context." },
-      { question: "How do prices compare across North Flagler?", answer: "Developer-published guidance ranges from $1.7M at Olara to just under $3M at Alba to $3.5M at Mandarin Oriental, with other projects on request-current-pricing. Verify every figure against live availability before comparing." },
+      { question: "Which North Flagler condo can I move into now?", answer: "Alba Palm Beach is developer-reported completed; confirm residence-specific occupancy — confirm the specific residence. The rest are under construction or earlier stage." },
+      { question: "Which North Flagler project has the most residences?", answer: "Olara markets 275 condominium residences and Ritz-Carlton markets 138. These offering counts do not establish current inventory or every municipal site-program total." },
+      { question: "How do prices compare across North Flagler?", answer: "Compare the qualified pricing guidance on each building page, including official Olara and Alba guidance and qualified published Mandarin Oriental guidance. Request current residence-specific prices and availability before comparing." },
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
   },
@@ -1081,7 +1082,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     faqs: [
       { question: "Can I get a boat slip with a new West Palm Beach condo?", answer: "Maybe, but no slip availability is confirmed in the project catalog. Ask each sales team whether slips are deeded, leased, or waitlisted, plus vessel size limits and fees — and get it in writing." },
       { question: "Which projects mention marina access?", answer: "Olara's project materials describe marina access, and Rybovich is planned as a marina district. For every other project, marina proximity is a question for the sales team, not an advertised feature." },
-      { question: "Is Rybovich residential available now?", answer: "No — it is pipeline watch. Initial approvals cover 259 units across two towers within a larger contemplated program, with pricing not released." },
+      { question: "Is Rybovich residential available now?", answer: "It is pipeline watch. The architect describes up to 660 homes across four towers; current phase counts, final approval scope and pricing require confirmation." },
     ],
     sourceNotes: ["Marina references come from the existing WPB New Construction source catalog.", "Dockage availability, slip terms, and marina operations are verification items — none are confirmed in the catalog."],
   },
@@ -1116,18 +1117,18 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "When will West Palm Beach's new condos deliver?",
     description: "Delivery timing across West Palm Beach new condos — what's completed, under construction, and pipeline, and how to verify dates.",
     bluf:
-      "Three projects are completed or near it: Alba Palm Beach (immediate occupancy), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). The under-construction wave targets 2028 — Olara and The Ritz-Carlton Residences among them — while Maison d'Or targets late 2028 and several branded projects remain pipeline. Every date is a verification item: confirm the live construction schedule before planning around it.",
+      "Three projects are completed or near it: Alba Palm Beach (immediate occupancy), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). The under-construction wave targets 2028 — Olara and The Ritz-Carlton Residences among them — while Maison d'Or requires current primary delivery guidance and several branded projects remain pipeline. Every date is a verification item: confirm the live construction schedule before planning around it.",
     explanation:
       "Delivery timing is the highest-risk number in new construction. Press dates go stale, phased projects deliver tower by tower, and 'targeted' is not 'guaranteed.' Sort first by status — completed, under construction, pre-construction sales, pipeline — then compare the current schedule language for the specific tower and stack under consideration.",
     projectIds: ["alba-palm-beach", "olara", "ritz-carlton-wpb", "maison-dor", "mr-c", "shorecrest", "south-flagler-house", "forte-on-flagler", "la-clara"],
     corridorKeys: ["north-flagler", "south-flagler", "downtown"],
     tableRows: [
-      { label: "Completed now", bestUse: "Buyers who want a delivery date of today, not a target.", links: ["/projects/alba-palm-beach/", "/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm specific residence availability — completed inventory moves, and Forté/La Clara trade on resale." },
+      { label: "Completed now", bestUse: "Buyers who want a delivery date of today, not a target.", links: ["/projects/alba-palm-beach/", "/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm specific residence availability — completed inventory moves, and confirm developer and resale options for Forté/La Clara." },
       { label: "Under construction — 2028 wave", bestUse: "Buyers comparing the large active programs on schedule and scale.", links: ["/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/", "/projects/south-flagler-house/"], verify: "Confirm the current construction schedule and what 2028 means for the specific stack — estimates move." },
       { label: "Pre-construction and pipeline", bestUse: "Buyers tracking later timelines for future decisions.", links: ["/projects/maison-dor/", "/projects/mr-c/"], verify: "Confirm Maison d'Or's late-2028 target and Mr. C's varying completion estimates against the latest guidance." },
     ],
     faqs: [
-      { question: "Which new West Palm Beach condos are completed?", answer: "Alba Palm Beach is completed with the developer offering immediate occupancy; La Clara opened to residents in 2023; Forté on Flagler is recently completed. Confirm the specific residence — completed inventory moves." },
+      { question: "Which new West Palm Beach condos are completed?", answer: "Alba Palm Beach is developer-reported completed; confirm residence-specific occupancy; La Clara opened to residents in 2023; Forté on Flagler is recently completed. Confirm the specific residence — completed inventory moves." },
       { question: "What does 'targeted' delivery mean?", answer: "It means the developer's current aim, not a contractual guarantee. Construction schedules shift with permitting, labor, and sales velocity — always confirm the live schedule." },
       { question: "How should buyers plan around a 2028 delivery?", answer: "Treat it as a range, not a date. Ask for the current schedule in writing, understand the contract's outside delivery date and remedies, and keep housing flexibility until keys are real." },
     ],
@@ -1199,9 +1200,9 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
       { label: "Delivered benchmarks", bestUse: "Buyers who want to inspect the building or compare against existing inventory.", links: ["/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, condition, and association documents — these trade on resale." },
     ],
     faqs: [
-      { question: "Which South Flagler condo can I move into now?", answer: "Forté on Flagler is recently completed and La Clara opened to residents in 2023 — both trade on resale, so confirm the specific residence. South Flagler House is under construction and Maison d'Or targets late 2028." },
+      { question: "Which South Flagler condo can I move into now?", answer: "Forté on Flagler is recently completed and La Clara opened to residents in 2023 — confirm developer and resale options for the specific residence. South Flagler House is under construction and Maison d'Or requires current primary delivery guidance." },
       { question: "Which is more expensive, South Flagler House or Maison d'Or?", answer: "Published guidance points to South Flagler House from $7.98M advertised and Maison d'Or from $5.7M published guidance. Verify both against current availability — flagship pricing moves with release phases." },
-      { question: "Are Forté and La Clara new construction?", answer: "They are recently delivered buildings used as South Flagler benchmarks. They are not active developer sales — compare them as resale alternatives with their own fees, reserves, and condition to verify." },
+      { question: "Are Forté and La Clara new construction?", answer: "They are recently delivered buildings used as South Flagler benchmarks. Completion does not establish resale-only inventory; confirm current developer and resale options, fees, reserves and condition." },
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
   },
@@ -1225,7 +1226,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     faqs: [
       { question: "Which is larger, Olara or Shorecrest?", answer: "Olara's March 2026 brochure describes 275 condominium residences. Related Ross's April 3, 2026 announcement describes 98 at Shorecrest. Published project counts are not available-unit counts." },
-      { question: "Which has the lower starting price?", answer: "Olara's developer-published guidance starts at $1.7M; Shorecrest's current official floorplans start from $3.69M (February 2026 coverage cited from $3M). Verify both against live availability before comparing." },
+      { question: "Which has the lower starting price?", answer: "Olara's published guidance starts at $1.7M. Request current residence-specific Shorecrest pricing and released availability before comparing the two projects." },
       { question: "Do Olara and Shorecrest have the same completion target?", answer: "The dated materials differ: Related Ross anticipated Shorecrest completion in 2027 in April 2026; Olara's March 2026 brochure scheduled completion for 2028. Neither is a guaranteed closing date. Request a current construction and contractual timing update." },
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],
@@ -1237,7 +1238,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "Which new West Palm Beach condos are move-in ready?",
     description: "The completed new condos in West Palm Beach — Alba, La Clara, Forté on Flagler — and how to verify specific residence availability.",
     bluf:
-      "Three projects offer a delivery date of today: Alba Palm Beach (55 residences, completed, developer offering immediate occupancy, from just under $3M guidance), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). Alba is the active developer sale; La Clara and Forté trade on resale — confirm the specific residence, fees, reserves, and condition before comparing.",
+      "Three projects offer a delivery date of today: Alba Palm Beach (55 residences, completed, developer offering confirm residence-specific occupancy, from just under $3M guidance), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). Confirm current developer and resale options across Alba, La Clara and Forté — confirm the specific residence, fees, reserves, and condition before comparing.",
     explanation:
       "Move-in-ready removes construction timing risk but adds a different checklist: specific residence availability, resale versus developer inventory, association reserves and fees, building condition, and what the HOA documents actually say. Use the completed set as both a purchase lane and a reality check for finishes and fees against pre-construction promises elsewhere.",
     projectIds: ["alba-palm-beach", "la-clara", "forte-on-flagler"],
@@ -1249,7 +1250,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     faqs: [
       { question: "Can I tour the actual residence before buying?", answer: "At completed buildings, often yes — that is the advantage. Confirm which specific residences are available and tour those, not just a model or a comparable line." },
-      { question: "Are La Clara and Forté developer sales?", answer: "No — they are completed comps that trade on resale. Pricing, availability, and terms come from the resale market and HOA documents, not a developer price list." },
+      { question: "Are La Clara and Forté developer sales?", answer: "They are completed benchmarks; confirm current developer and resale options and residence-specific terms." },
       { question: "How does move-in-ready change the fee question?", answer: "Completed buildings have operating history: ask for actual budgets, reserve studies, insurance costs, and any pending special assessments instead of developer estimates." },
     ],
     sourceNotes: ["Status and delivery guidance come from the existing WPB New Construction source catalog.", "Resale inventory, fees, and condition are verification items — confirm the specific residence."],
@@ -4163,23 +4164,6 @@ const projectRouteAliases: Record<string, string> = {
   "rosewood": "rosewood-residences-west-palm-beach",
 };
 
-// Initial project routing builds Offer schema, so its reviewed price map must
-// be initialized before the first route is applied.
-const projectStartingPrices: Record<string, { amount: number; label: string }> = {
-  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
-  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
-  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
-  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
-  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
-  // Alba's "just under $3M" guidance does not establish an exact Offer price.
-  berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
-  // NORA's "from the low $2Ms" guidance does not establish an exact Offer price.
-  "maison-dor": { amount: 5700000, label: "From $5.7M developer guidance (Aug 2026 coverage); verify current availability" },
-  edgeworth: { amount: 2500000, label: "From $2.5M Related Ross launch guidance; verify current availability" },
-  "banyan-tree": { amount: 1900000, label: "From $1.9M developer release (Mar 2026); verify current availability" },
-  "forte-on-flagler": { amount: 4900000, label: "$4.9M developer launch guidance (current listings higher); verify current availability" },
-};
-
 applyRoute();
 initWebMcpTools();
 initHomeSectionJumpControls();
@@ -4292,7 +4276,7 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
-  if (activePlanPage) document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", activePlanPage.seoDescription);
+  if (activePlanPage) document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", floorplanSchemaDescription(activePlanPage.planTitle, activePlanPage.projectName));
   if (activeProject || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
@@ -4471,7 +4455,7 @@ function routeSeoDetails(
       : activePlanPage
         ? activePlanPage.seoTitle
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activePlanPage?.seoDescription ?? activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
+  const description = (activePlanPage ? floorplanSchemaDescription(activePlanPage.planTitle, activePlanPage.projectName) : undefined) ?? activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title: buyerSeo?.title || title,
@@ -5005,7 +4989,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
 
   setJsonLd({
     "@context": "https://schema.org",
-    "@graph": [...baseGraph, ...routeGraph],
+    "@graph": nonemptySchemaNodes([...baseGraph, ...routeGraph]),
   });
 }
 
@@ -5031,7 +5015,7 @@ function buildWebPageSchema(routeType: string, activePlanPage?: FloorplanPlanPag
     "@id": `${siteMeta.baseUrl}${path}#webpage`,
     name: activePlanPage?.seoTitle ?? pageSchemaName(routeType),
     url: `${siteMeta.baseUrl}${path}`,
-    description: activePlanPage?.seoDescription ?? metaDescriptionForRoute(routeType),
+    description: (activePlanPage ? floorplanSchemaDescription(activePlanPage.planTitle, activePlanPage.projectName) : undefined) ?? metaDescriptionForRoute(routeType),
     ...(reviewed ? { dateModified: floorplanModifiedOn(reviewed), lastReviewed: reviewed.reviewedOn, mainEntity: { "@id": `${siteMeta.baseUrl}${path}#plan` } } : {}),
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
     publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
@@ -5110,7 +5094,7 @@ function buildFaqSchema() {
     author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
-    mainEntity: answerEngineFaq.map((item) => ({
+    mainEntity: auditedFaqItems(answerEngineFaq).map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -5127,7 +5111,7 @@ function buildBuyerIntentAnswerPageSchema(answer: BuyerIntentAnswerPage) {
     "@id": `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}#webpage`,
     name: answer.title,
     url: `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}`,
-    description: answer.description,
+    description: "Buyer research guide with comparison questions and current-source verification steps.",
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
     publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
@@ -5139,7 +5123,7 @@ function buildBuyerIntentFaqSchema(answer: BuyerIntentAnswerPage) {
     "@type": "FAQPage",
     "@id": `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}#faq`,
     name: `${answer.title} FAQ`,
-    mainEntity: answer.faqs.map((item) => ({
+    mainEntity: auditedFaqItems(answer.faqs).map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -5201,18 +5185,6 @@ function buildMarketNoteSchema(note: MarketNote) {
 
 
 
-function projectStartingOffer(projectId: string) {
-  const entry = projectStartingPrices[projectId];
-  if (!entry) return null;
-  // No availability field: starting guidance is not verified live inventory.
-  return {
-    "@type": "Offer",
-    price: entry.amount,
-    priceCurrency: "USD",
-    description: entry.label,
-  };
-}
-
 function buildProjectFaqSchemaEntry(project: FeaturedProject) {
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
   const faqs = copyPackage?.faqs;
@@ -5225,7 +5197,7 @@ function buildProjectFaqSchema(project: FeaturedProject, faqs: Array<{ question:
     "@type": "FAQPage",
     "@id": `${siteMeta.baseUrl}/projects/${project.id}/#faq`,
     name: `${project.name} FAQ`,
-    mainEntity: faqs.map((item) => ({
+    mainEntity: auditedFaqItems(faqs).map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -5236,45 +5208,42 @@ function buildProjectFaqSchema(project: FeaturedProject, faqs: Array<{ question:
   };
 }
 
+function schemaAuthoredCopy(projectId: string) {
+  const direct = batch1ProjectCopyByProjectId.get(projectId);
+  if (direct) return direct;
+  const model = publicProjectRecords.find(p => p.publicSlug === projectId || (p.lookupAliases as readonly string[]).includes(projectId));
+  return [...batch1ProjectCopyByProjectId.values()].find(c => c.slug === projectId || c.slug === model?.publicSlug) || model?.lookupAliases.map(alias => batch1ProjectCopyByProjectId.get(alias)).find(Boolean);
+}
+
 function buildProjectSchema(project: FeaturedProject) {
   const schemaFacts = getSchemaSafeProjectFacts(project.id);
-  const structuredDetails = batch1ProjectCopyByProjectId.get(project.id)?.structuredDetails ?? [];
-  const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
+  const structuredDetails = schemaAuthoredCopy(project.id)?.structuredDetails ?? [];
   const projectLocality = project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
-    "@type": schemaTypeForProject(project),
+    "@type": schemaAuthoredCopy(project.id)?.schemaType || schemaTypeForProject(project),
     "@id": `${siteMeta.baseUrl}${projectPath(project)}#project`,
-    name: schemaFacts.safeFields.name,
+    name: schemaAuthoredCopy(project.id)?.schemaEntityName || schemaFacts.safeFields.name,
     ...(schemaFacts.safeFields.address
       ? {
           address: {
             "@type": "PostalAddress",
-            streetAddress: schemaFacts.safeFields.address,
+            streetAddress: schemaFacts.safeFields.address.split(",")[0].trim(),
             addressLocality: projectLocality,
             addressRegion: "FL",
             addressCountry: "US",
           },
         }
       : {}),
-    latitude: project.latitude,
-    longitude: project.longitude,
-    description: structuredDetails.length ? project.summary : project.projectType === "rental"
+    description: project.projectType === "rental"
       ? `${schemaFacts.safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
       : `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
     url: schemaFacts.safeFields.url,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
-    areaServed: `${projectLocality}, Florida`,
     containedInPlace: {
       "@type": "City",
       name: projectLocality,
     },
-    numberOfAccommodationUnits: unitCount,
-    ...(structuredDetails.length ? {
-      additionalProperty: structuredDetails.map((detail) => ({ "@type": "PropertyValue", name: detail.name, value: detail.value })),
-    } : {}),
-    dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
-    ...(schemaFacts.safeFields.status ? { status: schemaFacts.safeFields.status } : {}),
-    ...(projectStartingOffer(project.id) ? { offers: projectStartingOffer(project.id) } : {}),
+    ...projectSchemaFactProperties(schemaFacts.safeFields, structuredDetails, schemaAuthoredCopy(project.id)?.schemaType || schemaTypeForProject(project)),
     subjectOf: [
       {
         "@type": "WebPage",
@@ -5287,22 +5256,13 @@ function buildProjectSchema(project: FeaturedProject) {
         url: `${siteMeta.baseUrl}/methodology/`,
       },
     ],
-    hasPart: project.image
-      ? [{
-          "@type": "ImageObject",
-          contentUrl: `${siteMeta.baseUrl}${project.image}`,
-          caption: `${project.name} project image`,
-          creditText: imageSourceName(project.image),
-        }]
-      : [],
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
-    amenityFeature: getFloorplanProject(project.id)?.count ? [{ "@type": "LocationFeatureSpecification", name: "Floorplans available" }] : [],
   };
 }
 
 function schemaTypeForProject(project: FeaturedProject) {
   if (project.projectType === "hotel-residences") return ["Hotel", "ApartmentComplex"];
-  if (["office", "mixed-use", "condo-pipeline"].includes(project.projectType)) return "Place";
+  if (project.projectType === "office") return "Place";
+  if (project.projectType === "mixed-use") return ["Place", "ApartmentComplex"];
   return "ApartmentComplex";
 }
 
@@ -6232,6 +6192,13 @@ function compareBuildingValue(project: FeaturedProject, field: BuildingDatabaseF
 }
 
 function compareReviewedOverride(project: FeaturedProject, field: BuildingDatabaseField) {
+  const fieldMap: Partial<Record<BuildingDatabaseField, ProjectModelField>> = {
+    development_stage: "status", status_badge: "status", completion_or_delivery: "delivery",
+    price_display: "price", residence_count: "residences", public_address: "address",
+  };
+  const modelField = fieldMap[field];
+  const reviewed = modelField ? reviewedProjectFactOverride(project.id, modelField) : "";
+  if (reviewed) return reviewed;
   const override = (editorProjectOverrides as EditorProjectOverrides)[project.id];
   if (!override) return "";
   if (field === "development_stage" || field === "status_badge" || field === "construction_status") return cleanOverrideText(override.status) ?? "";
@@ -6996,7 +6963,7 @@ function isBuyerFacingValue(value: unknown) {
   const text = String(value ?? "").trim();
   if (!text) return false;
   return !/^(null|undefined|unknown|n\/a|na|tbd|none)$/i.test(text)
-    && !/not (yet )?publicly confirmed|needs verification|verify$|^verify\b|^request$|request current|available on request|confirm before|confirm with|not released|timing not released|on request/i.test(text);
+    && !/not (yet )?publicly confirmed|needs verification|verify$|^verify\b|^request$|^request current|available on request|confirm before|confirm with|not released|timing not released|on request/i.test(text);
 }
 
 function copyFactValue(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp, fallback = "") {
@@ -9548,12 +9515,17 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     field: "status",
     approvedFallback: copyFactValue(copyPackage, /^status$/i, project.status),
   }).value;
+  const deliveryGuidance = resolveProjectField({
+    identifier: project.id,
+    field: "delivery",
+    approvedFallback: copyFactValue(copyPackage, /^delivery$/i, project.delivery),
+  }).value;
   const defaultFacts = [
-    { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
+    { icon: "residence", value: resolveProjectField({ identifier: project.id, field: "residences", approvedFallback: copyFactValue(copyPackage, /residences/i, project.residences) }).value, label: "Residences" },
     { icon: "stories", value: showcaseFloors, label: "Stories" },
     { icon: "sqft", value: showcaseSizeRange, label: "Sq Ft" },
     { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, ""), label: "Bedrooms" },
-    { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
+    { icon: "price", value: resolveProjectField({ identifier: project.id, field: "price", approvedFallback: copyFactValue(copyPackage, /price/i, project.price) }).value, label: "Pricing" },
   ];
   const factSource = showcase?.factStrip?.length ? showcase.factStrip : defaultFacts;
   const facts = [
@@ -9633,6 +9605,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-intro-section" id="overview-${project.id}" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
+        ${deliveryGuidance ? `<p data-project-delivery-guidance>Delivery guidance: ${publicText(deliveryGuidance)}.</p>` : ""}
         ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
       </section>
 

@@ -17,10 +17,10 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Alba Palm Beach",
-      "status": "Completed",
-      "delivery": "Developer offering immediate occupancy (Sep 2026); confirm specific residence",
+      "status": "Completed (developer-reported); confirm occupancy",
+      "delivery": "Completion announced June 2026; confirm residence-specific occupancy",
       "residences": "55",
-      "price": "From just under $3M (developer guidance, Sep 2026)",
+      "price": "From just under $3M (official project guidance); request current pricing",
       "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "completed",
       "pageType": "main_building_page",
@@ -53,16 +53,18 @@ export const canonicalProjectModel = {
         "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       ],
       "reviewedFields": {
-        "status": "Completed",
+        "status": "Completed (developer-reported); confirm occupancy",
+        "delivery": "Completion announced June 2026; confirm residence-specific occupancy",
+        "price": "From just under $3M (official project guidance); request current pricing",
         "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
       },
       "fieldSources": {
         "displayName": "canonical",
         "status": "reviewed_override",
-        "delivery": "canonical",
+        "delivery": "reviewed_override",
         "residences": "canonical",
-        "price": "canonical",
-        "address": "canonical"
+        "price": "reviewed_override",
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 8,
@@ -87,8 +89,8 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Olara West Palm Beach",
       "status": "Under Construction",
-      "delivery": "2028",
-      "residences": "275",
+      "delivery": "2028 scheduled completion (official brochure); confirm current schedule",
+      "residences": "275 condominium residences (project offering)",
       "price": "From $1.7M (developer-published; verify current availability)",
       "address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "under_construction",
@@ -122,13 +124,15 @@ export const canonicalProjectModel = {
         "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
       ],
       "reviewedFields": {
-        "delivery": "2028"
+        "status": "Under Construction",
+        "delivery": "2028 scheduled completion (official brochure); confirm current schedule",
+        "residences": "275 condominium residences (project offering)"
       },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "reviewed_override",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -155,9 +159,9 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Shorecrest",
       "status": "Under Construction",
-      "delivery": "Request current delivery guidance",
-      "residences": "98 in earlier sources; 100 on Related Ross",
-      "price": "From about $3.69M (current official floorplans; Feb 2026 coverage cited from $3M)",
+      "delivery": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+      "residences": "98 in Apr 2026 release; 100 in municipal map",
+      "price": "From $3.5M (Apr 2026 developer guidance); request current pricing",
       "address": "1901 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "active_sales_under_construction",
       "pageType": "main_building_page",
@@ -198,14 +202,17 @@ export const canonicalProjectModel = {
         "https://www.shorecrestwpb.com/floorplans"
       ],
       "reviewedFields": {
-        "status": "Under Construction"
+        "status": "Under Construction",
+        "delivery": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+        "residences": "98 in Apr 2026 release; 100 in municipal map",
+        "price": "From $3.5M (Apr 2026 developer guidance); request current pricing"
       },
       "fieldSources": {
         "displayName": "canonical",
         "status": "reviewed_override",
-        "delivery": "canonical",
-        "residences": "canonical",
-        "price": "canonical",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -231,9 +238,9 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "The Ritz-Carlton Residences, West Palm Beach",
       "status": "Under Construction",
-      "delivery": "2028 estimate; confirm current schedule",
+      "delivery": "Q1 2028 developer target; confirm current schedule",
       "residences": "138",
-      "price": "Request current pricing",
+      "price": "From $3M (official project guidance); request current pricing",
       "address": "1745 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
@@ -266,13 +273,18 @@ export const canonicalProjectModel = {
         "https://theresidenceswestpalmbeach.com/floorplans/",
         "https://theresidenceswestpalmbeach.com/amenities/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Under Construction",
+        "delivery": "Q1 2028 developer target; confirm current schedule",
+        "residences": "138",
+        "price": "From $3M (official project guidance); request current pricing"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
-        "price": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -300,8 +312,8 @@ export const canonicalProjectModel = {
       "status": "Under Construction",
       "delivery": "Confirm with sales team",
       "residences": "193",
-      "price": "$2M to over $10M (reported; request current pricing)",
-      "address": "601–621 Clearwater Park Road, West Palm Beach, FL 33401",
+      "price": "$2M to over $10M (official project guidance); request current pricing",
+      "address": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
       "siteGroup": "active_under_construction",
@@ -335,14 +347,18 @@ export const canonicalProjectModel = {
         "https://www.theberkeleypalmbeach.com/amenities/",
         "https://www.theberkeleypalmbeach.com/wp-content/uploads/2024/09/Berkeley_Broker_ToolKit_0924.pdf"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Under Construction",
+        "price": "$2M to over $10M (official project guidance); request current pricing",
+        "address": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "approved_fallback",
         "residences": "canonical",
-        "price": "canonical",
-        "address": "canonical"
+        "price": "reviewed_override",
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 9,
@@ -368,9 +384,9 @@ export const canonicalProjectModel = {
       "displayName": "Nora House",
       "status": "Sales Open / Preconstruction",
       "delivery": "Request current delivery guidance",
-      "residences": "117",
+      "residences": "117 marketed residences; municipal plan lists 122",
       "price": "From the low $2Ms (developer-published; verify current availability)",
-      "address": "NORA District, West Palm Beach, FL 33401; confirm building address",
+      "address": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
       "developmentStage": "active_sales_preconstruction",
       "pageType": "main_building_page",
       "siteGroup": "active_sales",
@@ -402,14 +418,17 @@ export const canonicalProjectModel = {
         "https://norahouse.com/team/",
         "https://norahouse.com/features-finishes/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "117 marketed residences; municipal plan lists 122",
+        "address": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "canonical",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "canonical",
-        "address": "canonical"
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 5,
@@ -434,8 +453,8 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "South Flagler House",
       "status": "Under Construction",
-      "delivery": "Request current delivery guidance",
-      "residences": "105 on project site; 108 on Related Ross",
+      "delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+      "residences": "105 marketed residences; municipal count differs",
       "price": "From $7.98M advertised; request current pricing",
       "address": "1355 S Flagler Drive, West Palm Beach, FL 33401",
       "developmentStage": "under_construction",
@@ -479,12 +498,16 @@ export const canonicalProjectModel = {
         "https://www.southflaglerhouse.com/",
         "https://www.southflaglerhouse.com/team"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Under Construction",
+        "delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+        "residences": "105 marketed residences; municipal count differs"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -511,8 +534,8 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Mr. C Residences West Palm Beach",
       "status": "Under Construction",
-      "delivery": "Timing to confirm — completion estimates vary (2026 vs 2027 across sources)",
-      "residences": "146",
+      "delivery": "2027 brand target; season and closing schedule to confirm",
+      "residences": "146 private residences (project fact sheet)",
       "price": "Request current pricing",
       "address": "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
       "developmentStage": "under_construction",
@@ -548,12 +571,15 @@ export const canonicalProjectModel = {
         "https://www.mrcresidenceswpb.com/downloads/",
         "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "delivery": "2027 brand target; season and closing schedule to confirm",
+        "residences": "146 private residences (project fact sheet)"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },
@@ -580,10 +606,10 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Maison d’Or",
       "status": "Pre-Construction Sales",
-      "delivery": "Late 2028 (targeted; reported)",
+      "delivery": "Request current delivery guidance",
       "residences": "39",
-      "price": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
-      "address": "South Flagler Drive, West Palm Beach, FL",
+      "price": "From $5.7M (official project guidance); request current pricing",
+      "address": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)",
       "developmentStage": "pre_construction_sales",
       "pageType": "main_building_page_with_caveat",
       "siteGroup": "active_under_construction",
@@ -613,14 +639,18 @@ export const canonicalProjectModel = {
         "https://livemaisondor.com/the-team/",
         "https://www.livemaisondor.com/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "delivery": "Request current delivery guidance",
+        "price": "From $5.7M (official project guidance); request current pricing",
+        "address": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "canonical",
+        "delivery": "reviewed_override",
         "residences": "canonical",
-        "price": "canonical",
-        "address": "canonical"
+        "price": "reviewed_override",
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 10,
@@ -644,10 +674,10 @@ export const canonicalProjectModel = {
       "corridor": "South Flagler",
       "publicationState": "published",
       "displayName": "Edgeworth",
-      "status": "Announced / Pipeline",
-      "delivery": "Pipeline watch",
-      "residences": "168",
-      "price": "$2.5M-$35.5M reported",
+      "status": "Priority List Open / Preconstruction",
+      "delivery": "Request current delivery guidance",
+      "residences": "184 marketed residences",
+      "price": "From $5.5M (official project guidance); request current pricing",
       "address": "1155 S Flagler Drive, West Palm Beach, FL",
       "developmentStage": "announced_pipeline",
       "pageType": "pipeline_building_page",
@@ -682,13 +712,18 @@ export const canonicalProjectModel = {
       "sourceUrls": [
         "https://www.relatedross.com/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Priority List Open / Preconstruction",
+        "delivery": "Request current delivery guidance",
+        "residences": "184 marketed residences",
+        "price": "From $5.5M (official project guidance); request current pricing"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "approved_fallback",
-        "residences": "canonical",
-        "price": "approved_fallback",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -713,10 +748,10 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Mandarin Oriental Residences West Palm Beach",
-      "status": "Announced / Branded Pipeline",
-      "delivery": "Timing to confirm — reports vary",
-      "residences": "87",
-      "price": "From $3.5M published starting guidance (Cervera); request current pricing and availability",
+      "status": "Sales Open",
+      "delivery": "2031 anticipated opening (brand target); confirm current schedule",
+      "residences": "87 branded residences (brand announcement)",
+      "price": "Request current pricing",
       "address": "5400 N Flagler Drive, West Palm Beach, FL",
       "developmentStage": "announced_pipeline",
       "pageType": "pipeline_building_page",
@@ -747,13 +782,18 @@ export const canonicalProjectModel = {
         "https://mo-residenceswestpalmbeach.com/",
         "https://press.mandarinoriental.com/residences-west-palm/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Sales Open",
+        "delivery": "2031 anticipated opening (brand target); confirm current schedule",
+        "residences": "87 branded residences (brand announcement)",
+        "price": "Request current pricing"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
-        "price": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -780,7 +820,7 @@ export const canonicalProjectModel = {
       "displayName": "Banyan Tree Residences West Palm Beach",
       "status": "Sales Open / Preconstruction",
       "delivery": "Request current delivery guidance",
-      "residences": "88",
+      "residences": "88 marketed residences (official fact sheet)",
       "price": "Request current pricing",
       "address": "400 Hibiscus Street, West Palm Beach, FL 33401",
       "developmentStage": "active_sales_preconstruction",
@@ -813,12 +853,14 @@ export const canonicalProjectModel = {
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "88 marketed residences (official fact sheet)"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "canonical",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -846,7 +888,7 @@ export const canonicalProjectModel = {
       "displayName": "Alba Reserve",
       "status": "Reported / Proposed",
       "delivery": "Pipeline watch",
-      "residences": "87",
+      "residences": "87 in municipal proposal; revised count to confirm",
       "price": "Not released",
       "address": "4720 N Flagler Drive, West Palm Beach, FL",
       "developmentStage": "reported_proposed_watchlist",
@@ -876,12 +918,14 @@ export const canonicalProjectModel = {
         "https://www.blueroadgroup.com/",
         "https://floridayimby.com/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "87 in municipal proposal; revised count to confirm"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "approved_fallback",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },
@@ -907,10 +951,10 @@ export const canonicalProjectModel = {
       "corridor": "South Flagler",
       "publicationState": "published",
       "displayName": "Forté on Flagler",
-      "status": "Completed Comp",
-      "delivery": "Completed / recently completed; occupancy/resale status to verify",
-      "residences": "41",
-      "price": "Resale inventory varies",
+      "status": "Completed (developer-confirmed)",
+      "delivery": "Completed per developer; confirm residence-specific occupancy",
+      "residences": "41 marketed residences; total to confirm",
+      "price": "Request current developer and resale pricing",
       "address": "1309 S Flagler Drive, West Palm Beach, FL",
       "developmentStage": "completed_recent_comp",
       "pageType": "completed_comp_page",
@@ -941,13 +985,18 @@ export const canonicalProjectModel = {
         "https://fortewpb.com/amenities/",
         "https://arquitectonica.com/architecture/project/forte-on-flagler/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Completed (developer-confirmed)",
+        "delivery": "Completed per developer; confirm residence-specific occupancy",
+        "residences": "41 marketed residences; total to confirm",
+        "price": "Request current developer and resale pricing"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
-        "price": "approved_fallback",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -973,8 +1022,8 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "La Clara",
       "status": "Completed Comp",
-      "delivery": "Completed / opened to residents in 2023",
-      "residences": "83",
+      "delivery": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history",
+      "residences": "83 marketed residences; municipal map lists 84",
       "price": "Resale inventory varies",
       "address": "1515 S Flagler Drive, West Palm Beach, FL",
       "developmentStage": "completed_recent_comp",
@@ -1005,12 +1054,16 @@ export const canonicalProjectModel = {
         "https://www.laclararesales.com/",
         "https://acppubs.com/DXC/article/03EFF514-stantec-celebrates-groundbreaking-of-la-clara-luxury-condominium-in-west-palm-beach-florida"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Completed Comp",
+        "delivery": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history",
+        "residences": "83 marketed residences; municipal map lists 84"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },
@@ -1051,7 +1104,7 @@ export const canonicalProjectModel = {
       "displayName": "Residences at 464 Fern Street",
       "status": "Proposed / Municipal Review",
       "delivery": "Not announced",
-      "residences": "194 proposed residences",
+      "residences": "194 in reviewed proposal; 197 in municipal map",
       "price": "Not released",
       "address": "464 Fern Street, West Palm Beach, FL 33401",
       "developmentStage": "municipal_review",
@@ -1086,16 +1139,17 @@ export const canonicalProjectModel = {
       ],
       "reviewedFields": {
         "status": "Proposed / Municipal Review",
-        "residences": "194",
+        "delivery": "Not announced",
+        "residences": "194 in reviewed proposal; 197 in municipal map",
         "address": "464 Fern Street, West Palm Beach, FL 33401"
       },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "approved_fallback",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
-        "address": "canonical"
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 17,
@@ -1132,9 +1186,9 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Rybovich Marina Redevelopment",
-      "status": "Pipeline / Planning Approved",
+      "status": "Pipeline / Approval scope to confirm",
       "delivery": "Pipeline watch",
-      "residences": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
+      "residences": "Up to 660 planned across four towers; phase counts to confirm",
       "price": "Not released",
       "address": "4000–4300 N Flagler Drive, West Palm Beach, FL",
       "developmentStage": "planning_approved_watchlist",
@@ -1161,12 +1215,15 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Pipeline / Approval scope to confirm",
+        "residences": "Up to 660 planned across four towers; phase counts to confirm"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "approved_fallback",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },
@@ -1192,9 +1249,9 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Rosewood Residences West Palm Beach",
-      "status": "Pipeline / Branded Residences",
+      "status": "Pipeline / Brand and construction status to confirm",
       "delivery": "Timing not released",
-      "residences": "90",
+      "residences": "90 in municipal program; branded offering unconfirmed",
       "price": "Not released",
       "address": "2001 N Flagler Drive, West Palm Beach, FL",
       "developmentStage": "filed_plans_watchlist",
@@ -1219,12 +1276,16 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Pipeline / Brand and construction status to confirm",
+        "delivery": "Timing not released",
+        "residences": "90 in municipal program; branded offering unconfirmed"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "approved_fallback",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },
@@ -1286,12 +1347,16 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/projects/olin-palm-beach/",
         "https://www.okogroup.com/portfolio/olin"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Pre-Construction Sales",
+        "delivery": "Timing not released",
+        "residences": "32"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -1342,7 +1407,7 @@ export const canonicalProjectModel = {
       "corridor": "Palm Beach",
       "publicationState": "published",
       "displayName": "3031 S. Ocean",
-      "status": "Town Approved / Announced",
+      "status": "Reported approved; final municipal record to confirm",
       "delivery": "Timing not released",
       "residences": "12",
       "price": "Not publicly released",
@@ -1378,12 +1443,16 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/firm/copperline-partners/",
         "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Reported approved; final municipal record to confirm",
+        "delivery": "Timing not released",
+        "residences": "12"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -1436,7 +1505,7 @@ export const canonicalProjectModel = {
       "displayName": "Apogee Residences",
       "status": "Approved / Announced",
       "delivery": "Timing not released",
-      "residences": "39",
+      "residences": "39 in prior review; 46 in municipal map",
       "price": "Not publicly released",
       "address": "4906 North Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "approved",
@@ -1471,12 +1540,14 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/firm/related-group/",
         "https://www.oftmw.com/firm/sieger-suarez-architects/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "39 in prior review; 46 in municipal map"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "canonical",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -1516,8 +1587,8 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "201 Arkona Court",
       "status": "Announced / Planning",
-      "delivery": "2029 estimate",
-      "residences": "16",
+      "delivery": "Request current delivery guidance",
+      "residences": "16 reported in proposal; primary plan to confirm",
       "price": "Not publicly released",
       "address": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
       "developmentStage": "announced",
@@ -1551,12 +1622,16 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
         "https://www.oftmw.com/firm/1789-capital/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Announced / Planning",
+        "delivery": "Request current delivery guidance",
+        "residences": "16 reported in proposal; primary plan to confirm"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "canonical",
         "address": "canonical"
       },
@@ -1591,7 +1666,7 @@ export const canonicalProjectModel = {
       "displayName": "2085 North Flagler",
       "status": "Announced / Planning",
       "delivery": "Timing not released",
-      "residences": "281",
+      "residences": "281 reported in proposal; primary plan to confirm",
       "price": "Not publicly released",
       "address": "2085 North Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "announced",
@@ -1625,14 +1700,19 @@ export const canonicalProjectModel = {
         "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",
         "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Announced / Planning",
+        "delivery": "Timing not released",
+        "residences": "281 reported in proposal; primary plan to confirm",
+        "address": "2085 North Flagler Drive, West Palm Beach, FL 33407"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
-        "delivery": "canonical",
-        "residences": "canonical",
+        "status": "reviewed_override",
+        "delivery": "reviewed_override",
+        "residences": "reviewed_override",
         "price": "canonical",
-        "address": "canonical"
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 24,
@@ -1664,7 +1744,7 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "The Sound Apartments",
       "status": "Under Construction",
-      "delivery": "Under construction; 2026 delivery target",
+      "delivery": "Request current completion and leasing guidance",
       "residences": "358",
       "price": "Request current leasing information",
       "address": "8111 South Dixie Highway, West Palm Beach, FL 33405",
@@ -1701,11 +1781,13 @@ export const canonicalProjectModel = {
         "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
         "https://locations.traderjoes.com/fl/west-palm-beach/796/"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "delivery": "Request current completion and leasing guidance"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "canonical",
+        "delivery": "reviewed_override",
         "residences": "canonical",
         "price": "canonical",
         "address": "canonical"

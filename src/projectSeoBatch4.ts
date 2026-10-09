@@ -1,6 +1,7 @@
 import { projectPageHeading, projectPageSeo } from "../shared/project-page-seo.mjs";
 import { batch1ProjectCopyByProjectId, loadBatch1ProjectCopyPackage } from "./data/projectCopyPackage.ts";
 import { publicProjectRecords } from "./generated/projectModelPublic.ts";
+import { projectBuyerGuide } from "../shared/project-buyer-guide.mjs";
 
 type Batch4Link = { label: string; href: string };
 type Batch4Source = { label: string; url: string; kind: "official" | "reporting" };
@@ -45,7 +46,7 @@ async function loadRecords() {
         if (!project) return record;
         const copy = batch1ProjectCopyByProjectId.get(project.publicSlug) ?? batch1ProjectCopyByProjectId.get(record.projectId);
         const seo = projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey }, copy);
-        return { ...record, ...seo, h1: projectPageHeading(project.displayName, project.corridorKey) };
+        return { ...projectBuyerGuide(record, copy), ...seo, h1: projectPageHeading(project.displayName, project.corridorKey) };
       });
     });
   return recordsPromise;
@@ -166,17 +167,17 @@ function renderGuide(record: Batch4Project) {
           <article><h3>Residence availability</h3><p>${esc(record.status.availability)}</p></article>
         </div>
         <div class="p2-project-guide__grid">
-          <article><h3>Verified residence / layout facts</h3>${list(record.residences)}</article>
+          <article><h3>Residence and layout guidance</h3>${list(record.residences)}</article>
           <article><h3>Amenities and service</h3>${list(record.amenities)}</article>
         </div>
-        <article><h3>Verified project facts</h3>${list(record.verifiedFacts)}</article>
+        <article><h3>Published project guidance</h3>${list(record.verifiedFacts)}</article>
         <nav class="p2-project-guide__links" aria-label="Related buyer research">
           <h3>Compare and keep researching</h3>
           <ul>${record.links.map((link) => `<li><a href="${esc(link.href)}">${esc(link.label)}</a></li>`).join("")}</ul>
         </nav>
         <details class="p2-project-guide__sources">
           <summary>Sources and review date</summary>
-          <p>Reviewed ${esc(record.reviewedOn)}. Current pricing, residence availability, fees, incentives, contract terms and construction timing require current buyer-side confirmation.</p>
+          <p>Core guidance reviewed ${esc(record.reviewedOn)}. Current pricing, residence availability, fees, incentives, contract terms and construction timing require current buyer-side confirmation.</p>
           <ul>${record.sources.map((source) => `<li><a href="${esc(source.url)}" rel="noopener noreferrer">${esc(source.label)}</a> · ${esc(source.kind)}</li>`).join("")}</ul>
         </details>
       </div>

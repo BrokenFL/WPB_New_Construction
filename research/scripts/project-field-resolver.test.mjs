@@ -214,9 +214,11 @@ test("precedence: explicit reviewedOverride param wins over everything", () => {
 });
 
 test("precedence: structured value wins over approvedFallback; missing when nothing resolves", () => {
-  const structured = resolveProjectField({ identifier: REAL_SLUG, field: "status", structuredValue: "Structured", approvedFallback: "Fallback" });
-  assert.equal(structured.value, "Structured");
-  assert.equal(structured.source, "structured_source");
+  withReviewedField(REAL_SLUG, "status", "", () => {
+    const structured = resolveProjectField({ identifier: REAL_SLUG, field: "status", structuredValue: "Structured", approvedFallback: "Fallback" });
+    assert.equal(structured.value, "Structured");
+    assert.equal(structured.source, "structured_source");
+  });
   const fallback = resolveProjectField({ identifier: "__no-such-project__", field: "status", approvedFallback: "Fallback" });
   assert.equal(fallback.value, "Fallback");
   assert.equal(fallback.source, "approved_fallback");
@@ -226,7 +228,7 @@ test("precedence: structured value wins over approvedFallback; missing when noth
 });
 
 test("resolver: projected reviewedFields value wins over structured and fallback", () => {
-  const modelValue = canonicalProjectRecord(REAL_SLUG)?.status;
+  const original = resolveProjectField({ identifier: REAL_SLUG, field: "status" });
   withReviewedField(REAL_SLUG, "status", MARKER, () => {
     const resolved = resolveProjectField({
       identifier: REAL_SLUG,
@@ -239,8 +241,7 @@ test("resolver: projected reviewedFields value wins over structured and fallback
     assert.equal(reviewedProjectFactOverride(REAL_SLUG, "status"), MARKER);
   });
   const restored = resolveProjectField({ identifier: REAL_SLUG, field: "status" });
-  assert.equal(restored.value, modelValue);
-  assert.equal(restored.source, "structured_source");
+  assert.deepEqual(restored, original);
 });
 
 test("resolver: alias and route identifiers resolve to the same reviewed value", () => {

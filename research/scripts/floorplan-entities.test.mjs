@@ -116,7 +116,10 @@ test("HTML and JSON-LD escape malicious text without script breakout", () => {
   assert.doesNotMatch(renderFloorplanPage(malicious), /<script>/);
   const json = floorplanJson(floorplanSchema(malicious));
   assert.doesNotMatch(json, /<\/script>/);
-  assert.equal(JSON.parse(json)['@graph'][0].mainEntity.description, malicious.summary);
+  const description = JSON.parse(json)['@graph'][0].mainEntity.description;
+  assert.ok(description.includes(malicious.projectName));
+  assert.match(description, /Confirm the latest developer drawing/);
+  assert.doesNotMatch(description, /<script>bad/);
 });
 test("static template preserves assets, replaces nested app safely, and is idempotent", () => {
   const result = renderEntityDocument(fixture, plans[0]);

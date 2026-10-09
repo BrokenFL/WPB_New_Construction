@@ -1,3 +1,4 @@
+import { floorplanSchemaDescription } from "../../shared/project-schema-facts.mjs";
 import { olaraPlanExpansion } from "../data/olaraPlanExpansion.ts";
 import { approvedFloorplanLibrary, type ApprovedFloorplanProject } from "../data/floorplanApprovedLibrary.ts";
 import { reviewed3DFloorplanExpansion } from "../data/reviewed3DFloorplanExpansion.ts";
@@ -182,7 +183,7 @@ export function reviewedPerPlanCreativeWork(page: FloorplanPlanPage) {
     })),
   ];
   return { "@type": "CreativeWork", "@id": `${plan.canonical}#plan`, name: `${plan.projectName} ${plan.planName} floor plan`,
-    description: plan.summary, version: plan.version, image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl, encoding };
+    description: floorplanSchemaDescription(plan.planName, plan.projectName), version: plan.version, image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl, encoding };
 }
 
 export function floorplanSchema(plan: FloorplanEntity) {
@@ -197,12 +198,12 @@ export function floorplanSchema(plan: FloorplanEntity) {
   }));
   return {
     "@context": "https://schema.org", "@graph": [
-      { "@type": "WebPage", "@id": canonical, url: canonical, name: floorplanTitle(plan), description: floorplanDescription(plan),
+      { "@type": "WebPage", "@id": canonical, url: canonical, name: floorplanTitle(plan), description: floorplanSchemaDescription(plan.planName, plan.projectName),
         dateModified: floorplanModifiedOn(plan), lastReviewed: plan.reviewedOn,
         isPartOf: { "@type": "WebSite", "@id": `${floorplanSiteUrl}/#website`, url: `${floorplanSiteUrl}/`, name: "WPB New Construction", alternateName: "West Palm Beach New Construction" },
         breadcrumb: { "@id": `${canonical}#breadcrumb` },
         mainEntity: { "@type": "CreativeWork", "@id": `${canonical}#plan`, name: `${fullName(plan)} floor plan`, version: plan.version,
-          description: plan.summary, image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl,
+          description: floorplanSchemaDescription(plan.planName, plan.projectName), image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl,
           encoding: modelEncodings.length ? [pdfEncoding, ...modelEncodings] : pdfEncoding } },
       { "@type": "BreadcrumbList", "@id": `${canonical}#breadcrumb`, itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${floorplanSiteUrl}/` },

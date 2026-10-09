@@ -1,3 +1,4 @@
+import { floorplanSchemaDescription } from "../../shared/project-schema-facts.mjs";
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -18,7 +19,7 @@ async function checkStatic() {
     const owner = perPlanPageForEntity(plan);
     const html = await htmlAt(plan.path);
     assert.ok(html.includes(`<title>${escapeFloorplanHtml(owner?.seoTitle ?? floorplanTitle(plan))}</title>`));
-    assert.ok(html.includes(`name="description" content="${escapeFloorplanHtml(owner?.seoDescription ?? floorplanDescription(plan))}"`));
+    assert.ok(html.includes(`name="description" content="${escapeFloorplanHtml(owner ? floorplanSchemaDescription(owner.planTitle, owner.projectName) : floorplanDescription(plan))}"`));
     assert.equal(count(html, /<h1(?:\s[^>]*)?>/g), 1, `${plan.path}: H1`);
     assert.equal(count(html, /rel="canonical"/g), 1, `${plan.path}: canonical count`);
     assert.ok(html.includes(`rel="canonical" href="${plan.canonical}"`));

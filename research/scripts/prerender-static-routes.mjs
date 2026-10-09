@@ -1,5 +1,6 @@
 import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.mjs";
 import { projectPageHeading } from "../../shared/project-page-seo.mjs";
+import { projectSchemaFactProperties, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../../shared/project-schema-facts.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
@@ -1505,7 +1506,8 @@ function renderStaticSourceLink(href, projectId) {
 
 function buildRouteSchema(route, payload, canonical) {
   const routeKind = routeKindForPath(route.path, payload.marketNotes);
-  const schemaDescription = route.description;
+  const planSchemaPage = routeKind.type === "floorplan-plan" ? payload.floorplanPlanPages.find(p => p.projectId === routeKind.projectId && p.planSlug === routeKind.planSlug) : undefined;
+  const schemaDescription = planSchemaPage ? floorplanSchemaDescription(planSchemaPage.planTitle, planSchemaPage.projectName) : routeKind.type === "answer" || route.path === "/answers/" ? "Buyer research guide with comparison questions and current-source verification steps." : route.description;
   const baseGraph = [
     {
       "@type": "Organization",
@@ -1587,7 +1589,7 @@ function buildRouteSchema(route, payload, canonical) {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [...baseGraph, ...routeGraph],
+    "@graph": nonemptySchemaNodes([...baseGraph, ...routeGraph]),
   };
 }
 
@@ -1611,66 +1613,30 @@ function breadcrumbSchema(route, canonical) {
 function projectSchema(project, payload) {
   const schemaFacts = payload.projectSchemaSafe.find((item) => item.identity?.slug === project.projectId);
   const safeFields = schemaFacts?.safeFields || { name: project.name, url: `${baseUrl}${projectPath(project)}` };
-  const publicProject = payload.projectModel.find((item) => item.publicSlug === project.projectId);
-  const structuredDetails = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId)?.structuredDetails || [];
+  const publicProject = payload.projectModel.find((item) => item.publicSlug === project.projectId || item.lookupAliases?.includes(project.projectId));
+  const authored = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId || item.slug === project.projectId || publicProject?.lookupAliases?.includes(item.repoProjectId));
+  const structuredDetails = authored?.structuredDetails || [];
   const presentation = publicProject?.presentation;
-  const unitCount = Number(String(safeFields.residenceCount || "").match(/\d+/)?.[0] || 0) || undefined;
   const projectLocality = normalize(project.area) === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
-    "@type": schemaTypeForProject(project.projectType),
+    "@type": authored?.schemaType || schemaTypeForProject(project.projectType),
     "@id": `${baseUrl}${projectPath(project)}#project`,
-    name: safeFields.name,
+    name: authored?.schemaEntityName || safeFields.name,
     url: safeFields.url,
-    description: structuredDetails.length ? publicProject?.presentation?.summary : project.projectType === "rental"
+    description: project.projectType === "rental"
       ? `${safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
       : `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
     address: safeFields.address ? {
       "@type": "PostalAddress",
-      streetAddress: safeFields.address,
+      streetAddress: safeFields.address.split(",")[0].trim(),
       addressLocality: projectLocality,
       addressRegion: "FL",
       addressCountry: "US",
     } : undefined,
-    latitude: presentation?.latitude,
-    longitude: presentation?.longitude,
     image: presentation?.image ? `${baseUrl}${presentation.image}` : undefined,
-    areaServed: `${projectLocality}, Florida`,
     containedInPlace: { "@type": "City", name: projectLocality },
-    numberOfAccommodationUnits: unitCount,
-    ...(structuredDetails.length ? {
-      additionalProperty: structuredDetails.map((detail) => ({ "@type": "PropertyValue", name: detail.name, value: detail.value })),
-    } : {}),
-    ...(safeFields.status ? { status: safeFields.status } : {}),
-    ...(projectStartingOffer(project.projectId) ? { offers: projectStartingOffer(project.projectId) } : {}),
+    ...projectSchemaFactProperties(safeFields, structuredDetails, authored?.schemaType || schemaTypeForProject(project.projectType)),
     subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
-    reviewedBy: { "@id": `${baseUrl}/#brooke-snader` },
-  };
-}
-
-const projectStartingPrices = {
-  olara: { amount: 1700000, label: "Starting from $1.7M (developer-published guidance; verify current availability)" },
-  shorecrest: { amount: 3690000, label: "Select residences from $3.69M on current official floorplans (Feb 2026 coverage cited from $3M); verify current availability" },
-  "ritz-carlton-wpb": { amount: 3000000, label: "From about $3M (project material); request the current availability sheet" },
-  "mandarin-oriental": { amount: 3500000, label: "From $3.5M published starting guidance; request current release details" },
-  "south-flagler-house": { amount: 7980000, label: "From $7.98M advertised; request current pricing" },
-  // Alba's "just under $3M" guidance does not establish an exact Offer price.
-  berkeley: { amount: 2000000, label: "Official site lists residences from $2M to over $10M; verify current availability" },
-  // NORA's "from the low $2Ms" guidance does not establish an exact Offer price.
-  "maison-dor": { amount: 5700000, label: "From $5.7M developer guidance (Aug 2026 coverage); verify current availability" },
-  edgeworth: { amount: 2500000, label: "From $2.5M Related Ross launch guidance; verify current availability" },
-  "banyan-tree": { amount: 1900000, label: "From $1.9M developer release (Mar 2026); verify current availability" },
-  "forte-on-flagler": { amount: 4900000, label: "$4.9M developer launch guidance (current listings higher); verify current availability" },
-};
-
-function projectStartingOffer(projectId) {
-  const entry = projectStartingPrices[projectId];
-  if (!entry) return null;
-  // No availability field: starting guidance is not verified live inventory.
-  return {
-    "@type": "Offer",
-    price: entry.amount,
-    priceCurrency: "USD",
-    description: entry.label,
   };
 }
 
@@ -1700,7 +1666,7 @@ function faqSchema(faq) {
     "@type": "FAQPage",
     "@id": `${baseUrl}/answers/#faq`,
     name: "West Palm Beach New Construction Answers",
-    mainEntity: faq.map((item) => ({
+    mainEntity: auditedFaqItems(faq).map((item) => ({
       "@type": "Question",
       name: gatekeeperText(item.question),
       acceptedAnswer: { "@type": "Answer", text: gatekeeperText(item.answer) },
@@ -1713,7 +1679,7 @@ function buyerIntentFaqSchema(answer, canonical) {
     "@type": "FAQPage",
     "@id": `${canonical}#faq`,
     name: answer.title,
-    mainEntity: answer.faqs.map((item) => ({
+    mainEntity: auditedFaqItems(answer.faqs).map((item) => ({
       "@type": "Question",
       name: gatekeeperText(item.question),
       acceptedAnswer: { "@type": "Answer", text: gatekeeperText(item.answer) },

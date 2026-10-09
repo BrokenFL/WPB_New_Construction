@@ -15,7 +15,10 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/alba-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/alba-palm-beach/",
       "corridor": "North Flagler",
-      "residenceCount": "55"
+      "status": "Completed (developer-reported); confirm occupancy",
+      "delivery": "Completion announced June 2026; confirm residence-specific occupancy",
+      "residenceCount": "55",
+      "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
     }
   },
   {
@@ -31,7 +34,9 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/olara/",
       "url": "https://www.wpbnewconstruction.com/projects/olara/",
       "corridor": "North Flagler",
-      "residenceCount": "275"
+      "status": "Under Construction",
+      "delivery": "2028 scheduled completion (official brochure); confirm current schedule",
+      "residenceCount": "275 condominium residences (project offering)"
     }
   },
   {
@@ -46,7 +51,9 @@ export const generatedProjectSchemaFacts = [
       "name": "Shorecrest",
       "route": "/projects/shorecrest/",
       "url": "https://www.wpbnewconstruction.com/projects/shorecrest/",
-      "corridor": "North Flagler"
+      "corridor": "North Flagler",
+      "status": "Under Construction",
+      "delivery": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule"
     }
   },
   {
@@ -61,7 +68,10 @@ export const generatedProjectSchemaFacts = [
       "name": "The Ritz-Carlton Residences, West Palm Beach",
       "route": "/projects/ritz-carlton-wpb/",
       "url": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/",
-      "corridor": "North Flagler"
+      "corridor": "North Flagler",
+      "status": "Under Construction",
+      "delivery": "Q1 2028 developer target; confirm current schedule",
+      "residenceCount": "138"
     }
   },
   {
@@ -77,6 +87,7 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/berkeley/",
       "url": "https://www.wpbnewconstruction.com/projects/berkeley/",
       "corridor": "Downtown",
+      "status": "Under Construction",
       "residenceCount": "193"
     }
   },
@@ -92,8 +103,7 @@ export const generatedProjectSchemaFacts = [
       "name": "Nora House",
       "route": "/projects/nora-house/",
       "url": "https://www.wpbnewconstruction.com/projects/nora-house/",
-      "corridor": "Downtown",
-      "residenceCount": "117"
+      "corridor": "Downtown"
     }
   },
   {
@@ -108,7 +118,10 @@ export const generatedProjectSchemaFacts = [
       "name": "South Flagler House",
       "route": "/projects/south-flagler-house/",
       "url": "https://www.wpbnewconstruction.com/projects/south-flagler-house/",
-      "corridor": "South Flagler"
+      "corridor": "South Flagler",
+      "status": "Under Construction",
+      "delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+      "residenceCount": "105 marketed residences; municipal count differs"
     }
   },
   {
@@ -123,7 +136,9 @@ export const generatedProjectSchemaFacts = [
       "name": "Mr. C Residences West Palm Beach",
       "route": "/projects/mr-c/",
       "url": "https://www.wpbnewconstruction.com/projects/mr-c/",
-      "corridor": "Downtown"
+      "corridor": "Downtown",
+      "delivery": "2027 brand target; season and closing schedule to confirm",
+      "residenceCount": "146 private residences (project fact sheet)"
     }
   },
   {
@@ -154,7 +169,9 @@ export const generatedProjectSchemaFacts = [
       "name": "Edgeworth",
       "route": "/projects/edgeworth/",
       "url": "https://www.wpbnewconstruction.com/projects/edgeworth/",
-      "corridor": "South Flagler"
+      "corridor": "South Flagler",
+      "status": "Priority List Open / Preconstruction",
+      "residenceCount": "184 marketed residences"
     }
   },
   {
@@ -170,7 +187,8 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/mandarin-oriental/",
       "url": "https://www.wpbnewconstruction.com/projects/mandarin-oriental/",
       "corridor": "North Flagler",
-      "residenceCount": "87"
+      "delivery": "2031 anticipated opening (brand target); confirm current schedule",
+      "residenceCount": "87 branded residences (brand announcement)"
     }
   },
   {
@@ -185,7 +203,8 @@ export const generatedProjectSchemaFacts = [
       "name": "Banyan Tree Residences West Palm Beach",
       "route": "/projects/banyan-tree/",
       "url": "https://www.wpbnewconstruction.com/projects/banyan-tree/",
-      "corridor": "Downtown"
+      "corridor": "Downtown",
+      "residenceCount": "88 marketed residences (official fact sheet)"
     }
   },
   {
@@ -200,8 +219,7 @@ export const generatedProjectSchemaFacts = [
       "name": "Alba Reserve",
       "route": "/projects/alba-reserve/",
       "url": "https://www.wpbnewconstruction.com/projects/alba-reserve/",
-      "corridor": "North Flagler",
-      "residenceCount": "87"
+      "corridor": "North Flagler"
     }
   },
   {
@@ -217,7 +235,8 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/forte-on-flagler/",
       "url": "https://www.wpbnewconstruction.com/projects/forte-on-flagler/",
       "corridor": "South Flagler",
-      "residenceCount": "41"
+      "status": "Completed (developer-confirmed)",
+      "delivery": "Completed per developer; confirm residence-specific occupancy"
     }
   },
   {
@@ -233,7 +252,8 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/la-clara/",
       "url": "https://www.wpbnewconstruction.com/projects/la-clara/",
       "corridor": "South Flagler",
-      "residenceCount": "83"
+      "status": "Completed Comp",
+      "delivery": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history"
     }
   },
   {
@@ -250,8 +270,6 @@ export const generatedProjectSchemaFacts = [
       "url": "https://www.wpbnewconstruction.com/projects/fern-and-gardenia-related-ross-fern-street/",
       "corridor": "Downtown",
       "status": "Proposed / Municipal Review",
-      "delivery": "Not announced",
-      "residenceCount": "194",
       "address": "464 Fern Street, West Palm Beach, FL 33401"
     }
   },
@@ -282,8 +300,7 @@ export const generatedProjectSchemaFacts = [
       "name": "Rosewood Residences West Palm Beach",
       "route": "/projects/rosewood-residences-west-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
-      "corridor": "North Flagler",
-      "residenceCount": "90"
+      "corridor": "North Flagler"
     }
   },
   {
@@ -299,7 +316,8 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/olin-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/olin-palm-beach/",
       "corridor": "Palm Beach",
-      "delivery": "Timing not released"
+      "status": "Pre-Construction Sales",
+      "residenceCount": "32"
     }
   },
   {
@@ -314,9 +332,7 @@ export const generatedProjectSchemaFacts = [
       "name": "3031 S. Ocean",
       "route": "/projects/3031-s-ocean-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/3031-s-ocean-palm-beach/",
-      "corridor": "Palm Beach",
-      "status": "Town Approved / Announced",
-      "residenceCount": "12"
+      "corridor": "Palm Beach"
     }
   },
   {
@@ -347,9 +363,6 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/201-arkona-court/",
       "url": "https://www.wpbnewconstruction.com/projects/201-arkona-court/",
       "corridor": "South Flagler",
-      "status": "Announced / Planning",
-      "delivery": "2029 estimate",
-      "residenceCount": "16",
       "address": "201 & 203 Arkona Court, West Palm Beach, FL 33401"
     }
   },
@@ -365,11 +378,7 @@ export const generatedProjectSchemaFacts = [
       "name": "2085 North Flagler",
       "route": "/projects/2085-north-flagler/",
       "url": "https://www.wpbnewconstruction.com/projects/2085-north-flagler/",
-      "corridor": "North Flagler",
-      "status": "Announced / Planning",
-      "delivery": "Timing not released",
-      "residenceCount": "281",
-      "address": "2085 North Flagler Drive, West Palm Beach, FL 33407"
+      "corridor": "North Flagler"
     }
   },
   {
@@ -386,7 +395,6 @@ export const generatedProjectSchemaFacts = [
       "url": "https://www.wpbnewconstruction.com/projects/the-sound-west-palm-beach/",
       "corridor": "South End / South Dixie",
       "status": "Under Construction",
-      "delivery": "Under construction; 2026 delivery target",
       "residenceCount": "358",
       "address": "8111 South Dixie Highway, West Palm Beach, FL 33405"
     }

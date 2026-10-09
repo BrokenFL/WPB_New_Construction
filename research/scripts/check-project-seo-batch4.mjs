@@ -4,6 +4,7 @@ import path from "node:path";
 import http from "node:http";
 import { normalizeRequestIntent } from "../../shared/request-intents.js";
 import { projectPageHeading, projectPageSeo } from "../../shared/project-page-seo.mjs";
+import { projectBuyerGuide } from "../../shared/project-buyer-guide.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -14,7 +15,7 @@ const records = guideRecords.map(record => {
   const project = projects.find(project => project.publicRoute === record.path);
   assert.ok(project, `${record.path}: published project identity`);
   const copy = copies.find(copy => copy.repoProjectId === project.publicSlug || copy.slug === project.publicSlug || copy.repoProjectId === record.projectId);
-  return { ...record, ...projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey }, copy), h1: projectPageHeading(project.displayName, project.corridorKey) };
+  return { ...projectBuyerGuide(record, copy), ...projectPageSeo({ id: project.publicSlug, name: project.displayName, corridorKey: project.corridorKey }, copy), h1: projectPageHeading(project.displayName, project.corridorKey), schemaEntityName: copy?.schemaEntityName || project.displayName };
 });
 const artifactDir = path.join(root, ".runtime/phase-2-project-seo");
 await fs.mkdir(artifactDir, { recursive: true });
@@ -174,7 +175,8 @@ async function browserChecks() {
           const graph = schema["@graph"] ?? [];
           const projectEntity = graph.find((node) => node["@id"] === `${record.canonical}#project`);
           assert.ok(projectEntity?.name, `${record.path}: canonical project identity missing from schema`);
-          const expectedProjectIdentity = normalizeHeadingText(projectEntity.name);
+          assert.equal(projectEntity.name, record.schemaEntityName, `${record.path}: reviewed schema entity name`);
+          const expectedProjectIdentity = normalizeHeadingText(record.h1);
           const activeH1Text = normalizeHeadingText(await activeH1.innerText());
           const accessibleH1Text = normalizeHeadingText(await accessibleH1.innerText());
           assert.ok(activeH1Text.startsWith(expectedProjectIdentity), `${record.path}: H1 must preserve canonical project identity (${expectedProjectIdentity}); got ${activeH1Text}`);

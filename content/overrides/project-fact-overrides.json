@@ -1,15 +1,42 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T04:21:49.481Z",
+  "updatedAt": "2026-10-09T02:03:52.023Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
         "value": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
         "source": "manual_review",
-        "preferredFrom": "public",
-        "reviewedBy": "Brooke",
-        "reviewedAt": "2026-06-18T18:55:12.554Z",
-        "note": "",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.albapalmbeach.com/ ; https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Completed (developer-reported); confirm occupancy",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.albapalmbeach.com/ ; https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
+        "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "Completion announced June 2026; confirm residence-specific occupancy",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.albapalmbeach.com/ ; https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
+        "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "From just under $3M (official project guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T02:03:52.023Z",
+        "note": "Current official homepage https://www.albapalmbeach.com/ retrieved 2026-10-09 publishes pricing from just under $3M. Undated current guidance is not an exact residence offer; older June announcement price is historical.",
         "schemaSafe": false
       }
     },
@@ -24,13 +51,13 @@
         "schemaSafe": true
       },
       "residenceCount": {
-        "value": "194",
+        "value": "194 in reviewed proposal; 197 in municipal map",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Brooke",
-        "reviewedAt": "2026-09-22T04:21:49.481Z",
-        "note": "Brooke supplied the current Related Ross plan; corroborated by Florida YIMBY and Floridian Development reporting.",
-        "schemaSafe": true
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Prior Brooke-reviewed June 2026 proposal says 194. City Residences at 464 Fern record currently lists 197/In Review. Bulk map update does not establish the individual plan revision date, so neither is silently substituted for the other. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
       },
       "address": {
         "value": "464 Fern Street, West Palm Beach, FL 33401",
@@ -40,6 +67,608 @@
         "reviewedAt": "2026-09-22T04:21:49.481Z",
         "note": "Current project address provided by Brooke; former multi-parcel address remains historical source context.",
         "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "Not announced",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "shorecrest": {
+      "priceDisplay": {
+        "value": "From $3.5M (Apr 2026 developer guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Related Ross April 3, 2026 announcement supplies a starting price at that announcement. No currently purchasable residence or present inventory is inferred. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "98 in Apr 2026 release; 100 in municipal map",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Related Ross April 3, 2026 groundbreaking release says 98. Its undated portfolio and city UTP233 say 100. January-named fact sheet also says 100. Ordering the dated releases does not establish the final current offering count. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm ; https://www.relatedross.com/our-company/properties/shorecrest ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Under Construction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+        "schemaSafe": true
+      }
+    },
+    "edgeworth": {
+      "status": {
+        "value": "Priority List Open / Preconstruction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.edgeworthwpb.com/",
+        "schemaSafe": true
+      },
+      "residenceCount": {
+        "value": "184 marketed residences",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.edgeworthwpb.com/",
+        "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "From $5.5M (official project guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-10-08T21:18:45.904Z",
+        "note": "Official project website https://www.edgeworthwpb.com/ checked 2026-10-08: 184 residences, two- to four-bedroom residences from $5.5M and priority-list inquiries. Published guidance is not residence-specific availability.",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Request current delivery guidance",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Prior 2029 projection was not independently verified on the current official site. Hold the unsupported target while retaining the primary priority-list/preconstruction status. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.edgeworthwpb.com/",
+        "schemaSafe": false
+      }
+    },
+    "mandarin-oriental": {
+      "status": {
+        "value": "Sales Open",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-10-08T21:18:45.904Z",
+        "note": "Preserve existing reviewed authored Sales Open status from the September 23, 2026 official-project launch/interest-form review. This is not confirmation of specific residence availability.",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "2031 anticipated opening (brand target); confirm current schedule",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://press.mandarinoriental.com/residences-west-palm/?lang=eng",
+        "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "Request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Current brand/project pages checked do not publish a numeric starting price. Prior $3.5M was broker guidance, and the supplied $3.9M has no primary source. Preserve that provenance privately, not as current official pricing. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://mo-residenceswestpalmbeach.com/ ; https://press.mandarinoriental.com/residences-west-palm/?lang=eng",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "87 branded residences (brand announcement)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://press.mandarinoriental.com/residences-west-palm/?lang=eng",
+        "schemaSafe": true
+      }
+    },
+    "berkeley": {
+      "priceDisplay": {
+        "value": "$2M to over $10M (official project guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized source review",
+        "reviewedAt": "2026-10-08T22:37:15.758564Z",
+        "note": "Official homepage https://www.theberkeleypalmbeach.com/ checked 2026-10-08 advertises two- to five-bedroom residences from $2M to over $10M. Published marketing guidance is not a specific purchasable residence Offer.",
+        "schemaSafe": false
+      },
+      "address": {
+        "value": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Homepage explicitly labels 550 S Australian Avenue as Site and 500 S Australian Suite 910 as sales gallery. City record lists 601 Clearwater Park Road. Use current marketing site address; legal/parcel address remains unresolved and schema stays held. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.theberkeleypalmbeach.com/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Under Construction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.theberkeleypalmbeach.com/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": true
+      }
+    },
+    "alba-reserve": {
+      "residenceCount": {
+        "value": "87 in municipal proposal; revised count to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "City map lists 87/31 stories/In Review at 4720 N Flagler; older developer material mixes Waldorf and Alba naming. Revised 71/May 2026 denial recommendation appears in secondary/transcript material, not a reviewed final municipal decision. Preserve proposal distinction; no rename or final denial claim. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0 ; https://blueroad.us/portfolio-items/waldorf-astoria-residences/",
+        "schemaSafe": false
+      }
+    },
+    "forte-on-flagler": {
+      "residenceCount": {
+        "value": "41 marketed residences; total to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Official marketing says 41, architect says 41 plus a penthouse, and earlier municipal approval says 42. No current recorded condominium declaration was inspected. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://fortewpb.com/ ; https://arquitectonica.com/architecture/project/forte-on-flagler/",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Completed (developer-confirmed)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://tworoadsre.com/",
+        "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "Request current developer and resale pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "No fresh primary numeric pricing or sold-out evidence inspected. Completed status does not establish resale-only inventory. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://tworoadsre.com/ ; https://fortewpb.com/",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Completed per developer; confirm residence-specific occupancy",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://tworoadsre.com/",
+        "schemaSafe": true
+      }
+    },
+    "olara": {
+      "deliveryTiming": {
+        "value": "2028 scheduled completion (official brochure); confirm current schedule",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.olarawestpalmbeach.com/downloads/ ; https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "schemaSafe": true
+      },
+      "residenceCount": {
+        "value": "275 condominium residences (project offering)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.olarawestpalmbeach.com/downloads/ ; https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Under Construction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.olarawestpalmbeach.com/downloads/ ; https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "schemaSafe": true
+      }
+    },
+    "ritz-carlton-wpb": {
+      "priceDisplay": {
+        "value": "From $3M (official project guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized source review",
+        "reviewedAt": "2026-10-08T22:38:56.610299Z",
+        "note": "Official homepage https://theresidenceswestpalmbeach.com/ checked 2026-10-08 advertises 138 homes priced from $3M. This published starting guidance does not establish specific availability or a firm purchasable Offer.",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Q1 2028 developer target; confirm current schedule",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/ ; https://theresidenceswestpalmbeach.com/",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Under Construction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/ ; https://theresidenceswestpalmbeach.com/",
+        "schemaSafe": true
+      },
+      "residenceCount": {
+        "value": "138",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/ ; https://theresidenceswestpalmbeach.com/",
+        "schemaSafe": true
+      }
+    },
+    "rosewood-residences-west-palm-beach": {
+      "status": {
+        "value": "Pipeline / Brand and construction status to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "City 2001 N Flagler record lists 90/Under Construction, but no brand/developer-specific primary source was located confirming Rosewood affiliation and linking it to the permit program. Preserve reviewed identity pending confirmation; do not propagate municipal construction to an unverified branded offering. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0 ; https://relatedgroup.com/luxury-condominium/",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Timing not released",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized source review",
+        "reviewedAt": "2026-10-08T22:48:37.892Z",
+        "note": "Preserve existing reviewed visible guidance while aligning stale Compare summaries. Agreement created by this edit is not independent claim evidence or schema approval. Fresh primary approval/brand/timing evidence remains unresolved; see docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "90 in municipal program; branded offering unconfirmed",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "City supports the 90-unit site program, not a freshly confirmed Rosewood condominium offering. Withhold numeric schema pending branded identity/plan link. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "3031-s-ocean-palm-beach": {
+      "deliveryTiming": {
+        "value": "Timing not released",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized source review",
+        "reviewedAt": "2026-10-08T22:48:37.892Z",
+        "note": "Preserve existing reviewed visible guidance while aligning stale Compare summaries. Agreement created by this edit is not independent claim evidence or schema approval. Fresh primary approval/brand/timing evidence remains unresolved; see docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Reported approved; final municipal record to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Prior approved context is retained as reported. March 25, 2026 ARCOM agenda supports a five-story/12-unit application, not its vote. A readable final decision/minutes record was not located in this review. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "12",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "nora-house": {
+      "address": {
+        "value": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Project contractor identifies 1105 N Dixie Highway. Official project footer labels 955 N Railroad Suite B as sales gallery. No ZIP is inferred for the building from the gallery. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "117 marketed residences; municipal plan lists 122",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Project architect Swedroe and contractor Connor+Gaskins say 117. City Nora East record at the same 1105 N Dixie address says 122. Program/plan revision is unresolved; withhold numeric total schema. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://swedroe.com/projects/nora-house/ ; https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "south-flagler-house": {
+      "residenceCount": {
+        "value": "105 marketed residences; municipal count differs",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.southflaglerhouse.com/residences ; https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house",
+        "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.southflaglerhouse.com/residences ; https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Under Construction",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.southflaglerhouse.com/residences ; https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house",
+        "schemaSafe": true
+      }
+    },
+    "mr-c": {
+      "residenceCount": {
+        "value": "146 private residences (project fact sheet)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf ; https://www.mrchotels.com/residences",
+        "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "2027 brand target; season and closing schedule to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf ; https://www.mrchotels.com/residences",
+        "schemaSafe": true
+      }
+    },
+    "maison-dor": {
+      "address": {
+        "value": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Official contact page explicitly labels this Project Address and separates the 3014 S Dixie gallery. City Flagler House record says 3705 S Flagler. Preserve the official spelling Avenue without silently normalizing it to Drive; legal parcel/permit address is unresolved. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://livemaisondor.com/contact/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "priceDisplay": {
+        "value": "From $5.7M (official project guidance); request current pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Current official homepage/contact page publish from $5.7M. An unsupported table maximum and older press attribution are not applied. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://livemaisondor.com/ ; https://livemaisondor.com/contact/",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Request current delivery guidance",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Prior late-2028 display relied on reporting. No current primary developer completion target was located in the reviewed project pages; the year is held rather than presented as developer-confirmed. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://livemaisondor.com/",
+        "schemaSafe": false
+      }
+    },
+    "banyan-tree": {
+      "residenceCount": {
+        "value": "88 marketed residences (official fact sheet)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/ ; https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf",
+        "schemaSafe": true
+      }
+    },
+    "la-clara": {
+      "residenceCount": {
+        "value": "83 marketed residences; municipal map lists 84",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Stantec July 27, 2023 opening announcement supports 83. City UTP229 says 84/Completed. Numeric total is held pending recorded declaration/definition. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Completed Comp",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida ; https://www.hariripontarini.com/projects/la-clara",
+        "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida ; https://www.hariripontarini.com/projects/la-clara",
+        "schemaSafe": true
+      }
+    },
+    "rybovich-marina-redevelopment": {
+      "status": {
+        "value": "Pipeline / Approval scope to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "KPF September 24, 2025 release describes initial Planning Board approval awaiting City Commission. Current city The Marina/4200 N Flagler record lists Approved/291, distinct from prior initial-259 and full-660 scopes. No final vote/phase reconciliation inspected. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "Up to 660 planned across four towers; phase counts to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "KPF supports 660/four towers/19 acres. Prior initial 259 and city The Marina phase 291 need phase/identity reconciliation; remove the categorical initial-259 approval claim from buyer copy. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "apogee-residences-wpb": {
+      "residenceCount": {
+        "value": "39 in prior review; 46 in municipal map",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "City Apogee/4906 N Flagler record lists 46/Approved. Prior review lists 39. Undated ULU designer page says schematic design and Arquitectonica; final offering count/architect/plan revision is unresolved. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0 ; https://ulustudio.com/apogee/",
+        "schemaSafe": false
+      }
+    },
+    "201-arkona-court": {
+      "deliveryTiming": {
+        "value": "Request current delivery guidance",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Existing 2029 was explicitly a secondary publisher estimate. No primary sponsor/municipal completion target was located. Sidewalk easement agenda/search result does not verify the tower approval or delivery. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
+        "schemaSafe": false
+      },
+      "residenceCount": {
+        "value": "16 reported in proposal; primary plan to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Existing proposed count is not freshly established by an inspected sponsor plan/municipal decision. Preserve as reported and hold numeric schema. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-draft-city-commission-agendas/08-aug-2026-draft-cca/08_31_26_draft-city-commission-agenda.pdf",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Announced / Planning",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "2085-north-flagler": {
+      "residenceCount": {
+        "value": "281 reported in proposal; primary plan to confirm",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Existing separate Terra/BH identity retained. No inspected developer plan or city decision confirms 281/31-story proposal; no acquisition report is converted to approval, construction or inventory. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.terragroup.com/ ; https://www.bhgroupmiami.com/",
+        "schemaSafe": false
+      },
+      "status": {
+        "value": "Announced / Planning",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "address": {
+        "value": "2085 North Flagler Drive, West Palm Beach, FL 33407",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "Timing not released",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "the-sound-west-palm-beach": {
+      "deliveryTiming": {
+        "value": "Request current completion and leasing guidance",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T01:23:53.816Z",
+        "note": "Verdex current project page and city record confirm 358/Under Construction/8111 S Dixie, but no current primary 2026 completion/occupancy target was inspected. Remove unsupported year and request current leasing terms. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://verdex.com/the-sound-apartments/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
+      }
+    },
+    "olin-palm-beach": {
+      "residenceCount": {
+        "value": "32",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.okogroup.com/portfolio/olin",
+        "schemaSafe": true
+      },
+      "status": {
+        "value": "Pre-Construction Sales",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.okogroup.com/portfolio/olin",
+        "schemaSafe": true
+      },
+      "deliveryTiming": {
+        "value": "Timing not released",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized full schema review",
+        "reviewedAt": "2026-10-09T02:03:11.226Z",
+        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "schemaSafe": false
       }
     }
   }

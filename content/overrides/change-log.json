@@ -2,6 +2,996 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-10-09T02:03:52.023Z",
+      "action": "project-fact-official-price-qualification",
+      "detail": {
+        "evidence": "docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md",
+        "changes": [
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "priceDisplay",
+            "priorValue": "From just under $3M (official project guidance); request current pricing",
+            "value": "From just under $3M (official project guidance); request current pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-09T02:03:11.226Z",
+      "action": "project-full-schema-property-review",
+      "detail": {
+        "authorization": "Explicit user requested review of every schema fact using official sources and supported corrections; unpublished local work.",
+        "changes": [
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "status",
+            "priorValue": "Completed (developer-reported); confirm occupancy",
+            "value": "Completed (developer-reported); confirm occupancy",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/",
+              "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
+            ]
+          },
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "deliveryTiming",
+            "priorValue": "Completion announced June 2026; confirm residence-specific occupancy",
+            "value": "Completion announced June 2026; confirm residence-specific occupancy",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/",
+              "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
+            ]
+          },
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "address",
+            "priorValue": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
+            "value": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/",
+              "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
+            ]
+          },
+          {
+            "projectSlug": "olara",
+            "field": "residenceCount",
+            "priorValue": "275 condominium residences (project offering)",
+            "value": "275 condominium residences (project offering)",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.olarawestpalmbeach.com/downloads/",
+              "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+            ]
+          },
+          {
+            "projectSlug": "olara",
+            "field": "status",
+            "value": "Under Construction",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.olarawestpalmbeach.com/downloads/",
+              "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+            ]
+          },
+          {
+            "projectSlug": "olara",
+            "field": "deliveryTiming",
+            "priorValue": "2028 scheduled completion (official brochure); confirm current schedule",
+            "value": "2028 scheduled completion (official brochure); confirm current schedule",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.olarawestpalmbeach.com/downloads/",
+              "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+            ]
+          },
+          {
+            "projectSlug": "shorecrest",
+            "field": "status",
+            "value": "Under Construction",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm"
+            ]
+          },
+          {
+            "projectSlug": "shorecrest",
+            "field": "deliveryTiming",
+            "priorValue": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+            "value": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm"
+            ]
+          },
+          {
+            "projectSlug": "ritz-carlton-wpb",
+            "field": "status",
+            "value": "Under Construction",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+              "https://theresidenceswestpalmbeach.com/"
+            ]
+          },
+          {
+            "projectSlug": "ritz-carlton-wpb",
+            "field": "deliveryTiming",
+            "priorValue": "Q1 2028 developer target; confirm current schedule",
+            "value": "Q1 2028 developer target; confirm current schedule",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+              "https://theresidenceswestpalmbeach.com/"
+            ]
+          },
+          {
+            "projectSlug": "ritz-carlton-wpb",
+            "field": "residenceCount",
+            "value": "138",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+              "https://theresidenceswestpalmbeach.com/"
+            ]
+          },
+          {
+            "projectSlug": "berkeley",
+            "field": "status",
+            "value": "Under Construction",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.theberkeleypalmbeach.com/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "south-flagler-house",
+            "field": "residenceCount",
+            "priorValue": "105 marketed residences; municipal count differs",
+            "value": "105 marketed residences; municipal count differs",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.southflaglerhouse.com/residences",
+              "https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house"
+            ]
+          },
+          {
+            "projectSlug": "south-flagler-house",
+            "field": "status",
+            "value": "Under Construction",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.southflaglerhouse.com/residences",
+              "https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house"
+            ]
+          },
+          {
+            "projectSlug": "south-flagler-house",
+            "field": "deliveryTiming",
+            "priorValue": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+            "value": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.southflaglerhouse.com/residences",
+              "https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house"
+            ]
+          },
+          {
+            "projectSlug": "mr-c",
+            "field": "residenceCount",
+            "priorValue": "146 private residences (project fact sheet)",
+            "value": "146 private residences (project fact sheet)",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+              "https://www.mrchotels.com/residences"
+            ]
+          },
+          {
+            "projectSlug": "mr-c",
+            "field": "deliveryTiming",
+            "priorValue": "2027 brand target; season and closing schedule to confirm",
+            "value": "2027 brand target; season and closing schedule to confirm",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+              "https://www.mrchotels.com/residences"
+            ]
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "residenceCount",
+            "priorValue": "184 marketed residences",
+            "value": "184 marketed residences",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.edgeworthwpb.com/"
+            ]
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "status",
+            "priorValue": "Priority List Open / Preconstruction",
+            "value": "Priority List Open / Preconstruction",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.edgeworthwpb.com/"
+            ]
+          },
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "residenceCount",
+            "priorValue": "87 branded residences (brand announcement)",
+            "value": "87 branded residences (brand announcement)",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://press.mandarinoriental.com/residences-west-palm/?lang=eng"
+            ]
+          },
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "deliveryTiming",
+            "priorValue": "2031 anticipated opening (brand target); confirm current schedule",
+            "value": "2031 anticipated opening (brand target); confirm current schedule",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://press.mandarinoriental.com/residences-west-palm/?lang=eng"
+            ]
+          },
+          {
+            "projectSlug": "banyan-tree",
+            "field": "residenceCount",
+            "priorValue": "88 marketed residences (official fact sheet)",
+            "value": "88 marketed residences (official fact sheet)",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
+              "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "status",
+            "priorValue": "Completed (developer-confirmed)",
+            "value": "Completed (developer-confirmed)",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://tworoadsre.com/"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "deliveryTiming",
+            "priorValue": "Completed per developer; confirm residence-specific occupancy",
+            "value": "Completed per developer; confirm residence-specific occupancy",
+            "priorSchemaSafe": false,
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://tworoadsre.com/"
+            ]
+          },
+          {
+            "projectSlug": "olin-palm-beach",
+            "field": "residenceCount",
+            "value": "32",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.okogroup.com/portfolio/olin"
+            ]
+          },
+          {
+            "projectSlug": "olin-palm-beach",
+            "field": "status",
+            "value": "Pre-Construction Sales",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.okogroup.com/portfolio/olin"
+            ]
+          },
+          {
+            "projectSlug": "la-clara",
+            "field": "status",
+            "value": "Completed Comp",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida",
+              "https://www.hariripontarini.com/projects/la-clara"
+            ]
+          },
+          {
+            "projectSlug": "la-clara",
+            "field": "deliveryTiming",
+            "value": "Opened in 2023 per Stantec; architect lists completion 2024; confirm occupancy history",
+            "schemaSafe": true,
+            "sourceUrls": [
+              "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida",
+              "https://www.hariripontarini.com/projects/la-clara"
+            ]
+          },
+          {
+            "projectSlug": "3031-s-ocean-palm-beach",
+            "field": "residenceCount",
+            "value": "12",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "2085-north-flagler",
+            "field": "status",
+            "value": "Announced / Planning",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "2085-north-flagler",
+            "field": "address",
+            "value": "2085 North Flagler Drive, West Palm Beach, FL 33407",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "2085-north-flagler",
+            "field": "deliveryTiming",
+            "value": "Timing not released",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "201-arkona-court",
+            "field": "status",
+            "value": "Announced / Planning",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "fern-and-gardenia-related-ross-fern-street",
+            "field": "deliveryTiming",
+            "value": "Not announced",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "olin-palm-beach",
+            "field": "deliveryTiming",
+            "value": "Timing not released",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          }
+        ],
+        "withheldStructuredDetails": "15 Fern detail claims lack current primary plan evidence; retained in private audit snapshot, omitted from schema.",
+        "metadata": "Remove stale/unsupported facts from authored metadata; coordinates omitted from schema pending primary provenance."
+      }
+    },
+    {
+      "at": "2026-10-09T01:44:28.670Z",
+      "action": "project-schema-approval-hold",
+      "detail": {
+        "projectSlug": "edgeworth",
+        "field": "status",
+        "value": "Priority List Open / Preconstruction",
+        "priorSchemaSafe": true,
+        "schemaSafe": false,
+        "note": "Correct the earlier unpublished approval attribution. Visible value is unchanged; no separate Brooke schema approval exists.",
+        "evidence": "docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md"
+      }
+    },
+    {
+      "at": "2026-10-09T01:29:42.845Z",
+      "action": "project-fact-official-price-qualification",
+      "detail": {
+        "evidence": "docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md",
+        "changes": [
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "priceDisplay",
+            "priorValue": "From just under $3M (developer guidance, Sep 2026)",
+            "value": "From just under $3M (official project guidance); request current pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-09T01:23:53.816Z",
+      "action": "project-fact-full-inventory-official-source-audit",
+      "detail": {
+        "authorization": "Brooke requested all-building official-source audit and supported local corrections; no publication authorized for this revision.",
+        "evidence": "docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md",
+        "changes": [
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "status",
+            "priorValue": "Completed",
+            "value": "Completed (developer-reported); confirm occupancy",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "alba-palm-beach",
+            "field": "deliveryTiming",
+            "priorValue": "Developer offering immediate occupancy (Sep 2026); confirm specific residence",
+            "value": "Completion announced June 2026; confirm residence-specific occupancy",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
+            ]
+          },
+          {
+            "projectSlug": "olara",
+            "field": "residenceCount",
+            "priorValue": "275",
+            "value": "275 condominium residences (project offering)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "shorecrest",
+            "field": "residenceCount",
+            "priorValue": "98 in earlier sources; 100 on Related Ross",
+            "value": "98 in Apr 2026 release; 100 in municipal map",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
+              "https://www.relatedross.com/our-company/properties/shorecrest",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "shorecrest",
+            "field": "priceDisplay",
+            "priorValue": "Request current pricing",
+            "value": "From $3.5M (Apr 2026 developer guidance); request current pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm"
+            ]
+          },
+          {
+            "projectSlug": "shorecrest",
+            "field": "deliveryTiming",
+            "priorValue": "Request current delivery guidance",
+            "value": "2027 anticipated completion (Apr 2026 developer target); confirm current schedule",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm"
+            ]
+          },
+          {
+            "projectSlug": "ritz-carlton-wpb",
+            "field": "deliveryTiming",
+            "priorValue": "2028 estimate; confirm current schedule",
+            "value": "Q1 2028 developer target; confirm current schedule",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
+            ]
+          },
+          {
+            "projectSlug": "berkeley",
+            "field": "address",
+            "priorValue": null,
+            "value": "550 S. Australian Avenue, West Palm Beach, FL 33401 (project website)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.theberkeleypalmbeach.com/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "nora-house",
+            "field": "address",
+            "priorValue": null,
+            "value": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/"
+            ]
+          },
+          {
+            "projectSlug": "nora-house",
+            "field": "residenceCount",
+            "priorValue": "117",
+            "value": "117 marketed residences; municipal plan lists 122",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://swedroe.com/projects/nora-house/",
+              "https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "south-flagler-house",
+            "field": "residenceCount",
+            "priorValue": "105 on project site; 108 on Related Ross",
+            "value": "105 marketed residences; municipal count differs",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.southflaglerhouse.com/residences",
+              "https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "south-flagler-house",
+            "field": "deliveryTiming",
+            "priorValue": "Request current delivery guidance",
+            "value": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house"
+            ]
+          },
+          {
+            "projectSlug": "mr-c",
+            "field": "residenceCount",
+            "priorValue": "146",
+            "value": "146 private residences (project fact sheet)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "mr-c",
+            "field": "deliveryTiming",
+            "priorValue": "Timing to confirm — completion estimates vary (2026 vs 2027 across sources)",
+            "value": "2027 brand target; season and closing schedule to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.mrchotels.com/residences",
+              "https://www.mrchotels.com/hotels/coconut-grove/contact"
+            ]
+          },
+          {
+            "projectSlug": "maison-dor",
+            "field": "address",
+            "priorValue": null,
+            "value": "3773 South Flagler Avenue, West Palm Beach, FL 33405 (project website)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://livemaisondor.com/contact/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "maison-dor",
+            "field": "priceDisplay",
+            "priorValue": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
+            "value": "From $5.7M (official project guidance); request current pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://livemaisondor.com/",
+              "https://livemaisondor.com/contact/"
+            ]
+          },
+          {
+            "projectSlug": "maison-dor",
+            "field": "deliveryTiming",
+            "priorValue": "Late 2028 (targeted; reported)",
+            "value": "Request current delivery guidance",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://livemaisondor.com/"
+            ]
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "residenceCount",
+            "priorValue": "184",
+            "value": "184 marketed residences",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.edgeworthwpb.com/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "deliveryTiming",
+            "priorValue": "2029 projected; confirm current schedule",
+            "value": "Request current delivery guidance",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.edgeworthwpb.com/"
+            ]
+          },
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "priceDisplay",
+            "priorValue": "From $3.5M published starting guidance (Cervera); request current pricing and availability",
+            "value": "Request current pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://mo-residenceswestpalmbeach.com/",
+              "https://press.mandarinoriental.com/residences-west-palm/?lang=eng"
+            ]
+          },
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "residenceCount",
+            "priorValue": "87",
+            "value": "87 branded residences (brand announcement)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://press.mandarinoriental.com/residences-west-palm/?lang=eng",
+              "https://mo-residenceswestpalmbeach.com/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "banyan-tree",
+            "field": "residenceCount",
+            "priorValue": "88",
+            "value": "88 marketed residences (official fact sheet)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
+              "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "alba-reserve",
+            "field": "residenceCount",
+            "priorValue": "87",
+            "value": "87 in municipal proposal; revised count to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+              "https://blueroad.us/portfolio-items/waldorf-astoria-residences/"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "status",
+            "priorValue": "Completed Comp",
+            "value": "Completed (developer-confirmed)",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://tworoadsre.com/",
+              "https://fortewpb.com/"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "residenceCount",
+            "priorValue": "41",
+            "value": "41 marketed residences; total to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://fortewpb.com/",
+              "https://arquitectonica.com/architecture/project/forte-on-flagler/"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "priceDisplay",
+            "priorValue": "Resale inventory varies",
+            "value": "Request current developer and resale pricing",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://tworoadsre.com/",
+              "https://fortewpb.com/"
+            ]
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "deliveryTiming",
+            "priorValue": "Completed / recently completed; occupancy/resale status to verify",
+            "value": "Completed per developer; confirm residence-specific occupancy",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://tworoadsre.com/"
+            ]
+          },
+          {
+            "projectSlug": "la-clara",
+            "field": "residenceCount",
+            "priorValue": "83",
+            "value": "83 marketed residences; municipal map lists 84",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "fern-and-gardenia-related-ross-fern-street",
+            "field": "residenceCount",
+            "priorValue": "194",
+            "value": "194 in reviewed proposal; 197 in municipal map",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "rybovich-marina-redevelopment",
+            "field": "status",
+            "priorValue": "Pipeline / Planning Approved",
+            "value": "Pipeline / Approval scope to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "rybovich-marina-redevelopment",
+            "field": "residenceCount",
+            "priorValue": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
+            "value": "Up to 660 planned across four towers; phase counts to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "rosewood-residences-west-palm-beach",
+            "field": "status",
+            "priorValue": "Pipeline / Branded Residences",
+            "value": "Pipeline / Brand and construction status to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+              "https://relatedgroup.com/luxury-condominium/"
+            ]
+          },
+          {
+            "projectSlug": "rosewood-residences-west-palm-beach",
+            "field": "residenceCount",
+            "priorValue": "90",
+            "value": "90 in municipal program; branded offering unconfirmed",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          },
+          {
+            "projectSlug": "3031-s-ocean-palm-beach",
+            "field": "status",
+            "priorValue": "Town Approved / Announced",
+            "value": "Reported approved; final municipal record to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)"
+            ]
+          },
+          {
+            "projectSlug": "apogee-residences-wpb",
+            "field": "residenceCount",
+            "priorValue": "39",
+            "value": "39 in prior review; 46 in municipal map",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+              "https://ulustudio.com/apogee/"
+            ]
+          },
+          {
+            "projectSlug": "201-arkona-court",
+            "field": "deliveryTiming",
+            "priorValue": "2029 estimate",
+            "value": "Request current delivery guidance",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions"
+            ]
+          },
+          {
+            "projectSlug": "201-arkona-court",
+            "field": "residenceCount",
+            "priorValue": "16",
+            "value": "16 reported in proposal; primary plan to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-draft-city-commission-agendas/08-aug-2026-draft-cca/08_31_26_draft-city-commission-agenda.pdf"
+            ]
+          },
+          {
+            "projectSlug": "2085-north-flagler",
+            "field": "residenceCount",
+            "priorValue": "281",
+            "value": "281 reported in proposal; primary plan to confirm",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://www.terragroup.com/",
+              "https://www.bhgroupmiami.com/"
+            ]
+          },
+          {
+            "projectSlug": "the-sound-west-palm-beach",
+            "field": "deliveryTiming",
+            "priorValue": "Under construction; 2026 delivery target",
+            "value": "Request current completion and leasing guidance",
+            "schemaSafe": false,
+            "sourceUrls": [
+              "https://verdex.com/the-sound-apartments/",
+              "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-10-08T22:37:15.758564Z",
+      "action": "project-fact-broader-official-source-review",
+      "detail": {
+        "authorization": "Brooke requested all listed building/schema review against stronger sources; broader release remains pending",
+        "changes": [
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "deliveryTiming",
+            "priorValue": null,
+            "value": "2031 anticipated opening (brand target); confirm current schedule",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "berkeley",
+            "field": "priceDisplay",
+            "priorValue": null,
+            "value": "$2M to over $10M (official project guidance); request current pricing",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "alba-reserve",
+            "field": "residenceCount",
+            "priorValue": null,
+            "value": "87",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "forte-on-flagler",
+            "field": "residenceCount",
+            "priorValue": null,
+            "value": "41",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "olara",
+            "field": "deliveryTiming",
+            "priorValue": null,
+            "value": "2028 scheduled completion (official brochure); confirm current schedule",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "ritz-carlton-wpb",
+            "field": "priceDisplay",
+            "priorValue": null,
+            "value": "From $3M (official project guidance); request current pricing",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "rosewood-residences-west-palm-beach",
+            "field": "status",
+            "priorValue": null,
+            "value": "Pipeline / Branded Residences",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "rosewood-residences-west-palm-beach",
+            "field": "deliveryTiming",
+            "priorValue": null,
+            "value": "Timing not released",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "3031-s-ocean-palm-beach",
+            "field": "deliveryTiming",
+            "priorValue": null,
+            "value": "Timing not released",
+            "schemaSafe": false
+          }
+        ],
+        "evidence": "docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md"
+      }
+    },
+    {
+      "at": "2026-10-08T21:18:45.904Z",
+      "action": "project-fact-official-source-review",
+      "detail": {
+        "authorization": "Scoped building/schema update; keep unsourced reference intake private and hold table-only changes",
+        "sourceUrls": [
+          "https://www.edgeworthwpb.com/",
+          "https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach"
+        ],
+        "changes": [
+          {
+            "projectSlug": "shorecrest",
+            "field": "priceDisplay",
+            "priorValue": null,
+            "value": "Request current pricing",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "status",
+            "priorValue": null,
+            "value": "Priority List Open / Preconstruction",
+            "schemaSafe": true
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "residenceCount",
+            "priorValue": null,
+            "value": "184",
+            "schemaSafe": true
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "priceDisplay",
+            "priorValue": null,
+            "value": "From $5.5M (official project guidance); request current pricing",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "edgeworth",
+            "field": "deliveryTiming",
+            "priorValue": null,
+            "value": "2029 projected; confirm current schedule",
+            "schemaSafe": false
+          },
+          {
+            "projectSlug": "mandarin-oriental",
+            "field": "status",
+            "priorValue": null,
+            "value": "Sales Open",
+            "schemaSafe": false
+          }
+        ],
+        "heldReference": "docs/BUILDING_REFERENCE_2026_10_08.md"
+      }
+    },
+    {
       "at": "2026-09-23T20:28:16.599Z",
       "action": "project-fact-override-superseded",
       "detail": {

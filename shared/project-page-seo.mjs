@@ -11,7 +11,7 @@ export function projectPageSeo(project, copy) {
   if (project.id === "the-sound-west-palm-beach") {
     return {
       title: "The Sound Apartments West Palm Beach | Rental Guide",
-      description: "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify.",
+      description: "Track The Sound Apartments at 8111 South Dixie Highway: 358 apartments per contractor guidance. Request the current completion schedule, leasing terms and residence availability.",
     };
   }
   return {

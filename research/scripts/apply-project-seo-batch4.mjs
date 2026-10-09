@@ -1,11 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { projectBuyerGuide } from "../../shared/project-buyer-guide.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
-const records = JSON.parse(await fs.readFile(path.join(root, "public/data/project-seo-batch4.json"), "utf8"));
+const templateRecords = JSON.parse(await fs.readFile(path.join(root, "public/data/project-seo-batch4.json"), "utf8"));
 const projectCopy = JSON.parse(await fs.readFile(path.join(root, "public/data/project-copy-package.json"), "utf8"));
 const copyByProjectId = new Map(projectCopy.map((copy) => [copy.repoProjectId, copy]));
+const records = templateRecords.map(record => projectBuyerGuide(record, copyByProjectId.get(record.projectId)));
 
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
@@ -32,12 +34,12 @@ function guide(record) {
         <article><h3>Residence availability</h3><p>${esc(record.status.availability)}</p></article>
       </div>
       <div class="p2-project-guide__grid">
-        <article><h3>Verified residence / layout facts</h3>${list(record.residences)}</article>
+        <article><h3>Residence and layout guidance</h3>${list(record.residences)}</article>
         <article><h3>Amenities and service</h3>${list(record.amenities)}</article>
       </div>
-      <article><h3>Verified project facts</h3>${list(record.verifiedFacts)}</article>
+      <article><h3>Published project guidance</h3>${list(record.verifiedFacts)}</article>
       <nav class="p2-project-guide__links" aria-label="Related buyer research"><h3>Compare and keep researching</h3><ul>${record.links.map((link) => `<li><a href="${esc(link.href)}">${esc(link.label)}</a></li>`).join("")}</ul></nav>
-      <details class="p2-project-guide__sources"><summary>Sources and review date</summary><p>Reviewed ${esc(record.reviewedOn)}. Current pricing, residence availability, fees, incentives, contract terms and construction timing require current buyer-side confirmation.</p><ul>${record.sources.map((source) => `<li><a href="${esc(source.url)}" rel="noopener noreferrer">${esc(source.label)}</a> · ${esc(source.kind)}</li>`).join("")}</ul></details>
+      <details class="p2-project-guide__sources"><summary>Sources and review date</summary><p>Core guidance reviewed ${esc(record.reviewedOn)}. Current pricing, residence availability, fees, incentives, contract terms and construction timing require current buyer-side confirmation.</p><ul>${record.sources.map((source) => `<li><a href="${esc(source.url)}" rel="noopener noreferrer">${esc(source.label)}</a> · ${esc(source.kind)}</li>`).join("")}</ul></details>
     </div>
   </section>`;
 }

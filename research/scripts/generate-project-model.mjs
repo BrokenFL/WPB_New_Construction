@@ -58,12 +58,12 @@ const projects = (decisions.projects ?? []).map((decision) => {
   const candidate = decision.candidateFacts ?? {};
   const overlay = overlayBySlug.get(decision.publicSlug);
   const fallback = overlay?.approvedFallback ?? {};
-  const automated = automatedFieldsBySlug[decision.publicSlug] ?? {};
+  const reviewed = reviewedFieldsBySlug[decision.publicSlug] ?? {};
   const fieldSources = {};
-  const pick = (field, automatedValue, canonicalValue, candidateValue, fallbackValue) => {
-    if (hasValue(automatedValue)) {
+  const pick = (field, reviewedValue, canonicalValue, candidateValue, fallbackValue) => {
+    if (hasValue(reviewedValue)) {
       fieldSources[field] = "reviewed_override";
-      return String(automatedValue);
+      return String(reviewedValue);
     }
     if (hasValue(canonicalValue)) {
       fieldSources[field] = "canonical";
@@ -119,12 +119,12 @@ const projects = (decisions.projects ?? []).map((decision) => {
     corridorKey: decision.corridorKey,
     corridor: corridorLabel(decision.corridorKey),
     publicationState: decision.publicationState,
-    displayName: pick("displayName", automated.displayName, canonicalProject?.display_name, candidate.displayName, fallback.displayName),
-    status: pick("status", automated.status, canonicalProject?.status_badge, candidate.status, fallback.status),
-    delivery: pick("delivery", automated.delivery, canonicalProject?.delivery_display, candidate.delivery, fallback.delivery),
-    residences: pick("residences", automated.residences, canonicalProject?.public_residence_count, candidate.residences, fallback.residences),
-    price: pick("price", automated.price, canonicalProject?.price_display, candidate.price, fallback.price),
-    address: pick("address", automated.address, canonicalProject?.public_address, candidate.address, fallback.address),
+    displayName: pick("displayName", reviewed.displayName, canonicalProject?.display_name, candidate.displayName, fallback.displayName),
+    status: pick("status", reviewed.status, canonicalProject?.status_badge, candidate.status, fallback.status),
+    delivery: pick("delivery", reviewed.delivery, canonicalProject?.delivery_display, candidate.delivery, fallback.delivery),
+    residences: pick("residences", reviewed.residences, canonicalProject?.public_residence_count, candidate.residences, fallback.residences),
+    price: pick("price", reviewed.price, canonicalProject?.price_display, candidate.price, fallback.price),
+    address: pick("address", reviewed.address, canonicalProject?.public_address, candidate.address, fallback.address),
     developmentStage: canonicalProject?.development_stage || candidate.developmentStage || "",
     pageType: canonicalProject?.page_type || candidate.pageType || "",
     siteGroup: canonicalProject?.site_group || candidate.siteGroup || "",
