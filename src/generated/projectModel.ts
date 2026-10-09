@@ -455,7 +455,7 @@ export const canonicalProjectModel = {
       "status": "Under Construction",
       "delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
       "residences": "105 marketed residences; municipal count differs",
-      "price": "From $7.98M advertised; request current pricing",
+      "price": "Signature residences advertised from $7.98M; request current project pricing",
       "address": "1355 S Flagler Drive, West Palm Beach, FL 33401",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
@@ -501,14 +501,15 @@ export const canonicalProjectModel = {
       "reviewedFields": {
         "status": "Under Construction",
         "delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
-        "residences": "105 marketed residences; municipal count differs"
+        "residences": "105 marketed residences; municipal count differs",
+        "price": "Signature residences advertised from $7.98M; request current project pricing"
       },
       "fieldSources": {
         "displayName": "canonical",
         "status": "reviewed_override",
         "delivery": "reviewed_override",
         "residences": "reviewed_override",
-        "price": "canonical",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {

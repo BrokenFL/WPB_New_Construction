@@ -442,6 +442,15 @@
         "reviewedAt": "2026-10-09T02:03:11.226Z",
         "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.southflaglerhouse.com/residences ; https://www.relatedross.com/press-releases/2025-06-11/related-ross-secures-600-million-construction-loan-south-flagler-house",
         "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "Signature residences advertised from $7.98M; request current project pricing",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized official-source review",
+        "reviewedAt": "2026-10-09T02:46:52.305813Z",
+        "note": "Official residences page publishes the Signature-residence tier from $7.98M; not verified as a minimum across the whole project. Scope made explicit under Brooke’s authorized building/schema publication task. https://www.southflaglerhouse.com/residences checked 2026-10-09.",
+        "schemaSafe": false
       }
     },
     "mr-c": {

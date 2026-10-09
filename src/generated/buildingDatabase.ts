@@ -1241,7 +1241,7 @@ export const buildingDatabaseRecords: BuildingDatabaseRecord[] = [
     "building_type": "Ultra-luxury waterfront condominium; trophy-tier large-format residences and penthouses",
     "completion_or_delivery": "2027 scheduled delivery (Jun 2025 developer target); confirm current schedule",
     "construction_status": "Under Construction",
-    "price_display": "From $7.98M advertised; request current pricing",
+    "price_display": "Signature residences advertised from $7.98M; request current project pricing",
     "price_range_min": "$7.98M advertised",
     "price_range_max": "",
     "maintenance_per_sqft": "Request current association budget",

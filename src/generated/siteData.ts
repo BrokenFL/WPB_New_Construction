@@ -2054,7 +2054,7 @@ export const answerEngineFaq = [
     "id": "what-will-it-cost",
     "shortLabel": "Cost",
     "question": "What will these West Palm Beach new-construction condos cost?",
-    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from $3.5M in Related Ross's April 2026 announcement, subject to current pricing, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental with current pricing to confirm, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree with current official pricing to confirm, and South Flagler House with current official inquiry filters starting around $6M while the current residences page spans roughly $7.98M to $70M including penthouses. The real answer is always line, floor, view, terrace, parking, and release phase.",
+    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from $3.5M in Related Ross's April 2026 announcement, subject to current pricing, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental with current pricing to confirm, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree with current official pricing to confirm, and South Flagler House with Signature residences advertised from $7.98M; request current project-wide pricing. The real answer is always line, floor, view, terrace, parking, and release phase.",
     "concept": "Pricing guidance",
     "relatedProjectIds": [
       "olara",
@@ -3980,7 +3980,7 @@ export const projectFacts = [
       "residences": "105 marketed residences; municipal count differs",
       "stories": "28",
       "completion": "2027 scheduled delivery (Jun 2025 project sponsor target); confirm current schedule",
-      "pricing": "From $7.98M advertised; request current pricing",
+      "pricing": "Signature residences advertised from $7.98M; request current project pricing",
       "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; Rogers by Related Ross; Rogers General Contracting",
       "amenities": "The official program includes lakefront and lap pools, wellness and fitness spaces, pickleball, a golf simulator, private dining, a residents-only indoor/outdoor restaurant and business and social rooms. Guest suites are reserved for residence owners. Confirm operating arrangements, included services and any additional charges.",
       "residenceFeatures": [
