@@ -81,6 +81,146 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "vanderbilt-west-palm-beach-campus-400-million-2026-10-08",
+    "slug": "vanderbilt-west-palm-beach-campus-400-million-2026-10-08",
+    "title": "Vanderbilt West Palm Beach Campus Reaches Reported $400 Million Fundraising Milestone",
+    "sourceName": "Nashville Post",
+    "sourceUrl": "https://www.nashvillepost.com/business/education/vanderbilt-hits-400m-fundraising-mark-for-future-florida-campus/article_846192ae-768a-466e-8033-fcb6830c0899.html",
+    "canonicalUrl": "https://www.nashvillepost.com/business/education/vanderbilt-hits-400m-fundraising-mark-for-future-florida-campus/article_846192ae-768a-466e-8033-fcb6830c0899.html",
+    "sourceTitle": "Vanderbilt West Palm Beach Campus Reaches Reported $400 Million Fundraising Milestone",
+    "publishedAt": "2026-10-09T00:01:59.690Z",
+    "sourcePublishedAt": "2026-10-08",
+    "sourcePublishedDate": "2026-10-08",
+    "eventDate": "2026-10-08",
+    "dateDiscovered": "2026-10-09",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-10-09T00:01:59.690Z",
+    "titleTag": "Vanderbilt West Palm Beach Campus Hits Reported $400M",
+    "metaDescription": "Vanderbilt’s West Palm Beach campus reaches a reported $400M fundraising milestone. See the city proposal, leadership changes and what buyers should watch.",
+    "deck": "A new campus leader and a five-story proposal under city review add substance to a major downtown education project.",
+    "description": "Vanderbilt’s West Palm Beach campus reaches a reported $400M fundraising milestone. See the city proposal, leadership changes and what buyers should watch.",
+    "summary": "A reported fundraising milestone, new local leadership and a five-story proposal under city review sharpen the picture of Vanderbilt’s planned downtown campus.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Vanderbilt University has reached a reported $400 million in fundraising for its planned West Palm Beach graduate campus, according to October 8 coverage in the Nashville Post.\n\nThe news arrives alongside a leadership change. Vanderbilt announced October 8 that Natasha V. Sachs has become assistant vice chancellor and executive director of Vanderbilt University–West Palm Beach. She began October 5, with responsibilities spanning campus development, operations, academic support and local partnerships.\n\nFor downtown buyers, the significance is taking clearer shape. A major university is assembling the funding, leadership and physical plans for a sustained presence in West Palm Beach. The next questions concern the buildings that receive approval, the programs that open and how the campus connects to the surrounding neighborhood."
+      },
+      {
+        "heading": "What the fundraising milestone means",
+        "body": "The effort has developed in stages. Vanderbilt’s early campaign carried a $300 million goal. In January 2026, the university announced that its Board of Trust had authorized work on the campus and launched an additional $250 million fundraising phase to support facilities, academic programs, faculty recruitment, scholarships and other elements of the campus.\n\nPublicly announced support includes Stephen Ross’s $50 million commitment and Vanderbilt alumnus Cody Crowell’s $5 million contribution. In April, the university also announced a $6.5 million commitment from Robert “Bob” Levy and Diane vS. Levy, including support for an endowed finance chair.\n\nThe reported $400 million tracks fundraising. Final construction cost, spending to date and the composition of the fundraising total remain separate questions."
+      },
+      {
+        "heading": "What West Palm Beach is reviewing",
+        "body": "As checked October 8, the city’s official listing for Vanderbilt at 996 Datura Street describes a five-story building containing 111,923 square feet, designed to accommodate up to 475 students. It also lists two interim surface parking lots with 123 spaces and another 67 on-street spaces. Its status is In Review, with no approval date entered.\n\nThat entry gives buyers a specific proposal to follow through the public process. Its building capacity is distinct from Vanderbilt’s broader expectation of serving approximately 1,000 graduate students annually.\n\nEarlier master-plan coverage described nine buildings on approximately nine acres in downtown’s Government Hill area. The larger campus vision and the individual building described in the current city listing reflect different levels of detail.\n\nVanderbilt says West Palm Beach and Palm Beach County approved roughly seven acres of public land for the project in 2024. In March 2026, the university announced that Jeff and Mei Sze Greene were donating eight contiguous parcels totaling more than an acre, helping connect the campus footprint.",
+        "image": "/assets/editorial/vanderbilt-west-palm-beach-campus-400-million-2026-10-08-body-1.jpg",
+        "imageAlt": "Illustration of a landscaped courtyard at the proposed Vanderbilt West Palm Beach campus, with people and glass-fronted buildings",
+        "imageCaption": "Ground-level illustration of a courtyard at Vanderbilt’s proposed West Palm Beach campus",
+        "imageCredit": "Illustration supplied for editorial use"
+      },
+      {
+        "heading": "The academic plan is becoming more tangible",
+        "body": "Vanderbilt’s stated interests include finance, management, engineering, space technology, defense technology and manufacturing, with artificial intelligence and data science integrated across the offerings. The university also envisions executive education, employer-designed training and lifelong learning. Academic programming remains in development and subject to regulatory approvals.\n\nSachs brings experience from Coursera and Google, along with roots in Palm Beach County. Her local role gives the project a senior representative responsible for coordinating with university leadership, government, businesses and community organizations.\n\nIn July, Vanderbilt named former University of Miami engineering dean Pratim Biswas inaugural executive director of its planned Institute for Engineering Innovation in West Palm Beach.\n\nGraduate education, research relationships and professional training could bring recurring activity tied to local employers. As the campus develops, those uses could give this part of downtown a different daily rhythm."
+      },
+      {
+        "heading": "County offices are part of the practical groundwork",
+        "body": "Palm Beach County’s October 6 agenda proposed a $23,766,194 construction amendment for the third and final phase of its replacement Community Services complex at 4180 North Australian Avenue. The agenda connects that replacement facility to the offices at 810 Datura Street, on property committed to Vanderbilt.\n\nThat amount concerns the county’s relocation project. Approval of the proposed amendment has not been verified. The replacement facility is a useful milestone to follow alongside campus design, permitting and fundraising."
+      },
+      {
+        "heading": "What condo buyers should watch next",
+        "body": "A university can change how a neighborhood is used. The effect on an individual residence depends on its location, the project’s execution and the buyer’s own routine. The practical questions are straightforward:\n\n• Which campus buildings receive approval, and when does work begin?\n\n• How will construction access, parking and pedestrian routes affect nearby blocks?\n\n• Which programs and public-facing activities become available?\n\n• How does the actual route from a residence to the campus compare with a map’s apparent proximity?\n\n• Does the property work for the buyer on today’s conditions and carrying costs?\n\nTiming deserves particular care. August reporting identified a 2029 opening target and quoted the architect discussing a possible 2027 construction start. Vanderbilt’s current FAQ gives no firm opening date and says programming will follow regulatory approval.\n\nOur read: the reported fundraising milestone strengthens the case for following Vanderbilt closely. The current city proposal and university leadership appointments make that monitoring more concrete. For a condo purchase, the campus belongs in the neighborhood assessment, with the specific residence, approvals and delivery timeline carrying their own weight."
+      }
+    ],
+    "imageAlt": "Aerial illustration of the proposed Vanderbilt West Palm Beach campus, with landscaped buildings, downtown towers and waterways",
+    "imageCaption": "Illustration of Vanderbilt’s proposed West Palm Beach campus in its surrounding urban setting",
+    "imageCredit": "Illustration supplied for editorial use",
+    "whyItMatters": "",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Vanderbilt West Palm Beach Campus Reaches Reported $400 Million Fundraising Milestone",
+    "newsletterBlurb": "A new campus leader and a five-story proposal under city review add substance to a major downtown education project.",
+    "newsletterCta": "Read the article",
+    "query": "Vanderbilt West Palm Beach Campus Reaches Reported $400 Million Fundraising Milestone",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/vanderbilt-west-palm-beach-campus-400-million-2026-10-08-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "October 8 coverage in the Nashville Post",
+        "url": "https://www.nashvillepost.com/business/education/vanderbilt-hits-400m-fundraising-mark-for-future-florida-campus/article_846192ae-768a-466e-8033-fcb6830c0899.html",
+        "type": "news"
+      },
+      {
+        "label": "Vanderbilt announcement",
+        "url": "https://news.vanderbilt.edu/2026/10/08/natasha-sachs-named-assistant-vice-chancellor-and-executive-director-of-vanderbilt-university-west-palm-beach/",
+        "type": "official"
+      },
+      {
+        "label": "Initial campaign",
+        "url": "https://giving.vanderbilt.edu/ross-crowell-west-palm-beach-campus/",
+        "type": "official"
+      },
+      {
+        "label": "January announcement",
+        "url": "https://news.vanderbilt.edu/2026/01/12/vanderbilt-surges-forward-with-west-palm-beach-campus-launches-broader-fundraising-effort/",
+        "type": "official"
+      },
+      {
+        "label": "Levy commitment",
+        "url": "https://giving.vanderbilt.edu/trustee-bob-levy-and-diane-vs-levy-gift-ignites-the-next-phase-of-west-palm-beach-campus-expansion/",
+        "type": "official"
+      },
+      {
+        "label": "City project record",
+        "url": "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0/query?objectIds=92&outFields=*&returnGeometry=false&f=pjson",
+        "type": "official"
+      },
+      {
+        "label": "Vanderbilt campus overview",
+        "url": "https://www.vanderbilt.edu/chancellor/initiatives-and-outreach/growth/west-palm-beach/",
+        "type": "official"
+      },
+      {
+        "label": "Stet News, August 21",
+        "url": "https://stetnews.org/2026/08/21/vanderbilt-reveals-first-vision-for-west-palm-beach-campus/",
+        "type": "news"
+      },
+      {
+        "label": "Greene land gift",
+        "url": "https://news.vanderbilt.edu/2026/03/23/real-estate-developer-and-philanthropist-jeff-greenes-momentous-land-gift-accelerates-vanderbilts-west-palm-beach-campus/",
+        "type": "official"
+      },
+      {
+        "label": "Engineering leadership announcement",
+        "url": "https://engineering.vanderbilt.edu/2026/07/28/renowned-scholar-pratim-biswas-named-to-lead-vanderbilt-engineering-initiatives-at-west-palm-beach-campus/",
+        "type": "official"
+      },
+      {
+        "label": "County agenda, item 3H-1",
+        "url": "https://discover.pbc.gov/countycommissioners/AgendaHTML/20261006.aspx",
+        "type": "official"
+      }
+    ],
+    "paywallStatus": "unknown",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "convention-center-hotel-lawsuit-september-2026",
     "slug": "convention-center-hotel-lawsuit-west-palm-beach-2026-10-08",
     "title": "A lawsuit puts West Palm’s second convention-center hotel into a new holding pattern",

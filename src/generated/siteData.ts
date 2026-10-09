@@ -7292,6 +7292,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/vanderbilt-west-palm-beach-campus-400-million-2026-10-08/",
+    "title": "Vanderbilt West Palm Beach Campus Hits Reported $400M",
+    "description": "Vanderbilt’s West Palm Beach campus reaches a reported $400M fundraising milestone. See the city proposal, leadership changes and what buyers should watch.",
+    "ogImage": "/assets/editorial/vanderbilt-west-palm-beach-campus-400-million-2026-10-08-hero.jpg"
+  },
+  {
     "path": "/updates/convention-center-hotel-lawsuit-west-palm-beach-2026-10-08/",
     "title": "A lawsuit puts West Palm’s second convention-center hotel into a new holding pattern | WPB Updates",
     "description": "A new lawsuit challenges West Palm Beach approvals for the proposed second convention-center hotel, while the County’s land and lease package remains in place.",
