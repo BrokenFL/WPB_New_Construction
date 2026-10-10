@@ -242,11 +242,15 @@ test("secondary presentation and Compare explanations retain the reviewed fact s
   assert.equal(presentation("maison-dor").deliveryYear, 0);
   assert.equal(presentation("maison-dor").approvedFallback.delivery, project("maison-dor").delivery);
 
-  assert.match(project("3031-s-ocean-palm-beach").status, /^Proposed/);
-  assert.doesNotMatch(copy("3031-s-ocean-palm-beach").heroSubheadline, /Town-approved/i);
+  assert.match(project("3031-s-ocean-palm-beach").status, /Council approved Apr 15, 2026.*conditions to confirm/);
+  assert.match(copy("3031-s-ocean-palm-beach").heroSubheadline, /conditional Town Council.*April 15, 2026/);
   assert.match(copy("3031-s-ocean-palm-beach").overview, /Architectural Commission minutes record approval/);
-  assert.match(copy("3031-s-ocean-palm-beach").overview, /Final Town Council zoning approval.*not independently verified/);
-  assert.match(copy("3031-s-ocean-palm-beach").showcase.intro, /Architectural Commission minutes record approval.*Final Town Council zoning approval.*not independently verified/);
+  assert.match(copy("3031-s-ocean-palm-beach").overview, /Town Council approved the special exception\/site plan and variances.*two 5–0 votes on April 15, 2026/);
+  assert.match(copy("3031-s-ocean-palm-beach").showcase.intro, /agreeable construction-management agreement.*prior version.*staff-level approval/);
+  for (const value of [copy("3031-s-ocean-palm-beach").overview, copy("3031-s-ocean-palm-beach").showcase.intro]) {
+    assert.match(value, /Confirm the construction-management agreement, permits, construction timing and sales stage/);
+    assert.doesNotMatch(value, /Final Town Council zoning approval.*not independently verified|construction-ready/i);
+  }
   assert.equal(overrides["3031-s-ocean-palm-beach"].status.schemaSafe, false);
 
   for (const text of [presentation("berkeley").summary, copy("berkeley").overview, copy("berkeley").location]) {

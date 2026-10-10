@@ -4901,8 +4901,8 @@
     "slug": "3031-s-ocean-palm-beach",
     "repoProjectId": "3031-s-ocean-palm-beach",
     "heroHeadline": "A Private Peninsula on the Lagoon",
-    "heroSubheadline": "A proposed collection of 12 connected villa-style residences on Palm Beach's South End, with architectural approval recorded and final zoning approval to confirm.",
-    "overview": "3031 S. Ocean in Palm Beach is a proposed low-density waterfront redevelopment by Copperline Partners with architecture by Fairfax & Sammons. Town application materials describe a five-story, 12-unit residential concept on a man-made peninsula in Lake Worth Lagoon. Architectural Commission minutes record approval of the design. Final Town Council zoning approval, permits, construction timing and the sales stage were not independently verified in this review; request current project and offering documents.",
+    "heroSubheadline": "A planned collection of 12 connected villa-style residences on Palm Beach's South End, with conditional Town Council site-plan and variance approval recorded April 15, 2026.",
+    "overview": "3031 S. Ocean in Palm Beach is a planned low-density waterfront redevelopment by Copperline Partners with architecture by Fairfax & Sammons. Town application materials describe a five-story, 12-unit residential concept on a man-made peninsula in Lake Worth Lagoon. Architectural Commission minutes record approval of the design. Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved.",
     "quickFacts": [
       {
         "label": "Address",
@@ -4910,7 +4910,7 @@
       },
       {
         "label": "Status",
-        "value": "Proposed / final municipal approval to confirm"
+        "value": "Council approved Apr 15, 2026 / conditions to confirm"
       },
       {
         "label": "Residences",
@@ -4921,8 +4921,8 @@
         "value": "Connected villa-style buildings"
       },
       {
-        "label": "Maximum Height",
-        "value": "5 stories"
+        "label": "Application Height",
+        "value": "5-story concept; tower elements subject to staff review"
       },
       {
         "label": "Waterfront",
@@ -4950,14 +4950,14 @@
     "location": "The site occupies a man-made peninsula at 3031 South Ocean Boulevard in Palm Beach's South End, directly on Lake Worth Lagoon and near the Lake Worth Bridge area.",
     "localTake": "The proposition is unusual even for Palm Beach: only 12 residences, a connected villa form, and a peninsula setting on the lagoon. Buyers should compare it with other Palm Beach South End opportunities rather than normalize it against West Palm Beach towers.",
     "tradeoffs": [
-      "Architectural approval is recorded; final Town Council zoning approval, permits, construction timing and the sales stage require current confirmation.",
+      "Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved.",
       "Pricing, maintenance, deposits, parking, storage, rental and pet policies, floor plans, and the complete amenity program require current project materials.",
       "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard, and the address remains excluded from public schema pending review."
     ],
-    "confidenceNote": "Town application materials and Architectural Commission minutes support the 12-unit concept and architectural approval. A final Town Council zoning decision was not independently verified; sales, construction and delivery remain to confirm. The address-reference conflict remains held from schema.",
+    "confidenceNote": "Town Council minutes verify the April 15, 2026 conditional special exception/site-plan and variance votes, separate from earlier architectural approval. The minutes were approved/signed May 12; publication date is unknown. Discharge of conditions, permits, construction timing, sales stage and delivery remain to confirm. Existing address and count schema holds remain.",
     "seoTitle": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
-    "metaDescription": "Review 3031 S. Ocean in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
-    "badge": "Proposed / final municipal approval to confirm",
+    "metaDescription": "3031 S. Ocean: April 15, 2026 council site-plan and variance approval with conditions. Confirm CMA, permits, construction timing and sales stage.",
+    "badge": "Council approved Apr 15, 2026 / conditions to confirm",
     "tags": [
       "palm-beach",
       "south-end",
@@ -4986,22 +4986,24 @@
     "amenityNarrative": "Planning imagery emphasizes landscaped passages, terraces, pergolas, and a private lagoon-edge setting. A complete shared amenity and service program has not been released publicly.",
     "residenceNarrative": "The proposed concept calls for 12 connected villa-style residences rather than a conventional condominium tower. Reported sizes are approximately 3,500 to 5,600 square feet; final plans and specifications require current project materials.",
     "locationNarrative": "The project is planned for a man-made peninsula at 3031 South Ocean Boulevard in Palm Beach's South End, directly on Lake Worth Lagoon near the Lake Worth Bridge area.",
-    "buyerComparisonNotes": "Compare 3031 S. Ocean first with OLIN and existing Palm Beach South End condominiums. Its 12-home scale, lagoon setting, and architectural approval, unresolved final zoning confirmation and unconfirmed sales stage make direct comparisons with larger West Palm Beach towers incomplete.",
+    "buyerComparisonNotes": "Compare 3031 S. Ocean first with OLIN and existing Palm Beach South End condominiums. Its 12-home scale, lagoon setting and conditional April 15, 2026 council approval differ from larger West Palm Beach towers; confirm the construction-management agreement, permits, construction timing and sales stage.",
     "projectTeamNarrative": "Developer: Copperline Partners. Architecture: Fairfax & Sammons Architects. Sales, interiors, landscape architecture, and construction team have not been publicly announced.",
     "sourceNotes": [
       "Town of Palm Beach materials identify a five-story, 12-unit residential project at 3031 S. Ocean Boulevard.",
       "Markets of Tomorrow lists the Copperline Partners project as a 12-unit, five-floor pipeline development with timing to be determined.",
       "Some reporting contains a 3301 S. Ocean typographical reference; the conflict remains review-visible and the address is omitted from public schema.",
       "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
-      "2026-10-09 scoped approval review: March application agenda file 15075 is not a vote. Architectural Commission minutes file 15185 record design approval, a separate scope from Town Council zoning approval and construction permits. Secondary April approval reporting does not replace a reviewed final municipal zoning decision. https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)"
+      "2026-10-09 scoped approval review: March application agenda file 15075 is not a vote. Architectural Commission minutes file 15185 record design approval, a separate scope from Town Council zoning approval and construction permits. Secondary April approval reporting does not replace a reviewed final municipal zoning decision. https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)",
+      "October 10, 2026 primary-source review: April 15 Town Council minutes, page 17, record the two 5–0 votes for ZON-25-0066. Page 31 dates approval/signature of the minutes May 12, 2026; the decision date remains April 15 and publication date is unknown. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved. Source: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
     ],
     "sourceUrls": [
       "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
       "https://www.oftmw.com/firm/copperline-partners/",
       "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html",
-      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)"
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)",
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -5013,11 +5015,11 @@
         "label": "Lagoon-Side Residences",
         "alt": "Wide lagoon view of the proposed villa-style residences at 3031 S. Ocean in Palm Beach"
       },
-      "intro": "3031 S. Ocean in Palm Beach is a proposed 12-villa redevelopment on a man-made peninsula in Lake Worth Lagoon, designed by Fairfax & Sammons for Copperline Partners. Architectural Commission minutes record approval of the design. Final Town Council zoning approval, permits, construction timing and the sales stage were not independently verified in this review; request current project documents.",
+      "intro": "3031 S. Ocean in Palm Beach is a planned 12-villa redevelopment on a man-made peninsula in Lake Worth Lagoon, designed by Fairfax & Sammons for Copperline Partners. Architectural Commission minutes record approval of the design. Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved.",
       "heroTags": [
         {
           "label": "Status",
-          "value": "Proposed / final municipal approval to confirm"
+          "value": "Council approved Apr 15, 2026 / conditions to confirm"
         },
         {
           "label": "Corridor",
@@ -5037,7 +5039,7 @@
         {
           "icon": "stories",
           "label": "Stories",
-          "value": "Up to 5"
+          "value": "5-story application concept; tower elements subject to staff review"
         },
         {
           "icon": "waterfront",

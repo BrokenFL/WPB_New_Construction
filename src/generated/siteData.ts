@@ -4466,16 +4466,16 @@ export const projectFacts = [
     "name": "3031 S. Ocean",
     "area": "Palm Beach",
     "projectType": "condo-pipeline",
-    "summary": "A proposed 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, with architectural approval recorded. Confirm final Town Council zoning approval, permits and timing.",
+    "summary": "A planned 12-residence villa-style redevelopment on a Palm Beach peninsula. Town Council approved the special exception/site plan and variances April 15, 2026 with conditions; confirm the construction-management agreement, permits, timing and sales stage.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Proposed / final municipal approval to confirm",
+      "status": "Council approved Apr 15, 2026 / conditions to confirm",
       "residences": "12",
-      "stories": "5",
+      "stories": "5-story application concept; tower elements subject to staff review",
       "completion": "Timing not released",
       "pricing": "Not publicly released",
       "team": "Copperline Partners; Fairfax & Sammons Architects",
@@ -4487,7 +4487,7 @@ export const projectFacts = [
         "Lake Worth Lagoon and Intracoastal frontage"
       ],
       "neighborhoodContext": "Palm Beach South End",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-10-10"
     },
     "sources": [
       {
@@ -4498,6 +4498,9 @@ export const projectFacts = [
       },
       {
         "url": "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      },
+      {
+        "url": "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
       }
     ]
   },
@@ -7977,7 +7980,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/3031-s-ocean-palm-beach/",
     "title": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
-    "description": "Review 3031 S. Ocean in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
+    "description": "3031 S. Ocean: April 15, 2026 council site-plan and variance approval with conditions. Confirm CMA, permits, construction timing and sales stage.",
     "ogImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp"
   },
   {

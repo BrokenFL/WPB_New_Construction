@@ -2,6 +2,44 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-10-10T17:38:06.374Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "3031-s-ocean-palm-beach",
+        "field": "status",
+        "priorValue": "Proposed / final municipal approval to confirm",
+        "value": "Council approved Apr 15, 2026 / conditions to confirm",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
+        ],
+        "note": "October 10, 2026 primary-source review: April 15 Town Council minutes, page 17, record the two 5–0 votes for ZON-25-0066. Page 31 dates approval/signature of the minutes May 12, 2026; the decision date remains April 15 and publication date is unknown. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved. Source: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)",
+        "authorization": "Brooke, October 10, 2026, Sentinel_3059a4a71fc881918560dca61ced2559: Ok approve and publish all new r verified facts."
+      }
+    },
+    {
+      "at": "2026-10-10T17:38:06.374Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "3031-s-ocean-palm-beach",
+        "fields": [
+          "canonical status/municipal note",
+          "profile copy",
+          "presentation summary",
+          "Compare status/notes",
+          "application-height qualification",
+          "Palm Beach guide",
+          "Palm Beach corridor note/citation",
+          "conditional-status sales-office confirmation"
+        ],
+        "sourceUrls": [
+          "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
+        ],
+        "note": "Publish the dated conditional council decision without inferring discharged conditions, permits, construction, sales or occupancy. Existing status, timing, address and count schema holds remain.",
+        "authorization": "Brooke, October 10, 2026, Sentinel_3059a4a71fc881918560dca61ced2559: Ok approve and publish all new r verified facts."
+      }
+    },
+    {
       "at": "2026-10-10T13:09:48.202Z",
       "action": "project-copy-source-review",
       "detail": {

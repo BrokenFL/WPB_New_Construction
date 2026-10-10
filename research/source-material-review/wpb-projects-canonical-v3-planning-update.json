@@ -1497,10 +1497,10 @@
     {
       "include_on_site": true,
       "city": "Palm Beach",
-      "municipal_or_legal_note": "A typographical 3301 S. Ocean reference appears in some coverage; Town of Palm Beach materials and the project record identify 3031 S. Ocean Boulevard.",
+      "municipal_or_legal_note": "A typographical 3301 S. Ocean reference appears in some coverage; Town of Palm Beach materials and the project record identify 3031 S. Ocean Boulevard. Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved. Minutes approved/signed May 12, 2026; publication date unknown.",
       "public_residence_count": 12,
       "municipal_residence_count": 12,
-      "floor_count_display": 5,
+      "floor_count_display": "5-story application concept; tower elements subject to staff review",
       "municipal_floor_count": 5,
       "tower_count": null,
       "developer": [
@@ -1536,7 +1536,7 @@
         "Buyers prioritizing direct Intracoastal frontage"
       ],
       "tradeoffs": [
-        "The project is not yet selling, and pricing, delivery, fees, policies, parking, and the complete program remain unknown"
+        "Council approval is conditional; confirm the construction-management agreement, permits, construction timing and sales stage. Pricing, delivery, fees, policies, parking and the complete program remain unconfirmed."
       ],
       "key_conflicts": [
         "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard."
@@ -1544,7 +1544,8 @@
       "source_urls": [
         "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
         "https://www.oftmw.com/firm/copperline-partners/",
-        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html",
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
       ],
       "human_review_required": true,
       "confidence_level": "high",
@@ -1554,11 +1555,12 @@
       "display_name": "3031 S. Ocean",
       "site_group": "pipeline_watchlist",
       "page_type": "public_watchlist_page",
-      "status_badge": "Town Approved / Announced",
-      "development_stage": "approved",
+      "status_badge": "Council approved Apr 15, 2026 / conditions to confirm",
+      "development_stage": "Council approval recorded; conditions, permits and sales stage to confirm",
       "public_address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
       "neighborhood": "Palm Beach South End",
-      "missing_or_unconfirmed": "Sales launch, delivery, pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
+      "missing_or_unconfirmed": "Discharge of approval conditions, construction-management agreement, permits, construction timing, sales stage, delivery, pricing, floor plans, maintenance, parking, policies and the complete amenity program",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,

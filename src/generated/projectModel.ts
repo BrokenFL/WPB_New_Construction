@@ -1418,12 +1418,12 @@ export const canonicalProjectModel = {
       "corridor": "Palm Beach",
       "publicationState": "published",
       "displayName": "3031 S. Ocean",
-      "status": "Proposed / final municipal approval to confirm",
+      "status": "Council approved Apr 15, 2026 / conditions to confirm",
       "delivery": "Timing not released",
       "residences": "12",
       "price": "Not publicly released",
       "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
-      "developmentStage": "approved",
+      "developmentStage": "Council approval recorded; conditions, permits and sales stage to confirm",
       "pageType": "public_watchlist_page",
       "siteGroup": "pipeline_watchlist",
       "sourceCatalogIds": [
@@ -1447,15 +1447,16 @@ export const canonicalProjectModel = {
         "address"
       ],
       "gaps": [
-        "Sales launch, delivery, pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
+        "Discharge of approval conditions, construction-management agreement, permits, construction timing, sales stage, delivery, pricing, floor plans, maintenance, parking, policies and the complete amenity program"
       ],
       "sourceUrls": [
         "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
         "https://www.oftmw.com/firm/copperline-partners/",
-        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html",
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
       ],
       "reviewedFields": {
-        "status": "Proposed / final municipal approval to confirm",
+        "status": "Council approved Apr 15, 2026 / conditions to confirm",
         "delivery": "Timing not released",
         "residences": "12"
       },
@@ -1472,9 +1473,9 @@ export const canonicalProjectModel = {
         "deliveryYear": 9999,
         "longitude": -80.0386461,
         "latitude": 26.6198567,
-        "summary": "A proposed 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, with architectural approval recorded. Confirm final Town Council zoning approval, permits and timing.",
+        "summary": "A planned 12-residence villa-style redevelopment on a Palm Beach peninsula. Town Council approved the special exception/site plan and variances April 15, 2026 with conditions; confirm the construction-management agreement, permits, timing and sales stage.",
         "floorplans": false,
-        "pageState": "Proposed / Final Approval to Confirm",
+        "pageState": "Council approval recorded / conditions to confirm",
         "image": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
         "heroImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
         "mobileImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",

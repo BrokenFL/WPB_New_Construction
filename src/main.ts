@@ -1287,14 +1287,14 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "What new construction is coming to Palm Beach Island?",
     description: "An honest guide to Palm Beach Island new construction — the two tracked projects, how the island market works, and what to verify.",
     bluf:
-      "This site tracks two reviewed projects on Palm Beach Island: OLIN Palm Beach (pre-construction sales, timing not released) and 3031 S. Ocean (proposed redevelopment with architectural approval recorded; final zoning approval and timing to confirm). The island is a separate low-density market shaped by scarce sites and coastal approvals. Compare the two tracked projects, then look to South Flagler for the nearest West Palm Beach waterfront alternatives.",
+      "This site tracks two reviewed projects on Palm Beach Island: OLIN Palm Beach (pre-construction sales, timing not released) and 3031 S. Ocean (Town Council approved the special exception/site plan and variances April 15, 2026 with conditions; confirm the construction-management agreement, permits, construction timing and sales stage). The island is a separate low-density market shaped by scarce sites and coastal approvals. Compare the two tracked projects, then look to South Flagler for the nearest West Palm Beach waterfront alternatives.",
     explanation:
       "Palm Beach Island new construction is thin by nature: scarce sites, strict approvals, and low-density formats keep new supply rare. This page stays inside what the catalog confirms rather than repeating press rumors. OLIN and 3031 S. Ocean are the two reviewed island projects; both are early-stage with timing not released. Treat every island delivery claim as a verification item and confirm approvals, timing, and pricing directly.",
     projectIds: ["olin-palm-beach", "3031-s-ocean-palm-beach", "south-flagler-house", "maison-dor"],
     corridorKeys: ["palm-beach", "south-flagler"],
     tableRows: [
       { label: "OLIN Palm Beach", bestUse: "Buyers tracking the island's pre-construction sales option.", links: ["/projects/olin-palm-beach/"], verify: "Confirm timing releases, pricing, and current sales status — timing is not released." },
-      { label: "3031 S. Ocean", bestUse: "Buyers tracking a proposed villa-style island redevelopment.", links: ["/projects/3031-s-ocean-palm-beach/"], verify: "Architectural approval is recorded; confirm final Town Council zoning approval, permits, timing, and current buyer materials." },
+      { label: "3031 S. Ocean", bestUse: "Buyers tracking a planned villa-style island redevelopment with conditional council approval.", links: ["/projects/3031-s-ocean-palm-beach/"], verify: "April 15, 2026 council approval requires an agreeable construction-management agreement and allows specified tower-element height changes at staff level. Confirm discharge of conditions, permits, construction timing, sales stage and current buyer materials." },
       { label: "Nearest WPB waterfront", bestUse: "Buyers who want new waterfront condos near the island.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/"], verify: "Confirm Palm Beach bridge access and how South Flagler compares on density and timing." },
     ],
     faqs: [
@@ -1302,7 +1302,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
       { question: "Why is island new construction so limited?", answer: "Scarce sites, coastal approvals, and low-density zoning keep the island's new supply thin. Most island transactions are existing homes, not new development." },
       { question: "Should island buyers also consider West Palm Beach?", answer: "Many do — South Flagler offers new waterfront condos minutes from the island with deeper project data. Compare the island's privacy and density against South Flagler's newer programs." },
     ],
-    sourceNotes: ["Island facts come from the existing WPB New Construction source catalog.", "Press-reported island projects not independently verified are excluded — verify them through independent sources."],
+    sourceNotes: ["Island facts come from the existing WPB New Construction source catalog.", "3031 S. Ocean: April 15, 2026 Town Council minutes, page 17, record two 5–0 approvals for ZON-25-0066 with conditions; page 31 dates approval/signature of the minutes May 12. Publication date is unknown. https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)", "Press-reported island projects not independently verified are excluded — verify them through independent sources."],
   },
 ];
 
@@ -10877,6 +10877,7 @@ function getProjectFilterValues(project: FeaturedProject) {
 
 function salesOfficeLabel(project: FeaturedProject) {
   const filterValue = salesOfficeFilterValue(project);
+  if (filterValue === "sales-office-unconfirmed") return "Confirm";
   if (filterValue === "resales") return "Resales";
   if (filterValue === "sales-office-closed") return "No";
   return "Yes";
@@ -10884,6 +10885,7 @@ function salesOfficeLabel(project: FeaturedProject) {
 
 function salesOfficeFilterValue(project: FeaturedProject) {
   const status = project.status.toLowerCase();
+  if (/conditions to confirm/.test(status)) return "sales-office-unconfirmed";
   if (/completed|delivered|resale/.test(status)) return "resales";
   const explicitlySelling = /sales launched|sales office open|active sales|buyer appointment/.test(status);
   if (!explicitlySelling && /planning|pipeline|proposed|announced|watchlist|emerging/.test(status)) {

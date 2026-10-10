@@ -78,7 +78,14 @@ test('prerender replaces stale tables, preserves canonical and remains idempoten
 });
 test('source-conflicted timing and island approvals are not turned into inventory claims',()=>{
   assert.match(pages['palm-beach'].projects[1].stage,/offering unconfirmed/);
-  assert.match(pages['palm-beach'].projects[1].detail,/dated planning record/);
+  const council = pages['palm-beach'].projects[1];
+  assert.match(council.detail,/special exception\/site plan and variances.*two 5–0 votes on April 15, 2026/);
+  assert.match(council.detail,/agreeable construction-management agreement.*prior-version height.*staff-level approval/);
+  assert.match(council.verify,/discharge of conditions.*permits, construction timing, sales stage/);
+  assert.match(council.source.href,/fileId=15237/);
+  const schema = corridorGrowthSchema({'@graph':[]},'palm-beach')['@graph'].find(n=>n['@type']==='CollectionPage');
+  assert.ok(schema.citation.includes(council.source.href));
+  assert.equal(schema.dateModified,'2026-10-10');
   assert.match(pages['palm-beach'].projects[0].stage,/pre-construction sales/);
   assert.match(pages['south-flagler'].projects.find(p=>p.slug==='la-clara').stage,/Completed/);
   assert.ok(!Object.values(pages).some(c=>JSON.stringify(c).includes('/floorplans/alba-palm-beach/')));

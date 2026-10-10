@@ -4584,11 +4584,11 @@
         "label": "Lagoon-Side Residences",
         "alt": "Wide lagoon view of the proposed villa-style residences at 3031 S. Ocean in Palm Beach"
       },
-      "intro": "3031 S. Ocean in Palm Beach is a proposed 12-villa redevelopment on a man-made peninsula in Lake Worth Lagoon, designed by Fairfax & Sammons for Copperline Partners. Architectural Commission minutes record approval of the design. Final Town Council zoning approval, permits, construction timing and the sales stage were not independently verified in this review; request current project documents.",
+      "intro": "3031 S. Ocean in Palm Beach is a planned 12-villa redevelopment on a man-made peninsula in Lake Worth Lagoon, designed by Fairfax & Sammons for Copperline Partners. Architectural Commission minutes record approval of the design. Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved.",
       "heroTags": [
         {
           "label": "Status",
-          "value": "Proposed / final municipal approval to confirm"
+          "value": "Council approved Apr 15, 2026 / conditions to confirm"
         },
         {
           "label": "Corridor",
@@ -4608,7 +4608,7 @@
         {
           "icon": "stories",
           "label": "Stories",
-          "value": "Up to 5"
+          "value": "5-story application concept; tower elements subject to staff review"
         },
         {
           "icon": "waterfront",
@@ -4671,8 +4671,8 @@
       ]
     },
     "heroHeadline": "A Private Peninsula on the Lagoon",
-    "heroSubheadline": "A proposed collection of 12 connected villa-style residences on Palm Beach's South End, with architectural approval recorded and final zoning approval to confirm.",
-    "overview": "3031 S. Ocean in Palm Beach is a proposed low-density waterfront redevelopment by Copperline Partners with architecture by Fairfax & Sammons. Town application materials describe a five-story, 12-unit residential concept on a man-made peninsula in Lake Worth Lagoon. Architectural Commission minutes record approval of the design. Final Town Council zoning approval, permits, construction timing and the sales stage were not independently verified in this review; request current project and offering documents.",
+    "heroSubheadline": "A planned collection of 12 connected villa-style residences on Palm Beach's South End, with conditional Town Council site-plan and variance approval recorded April 15, 2026.",
+    "overview": "3031 S. Ocean in Palm Beach is a planned low-density waterfront redevelopment by Copperline Partners with architecture by Fairfax & Sammons. Town application materials describe a five-story, 12-unit residential concept on a man-made peninsula in Lake Worth Lagoon. Architectural Commission minutes record approval of the design. Town Council approved the special exception/site plan and variances for ZON-25-0066 in two 5–0 votes on April 15, 2026. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved.",
     "quickFacts": [
       {
         "label": "Address",
@@ -4680,7 +4680,7 @@
       },
       {
         "label": "Status",
-        "value": "Proposed / final municipal approval to confirm"
+        "value": "Council approved Apr 15, 2026 / conditions to confirm"
       },
       {
         "label": "Residences",
@@ -4691,8 +4691,8 @@
         "value": "Connected villa-style buildings"
       },
       {
-        "label": "Maximum Height",
-        "value": "5 stories"
+        "label": "Application Height",
+        "value": "5-story concept; tower elements subject to staff review"
       },
       {
         "label": "Waterfront",
@@ -4720,8 +4720,8 @@
     "location": "The site occupies a man-made peninsula at 3031 South Ocean Boulevard in Palm Beach's South End, directly on Lake Worth Lagoon and near the Lake Worth Bridge area.",
     "localTake": "The proposition is unusual even for Palm Beach: only 12 residences, a connected villa form, and a peninsula setting on the lagoon. Buyers should compare it with other Palm Beach South End opportunities rather than normalize it against West Palm Beach towers.",
     "seoTitle": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
-    "metaDescription": "Review 3031 S. Ocean in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
-    "badge": "Proposed / final municipal approval to confirm",
+    "metaDescription": "3031 S. Ocean: April 15, 2026 council site-plan and variance approval with conditions. Confirm CMA, permits, construction timing and sales stage.",
+    "badge": "Council approved Apr 15, 2026 / conditions to confirm",
     "tags": [
       "palm-beach",
       "south-end",
@@ -4755,9 +4755,10 @@
       "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
       "https://www.oftmw.com/firm/copperline-partners/",
       "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html",
-      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)"
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)",
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
     ],
-    "lastCopyResearchDate": "2026-10-09"
+    "lastCopyResearchDate": "2026-10-10"
   },
   {
     "slug": "apogee-residences-wpb",

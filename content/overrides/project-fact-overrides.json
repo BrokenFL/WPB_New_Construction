@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10T13:09:48.202Z",
+  "updatedAt": "2026-10-10T17:38:06.374Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -380,18 +380,18 @@
         "value": "Timing not released",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized source review",
-        "reviewedAt": "2026-10-08T22:48:37.892Z",
-        "note": "Preserve existing reviewed visible guidance while aligning stale Compare summaries. Agreement created by this edit is not independent claim evidence or schema approval. Fresh primary approval/brand/timing evidence remains unresolved; see docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
+        "reviewedBy": "Codex — Brooke-authorized council evidence publication",
+        "reviewedAt": "2026-10-10T17:38:06.374Z",
+        "note": "Council approval on April 15, 2026 does not establish a delivery schedule. Preserve Timing not released and the existing schema hold. https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)",
         "schemaSafe": false
       },
       "status": {
-        "value": "Proposed / final municipal approval to confirm",
+        "value": "Council approved Apr 15, 2026 / conditions to confirm",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized copy/schema correction",
-        "reviewedAt": "2026-10-09T20:03:43.680Z",
-        "note": "Official application agenda file 15075 supports the proposed 12-unit concept. Architectural Commission minutes file 15185 record design approval; that is a separate scope from final Town Council zoning approval and construction permits. Secondary April approval reporting was found, but no final Town Council zoning decision was independently verified in this bounded review. Do not describe the entire project as Town-approved or construction-ready. Sources: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false) ; https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15185,plainText=false)",
+        "reviewedBy": "Codex — Brooke-authorized council evidence publication",
+        "reviewedAt": "2026-10-10T17:38:06.374Z",
+        "note": "October 10, 2026 primary-source review: April 15 Town Council minutes, page 17, record the two 5–0 votes for ZON-25-0066. Page 31 dates approval/signature of the minutes May 12, 2026; the decision date remains April 15 and publication date is unknown. The site-plan approval requires an agreeable construction-management agreement. The variance motion allows the tower elements to be raised to a height shown in a prior version, with staff-level approval. Confirm the construction-management agreement, permits, construction timing and sales stage; the minutes do not establish that conditions have been discharged, permits issued, construction begun or occupancy approved. Source: https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false) Keep status out of schema: this dated conditional decision does not establish the current construction/sales stage.",
         "schemaSafe": false
       },
       "residenceCount": {

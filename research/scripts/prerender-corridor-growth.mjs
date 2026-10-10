@@ -49,11 +49,12 @@ export async function prerenderCorridorGrowth(root = process.cwd()) {
   let sitemap = await fs.readFile(file, 'utf8');
   for (const copy of Object.values(corridorGrowthPages)) {
     const canonical = commercialOrigin + copy.path;
+    const modifiedDate = copy.modifiedDate || corridorReviewedDate;
     let matches = 0;
     sitemap = sitemap.replace(/<url>[\s\S]*?<\/url>/g, entry => {
       if (!entry.includes(`<loc>${canonical}</loc>`)) return entry;
       matches++;
-      return entry.includes('<lastmod>') ? entry.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${corridorReviewedDate}</lastmod>`) : entry.replace('</loc>', `</loc><lastmod>${corridorReviewedDate}</lastmod>`);
+      return entry.includes('<lastmod>') ? entry.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${modifiedDate}</lastmod>`) : entry.replace('</loc>', `</loc><lastmod>${modifiedDate}</lastmod>`);
     });
     if (matches !== 1) throw new Error('Expected one existing clean corridor sitemap URL');
   }

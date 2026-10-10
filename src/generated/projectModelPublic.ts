@@ -1536,12 +1536,12 @@ export const publicProjectModel = {
       "corridor": "Palm Beach",
       "displayName": "3031 S. Ocean",
       "projectType": "condo-pipeline",
-      "status": "Proposed / final municipal approval to confirm",
+      "status": "Council approved Apr 15, 2026 / conditions to confirm",
       "delivery": "Timing not released",
       "residences": "12",
       "price": "Not publicly released",
       "reviewedFields": {
-        "status": "Proposed / final municipal approval to confirm",
+        "status": "Council approved Apr 15, 2026 / conditions to confirm",
         "delivery": "Timing not released",
         "residences": "12"
       },
@@ -1554,7 +1554,7 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
-        "stories": "5",
+        "stories": "5-story application concept; tower elements subject to staff review",
         "projectTeam": [
           "Copperline Partners",
           "Fairfax & Sammons Architects"
@@ -1567,7 +1567,7 @@ export const publicProjectModel = {
           "Lake Worth Lagoon and Intracoastal frontage"
         ],
         "neighborhoodContext": "Palm Beach South End",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-10-10",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
@@ -1581,7 +1581,8 @@ export const publicProjectModel = {
       "sourceUrls": [
         "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
         "https://www.oftmw.com/firm/copperline-partners/",
-        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html",
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15237,plainText=false)"
       ],
       "lookupAliases": [
         "3031-s-ocean-palm-beach",
@@ -1594,9 +1595,9 @@ export const publicProjectModel = {
         "deliveryYear": 9999,
         "longitude": -80.0386461,
         "latitude": 26.6198567,
-        "summary": "A proposed 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, with architectural approval recorded. Confirm final Town Council zoning approval, permits and timing.",
+        "summary": "A planned 12-residence villa-style redevelopment on a Palm Beach peninsula. Town Council approved the special exception/site plan and variances April 15, 2026 with conditions; confirm the construction-management agreement, permits, timing and sales stage.",
         "floorplans": false,
-        "pageState": "Proposed / Final Approval to Confirm",
+        "pageState": "Council approval recorded / conditions to confirm",
         "image": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
         "heroImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
         "mobileImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
