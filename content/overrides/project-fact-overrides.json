@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-09T20:03:43.680Z",
+  "updatedAt": "2026-10-10T13:09:48.202Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -339,12 +339,12 @@
     },
     "rosewood-residences-west-palm-beach": {
       "status": {
-        "value": "Pipeline / Brand and construction status to confirm",
+        "value": "Pipeline / Reported Rosewood association unconfirmed",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "City 2001 N Flagler record lists 90/Under Construction, but no brand/developer-specific primary source was located confirming Rosewood affiliation and linking it to the permit program. Preserve reviewed identity pending confirmation; do not propagate municipal construction to an unverified branded offering. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0 ; https://relatedgroup.com/luxury-condominium/",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "Municipal site approval/construction does not verify the reported Rosewood branded offering. Keep status out of schema. Checked October 10, 2026. Sources: https://relatedgroup.com/luxury-condominium/",
         "schemaSafe": false
       },
       "deliveryTiming": {
@@ -364,6 +364,15 @@
         "reviewedAt": "2026-10-09T01:23:53.816Z",
         "note": "City supports the 90-unit site program, not a freshly confirmed Rosewood condominium offering. Withhold numeric schema pending branded identity/plan link. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
         "schemaSafe": false
+      },
+      "name": {
+        "value": "2001 North Flagler (reported Rosewood association unconfirmed)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "Use site-first identity with explicitly unconfirmed reported Rosewood association. Related’s Rosewood portfolio entry is Hillsboro Beach, not evidence of a WPB branded offering. Checked October 10, 2026. Sources: https://relatedgroup.com/luxury-condominium/",
+        "schemaSafe": true
       }
     },
     "3031-s-ocean-palm-beach": {
@@ -544,21 +553,21 @@
     },
     "rybovich-marina-redevelopment": {
       "status": {
-        "value": "Pipeline / Approval scope to confirm",
+        "value": "Pipeline / Partial site plan approved Nov 10, 2025",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "KPF September 24, 2025 release describes initial Planning Board approval awaiting City Commission. Current city The Marina/4200 N Flagler record lists Approved/291, distinct from prior initial-259 and full-660 scopes. No final vote/phase reconciliation inspected. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program. Checked October 10, 2026. Sources: https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions",
         "schemaSafe": false
       },
       "residenceCount": {
         "value": "Up to 660 planned across four towers; phase counts to confirm",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "KPF supports 660/four towers/19 acres. Prior initial 259 and city The Marina phase 291 need phase/identity reconciliation; remove the categorical initial-259 approval claim from buyer copy. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program. Checked October 10, 2026. Sources: https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions",
         "schemaSafe": false
       }
     },
@@ -642,13 +651,31 @@
     },
     "the-sound-west-palm-beach": {
       "deliveryTiming": {
-        "value": "Request current completion and leasing guidance",
+        "value": "Operator reports open; confirm residence-specific move-in timing",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "Verdex current project page and city record confirm 358/Under Construction/8111 S Dixie, but no current primary 2026 completion/occupancy target was inspected. Remove unsupported year and request current leasing terms. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://verdex.com/the-sound-apartments/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "No exact opening date, certificate of occupancy or completion of every component inferred. Unit availability and move-in terms are dynamic. Checked October 10, 2026. Sources: https://thesoundwpb.com/ ; https://thesoundwpb.com/sightmap/",
         "schemaSafe": false
+      },
+      "status": {
+        "value": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "Operator homepage and SightMap show leasing, tours and Now Open. This is an operator report, not a certificate of occupancy or proof every component is complete. Checked October 10, 2026. Sources: https://thesoundwpb.com/ ; https://thesoundwpb.com/sightmap/",
+        "schemaSafe": true
+      },
+      "address": {
+        "value": "520 Gregory Road, West Palm Beach, FL 33405",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
+        "reviewedAt": "2026-10-10T13:09:48.202Z",
+        "note": "Operator residential/leasing address. 8111 South Dixie Highway remains the older construction/retail project address, not the current residential leasing address. Checked October 10, 2026. Sources: https://thesoundwpb.com/ ; https://thesoundwpb.com/sightmap/",
+        "schemaSafe": true
       }
     },
     "olin-palm-beach": {

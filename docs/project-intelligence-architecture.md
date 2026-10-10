@@ -69,6 +69,8 @@ For generated page facts, the explicit precedence contract is:
 
 The generator records field provenance. It never converts a conflict into an approved value.
 
+Reviewed display names use the existing `name` override and project identity/alias path; the public `reviewedFields` projection allows its `displayName` value. A qualified name does not change the route or establish a reported brand association. The canonical `planning_parcel_address`, when present, projects into the existing public `planningParcelAddress` field so an older construction/retail address can remain distinct from a reviewed residential address. Rental brochure bedrooms use the canonical residence-feature wording; a missing bedroom range asks for current layouts. These copy fields do not add physical details or availability to schema.
+
 ## Publication Gates (2026-09-01)
 
 - Published project pages: 18

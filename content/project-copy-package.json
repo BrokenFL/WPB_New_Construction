@@ -54,14 +54,14 @@
     "residences": "Residences include 2- to 4-bedroom layouts with oversized glass-framed terraces, impact glass, Italkraft kitchens, Sub-Zero and Wolf appliances, smart-home prewiring, summer kitchens, spa-style baths, and private elevators or vestibules. Select townhomes include private plunge pool / hot tub features.",
     "amenities": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
     "location": "Alba sits on the North Flagler waterfront, north of downtown West Palm Beach. The location fits buyers who want water access without being in the center of downtown.",
-    "localTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces as its clearest distinctions — and it is completed, with move-ins underway, which removes the timing risk that hangs over the corridor's pre-construction towers. Buyers who value a quieter building should compare that scale against the deeper resort programs nearby. The developer reports 95% of direct water-view residences sold, so current choice is resale-driven: confirm the specific residence, HOA, dock/boat-slip terms, and seller terms before offering.",
+    "localTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces. The official project site announced completion on June 25, 2026 and continues to accept developer sales inquiries. Compare current developer and resale options, then confirm the specific residence’s occupancy, pricing, association costs, dock terms and seller terms. The historical sold percentage does not establish today’s available inventory.",
     "tradeoffs": [
       "Confirm current developer inventory and residence-specific closing readiness.",
       "Ask how dock access applies to the selected residence.",
       "The developer's immediate-occupancy statement is dated guidance; no occupancy certificate was independently reviewed.",
       "Formal pet policy is not fully verified."
     ],
-    "confidenceNote": "High. Developer (BGI Companies + Blue Road), architect (Spina O'Rourke + Partners), GC (Moss Construction), 22 stories / 55 residences, completion and move-ins underway, 95%-sold water-view claim, $2.5M starting pricing, and amenity program verified against Florida YIMBY, Palm Beach Post, and MLS resale listings, 2026-09-27. Rental policy and pet rules carried as \"confirm\" items.",
+    "confidenceNote": "Completion announcement dated June 25, 2026 and current developer inquiry/pricing guidance checked October 10, 2026. Current developer/resale availability, residence-specific occupancy and transaction terms remain to confirm; historical sell-through is not current inventory.",
     "seoTitle": "Alba Palm Beach | West Palm Beach Waterfront Condos",
     "metaDescription": "Review Alba Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "badge": "Completed (developer-reported); confirm occupancy",
@@ -110,7 +110,7 @@
           "title": "Residences",
           "beds": "2-4 bedrooms",
           "size": "1,778-4,500 sq ft",
-          "price": "Developer guidance: just under $3M (Sep 2026)",
+          "price": "From just under $3M advertised; confirm current residence pricing",
           "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-residence.png"
         },
         {
@@ -122,7 +122,7 @@
         },
         {
           "title": "Upper Residences",
-          "beds": "Limited inventory",
+          "beds": "Confirm current residence options",
           "size": "Waterfront exposure",
           "price": "Request availability",
           "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-upper-residence.png"
@@ -255,7 +255,7 @@
     },
     "introHeadline": "Boutique Waterfront Living on North Flagler",
     "introDek": "Alba Palm Beach brings boutique waterfront living to North Flagler with just 55 luxury residences, sweeping Intracoastal views, oversized terraces, private day docks, and more than 25,000 square feet of resort-style amenities. Residents enjoy sunrise and sunset pools, wellness spaces, private dining, curated culinary access through Chèvre, and a refined lock-and-leave lifestyle minutes from Palm Beach, downtown West Palm Beach, and the marina scene.",
-    "brookeTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces as its clearest distinctions — and it is completed, with move-ins underway, which removes the timing risk that hangs over the corridor's pre-construction towers. Buyers who value a quieter building should compare that scale against the deeper resort programs nearby. The developer reports 95% of direct water-view residences sold, so current choice is resale-driven: confirm the specific residence, HOA, dock/boat-slip terms, and seller terms before offering.",
+    "brookeTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces. The official project site announced completion on June 25, 2026 and continues to accept developer sales inquiries. Compare current developer and resale options, then confirm the specific residence’s occupancy, pricing, association costs, dock terms and seller terms. The historical sold percentage does not establish today’s available inventory.",
     "bestFor": [
       "Move-in-ready waterfront buyers",
       "Boutique-scale buyers avoiding pre-construction timing risk",
@@ -279,14 +279,15 @@
       "Compass property history shows Unit 1003 sold on 2026-06-01 for $2,450,000, Beaches MLS R11070220. This individual sale does not establish broader closing or availability status.",
       "ONE Sotheby's International Realty was announced as the exclusive in-house sales and marketing brokerage. The sales gallery is at 250 North Olive Avenue, separate from the building.",
       "2026-10-08 surface-consistency review: align these summary fields with existing reviewed shared facts; this is not fresh current inventory or a newly verified approval. See docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: June 25 completion announcement is a developer report, not an individual occupancy guarantee. Current inquiries and advertised pricing do not establish available units. https://www.albapalmbeach.com/ ; https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
     ],
     "sourceUrls": [
       "https://www.albapalmbeach.com/",
       "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "high",
     "faqs": [
       {
@@ -3231,7 +3232,7 @@
       },
       {
         "label": "Floors",
-        "value": "25"
+        "value": "26 marketed stories; earlier municipal record 25 floors"
       },
       {
         "label": "Price Range",
@@ -3253,7 +3254,7 @@
     "residences": "Banyan Tree offers one- to four-bedroom residences plus penthouses, with corner layouts, wraparound terraces, and private elevator entry in most homes. Approved plans show generous indoor-outdoor living, with representative two-, three-, and four-bedroom homes ranging from 2,125 to 4,103 total square feet.",
     "amenities": "Amenities include a private porte cochere, resort-style pool, curated social and recreation spaces, a wellness center, spa treatment rooms, cryotherapy, hammam, meditation spaces, and access to Banyan Tree's global hospitality network through the Sanctuary Club.",
     "location": "Banyan Tree Residences is planned for 400 Hibiscus Street in downtown West Palm Beach, one block from CityPlace and minutes from Palm Beach, Worth Avenue, dining, culture, and the Flagler waterfront.",
-    "localTake": "Banyan Tree offers a downtown alternative to Flagler Drive: corner residences, a wellness-led program and hospitality branding. Compare usable indoor and terrace space, included services and recurring costs with the waterfront buildings. The developer markets 88 residences; earlier municipal material records 86, so offering documents should settle the final program.",
+    "localTake": "Banyan Tree offers a downtown alternative to Flagler Drive with corner residences, a wellness-led program and hospitality branding. Its official fact sheet markets 26 stories and 88 residences; earlier municipal material records 25 floors and 86 units. Confirm the final offering and plan revision rather than combining those different programs.",
     "tradeoffs": [
       "Not direct waterfront.",
       "Buyers should confirm current pricing, deposits, release timing, and delivery projections before making a purchase decision.",
@@ -3276,7 +3277,7 @@
     ],
     "introHeadline": "Global Wellness Living in the Heart of Downtown West Palm Beach",
     "introDek": "Banyan Tree Residences West Palm Beach is a marketed downtown condominium with a sales gallery open by appointment at 400 Hibiscus Street. The developer presents 88 corner residences, OMA architecture and Yabu Pushelberg interiors. Compare the corner layouts, wellness program and city setting, then request the current price sheet and delivery guidance.",
-    "brookeTake": "Banyan Tree offers a downtown alternative to Flagler Drive: corner residences, a wellness-led program and hospitality branding. Compare usable indoor and terrace space, included services and recurring costs with the waterfront buildings. The developer markets 88 residences; earlier municipal material records 86, so offering documents should settle the final program.",
+    "brookeTake": "Banyan Tree offers a downtown alternative to Flagler Drive with corner residences, a wellness-led program and hospitality branding. Its official fact sheet markets 26 stories and 88 residences; earlier municipal material records 25 floors and 86 units. Confirm the final offering and plan revision rather than combining those different programs.",
     "bestFor": [
       "Downtown wellness-luxury buyers",
       "Brand-focused buyers",
@@ -3286,7 +3287,7 @@
     "signatureFeatures": [
       "Brand: Banyan Tree / Banyan Group",
       "Residences: 88 marketed residences (official fact sheet)",
-      "Floors: 25",
+      "Floors: 26 marketed stories; earlier municipal record 25 floors",
       "Price Range: Request current pricing",
       "Delivery: Request current delivery guidance",
       "Bedrooms: 1-4 plus penthouses"
@@ -3302,7 +3303,8 @@
       "Floor count, pricing, delivery, and municipal approval details need confirmation.",
       "Construction status is not confirmed.",
       "Keep language cautious until more sales / construction details are available.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: Official fact sheet markets 26 stories/88 residences. Preserve earlier municipal 25-floor/86-unit program distinctions; no unqualified numeric floor count is added to schema. https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf"
     ],
     "sourceUrls": [
       "https://www.banyantreeresidenceswpb.com/",
@@ -3312,7 +3314,7 @@
       "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf",
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -3739,8 +3741,8 @@
         },
         {
           "icon": "stories",
-          "label": "Initial Phase",
-          "value": "Scope to confirm"
+          "label": "Approved Site Plan",
+          "value": "259 units · Nov 10, 2025 · PBAs 4, 8, 9, 10"
         },
         {
           "icon": "waterfront",
@@ -3758,7 +3760,7 @@
           "value": "60,000 sq ft"
         }
       ],
-      "intro": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave.",
+      "intro": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave. The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
       "visualBreak": {
         "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-marina-district-v01-web.jpg",
         "label": "North Flagler district view",
@@ -3874,7 +3876,7 @@
     },
     "heroHeadline": "A Future Waterfront District at Rybovich Marina",
     "heroSubheadline": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations.",
-    "overview": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave.",
+    "overview": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave. The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
     "quickFacts": [
       {
         "label": "Address",
@@ -3882,7 +3884,7 @@
       },
       {
         "label": "Status",
-        "value": "Pipeline / Approval scope to confirm"
+        "value": "Pipeline / Partial site plan approved Nov 10, 2025"
       },
       {
         "label": "Developer",
@@ -3920,7 +3922,7 @@
     "residences": "The plan includes up to 660 homes across four residential towers, with phase counts and final approval scope to confirm.",
     "amenities": "The district plan includes an Intracoastal promenade, private club, retail, restaurants, office space, crew amenities, marine storage, marina context, and resident-focused outdoor spaces.",
     "location": "Rybovich sits in the North Flagler marina corridor near Safe Harbor Rybovich, north of downtown West Palm Beach and tied to one of the city's most important waterfront redevelopment areas.",
-    "localTake": "Rybovich is not a normal condo launch - it is a long-range waterfront district play. Buyers should watch approvals, phasing, tower heights, public access, marina operations, and whether the residential offering becomes clearly defined. Huge upside, but still very much a planning-stage story.",
+    "localTake": "Rybovich is a phased waterfront planning watch. The November 10, 2025 Commission decision establishes a 259-unit site plan in PBAs 4, 8, 9 and 10. Confirm the remaining approvals, phasing, public access and offering before treating the broader 660-home concept as approved or available.",
     "tradeoffs": [
       "Large phased project.",
       "Pricing, delivery, residence sizes, and floorplans are not released.",
@@ -3930,7 +3932,7 @@
     "confidenceNote": "Confidence is medium-high for the planning-stage facts, with human review needed before treating it as a live condo sales offering.",
     "seoTitle": "Rybovich Marina Redevelopment West Palm Beach | District Guide",
     "metaDescription": "Review Rybovich Marina Redevelopment in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
-    "badge": "Pipeline / Approval scope to confirm",
+    "badge": "Pipeline / Partial site plan approved Nov 10, 2025",
     "tags": [
       "north-flagler",
       "rybovich",
@@ -3943,8 +3945,8 @@
       "human-review-required"
     ],
     "introHeadline": "A Future Waterfront District at Rybovich Marina",
-    "introDek": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations.",
-    "brookeTake": "Rybovich is not a normal condo launch - it is a long-range waterfront district play. Buyers should watch approvals, phasing, tower heights, public access, marina operations, and whether the residential offering becomes clearly defined.",
+    "introDek": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave. The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
+    "brookeTake": "Rybovich is a phased waterfront planning watch. The November 10, 2025 Commission decision establishes a 259-unit site plan in PBAs 4, 8, 9 and 10. Confirm the remaining approvals, phasing, public access and offering before treating the broader 660-home concept as approved or available.",
     "bestFor": [
       "Buyers tracking major North Flagler waterfront pipeline",
       "Long-horizon marina-oriented condo prospects",
@@ -3971,7 +3973,8 @@
       "Initial and full-buildout approval scopes require current municipal confirmation.",
       "Public access, marina operations, tower sequence, and residential branding should be tracked as approvals advance.",
       "2026-10-08 surface-consistency review: align these summary fields with existing reviewed shared facts; this is not fresh current inventory or a newly verified approval. See docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program. https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions"
     ],
     "sourceUrls": [
       "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
@@ -3979,14 +3982,14 @@
       "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2025-pb-agendas/pb-agenda-2025.09.16.pdf",
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "medium-high"
   },
   {
     "slug": "rosewood-residences-west-palm-beach",
     "repoProjectId": "rosewood",
-    "heroHeadline": "A Rosewood-Branded Residence Planned for North Flagler",
-    "heroSubheadline": "Rosewood Residences West Palm Beach is a branded pipeline project planned for North Flagler Drive, with 90 residences and early filed-plan details.",
+    "heroHeadline": "2001 North Flagler: Reported Rosewood Association Unconfirmed",
+    "heroSubheadline": "The 2001 North Flagler site is a planning watch with a reported Rosewood association that remains unconfirmed. Its municipal 90-unit program does not establish a branded sales offering.",
     "overview": "Rosewood Residences West Palm Beach is tracked as a reported branded condominium proposal on North Flagler. The municipal site program at 2001 N Flagler differs from the public pipeline treatment; brand affiliation, construction status and the current offering require primary confirmation.",
     "quickFacts": [
       {
@@ -3995,7 +3998,7 @@
       },
       {
         "label": "Status",
-        "value": "Pipeline / Brand and construction status to confirm"
+        "value": "Pipeline / Reported Rosewood association unconfirmed"
       },
       {
         "label": "Developer",
@@ -4007,7 +4010,7 @@
       },
       {
         "label": "Brand",
-        "value": "Rosewood Hotels & Resorts"
+        "value": "Reported Rosewood association unconfirmed"
       },
       {
         "label": "Residences",
@@ -4039,7 +4042,7 @@
       }
     ],
     "residences": "Residence-level details remain limited. Available materials support 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
-    "amenities": "The reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck. The full Rosewood-branded service program is not yet public.",
+    "amenities": "Reported site plans describe indoor amenities and a pool deck. The Rosewood association and any branded service program remain unconfirmed; request current site and offering documents.",
     "location": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
     "localTake": "Keep this as a planning watch while the reported brand affiliation, site program, construction status and buyer materials are confirmed.",
     "tradeoffs": [
@@ -4048,10 +4051,10 @@
       "Final amenities and service model remain incomplete.",
       "Human review required until official sales materials are public."
     ],
-    "confidenceNote": "Confidence is medium. Include as a public pipeline / branded-residences profile with human review required.",
+    "confidenceNote": "Track the municipal site and reported brand association separately. The current Related portfolio’s Rosewood project is in Hillsboro Beach; it does not verify West Palm Beach branding. Offering and affiliation remain unconfirmed.",
     "seoTitle": "Reported Rosewood Proposal | West Palm Beach Project Watch",
     "metaDescription": "Review the reported Rosewood proposal in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
-    "badge": "Pipeline / Brand and construction status to confirm",
+    "badge": "Pipeline / Reported Rosewood association unconfirmed",
     "tags": [
       "north-flagler",
       "waterfront",
@@ -4063,17 +4066,17 @@
       "filed-plans",
       "human-review-required"
     ],
-    "introHeadline": "A Rosewood-Branded Residence Planned for North Flagler",
+    "introHeadline": "2001 North Flagler: Reported Rosewood Association Unconfirmed",
     "introDek": "Rosewood Residences West Palm Beach is tracked as a reported branded condominium proposal on North Flagler. The municipal site program at 2001 N Flagler differs from the public pipeline treatment; brand affiliation, construction status and the current offering require primary confirmation.",
     "brookeTake": "Keep this as a planning watch while the reported brand affiliation, site program, construction status and buyer materials are confirmed.",
     "bestFor": [
-      "Branded-residence buyers",
+      "Buyers monitoring the reported brand association",
       "North Flagler waterfront pipeline shoppers",
       "Buyers tracking Related Group / BH Group projects",
       "Buyers monitoring future service-led luxury inventory"
     ],
     "signatureFeatures": [
-      "Brand: Rosewood Hotels & Resorts",
+      "Brand: Reported Rosewood association unconfirmed",
       "Residences: 90 in municipal program; branded offering unconfirmed",
       "Floors: 27",
       "Parking: 185 parking spaces reported in filed plans",
@@ -4081,24 +4084,25 @@
       "Delivery: Not yet publicly confirmed.",
       "Bedrooms: Not yet publicly confirmed."
     ],
-    "amenityNarrative": "The reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck. The full Rosewood-branded service program is not yet public.",
+    "amenityNarrative": "Reported site plans describe indoor amenities and a pool deck. The Rosewood association and any branded service program remain unconfirmed; request current site and offering documents.",
     "residenceNarrative": "Residence-level details remain limited. Available materials support 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
     "locationNarrative": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
-    "buyerComparisonNotes": "Branded-residence buyers North Flagler waterfront pipeline shoppers Buyers tracking Related Group / BH Group projects Buyers monitoring future service-led luxury inventory Filed-plan stage. Sales launch, pricing, delivery, and unit mix remain unverified. Final amenities and service model remain incomplete. Human review required until official sales materials are public.",
-    "projectTeamNarrative": "Developer: Related Group; BH Group Design: Arquitectonica Brand: Rosewood Hotels & Resorts",
+    "buyerComparisonNotes": "Compare the 2001 North Flagler site as a planning watch. Confirm the reported Rosewood association, site program, developer roles and any future offering before comparing branded services, pricing or timing.",
+    "projectTeamNarrative": "Reported site team: Related Group / BH Group and Arquitectonica. Reported Rosewood association unconfirmed; municipal site records do not establish a branded offering.",
     "sourceNotes": [
       "Confidence is medium. Include as a public pipeline / branded-residences profile with human review required.",
       "Filed-plan stage.",
       "Sales launch, pricing, delivery, and unit mix remain unverified.",
       "Final amenities and service model remain incomplete.",
       "Human review required until official sales materials are public.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: Related’s current Rosewood portfolio entry is Hillsboro Beach. No WPB-specific primary brand confirmation was located in this check. Absence from that portfolio is not proof that an association is impossible. https://relatedgroup.com/luxury-condominium/"
     ],
     "sourceUrls": [
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
       "https://relatedgroup.com/luxury-condominium/"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "medium",
     "schemaEntityName": "2001 North Flagler site (reported Rosewood association unconfirmed)",
     "schemaType": "Place"
@@ -4158,7 +4162,7 @@
     "residences": "Available materials support luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
     "amenities": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
     "location": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
-    "localTake": "Forté is a delivered South Flagler benchmark for buyers comparing what they can inspect with future waterfront projects. Its marketed collection, private elevator foyers, and no more than two homes per floor put privacy and scale at the center. The decision turns on the actual residence, its exposure, association costs, and condition.",
+    "localTake": "Forté is a delivered South Flagler benchmark for buyers comparing what they can inspect with future waterfront projects. Its marketed collection, private elevator foyers, and no more than two homes per floor put privacy and scale at the center. The decision turns on the actual residence, its exposure, association costs, and condition. The developer reports completion. Confirm whether current residence options are developer offerings or resales, along with residence-specific occupancy and terms; an inquiry form is not proof of available inventory.",
     "tradeoffs": [
       "Current developer and resale pricing and HOA / maintenance need verification.",
       "Public / design sources show 41 residences plus penthouse; municipal references show 42 units.",
@@ -4214,14 +4218,14 @@
           "title": "North Residence",
           "beds": "4 bedrooms · 4.5 baths",
           "size": "4,420 interior · 5,442 total",
-          "price": "Request resale availability",
+          "price": "Request current developer and resale options",
           "thumbnail": "/assets/projects/forte-on-flagler/floorplans/showcase/forte-north.png"
         },
         {
           "title": "South Residence",
           "beds": "4 bedrooms · 4.5 baths",
           "size": "4,436 interior · 5,458 total",
-          "price": "Request resale availability",
+          "price": "Request current developer and resale options",
           "thumbnail": "/assets/projects/forte-on-flagler/floorplans/showcase/forte-south.png"
         },
         {
@@ -4343,7 +4347,7 @@
     },
     "introHeadline": "Grand-Scale Waterfront Living on South Flagler",
     "introDek": "Forté on Flagler in West Palm Beach delivers ultra-luxury waterfront living on South Flagler Drive, with 41 marketed residences (total to confirm), no more than two per floor, private elevator foyers, expansive terraces, and sweeping views of Palm Beach, the Intracoastal, Worth Avenue, and the Atlantic Ocean. Designed by Arquitectonica with interiors by Jean-Louis Deniot, Forté pairs grand-scale residences with private-club amenities, 24-hour service, valet, concierge, wellness spaces, and a 75-foot lap pool overlooking the water.",
-    "brookeTake": "Forté is a delivered South Flagler benchmark for buyers comparing what they can inspect with future waterfront projects. Its marketed collection, private elevator foyers, and no more than two homes per floor put privacy and scale at the center. The decision turns on the actual residence, its exposure, association costs, and condition.",
+    "brookeTake": "Forté is a delivered South Flagler benchmark for buyers comparing what they can inspect with future waterfront projects. Its marketed collection, private elevator foyers, and no more than two homes per floor put privacy and scale at the center. The decision turns on the actual residence, its exposure, association costs, and condition. The developer reports completion. Confirm whether current residence options are developer offerings or resales, along with residence-specific occupancy and terms; an inquiry form is not proof of available inventory.",
     "bestFor": [
       "Completed South Flagler luxury comparisons",
       "Resale-context buyers",
@@ -4370,14 +4374,15 @@
       "Public / design sources show 25 stories; municipal references show 24 floors.",
       "Completed comp status should not be confused with active preconstruction.",
       "2026-10-08 surface-consistency review: align these summary fields with existing reviewed shared facts; this is not fresh current inventory or a newly verified approval. See docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: Two Roads reports completion. Forté’s contact page retains sales inquiries alongside stale construction language; neither proves current inventory or sellout. https://tworoadsre.com/ ; https://fortewpb.com/contact/"
     ],
     "sourceUrls": [
       "https://tworoadsre.com/",
       "https://fortewpb.com/",
       "https://arquitectonica.com/architecture/project/forte-on-flagler/"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "high"
   },
   {
@@ -4701,13 +4706,13 @@
     "residences": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Estate-scaled and full-floor formats have been reported, while exact bedroom ranges, size ranges, and floor plans require current sales materials.",
     "amenities": "The public identity centers on a landscaped low-rise campus with Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program was not publicly verified in the reviewed sources.",
     "location": "OLIN occupies the former Ambassador and Edgewater sites at 2720 and 2730 South Ocean Boulevard in Palm Beach's South End, spanning settings on both the Atlantic Ocean and Lake Worth Lagoon sides of the island.",
-    "localTake": "OLIN's strongest distinction is scarcity: 32 residences in a low-rise, ocean-to-lagoon Palm Beach Island format — the island's first South End condo development in 20 years — with OMA architecture and GACHOT interiors. It belongs in a separate Palm Beach Island comparison set, not against West Palm Beach high-rises. Pricing bands run from under $20M to over $40M with sales launched via Corcoran; earlier planning filings showed 41 units against today's official 32, so confirm the current residence count, delivery timing, and terms directly with sales before comparing.",
+    "localTake": "OLIN's strongest distinction is scarcity: 32 residences in a low-rise, ocean-to-lagoon Palm Beach Island format, with OMA architecture and GACHOT interiors. It belongs in a separate Palm Beach Island comparison set. Request current residence-specific pricing from sales; the inquiry form's Residence Type dollar selections are preferences, not a verified price sheet. Earlier planning filings showed 41 units against official marketing of 32, so confirm the current offering, timing and terms.",
     "tradeoffs": [
       "Delivery timing and residence-specific pricing were not publicly verified in the reviewed sources.",
       "Floor plans, gallery arrangements, tours, deposits, parking, policies and final amenities require confirmation.",
       "OKO currently lists 32 residences; older reporting referenced 41, so the conflict remains open for schema review."
     ],
-    "confidenceNote": "High on identity, team, site, and sales status. Developers (OKO Group + Cain International, $147.6M site acquisition Oct 2022), architects (OMA + Spina O'Rourke + Partners), interiors (GACHOT), official 32-residence count, Corcoran exclusivity, pricing bands, and breaking-ground status verified against the official site, OKO portfolio, Palm Beach Post, Commercial Observer, and Beacon Journal, 2026-09-27. 32-vs-41 unit conflict disclosed; delivery date, fees, and residence pricing omitted as unreleased.",
+    "confidenceNote": "The official inquiry form was checked October 10, 2026. Its Residence Type choices are inquiry selections, not verified residence prices. Earlier plan and marketing counts remain distinct; current residence terms and timing require confirmation.",
     "seoTitle": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
     "metaDescription": "Review OLIN Palm Beach in Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "badge": "Pre-Construction Sales",
@@ -4724,7 +4729,7 @@
     ],
     "introHeadline": "Ocean to Lagoon on Palm Beach Island",
     "introDek": "OLIN Palm Beach is an ocean-to-lagoon condominium project on Palm Beach Island with 32 residences, architecture by OMA and interiors by GACHOT. Developed by OKO Group and Cain, it offers a distinct island setting to compare with West Palm Beach alternatives. Request current residence details, pricing and construction guidance.",
-    "brookeTake": "OLIN's strongest distinction is scarcity: 32 residences in a low-rise, ocean-to-lagoon Palm Beach Island format — the island's first South End condo development in 20 years — with OMA architecture and GACHOT interiors. It belongs in a separate Palm Beach Island comparison set, not against West Palm Beach high-rises. Pricing bands run from under $20M to over $40M with sales launched via Corcoran; earlier planning filings showed 41 units against today's official 32, so confirm the current residence count, delivery timing, and terms directly with sales before comparing.",
+    "brookeTake": "OLIN's strongest distinction is scarcity: 32 residences in a low-rise, ocean-to-lagoon Palm Beach Island format, with OMA architecture and GACHOT interiors. It belongs in a separate Palm Beach Island comparison set. Request current residence-specific pricing from sales; the inquiry form's Residence Type dollar selections are preferences, not a verified price sheet. Earlier planning filings showed 41 units against official marketing of 32, so confirm the current offering, timing and terms.",
     "bestFor": [
       "Palm Beach Island buyers",
       "Low-rise / low-density luxury buyers",
@@ -4740,20 +4745,21 @@
     "amenityNarrative": "The public identity centers on a landscaped low-rise campus with Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program was not publicly verified in the reviewed sources.",
     "residenceNarrative": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Exact floor plans, bedroom ranges, and residence sizes require current sales materials.",
     "locationNarrative": "OLIN is positioned on Palm Beach's South End at 2720 and 2730 South Ocean Boulevard, with the project spanning the island between the Atlantic Ocean and Lake Worth Lagoon.",
-    "buyerComparisonNotes": "Compare OLIN within the Palm Beach Island set first. 32 official residences (earlier filings: 41 — confirm), three 5-story buildings, ocean-to-lagoon site, OMA/GACHOT design team, Corcoran sales, bands under $20M to over $40M. Delivery TBD; fees and operating rules unreleased.",
+    "buyerComparisonNotes": "Compare OLIN within the Palm Beach Island set: 32 marketed residences, three five-story buildings, ocean-to-lagoon setting and OMA/GACHOT design. Request residence-specific pricing and delivery guidance. Inquiry selections do not establish actual residence prices.",
     "projectTeamNarrative": "Developers: OKO Group and Cain International. Architecture: OMA and Spina O'Rourke + Partners. Interiors: GACHOT. Sales: Corcoran Sunshine Marketing Group.",
     "sourceNotes": [
       "OKO Group portfolio listed OLIN as Pre-Construction Sales on 2026-09-23; its current project count is 32 residences.",
       "The official developer teaser and reviewed coverage did not reconfirm a current inquiry form, released floor plans, gallery or tour availability.",
       "Inquiry-form budget bands reported in July 2026 are research-only, not residence pricing.",
-      "Official project and OKO Group pages checked 2026-10-08 confirm 32 residences and preconstruction sales. Current inquiry form is present; no current numeric residence pricing or delivery date is published. Inquiry budget bands are removed from buyer pricing copy."
+      "Official project and OKO Group pages checked 2026-10-08 confirm 32 residences and preconstruction sales. Current inquiry form is present; no current numeric residence pricing or delivery date is published. Inquiry budget bands are removed from buyer pricing copy.",
+      "2026-10-10 scoped source check: Official Residence Type inquiry choices are Up to $20M, Up to $30M and Over $40M. These do not verify price bands, starting prices or available inventory. https://olinpalmbeach.com/"
     ],
     "sourceUrls": [
       "https://olinpalmbeach.com/",
       "https://www.oftmw.com/projects/olin-palm-beach/",
       "https://www.okogroup.com/portfolio/olin"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -5099,7 +5105,7 @@
     "repoProjectId": "apogee-residences-wpb",
     "heroHeadline": "A 39-Residence Waterfront Proposal on North Flagler",
     "heroSubheadline": "Approved and announced, with sales, pricing, delivery, and final offering details still unreleased.",
-    "overview": "Apogee Residences is a North Flagler waterfront proposal at 4906 North Flagler Drive. The city project map lists an approved 46-unit program, while the prior reviewed record describes 39 residences across 21 floors. Final unit count, plan revision and architect require confirmation before comparing a future offering.",
+    "overview": "Apogee is a North Flagler waterfront planning watch at 4906 North Flagler Drive. The city map lists 46 units, against 39 in the prior review. A September 29, 2025 city agenda describes 21 stories and 235 feet; that dated context does not establish today’s final design. Architect attribution remains unresolved between prior Sieger Suarez reporting and ULU’s Arquitectonica schematic credits.",
     "quickFacts": [
       {
         "label": "Address",
@@ -5115,7 +5121,7 @@
       },
       {
         "label": "Floors",
-        "value": "21 in the current reviewed plan; earlier reporting cited 25"
+        "value": "21 stories / 235 ft in Sep 29, 2025 city agenda; current plan to confirm"
       },
       {
         "label": "Buildings",
@@ -5136,6 +5142,10 @@
       {
         "label": "Pricing",
         "value": "Not publicly released"
+      },
+      {
+        "label": "Design",
+        "value": "Architect attribution unresolved (Sieger Suarez in prior review, Arquitectonica in ULU schematic credits)"
       }
     ],
     "residences": "The prior review describes 39 residences; the municipal map lists 46. Final count, bedroom mix, floor plans, sizes, parking, storage and residence-specific terms require the current approved plan and offering documents.",
@@ -5160,7 +5170,7 @@
       "pipeline"
     ],
     "introHeadline": "Low density on the North Flagler waterfront.",
-    "introDek": "A North Flagler proposal with differing municipal and reported programs; confirm the final offering.",
+    "introDek": "Apogee is a North Flagler waterfront planning watch at 4906 North Flagler Drive. The city map lists 46 units, against 39 in the prior review. A September 29, 2025 city agenda describes 21 stories and 235 feet; that dated context does not establish today’s final design. Architect attribution remains unresolved between prior Sieger Suarez reporting and ULU’s Arquitectonica schematic credits.",
     "brookeTake": "Use Apogee as a North Flagler planning watch. Resolve the 39/46-unit plan difference and current architect before judging its scale against active marketed projects.",
     "bestFor": [
       "Buyers tracking low-density North Flagler waterfront projects",
@@ -5177,12 +5187,13 @@
     "residenceNarrative": "The prior review describes 39 residences; the municipal map lists 46. Final count, bedroom mix, floor plans, sizes, parking, storage and residence-specific terms require the current approved plan and offering documents.",
     "locationNarrative": "Apogee is planned for 4906 North Flagler Drive on the Intracoastal, north of Currie Park and near Northwood, Rybovich, and the broader North Flagler development corridor.",
     "buyerComparisonNotes": "Compare Apogee with Alba for boutique North Flagler scale, Mandarin Oriental for a later luxury launch, and future Rybovich towers for district-level change. Its public facts remain thinner than projects already in active sales.",
-    "projectTeamNarrative": "Developer: Related Group. Architecture: Sieger Suarez Architects in the current reviewed record. Earlier reporting identified Arquitectonica; final team roles should be confirmed with future project materials.",
+    "projectTeamNarrative": "Developer: Related Group. Architect attribution unresolved (Sieger Suarez in prior review, Arquitectonica in ULU schematic credits). The undated ULU page describes schematic design; confirm current architect roles and plan revision.",
     "sourceNotes": [
-      "The current reviewed record lists Related Group, Sieger Suarez Architects, 39 residences, and 21 floors.",
-      "Earlier reporting described Arquitectonica and a 46-residence, 25-story plan; the conflict remains review-visible.",
+      "Prior review named Sieger Suarez, 39 residences and 21 floors; that is historical review context, not a newly verified current architect or design.",
+      "The undated ULU schematic-design page credits Arquitectonica. The September 29, 2025 city agenda describes 21 stories / 235 feet. Current plan revision and architect roles remain to confirm.",
       "No public sales program, pricing, delivery date, floor plans, or complete amenity program has been released.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "2026-10-10 scoped source check: Preserve architect and current-height uncertainty; do not substitute a definitive replacement. https://ulustudio.com/apogee/ ; https://www.wpb.org/files/assets/city/v/2/city-clerk/documents/agendas/2025-pass-fail-agendas-pfa/2025-09-sep-pfa/pf-city-commission-agenda_9_29_25.pdf"
     ],
     "sourceUrls": [
       "https://www.oftmw.com/firm/related-group/",
@@ -5190,7 +5201,7 @@
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
       "https://ulustudio.com/apogee/"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-10-10",
     "copyConfidence": "medium-high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -5202,7 +5213,7 @@
         "label": "North Flagler Waterfront",
         "alt": "Concept street-level rendering of the proposed Apogee Residences tower on North Flagler Drive"
       },
-      "intro": "Apogee Residences is a North Flagler waterfront proposal at 4906 North Flagler Drive. The city project map lists an approved 46-unit program, while the prior reviewed record describes 39 residences across 21 floors. Final unit count, plan revision and architect require confirmation before comparing a future offering.",
+      "intro": "Apogee is a North Flagler waterfront planning watch at 4906 North Flagler Drive. The city map lists 46 units, against 39 in the prior review. A September 29, 2025 city agenda describes 21 stories and 235 feet; that dated context does not establish today’s final design. Architect attribution remains unresolved between prior Sieger Suarez reporting and ULU’s Arquitectonica schematic credits.",
       "heroTags": [
         {
           "label": "Status",
@@ -5226,7 +5237,7 @@
         {
           "icon": "stories",
           "label": "Floors",
-          "value": "21 Current Plan"
+          "value": "21 stories in Sep 2025 city agenda; current plan to confirm"
         },
         {
           "icon": "waterfront",
@@ -5275,7 +5286,7 @@
         },
         {
           "label": "Architecture",
-          "value": "Sieger Suarez Architects — current reviewed record"
+          "value": "Architect attribution unresolved (Sieger Suarez in prior review, Arquitectonica in ULU schematic credits)"
         }
       ]
     }
@@ -5498,7 +5509,7 @@
     ],
     "residences": "Planning reporting describes 281 condominiums across two towers, with residences of approximately 1,065 to 4,510 square feet and an average around 1,762 square feet. Final unit mix, floor plans, bedroom counts, finishes, parking allocations, storage, and policies have not been released.",
     "amenities": "Third- and ninth-floor amenity areas, a pool deck, rooftop amenities, and a shared waterfront platform have been reported. The complete amenity, service, wellness, marina, and association program requires confirmation.",
-    "location": "The site is at 2085 North Flagler Drive on the Intracoastal, across from Currie Park and adjacent to the Rosewood site, with access to Northwood and the broader North Flagler corridor.",
+    "location": "The site is at 2085 North Flagler Drive on the Intracoastal, across from Currie Park and adjacent to the 2001 North Flagler site (reported Rosewood association unconfirmed), with access to Northwood and the broader North Flagler corridor.",
     "localTake": "This is a true watch page, not an active-sales profile. The waterfront and Currie Park position matter, but buyers should wait for developer-confirmed plans, approvals, architecture, unit mix, pricing, delivery, and offering documents before comparing it as available inventory.",
     "tradeoffs": [
       "No public sales program, pricing, delivery timeline, final approvals, architect, or offering documents have been confirmed.",
@@ -5519,7 +5530,7 @@
     ],
     "introHeadline": "Two planned towers at the Currie Park waterfront.",
     "introDek": "An early 281-residence proposal at 2085 North Flagler, tracked separately from active sales inventory.",
-    "brookeTake": "The site sits at one of North Flagler's most visible waterfront positions. For now, the right buyer use is monitoring: track approvals, the final development team, residence mix, construction timing, and how the project relates to Rosewood and Currie Park improvements.",
+    "brookeTake": "The site sits at one of North Flagler's most visible waterfront positions. For now, the right buyer use is monitoring: track approvals, the final development team, residence mix, construction timing, and how the project relates to the 2001 North Flagler site and Currie Park improvements.",
     "bestFor": [
       "Buyers monitoring future North Flagler waterfront supply",
       "Buyers prioritizing Currie Park and Intracoastal frontage",
@@ -5533,7 +5544,7 @@
     ],
     "amenityNarrative": "Planning reporting references shared waterfront amenities, third- and ninth-floor amenity areas, a pool deck, and rooftop space. Final access, services, staffing, marina rights, fees, and association structure are not public.",
     "residenceNarrative": "The reported plan includes 281 condominiums across two towers, with approximate sizes from 1,065 to 4,510 square feet. Final unit mix, plans, finishes, parking, storage, policies, and pricing require future project materials.",
-    "locationNarrative": "2085 North Flagler sits directly on the Intracoastal across from Currie Park, beside the Rosewood site and close to Northwood and the developing North Flagler waterfront cluster.",
+    "locationNarrative": "2085 North Flagler sits directly on the Intracoastal across from Currie Park, beside the 2001 North Flagler site (reported Rosewood association unconfirmed) and close to Northwood and the developing North Flagler waterfront cluster.",
     "buyerComparisonNotes": "Compare this watch with Rosewood for adjacent branded-residence potential and with Olara and Shorecrest for active or more advanced North Flagler product. 2085 is not yet a substitute for currently available inventory.",
     "projectTeamNarrative": "Developers: Terra and BH Group. A final architect, interiors team, landscape architect, sales team, and construction team have not been publicly confirmed.",
     "sourceNotes": [

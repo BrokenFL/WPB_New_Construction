@@ -292,12 +292,12 @@ export const generatedProjectSchemaFacts = [
     "identity": {
       "slug": "rosewood-residences-west-palm-beach",
       "route": "/projects/rosewood-residences-west-palm-beach/",
-      "displayName": "Rosewood Residences West Palm Beach",
+      "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
       "corridor": "North Flagler",
       "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/"
     },
     "safeFields": {
-      "name": "Rosewood Residences West Palm Beach",
+      "name": "2001 North Flagler (reported Rosewood association unconfirmed)",
       "route": "/projects/rosewood-residences-west-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
       "corridor": "North Flagler"
@@ -394,9 +394,9 @@ export const generatedProjectSchemaFacts = [
       "route": "/projects/the-sound-west-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/the-sound-west-palm-beach/",
       "corridor": "South End / South Dixie",
-      "status": "Under Construction",
+      "status": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
       "residenceCount": "358",
-      "address": "8111 South Dixie Highway, West Palm Beach, FL 33405"
+      "address": "520 Gregory Road, West Palm Beach, FL 33405"
     }
   }
 ] as const;

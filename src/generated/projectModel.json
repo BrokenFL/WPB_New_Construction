@@ -44,10 +44,11 @@
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://www.albapalmbeach.com/",
+        "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
         "https://www.miamiresidence.com/preconstruction/alba-palm-beach.htm",
         "https://www.albapalmbeach.com/vision",
         "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf",
-        "https://www.albapalmbeach.com/",
         "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       ],
       "reviewedFields": {
@@ -69,9 +70,9 @@
         "deliveryYear": 2026,
         "longitude": -80.051,
         "latitude": 26.7526,
-        "summary": "A 55-residence North Flagler waterfront condominium with developer sales active. The developer advertised immediate occupancy in September 2026; confirm residence-specific availability.",
+        "summary": "Alba is a completed boutique North Flagler waterfront building, with completion announced by the developer June 25, 2026. Confirm current developer and resale options, residence-specific occupancy and pricing; the developer’s inquiry path does not verify available inventory.",
         "floorplans": true,
-        "pageState": "Active / Developer Sales / Completed",
+        "pageState": "Completed / Developer and resale options to confirm",
         "image": "/projects/alba-palm-beach/media/card.jpg",
         "heroImage": "",
         "mobileImage": "",
@@ -848,6 +849,7 @@
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf",
         "https://www.banyantreeresidenceswpb.com/",
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
@@ -979,6 +981,8 @@
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://tworoadsre.com/",
+        "https://fortewpb.com/contact/",
         "https://fortewpb.com/",
         "https://fortewpb.com/team/",
         "https://fortewpb.com/amenities/",
@@ -1185,7 +1189,7 @@
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Rybovich Marina Redevelopment",
-      "status": "Pipeline / Approval scope to confirm",
+      "status": "Pipeline / Partial site plan approved Nov 10, 2025",
       "delivery": "Pipeline watch",
       "residences": "Up to 660 planned across four towers; phase counts to confirm",
       "price": "Not released",
@@ -1209,13 +1213,16 @@
       "humanReviewRequired": true,
       "confidenceLevel": "medium",
       "conflicts": [
-        "Overall redevelopment may include up to four towers / 660 units, but initial approval only covers two towers / 259 units."
+        "The November 10, 2025 city decision covers a specific 259-unit site plan. It does not reconcile the city map’s 291-unit program or establish approval of the full 660-home concept."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions",
+        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      ],
       "reviewedFields": {
-        "status": "Pipeline / Approval scope to confirm",
+        "status": "Pipeline / Partial site plan approved Nov 10, 2025",
         "residences": "Up to 660 planned across four towers; phase counts to confirm"
       },
       "fieldSources": {
@@ -1231,9 +1238,9 @@
         "deliveryYear": 2030,
         "longitude": -80.0506,
         "latitude": 26.7461,
-        "summary": "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade.",
+        "summary": "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade. The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
         "floorplans": false,
-        "pageState": "Pipeline / Announced / Watchlist",
+        "pageState": "Pipeline / Partial site plan approved Nov 10, 2025",
         "image": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
         "heroImage": "",
         "mobileImage": "",
@@ -1247,8 +1254,8 @@
       "corridorKey": "north-flagler",
       "corridor": "North Flagler",
       "publicationState": "published",
-      "displayName": "Rosewood Residences West Palm Beach",
-      "status": "Pipeline / Brand and construction status to confirm",
+      "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
+      "status": "Pipeline / Reported Rosewood association unconfirmed",
       "delivery": "Timing not released",
       "residences": "90 in municipal program; branded offering unconfirmed",
       "price": "Not released",
@@ -1274,14 +1281,17 @@
       "conflicts": [],
       "schemaBlockedFields": [],
       "gaps": [],
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://relatedgroup.com/luxury-condominium/"
+      ],
       "reviewedFields": {
-        "status": "Pipeline / Brand and construction status to confirm",
+        "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
+        "status": "Pipeline / Reported Rosewood association unconfirmed",
         "delivery": "Timing not released",
         "residences": "90 in municipal program; branded offering unconfirmed"
       },
       "fieldSources": {
-        "displayName": "canonical",
+        "displayName": "reviewed_override",
         "status": "reviewed_override",
         "delivery": "reviewed_override",
         "residences": "reviewed_override",
@@ -1293,9 +1303,9 @@
         "deliveryYear": 2029,
         "longitude": -80.05005,
         "latitude": 26.73135,
-        "summary": "Rosewood Residences is a North Flagler branded-residence proposal at 2001 N Flagler Drive. The public sales program, pricing, delivery timing, and residence mix have not yet been released.",
+        "summary": "The 2001 North Flagler site is a planning watch with a reported Rosewood association that remains unconfirmed. Its municipal 90-unit program does not establish a branded sales offering.",
         "floorplans": false,
-        "pageState": "Pipeline / Announced / Watchlist",
+        "pageState": "Pipeline / Reported Rosewood association unconfirmed",
         "image": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
         "heroImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
         "mobileImage": "/projects/rosewood/media/user-provided-rosewood-render-02.jpg",
@@ -1526,7 +1536,7 @@
       "humanReviewRequired": true,
       "confidenceLevel": "high",
       "conflicts": [
-        "Earlier sources identified Arquitectonica and a 46-unit, 25-story plan; the current reviewed record identifies Sieger Suarez and 39 units across 21 floors.",
+        "Prior review names Sieger Suarez and 39 units; ULU’s undated schematic credits name Arquitectonica, and the city map lists 46 units. September 29, 2025 municipal height context is not proof of the current final plan.",
         "Earlier sources identified Arquitectonica and a 46-unit/25-story plan; the proposed master identifies Sieger Suarez and 39 units/21 floors."
       ],
       "schemaBlockedFields": [
@@ -1536,6 +1546,8 @@
         "Sales launch, pricing, delivery, floor plans, maintenance, final amenity program, and offering documents"
       ],
       "sourceUrls": [
+        "https://ulustudio.com/apogee/",
+        "https://www.wpb.org/files/assets/city/v/2/city-clerk/documents/agendas/2025-pass-fail-agendas-pfa/2025-09-sep-pfa/pf-city-commission-agenda_9_29_25.pdf",
         "https://www.oftmw.com/firm/related-group/",
         "https://www.oftmw.com/firm/sieger-suarez-architects/"
       ],
@@ -1742,12 +1754,12 @@
       "corridor": "South End / South Dixie",
       "publicationState": "published",
       "displayName": "The Sound Apartments",
-      "status": "Under Construction",
-      "delivery": "Request current completion and leasing guidance",
+      "status": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
+      "delivery": "Operator reports open; confirm residence-specific move-in timing",
       "residences": "358",
       "price": "Request current leasing information",
-      "address": "8111 South Dixie Highway, West Palm Beach, FL 33405",
-      "developmentStage": "under_construction_rental",
+      "address": "520 Gregory Road, West Palm Beach, FL 33405",
+      "developmentStage": "open_leasing_operator_reported",
       "pageType": "rental_project_page",
       "siteGroup": "rental_under_construction",
       "sourceCatalogIds": [
@@ -1774,6 +1786,8 @@
         "Current rents, concessions, live unit availability, lease terms, resident policies, exact move-in timing, parking details, and final retail lineup"
       ],
       "sourceUrls": [
+        "https://thesoundwpb.com/",
+        "https://thesoundwpb.com/sightmap/",
         "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
         "https://verdex.com/the-sound-apartments/",
         "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
@@ -1781,24 +1795,26 @@
         "https://locations.traderjoes.com/fl/west-palm-beach/796/"
       ],
       "reviewedFields": {
-        "delivery": "Request current completion and leasing guidance"
+        "status": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
+        "delivery": "Operator reports open; confirm residence-specific move-in timing",
+        "address": "520 Gregory Road, West Palm Beach, FL 33405"
       },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "reviewed_override",
         "residences": "canonical",
         "price": "canonical",
-        "address": "canonical"
+        "address": "reviewed_override"
       },
       "presentation": {
         "rank": 25,
-        "deliveryYear": 2026,
+        "deliveryYear": 0,
         "longitude": -80.0563543,
         "latitude": 26.6452469,
-        "summary": "A 358-unit rental apartment community in West Palm Beach’s South End with 90 workforce units, neighborhood retail, and a waterfront public-realm program. This is rental housing, not for-sale condominium inventory.",
+        "summary": "The Sound is a rental community with studios through three bedrooms. Its operator reports open/leasing at 520 Gregory Road, checked October 10, 2026. The earlier construction/retail project address is 8111 South Dixie Highway. The 358-apartment program includes 90 workforce units; it is not a count of currently available homes. Confirm rents, lease terms and residence-specific move-in timing.",
         "floorplans": false,
-        "pageState": "Rental / Under Construction / Leasing Status to Verify",
+        "pageState": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
         "image": "",
         "heroImage": "",
         "mobileImage": "",

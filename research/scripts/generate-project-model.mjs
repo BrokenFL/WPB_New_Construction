@@ -200,7 +200,7 @@ const publicProjects = publishedProjects.map((project) => ({
     projectAddress: project.address,
     salesGalleryAddress: String(canonicalById.get(project.canonicalId)?.sales_gallery_address ?? ""),
     mailingAddress: "",
-    planningParcelAddress: "",
+    planningParcelAddress: String(canonicalById.get(project.canonicalId)?.planning_parcel_address ?? ""),
     canonicalResidenceCount: project.residences,
     historicalResidenceCounts: [],
     expectedDeliveryCurrent: project.delivery,

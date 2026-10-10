@@ -26,6 +26,7 @@ export function projectBuyerGuide(record, copy) {
   }
   return {
     ...record,
+    eyebrow: status || record.eyebrow,
     opening: copy.overview,
     buyerFit: copy.bestFor?.join("; ") || record.buyerFit,
     location: address ? `Project address guidance: ${address}. Confirm the property, parcel and sales-gallery addresses in current project documents before arranging a visit.` : record.location,

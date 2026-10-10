@@ -90,10 +90,11 @@
         "Unit 1003 sold on 2026-06-01, but that sale does not establish availability or readiness of other residences."
       ],
       "source_urls": [
+        "https://www.albapalmbeach.com/",
+        "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
         "https://www.miamiresidence.com/preconstruction/alba-palm-beach.htm",
         "https://www.albapalmbeach.com/vision",
         "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf",
-        "https://www.albapalmbeach.com/",
         "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       ],
       "human_review_required": false,
@@ -109,7 +110,7 @@
       "public_address": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
       "neighborhood": "North Flagler waterfront",
       "sales_gallery_address": "250 North Olive Avenue, West Palm Beach, FL 33401",
-      "fact_revision_date": "2026-09-23"
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -958,7 +959,7 @@
       "municipal_or_legal_note": "Official Banyan Group release confirms downtown West Palm Beach, but exact street address and municipal/legal parcel data still need verification.",
       "public_residence_count": 88,
       "municipal_residence_count": null,
-      "floor_count_display": null,
+      "floor_count_display": "26 marketed stories; earlier municipal record 25 floors",
       "municipal_floor_count": null,
       "tower_count": null,
       "developer": [
@@ -1007,6 +1008,7 @@
         "Older pricing and delivery estimates are not confirmed by the current official homepage."
       ],
       "source_urls": [
+        "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf",
         "https://www.banyantreeresidenceswpb.com/",
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
@@ -1023,7 +1025,8 @@
       "development_stage": "active_sales_preconstruction",
       "public_address": "400 Hibiscus Street, West Palm Beach, FL 33401",
       "neighborhood": "Downtown West Palm Beach",
-      "sales_gallery_address": "400 Hibiscus Street, West Palm Beach, FL 33401 (by appointment)"
+      "sales_gallery_address": "400 Hibiscus Street, West Palm Beach, FL 33401 (by appointment)",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1145,6 +1148,8 @@
         "25 public/design stories vs 24 municipal floors."
       ],
       "source_urls": [
+        "https://tworoadsre.com/",
+        "https://fortewpb.com/contact/",
         "https://fortewpb.com/",
         "https://fortewpb.com/team/",
         "https://fortewpb.com/amenities/",
@@ -1161,7 +1166,8 @@
       "status_badge": "Completed Comp",
       "development_stage": "completed_recent_comp",
       "public_address": "1309 S Flagler Drive, West Palm Beach, FL",
-      "neighborhood": "South Flagler waterfront"
+      "neighborhood": "South Flagler waterfront",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1299,9 +1305,9 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "",
-      "public_residence_count": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
-      "municipal_residence_count": "Initial approvals: 259 units; overall cap: 660 residential units",
+      "municipal_or_legal_note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
+      "public_residence_count": "Up to 660 planned across four towers; phase counts to confirm",
+      "municipal_residence_count": "259-unit Level III site plan approved November 10, 2025 for PBAs 4, 8, 9 and 10; city map 291-unit scope unresolved",
       "floor_count_display": "34 and 36 stories for initial two towers; future towers up to 445 ft reported",
       "municipal_floor_count": "34-story / 147-unit tower and 36-story / 112-unit tower in initial approvals",
       "tower_count": 4,
@@ -1335,9 +1341,12 @@
         "Large phased project; timing, tower sequence, pricing, and final residential program remain uncertain"
       ],
       "key_conflicts": [
-        "Overall redevelopment may include up to four towers / 660 units, but initial approval only covers two towers / 259 units."
+        "The November 10, 2025 city decision covers a specific 259-unit site plan. It does not reconcile the city map’s 291-unit program or establish approval of the full 660-home concept."
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions",
+        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      ],
       "human_review_required": true,
       "confidence_level": "medium",
       "import_recommendation": "Add as pipeline/watchlist record; avoid presenting individual towers as separate condo pages until sales/branding materials exist.",
@@ -1346,10 +1355,11 @@
       "display_name": "Rybovich Marina Redevelopment",
       "site_group": "pipeline_watchlist",
       "page_type": "pipeline_building_page",
-      "status_badge": "Pipeline / Planning Approved",
+      "status_badge": "Pipeline / Partial site plan approved Nov 10, 2025",
       "development_stage": "planning_approved_watchlist",
       "public_address": "4000–4300 N Flagler Drive, West Palm Beach, FL",
-      "neighborhood": "North Flagler / Rybovich waterfront"
+      "neighborhood": "North Flagler / Rybovich waterfront",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1370,7 +1380,7 @@
       "interior_designer": [],
       "landscape_architect": [],
       "brand_partner": [
-        "Rosewood Hotels & Resorts"
+        "Reported Rosewood association unconfirmed"
       ],
       "sales_team": [],
       "construction_team": [],
@@ -1384,7 +1394,7 @@
       "storage_summary": "",
       "pet_summary": "",
       "amenity_summary": "Reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck.",
-      "service_summary": "Rosewood-branded service program not yet fully public.",
+      "service_summary": "Reported Rosewood association and branded service program unconfirmed",
       "residence_features": [],
       "best_for": [
         "Branded-residence buyers",
@@ -1394,19 +1404,22 @@
         "Filed-plan stage; sales launch, pricing, unit mix, and final amenities remain to be verified"
       ],
       "key_conflicts": [],
-      "source_urls": [],
+      "source_urls": [
+        "https://relatedgroup.com/luxury-condominium/"
+      ],
       "human_review_required": true,
       "confidence_level": "medium",
       "import_recommendation": "Add as pipeline/watchlist branded-residence record; mark human review required until official sales materials are public.",
       "project_id": "rosewood-residences-west-palm-beach",
       "slug": "rosewood-residences-west-palm-beach",
-      "display_name": "Rosewood Residences West Palm Beach",
+      "display_name": "2001 North Flagler (reported Rosewood association unconfirmed)",
       "site_group": "pipeline_watchlist",
       "page_type": "pipeline_building_page",
-      "status_badge": "Pipeline / Branded Residences",
+      "status_badge": "Pipeline / Reported Rosewood association unconfirmed",
       "development_stage": "filed_plans_watchlist",
       "public_address": "2001 N Flagler Drive, West Palm Beach, FL",
-      "neighborhood": "North Flagler waterfront"
+      "neighborhood": "North Flagler waterfront",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1478,7 +1491,8 @@
       "development_stage": "pre_construction_sales",
       "public_address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL",
       "neighborhood": "Palm Beach South End / Condominium Row",
-      "missing_or_unconfirmed": "Delivery, final pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
+      "missing_or_unconfirmed": "Delivery, final pricing, floor plans, maintenance, parking, policies, and the complete amenity program",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1549,17 +1563,17 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "The current reviewed proposal is 39 residences across 21 floors; earlier reporting described a 46-residence, 25-story plan with a different architect.",
+      "municipal_or_legal_note": "Apogee is a North Flagler waterfront planning watch at 4906 North Flagler Drive. The city map lists 46 units, against 39 in the prior review. A September 29, 2025 city agenda describes 21 stories and 235 feet; that dated context does not establish today’s final design. Architect attribution remains unresolved between prior Sieger Suarez reporting and ULU’s Arquitectonica schematic credits.",
       "public_residence_count": 39,
       "municipal_residence_count": null,
-      "floor_count_display": 21,
+      "floor_count_display": "21 stories / 235 ft in Sep 29, 2025 city agenda; current plan to confirm",
       "municipal_floor_count": null,
       "tower_count": 1,
       "developer": [
         "Related Group"
       ],
       "architect": [
-        "Sieger Suarez Architects"
+        "Architect attribution unresolved (Sieger Suarez in prior review, Arquitectonica in ULU schematic credits)"
       ],
       "interior_designer": [],
       "landscape_architect": [],
@@ -1590,9 +1604,11 @@
         "Public sales, pricing, delivery, floor plans, fees, policies, and the complete amenity program have not been released"
       ],
       "key_conflicts": [
-        "Earlier sources identified Arquitectonica and a 46-unit, 25-story plan; the current reviewed record identifies Sieger Suarez and 39 units across 21 floors."
+        "Prior review names Sieger Suarez and 39 units; ULU’s undated schematic credits name Arquitectonica, and the city map lists 46 units. September 29, 2025 municipal height context is not proof of the current final plan."
       ],
       "source_urls": [
+        "https://ulustudio.com/apogee/",
+        "https://www.wpb.org/files/assets/city/v/2/city-clerk/documents/agendas/2025-pass-fail-agendas-pfa/2025-09-sep-pfa/pf-city-commission-agenda_9_29_25.pdf",
         "https://www.oftmw.com/firm/related-group/",
         "https://www.oftmw.com/firm/sieger-suarez-architects/"
       ],
@@ -1608,7 +1624,8 @@
       "development_stage": "approved",
       "public_address": "4906 North Flagler Drive, West Palm Beach, FL 33407",
       "neighborhood": "North End / North Flagler",
-      "missing_or_unconfirmed": "Sales launch, pricing, delivery, floor plans, maintenance, final amenity program, and offering documents"
+      "missing_or_unconfirmed": "Sales launch, pricing, delivery, floor plans, maintenance, final amenity program, and offering documents",
+      "fact_revision_date": "2026-10-10"
     },
     {
       "include_on_site": true,
@@ -1743,7 +1760,7 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "The Sound is a rental apartment and retail development. It must not be presented as for-sale condominium inventory.",
+      "municipal_or_legal_note": "The Sound is a rental apartment and retail development. It must not be presented as for-sale condominium inventory. Operator reports Now Open/leasing at 520 Gregory Road, checked October 10, 2026. The retained 358 figure is the construction-program total, not current available apartments. The older 8111 South Dixie address refers to construction/retail context; no CO or exact opening date verified.",
       "public_residence_count": 358,
       "municipal_residence_count": null,
       "floor_count_display": 8,
@@ -1767,9 +1784,9 @@
       ],
       "price_display": "Request current leasing information",
       "maintenance_display": "Not applicable — rental community",
-      "delivery_display": "Under construction; 2026 delivery target",
+      "delivery_display": "Operator reports open; confirm residence-specific move-in timing",
       "size_range_display": "Approximately 500–1,388 square feet",
-      "bedroom_range_display": "Studios to 3 bedrooms",
+      "bedroom_range_display": "Studios through 3 bedrooms (operator marketing)",
       "parking_summary": "Current resident and retail parking details require confirmation",
       "ev_summary": "Not publicly confirmed",
       "storage_summary": "Not publicly confirmed",
@@ -1778,7 +1795,7 @@
       "service_summary": "Current leasing services and resident policies require confirmation.",
       "residence_features": [
         "Rental apartments rather than for-sale condominiums",
-        "Studio, one-, two-, and three-bedroom homes",
+        "Studios through 3 bedrooms (operator marketing)",
         "90 workforce housing units within the 358-unit community",
         "Mixed-use South Dixie setting with neighborhood retail",
         "Waterfront walkway and canal access"
@@ -1796,6 +1813,8 @@
         "Project sources describe the retail program differently: Verdex lists a 21,000-square-foot neighborhood grocer with additional retail, while the March 2026 developer announcement describes 19,000 square feet of outparcel retail including a 15,000-square-foot Trader Joe’s lease."
       ],
       "source_urls": [
+        "https://thesoundwpb.com/",
+        "https://thesoundwpb.com/sightmap/",
         "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
         "https://verdex.com/the-sound-apartments/",
         "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
@@ -1810,11 +1829,13 @@
       "display_name": "The Sound Apartments",
       "site_group": "rental_under_construction",
       "page_type": "rental_project_page",
-      "status_badge": "Under Construction",
-      "development_stage": "under_construction_rental",
-      "public_address": "8111 South Dixie Highway, West Palm Beach, FL 33405",
+      "status_badge": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
+      "development_stage": "open_leasing_operator_reported",
+      "public_address": "520 Gregory Road, West Palm Beach, FL 33405",
       "neighborhood": "South End / South Dixie",
-      "missing_or_unconfirmed": "Current rents, concessions, live unit availability, lease terms, resident policies, exact move-in timing, parking details, and final retail lineup"
+      "missing_or_unconfirmed": "Current rents, concessions, live unit availability, lease terms, resident policies, exact move-in timing, parking details, and final retail lineup",
+      "planning_parcel_address": "8111 South Dixie Highway, West Palm Beach, FL 33405 (older construction/retail project address)",
+      "fact_revision_date": "2026-10-10"
     }
   ],
   "excluded_or_internal_only": [

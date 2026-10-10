@@ -41,7 +41,7 @@ async function validatePublicSchemas(findings) {
   const publicProjectModel = JSON.parse(await fs.readFile(publicProjectPath, "utf8"));
   const projectKeys = new Set(["publicSlug", "publicRoute", "corridorKey", "corridor", "displayName", "projectType", "status", "delivery", "residences", "price", "reviewedFields", "facts", "sourceUrls", "lookupAliases", "compareDatabaseId", "compareDatabaseSlug", "presentation"]);
   const factKeys = new Set(["projectAddress", "salesGalleryAddress", "mailingAddress", "planningParcelAddress", "canonicalResidenceCount", "historicalResidenceCounts", "expectedDeliveryCurrent", "priorDeliveryGuidance", "stories", "projectTeam", "amenitySummary", "residenceFeatures", "neighborhoodContext", "factEffectiveDate", "lastVerifiedDate", "sourcePriority"]);
-  const reviewedFieldKeys = new Set(["status", "delivery", "residences", "price", "address"]);
+  const reviewedFieldKeys = new Set(["displayName", "status", "delivery", "residences", "price", "address"]);
   for (const project of publicProjectModel.projects || []) {
     for (const key of Object.keys(project)) if (!projectKeys.has(key)) findings.push(`src/generated/projectModelPublic.json: unapproved project field "${key}"`);
     for (const key of Object.keys(project.facts || {})) if (!factKeys.has(key)) findings.push(`src/generated/projectModelPublic.json: unapproved fact field "${key}"`);

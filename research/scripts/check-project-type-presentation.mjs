@@ -37,7 +37,7 @@ const requiredPolicyLabels = [
   "Request Leasing Information",
   "Get Project Updates",
   "Get Development Updates",
-  "Request Current Resale Availability",
+  "Request Current Residence Options",
   "Request Current Residence Information",
 ];
 for (const label of requiredPolicyLabels) {

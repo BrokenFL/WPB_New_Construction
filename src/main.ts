@@ -1019,9 +1019,9 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "Branded residences",
     title: "Branded Residences in West Palm Beach",
     question: "Which branded residences are coming to West Palm Beach?",
-    description: "Compare West Palm Beach branded residences — Ritz-Carlton, Rosewood, Mandarin Oriental, Mr. C, Banyan Tree — on status, scale, and timing.",
+    description: "Compare marketed West Palm Beach branded residences and the 2001 North Flagler site’s unconfirmed reported Rosewood association.",
     bluf:
-      "Five branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and Rosewood Residences (90 residences, pipeline, pricing not released). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
+      "Four marketed branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), plus the 2001 North Flagler site (reported Rosewood association unconfirmed; municipal 90-unit program). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
     explanation:
       "A brand on the building is a service and positioning promise, not a guarantee of delivery timing or resale performance. Compare each project's construction status, residence count, published pricing guidance, corridor, and what the brand actually operates — then verify fees, availability, and contract terms in current documents.",
     projectIds: ["ritz-carlton-wpb", "rosewood-residences-west-palm-beach", "mandarin-oriental", "mr-c", "banyan-tree"],
@@ -1033,7 +1033,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     faqs: [
       { question: "Do branded residences cost more than non-branded new condos?", answer: "They often carry a premium tied to the service program and positioning, but the premium varies by project and market cycle. Compare published guidance per project and verify against current availability rather than assuming a brand markup." },
-      { question: "Which branded project will deliver first?", answer: "The Ritz-Carlton Residences and Mr. C Residences are under construction; Mandarin Oriental and Rosewood are earlier stage. Confirm live construction schedules — timelines move and press dates go stale." },
+      { question: "Which branded project will deliver first?", answer: "The Ritz-Carlton Residences and Mr. C Residences are under construction; Mandarin Oriental is earlier stage, and the 2001 North Flagler site’s reported Rosewood association remains unconfirmed. Confirm live construction schedules — timelines move and press dates go stale." },
       { question: "Is the brand the same as the developer?", answer: "Not always. The brand typically licenses its name and operating standards while a separate developer builds. Verify who develops, who operates, and what the brand agreement covers." },
     ],
     sourceNotes: ["Project status, scale, and pricing guidance come from the existing WPB New Construction source catalog.", "Delivery timing and pricing are verification items — confirm against current project materials."],
@@ -1043,11 +1043,11 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "North Flagler compare",
     title: "North Flagler New Condos Compared",
     question: "How do North Flagler's new condos compare?",
-    description: "Compare North Flagler new condos — Olara, Shorecrest, Alba, Ritz-Carlton, Mandarin Oriental, Rosewood — on status, scale, timing, and buyer fit.",
+    description: "Compare North Flagler condos and the 2001 North Flagler site, whose reported Rosewood association remains unconfirmed.",
     bluf:
-      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and Rosewood Residences (90 residences, pipeline). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
+      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and the 2001 North Flagler site (90 in the municipal program; reported Rosewood association unconfirmed). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
     explanation:
-      "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and earlier-stage branded pipeline (Mandarin Oriental, Rosewood). Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
+      "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and Mandarin Oriental’s earlier-stage branded pipeline and the 2001 North Flagler site, whose reported Rosewood association is unconfirmed. Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
     projectIds: ["olara", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb", "mandarin-oriental", "rosewood-residences-west-palm-beach"],
     corridorKeys: ["north-flagler"],
     tableRows: [
@@ -1238,15 +1238,15 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "Which new West Palm Beach condos are move-in ready?",
     description: "The completed new condos in West Palm Beach — Alba, La Clara, Forté on Flagler — and how to verify specific residence availability.",
     bluf:
-      "Three projects offer a delivery date of today: Alba Palm Beach (55 residences, completed, developer offering confirm residence-specific occupancy, from just under $3M guidance), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). Confirm current developer and resale options across Alba, La Clara and Forté — confirm the specific residence, fees, reserves, and condition before comparing.",
+      "Three completed buildings provide a starting point, with each residence’s occupancy to confirm: Alba Palm Beach (55 residences, completed; confirm developer/resale options and residence-specific occupancy, from just under $3M guidance), La Clara (opened to residents in 2023), and Forté on Flagler (recently completed). Confirm current developer and resale options across Alba, La Clara and Forté — confirm the specific residence, fees, reserves, and condition before comparing.",
     explanation:
-      "Move-in-ready removes construction timing risk but adds a different checklist: specific residence availability, resale versus developer inventory, association reserves and fees, building condition, and what the HOA documents actually say. Use the completed set as both a purchase lane and a reality check for finishes and fees against pre-construction promises elsewhere.",
+      "A completed building still needs a residence-specific occupancy check, along with specific residence availability, resale versus developer inventory, association reserves and fees, building condition, and what the HOA documents actually say. Use the completed set as both a purchase lane and a reality check for finishes and fees against pre-construction promises elsewhere.",
     projectIds: ["alba-palm-beach", "la-clara", "forte-on-flagler"],
     corridorKeys: ["north-flagler", "south-flagler"],
     tableRows: [
-      { label: "Alba Palm Beach", bestUse: "Buyers who want a completed North Flagler building with developer inventory.", links: ["/projects/alba-palm-beach/", "/floorplans/alba-palm-beach/residence-a/"], verify: "Confirm the specific residence — completed inventory moves — and the just-under-$3M guidance." },
+      { label: "Alba Palm Beach", bestUse: "Buyers comparing a completed North Flagler building; confirm developer and resale options.", links: ["/projects/alba-palm-beach/", "/floorplans/alba-palm-beach/residence-a/"], verify: "Confirm the specific residence — completed inventory moves — and the just-under-$3M guidance." },
       { label: "La Clara", bestUse: "Buyers comparing a 2023-delivered South Flagler building on resale.", links: ["/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, and condition." },
-      { label: "Forté on Flagler", bestUse: "Buyers comparing a recently completed South Flagler building on resale.", links: ["/projects/forte-on-flagler/", "/floorplans/forte-on-flagler/penthouse-residence/"], verify: "Confirm occupancy and resale status, fees, and the specific residence." },
+      { label: "Forté on Flagler", bestUse: "Buyers comparing a completed South Flagler building; confirm developer and resale options.", links: ["/projects/forte-on-flagler/", "/floorplans/forte-on-flagler/penthouse-residence/"], verify: "Confirm residence-specific occupancy, developer/resale options, fees and terms." },
     ],
     faqs: [
       { question: "Can I tour the actual residence before buying?", answer: "At completed buildings, often yes — that is the advantage. Confirm which specific residences are available and tour those, not just a model or a comparable line." },
@@ -1983,11 +1983,11 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
   },
   rosewood: {
     kicker: "North Flagler Planning Watch",
-    title: "Rosewood Residences West Palm Beach",
+    title: "2001 North Flagler (reported Rosewood association unconfirmed)",
     intro:
-      "Rosewood is being tracked as a proposed North Flagler branded-residence tower, not a launched sales offering. Public materials point to a 27-story, 90-residence plan at 2001 North Flagler Drive, with approval status, pricing, floorplans, builder, and delivery timing still to be verified.",
+      "The 2001 North Flagler site is tracked as a planning watch with a reported Rosewood association that remains unconfirmed. Municipal site approval does not establish a branded offering; confirm the current program, affiliation and residence terms.",
     image: rosewoodRenderHero,
-    imageAlt: "Rendering of Rosewood Residences in West Palm Beach.",
+    imageAlt: "Concept rendering associated with the 2001 North Flagler site; reported Rosewood association unconfirmed.",
     stage: "Proposed / pending approvals",
     locationCopy:
       "The proposed site sits at 2001 North Flagler Drive, immediately within the active North Flagler waterfront pipeline near Olara, Shorecrest, and The Ritz-Carlton Residences. Treat this as early planning intelligence until city approvals and official sales materials are released.",
@@ -2004,13 +2004,13 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     team: [
       { role: "Developer", name: "Related Group + BH Group", note: "Reported development team for the proposal." },
-      { role: "Brand", name: "Rosewood Hotels & Resorts", note: "Reported branding; operating details are not yet public." },
+      { role: "Brand", name: "Reported Rosewood association unconfirmed", note: "Confirm affiliation and any branded service program." },
       { role: "Architect", name: "Arquitectonica", note: "Reported architect for the planning-stage proposal." },
       { role: "Advisor", name: advisorProfile.brokerage, note: "Use buyer-side guidance before relying on early-stage public reporting." },
     ],
     highlights: [
       { label: "Planning Signal", value: "27 stories", note: "Current public materials support a proposed 27-story tower." },
-      { label: "Supply Watch", value: "90 residences", note: "The current proposal would add another boutique branded option to North Flagler." },
+      { label: "Supply Watch", value: "90 residences", note: "The municipal program is separate from the unconfirmed reported Rosewood association." },
       { label: "Unknowns", value: "Pricing / timing", note: "No official public pricing, floorplans, completion date, or sales launch was found." },
     ],
     gallery: [
@@ -2018,14 +2018,14 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
         src: rosewoodRenderHero,
         mobileSrc: rosewoodRenderVertical,
         kicker: "Project Rendering",
-        title: "Rosewood Residences West Palm Beach",
-        alt: "Rendering of Rosewood Residences in West Palm Beach.",
+        title: "2001 North Flagler (reported Rosewood association unconfirmed)",
+        alt: "Concept rendering associated with the 2001 North Flagler site; reported Rosewood association unconfirmed.",
       },
       {
         src: rosewoodRenderVertical,
         kicker: "Project Rendering",
-        title: "Rosewood Residences evening tower",
-        alt: "Vertical evening rendering of Rosewood Residences in West Palm Beach.",
+        title: "2001 North Flagler concept (reported Rosewood association unconfirmed)",
+        alt: "Concept evening rendering associated with 2001 North Flagler; reported Rosewood association unconfirmed.",
       },
     ],
     documents: [
@@ -6887,7 +6887,7 @@ function imageSourceName(src: string) {
   if (src.includes("/ritz-carlton-wpb/")) return "The Ritz-Carlton Residences WPB";
   if (src.includes("/mandarin-oriental/")) return "Mandarin Oriental Residences WPB";
   if (src.includes("/shorecrest/")) return "Shorecrest";
-  if (src.includes("/rosewood/")) return "Rosewood Residences WPB";
+  if (src.includes("/rosewood/")) return "2001 North Flagler (reported Rosewood association unconfirmed)";
   if (src.includes("/mr-c/")) return "Mr. C Residences WPB";
   if (src.includes("/alba-palm-beach/")) return "Alba Palm Beach";
   if (src.includes("/nora-house/")) return "NORA House";
@@ -8680,13 +8680,13 @@ function projectPresentationRules(project: FeaturedProject, floorplanCount = 0):
       return {
         identityLabel: "Completed condominium",
         overviewLabel: "Completed Residences",
-        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Resale Availability",
-        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("resale-availability"),
-        secondaryCtaLabel: "Ask About Current Resales",
-        inquiryInterest: "Request current resale availability",
-        resourceLabel: "Resale Resources",
-        resourceHeading: "Compare current resale opportunities.",
-        resourceCopy: "This completed building is a market comparable, not developer inventory. Confirm current listings, condition, fees, assessments, and seller terms before relying on historical launch information.",
+        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Residence Options",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("residence-availability"),
+        secondaryCtaLabel: "Ask About Developer and Resale Options",
+        inquiryInterest: "Confirm current developer and resale options",
+        resourceLabel: "Residence Resources",
+        resourceHeading: "Confirm current developer and resale options.",
+        resourceCopy: "Completion does not establish current inventory or sellout. Confirm whether current options are developer offerings or resales, along with residence-specific occupancy, pricing, condition, fees, assessments and seller terms.",
         compact: false,
         showFloorplans: hasFloorplans,
       };
@@ -8759,7 +8759,7 @@ export function renderProjectMissingInfoPanel(project: FeaturedProject) {
 
 function buyerVerificationCopy(project: FeaturedProject) {
   if (project.projectType === "rental") return "Public development materials are the baseline. We check current rents, concessions, availability, policies, and move-in terms against the latest leasing materials.";
-  if (project.projectType === "completed-comparable") return "This building is a resale comparison. We check the specific listing, condition, fees, assessments, and seller terms before advising a buyer.";
+  if (project.projectType === "completed-comparable") return "For this completed building, confirm current developer and resale options and check residence-specific occupancy, condition, pricing, fees, assessments and seller terms.";
   if (project.projectType === "condo-pipeline" || project.projectType === "mixed-use") return "The public concept is the baseline. Approval, sales launch, residence plans, pricing, and delivery need current official confirmation before they can guide a purchase.";
   return "Published project details set the baseline. We check residence-specific pricing, availability, incentives, fees, plan release, and timing against current materials when advising a buyer.";
 }
@@ -8848,12 +8848,12 @@ function renderProjectTypeContext(project: FeaturedProject) {
           <article><span>March 2026</span><h3>Construction update</h3><p>The development team reported that the 358-unit community was nearing completion, with 2026 delivery targeted.</p></article>
           <article><span>June 12, 2026</span><h3>Trader Joe’s opened</h3><p>Trader Joe’s opened its West Palm Beach store at the same 8111 South Dixie Highway address.</p></article>
           <article><span>July 6, 2026</span><h3>Right-of-way maintenance approved</h3><p>The City Commission approved South Dixie streetscape and right-of-way maintenance agreements tied to the project.</p></article>
-          <article><span>September 4, 2026</span><h3>Current review</h3><p>Verdex still describes the project as under construction; live residential leasing status remains a direct-verification item.</p></article>
+          <article><span>October 10, 2026 check</span><h3>Operator reports open and leasing</h3><p>The operator lists studios through three bedrooms, tours and Now Open at 520 Gregory Road. The older 8111 South Dixie Highway address is construction and retail context. Confirm each home’s move-in timing; this operator report does not establish a certificate of occupancy, an exact opening date or completion of every component.</p></article>
         </div>
       ` : ""}
       <div class="section-heading">
         <p class="eyebrow">Sources & Review Date</p>
-        <p>Project and neighborhood facts were last reviewed ${escapeHtml(sourceFact?.lastReviewedDate ?? "recently")}. Current leasing terms still require direct confirmation.</p>
+        <p>Project guidance last revised ${escapeHtml(facts?.effectiveDate || sourceFact?.lastReviewedDate || "recently")}. Current leasing terms still require direct confirmation.</p>
       </div>
       <div class="brochure-download-list">
         ${sources.map((href) => renderProjectSourceLink(href, project.id)).join("")}
@@ -9026,7 +9026,7 @@ function renderProjectEntityBrief(
       <div class="section-heading">
         <p class="eyebrow">Source Notes</p>
         <h2>What this page is based on.</h2>
-        <p>Facts are drawn from the public sources linked below and were last reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Pricing, availability, incentives, fees, and contract terms can change.</p>
+        <p>Guidance is drawn from the public sources linked below and was last revised ${publicText(sourceFact?.facts.effectiveDate || sourceFact?.lastReviewedDate || "recently")}. Pricing, availability, incentives, fees, and contract terms can change.</p>
       </div>
       <div class="brochure-download-list">
         ${sourceLinks.length ? sourceLinks.map((href) => renderProjectSourceLink(href, floorplanProject?.projectId ?? project.id)).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
@@ -9198,7 +9198,7 @@ function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: Proj
           </svg>
         </summary>
         <div class="disclosures-content">
-          <p class="disclosures-intro">Public project information last reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. The source links and open project-specific questions are below.</p>
+          <p class="disclosures-intro">Public project guidance last revised ${publicText(sourceFact?.facts.effectiveDate || sourceFact?.lastReviewedDate || "recently")}. The source links and open project-specific questions are below.</p>
           <div class="disclosures-grid">
             ${needed.length > 0 ? `
               <div>
@@ -9501,10 +9501,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const floorplanProject = getFloorplanProject(project.id);
   const rules = projectPresentationRules(project, floorplanProject?.count ?? 0);
   const heroImage = showcase?.heroImage?.src ?? getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
-  const showcaseFloors = copyFactValue(copyPackage, /floors/i, "25")
-    .replace(/\s+public-facing.*/i, "")
-    .replace(/\s*municipal.*$/i, "")
-    .trim();
+  const showcaseFloors = copyFactValue(copyPackage, /floors/i, "Confirm current plan").trim();
   const showcaseSizeRange = copyFactValue(copyPackage, /^(showcase size range|size range)$/i, "")
     .replace(/^Approx\.\s*/i, "")
     .replace(/\s*interior\s+sq\.?\s*ft\.?/i, " sq ft")
@@ -9896,6 +9893,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
+    { label: "Bedrooms", value: isRental ? source?.residenceFeatures.find((feature) => /studio.*bedroom/i.test(feature)) || "" : "" },
     { label: isRental ? "Rental Homes" : "Residences", value: residences, note: source?.residences },
     { label: "Delivery", value: delivery, note: source?.completion },
     { label: "Status", value: status },
@@ -10023,7 +10021,7 @@ function neededFromSource(project?: FeaturedProject) {
 }
 
 function brochureHeadline(project: FeaturedProject) {
-  if (project.id === "rosewood-residences-west-palm-beach") return "Rosewood Residences West Palm Beach";
+  if (project.id === "rosewood-residences-west-palm-beach") return project.name;
   if (project.projectType === "rental") return "New rental living with South Dixie at the doorstep";
   if (project.corridorKey === "downtown") return "Refined living in the heart of everything";
   if (project.corridorKey === "south-flagler") return "Waterfront living along South Flagler";
@@ -10037,7 +10035,7 @@ function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft,
   const residences = draft.facts.find((fact) => /residence/i.test(fact.label))?.value ?? project.residences;
   const delivery = draft.facts.find((fact) => /delivery/i.test(fact.label))?.value ?? project.delivery;
   const pricing = draft.facts.find((fact) => /pricing/i.test(fact.label))?.value ?? project.price;
-  const bedrooms = draft.facts.find((fact) => /bed/i.test(fact.label))?.value ?? copyFactValue(copyPackage, /bedrooms/i, "1-4");
+  const bedrooms = draft.facts.find((fact) => /bed/i.test(fact.label))?.value ?? copyFactValue(copyPackage, /bedrooms/i, "Confirm current layouts");
   const sqFt = draft.facts.find((fact) => /sq|size|foot/i.test(fact.label))?.value ?? "Request";
   return [
     { label: "Stories", value: stories },
@@ -10224,7 +10222,7 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
           "Indoor amenities reported",
           "Fifth-floor pool reported",
           "Parking count reported",
-          "Rosewood branding reported",
+          "Reported Rosewood association unconfirmed",
           "Approval status pending",
           "Media rights pending",
         ]
@@ -11064,7 +11062,8 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   const isFernProposal = project.id === "fern-and-gardenia-related-ross-fern-street";
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
   const rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0);
-  const lastReviewedDate = sourceFactForProject(project.id)?.lastReviewedDate ?? "recently";
+  const sourceFact = sourceFactForProject(project.id);
+  const lastReviewedDate = sourceFact?.facts.effectiveDate || sourceFact?.lastReviewedDate || "recently";
   const findFactValue = (regex: RegExp, fallback = "") => {
     const fact = draft.facts.find((f) => regex.test(f.label)) || draft.highlights.find((f) => regex.test(f.label));
     return fact?.value ?? fallback;
@@ -11182,7 +11181,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
           ${renderColHtml(isRental ? "Leasing & Timing" : "Pricing & Timing", col3)}
         </div>
         <div class="snapshot-card-footer">
-          <p class="source-attribution">Information last reviewed ${escapeHtml(lastReviewedDate)}. ${isFernProposal ? "The plan may change during municipal review; pricing and delivery are not announced." : isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
+          <p class="source-attribution">Fact guidance last revised ${escapeHtml(lastReviewedDate)}. ${isFernProposal ? "The plan may change during municipal review; pricing and delivery are not announced." : isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
           <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>${rules.primaryCtaLabel}</a>
         </div>
       </div>

@@ -14,6 +14,52 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("operator leasing correction separates the residential address and program total from occupancy and availability", async () => {
+  const sound = model.find(p => p.publicSlug === "the-sound-west-palm-beach");
+  assert.match(sound.status, /Open \/ Leasing.*operator-reported/);
+  assert.match(sound.facts.projectAddress, /^520 Gregory Road/);
+  assert.match(sound.facts.planningParcelAddress, /8111.*older construction\/retail/);
+  assert.ok(sound.facts.residenceFeatures.some(value => /Studios through 3 bedrooms/.test(value)));
+  assert.equal(sound.residences, "358");
+  const html = await fs.readFile(`dist${sound.publicRoute}index.html`, "utf8");
+  const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(b => JSON.parse(b[1])["@graph"] || []);
+  const entity = graph.find(n => n["@id"]?.endsWith("#project"));
+  assert.equal(entity.address.streetAddress, "520 Gregory Road");
+  assert.equal(entity.numberOfAccommodationUnits.value, 358);
+  assert.match(JSON.stringify(entity.additionalProperty), /operator-reported/);
+  assert.doesNotMatch(JSON.stringify(entity), /8111|Under Construction|"(?:offers|availability|completionDate|numberOfAvailableAccommodationUnits)"/);
+});
+
+test("inquiry choices and completion reports cannot become price bands or available inventory", () => {
+  const olin = copies.find(p => p.repoProjectId === "olin-palm-beach");
+  for (const value of [olin.localTake, olin.brookeTake, olin.buyerComparisonNotes, olin.confidenceNote]) {
+    assert.doesNotMatch(value, /Pricing bands|under \$20M to over \$40M|bands under \$20M/i);
+  }
+  assert.equal(safeProjects.find(p => p.identity.slug === "olin-palm-beach").safeFields.price, undefined);
+  for (const slug of ["alba-palm-beach", "forte-on-flagler"]) {
+    const copy = copies.find(p => p.repoProjectId === slug);
+    assert.doesNotMatch(copy.localTake, /resale-driven|removes the timing risk|95%.*sold/i);
+    assert.match(copy.localTake, /developer.*resale|developer offerings or resales/i);
+    assert.match(copy.localTake, /occupancy/i);
+  }
+});
+
+test("partial municipal decisions and conflicting design or brand records retain their scopes", () => {
+  const rybovich = copies.find(p => p.repoProjectId === "rybovich-marina-redevelopment");
+  assert.match(rybovich.overview, /November 10.*259-unit.*4, 8, 9 and 10/);
+  assert.match(rybovich.overview, /does not confirm approval of the full 660.*291/i);
+  for (const field of ["status", "residenceCount"]) assert.equal(overrides["rybovich-marina-redevelopment"][field].schemaSafe, false);
+  const banyan = model.find(p => p.publicSlug === "banyan-tree");
+  assert.match(banyan.facts.stories, /26 marketed.*municipal.*25/);
+  const apogee = model.find(p => p.publicSlug === "apogee-residences-wpb");
+  assert.match(apogee.facts.stories, /Sep 29, 2025.*current plan to confirm/);
+  assert.match(apogee.facts.projectTeam.join(" "), /unresolved.*Sieger Suarez.*Arquitectonica/);
+  const rosewood = model.find(p => p.publicSlug === "rosewood-residences-west-palm-beach");
+  assert.match(rosewood.displayName, /reported Rosewood association unconfirmed/);
+  assert.match(rows.find(r => r.project_id === rosewood.compareDatabaseId).display_name, /unconfirmed/);
+  assert.equal(safeProjects.find(p => p.identity.slug === rosewood.publicSlug).safeFields.status, undefined);
+});
+
 test("schema uses total QuantitativeValue and qualified PropertyValues without availability or exact dates", () => {
   const fields = projectSchemaFactProperties({ residenceCount: "184", status: "Priority List Open / Preconstruction", delivery: "2029 projected; confirm current schedule" });
   assert.deepEqual(fields.numberOfAccommodationUnits, { "@type": "QuantitativeValue", value: 184, unitText: "residences" });
@@ -148,6 +194,7 @@ test("buyer-guide supplements cannot revive obsolete price, address, availabilit
   for (const record of supplements) {
     const copy = copies.find(p => p.repoProjectId === record.projectId);
     const current = projectBuyerGuide(record, copy);
+    assert.equal(current.eyebrow, copy.quickFacts.find(f=>f.label==="Status").value);
     assert.equal(current.opening, copy.overview);
     assert.equal(current.status.construction.includes(copy.quickFacts.find(f=>f.label==="Delivery").value), true);
     assert.doesNotMatch(current.status.availability, /No developer inventory|resale-driven|95%/i);

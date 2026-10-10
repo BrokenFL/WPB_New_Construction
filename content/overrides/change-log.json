@@ -2,6 +2,229 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "rosewood-residences-west-palm-beach",
+        "fields": [
+          "building_type",
+          "construction_status",
+          "amenity_highlights",
+          "best_for",
+          "strongest_compare_points",
+          "apples_to_apples_notes"
+        ],
+        "note": "Qualify the reported association throughout enriched Compare notes; site activity and municipal program do not establish Rosewood affiliation or a branded offering. Policy and fee fields unchanged."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "rosewood-residences-west-palm-beach",
+        "sourceUrls": [
+          "https://relatedgroup.com/luxury-condominium/"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "apogee-residences-wpb",
+        "sourceUrls": [
+          "https://ulustudio.com/apogee/",
+          "https://www.wpb.org/files/assets/city/v/2/city-clerk/documents/agendas/2025-pass-fail-agendas-pfa/2025-09-sep-pfa/pf-city-commission-agenda_9_29_25.pdf"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "forte-on-flagler",
+        "sourceUrls": [
+          "https://tworoadsre.com/",
+          "https://fortewpb.com/contact/"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "banyan-tree",
+        "sourceUrls": [
+          "https://www.banyantreeresidenceswpb.com/wp-content/uploads/2026/06/BanyanTreeWPB_FactSheet.pdf"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "alba-palm-beach",
+        "sourceUrls": [
+          "https://www.albapalmbeach.com/",
+          "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "rybovich-marina-redevelopment",
+        "sourceUrls": [
+          "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "olin-palm-beach",
+        "sourceUrls": [
+          "https://olinpalmbeach.com/"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "the-sound-west-palm-beach",
+        "sourceUrls": [
+          "https://thesoundwpb.com/",
+          "https://thesoundwpb.com/sightmap/"
+        ],
+        "note": "Scoped October 10 corrections; preserve historical source/program distinctions and existing schema holds. See docs/BUILDING_CORRECTIONS_2026_10_10.md."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "rosewood-residences-west-palm-beach",
+        "field": "status",
+        "priorValue": "Pipeline / Brand and construction status to confirm",
+        "value": "Pipeline / Reported Rosewood association unconfirmed",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://relatedgroup.com/luxury-condominium/"
+        ],
+        "note": "Municipal site approval/construction does not verify the reported Rosewood branded offering. Keep status out of schema.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "rosewood-residences-west-palm-beach",
+        "field": "name",
+        "priorValue": null,
+        "value": "2001 North Flagler (reported Rosewood association unconfirmed)",
+        "schemaSafe": true,
+        "sourceUrls": [
+          "https://relatedgroup.com/luxury-condominium/"
+        ],
+        "note": "Use site-first identity with explicitly unconfirmed reported Rosewood association. Related’s Rosewood portfolio entry is Hillsboro Beach, not evidence of a WPB branded offering.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "rybovich-marina-redevelopment",
+        "field": "residenceCount",
+        "priorValue": "Up to 660 planned across four towers; phase counts to confirm",
+        "value": "Up to 660 planned across four towers; phase counts to confirm",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions"
+        ],
+        "note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "rybovich-marina-redevelopment",
+        "field": "status",
+        "priorValue": "Pipeline / Approval scope to confirm",
+        "value": "Pipeline / Partial site plan approved Nov 10, 2025",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions"
+        ],
+        "note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "the-sound-west-palm-beach",
+        "field": "deliveryTiming",
+        "priorValue": "Request current completion and leasing guidance",
+        "value": "Operator reports open; confirm residence-specific move-in timing",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://thesoundwpb.com/",
+          "https://thesoundwpb.com/sightmap/"
+        ],
+        "note": "No exact opening date, certificate of occupancy or completion of every component inferred. Unit availability and move-in terms are dynamic.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "the-sound-west-palm-beach",
+        "field": "address",
+        "priorValue": null,
+        "value": "520 Gregory Road, West Palm Beach, FL 33405",
+        "schemaSafe": true,
+        "sourceUrls": [
+          "https://thesoundwpb.com/",
+          "https://thesoundwpb.com/sightmap/"
+        ],
+        "note": "Operator residential/leasing address. 8111 South Dixie Highway remains the older construction/retail project address, not the current residential leasing address.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
+      "at": "2026-10-10T13:09:48.202Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "the-sound-west-palm-beach",
+        "field": "status",
+        "priorValue": null,
+        "value": "Open / Leasing (operator-reported; checked Oct 10, 2026)",
+        "schemaSafe": true,
+        "sourceUrls": [
+          "https://thesoundwpb.com/",
+          "https://thesoundwpb.com/sightmap/"
+        ],
+        "note": "Operator homepage and SightMap show leasing, tours and Now Open. This is an operator report, not a certificate of occupancy or proof every component is complete.",
+        "authorization": "Brooke: Ok for the new verified facts make them live. October 10, 2026."
+      }
+    },
+    {
       "at": "2026-10-09T20:03:43.680Z",
       "action": "project-fact-override",
       "detail": {
