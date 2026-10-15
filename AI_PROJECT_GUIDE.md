@@ -380,6 +380,15 @@ Article publishing is transaction-protected: preview validates canonical URLs, p
 
 Brooke's 2026-10-07 illustration fallback is required for Content Scout: missing, unsuitable, broken or overused local photographs count as unavailable and trigger a fresh article-specific hero plus a distinct inline illustration. Prefer visibly drawn artwork, use `generated-editorial` mode, display the conceptual-image caption and `AI-generated editorial illustration` credit, and inspect both images. Targeted native corrections are allowed. An image-only preview rejection must be repaired in `.runtime/` and previewed again before publishing; it is not a publish attempt. Preserve the repetition guard and one-publish-attempt rule. Skip only if generation or validation fails or another safety gate remains unresolved. See `content/news-source-config.json` and the automated article image contract in `docs/AI_PROJECT_GUIDE.md`.
 
+Content Scout source policy (Brooke, 2026-10-15): one strong, opened official,
+business or established reporting source is sufficient. Use
+`sourcePolicy: "single-source"`, `sourceLinks` and `sourceUrl`. Additional
+sources and official records are useful when available, but are not publication
+prerequisites when the central event is supported by reliable reporting.
+Keep the factual, novelty, image, preview and release safeguards. Shorter
+focused reports are allowed; do not pad to a word target. See
+`docs/AI_PROJECT_GUIDE.md` for the full contract.
+
 ## 13. Content Studio / Builder — Current State (updated 2026-06-19)
 
 This section mirrors `docs/AI_PROJECT_GUIDE.md` section 13. Read that file for full workflow detail.

@@ -1,6 +1,26 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { projectedArticleImageOccurrences, validateArticleImages } from "./article-content-policy.mjs";
+import { projectedArticleImageOccurrences, validateArticleImages, validateArticleSources } from "./article-content-policy.mjs";
+
+test("single-source stories accept one valid source and do not require another host", () => {
+  const sourceLinks = [{ url: "https://www.palmbeachpost.com/local-report" }];
+  assert.deepEqual(validateArticleSources({ sourcePolicy: "single-source", sourceLinks }), []);
+  assert.deepEqual(validateArticleSources({ sourcePolicy: "single-source", sourceLinks: [...sourceLinks, ...sourceLinks] }), []);
+});
+
+test("single-source stories reject missing, malformed and non-web sources", () => {
+  for (const sourceLinks of [[], [{ url: "https://" }], [{ url: "file:///tmp/report" }]]) {
+    assert.match(validateArticleSources({ sourcePolicy: "single-source", sourceLinks }).join("\n"), /at least one valid HTTP/);
+  }
+});
+
+test("explicit two-source packages retain their independent-host contract", () => {
+  const sourceLinks = [{ url: "https://wpb.org/record" }];
+  assert.match(validateArticleSources({ sourcePolicy: "two-source", sourceLinks }).join("\n"), /at least two source links/);
+  assert.match(validateArticleSources({ sourcePolicy: "two-source", sourceLinks: [...sourceLinks, { url: "https://www.wpb.org/other" }] }).join("\n"), /independent hosts/);
+  assert.deepEqual(validateArticleSources({ sourcePolicy: "two-source", sourceLinks: [...sourceLinks, { url: "https://palmbeachpost.com/report" }] }), []);
+  assert.match(validateArticleSources({ sourcePolicy: "single-source", requireMultipleSources: true, sourceLinks }).join("\n"), /at least two source links/);
+});
 
 test("editing a buyer article retains its inline image without adding a fourth mapping", () => {
   const path = "/assets/projects/banyan-tree/residence.jpg";

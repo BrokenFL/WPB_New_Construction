@@ -56,8 +56,11 @@
     { "day": "sunday", "route": "No scheduled article", "focus": "skip by default; only publish an urgent, materially new story" }
   ],
   "sourcePolicy": {
-    "minimumIndependentSources": 2,
-    "distinctSourceHosts": true,
+    "minimumIndependentSources": 1,
+    "distinctSourceHosts": false,
+    "policy": "single-source",
+    "oneStrongSourceIsSufficient": true,
+    "additionalSourcesOptional": true,
     "directPrimarySourcePreferred": true,
     "searchSnippetsAreLeadsOnly": true,
     "doNotWriteAttributionLedCopy": true

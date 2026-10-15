@@ -11,7 +11,7 @@ import {
   runBoundedCommand,
   validateUniqueNewsCandidate,
 } from "./article-publish-safety.mjs";
-import { projectedArticleImageOccurrences, validateArticleImages } from "./article-content-policy.mjs";
+import { projectedArticleImageOccurrences, validateArticleImages, validateArticleSources } from "./article-content-policy.mjs";
 import { scanArticlePackagePublicCopy } from "./public-copy-safety.mjs";
 import { marketNotePath, marketNoteRouteBase, validateBuyerRouteBase } from "../../src/lib/marketNoteRouting.ts";
 
@@ -417,11 +417,7 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
   const sourceLinks = normalizeSourceLinks(input, existing, destination);
   if (destination === "news" && !clean(input.sourceUrl || existing?.sourceUrl)) warnings.push("News items should include a sourceUrl.");
   if (!sourceLinks.length) warnings.push("No source links were provided.");
-  if (input.sourcePolicy === "two-source" || input.requireMultipleSources === true) {
-    const sourceHosts = new Set(sourceLinks.map((link) => hostForSourceLink(link.url)).filter(Boolean));
-    if (sourceLinks.length < 2) errors.push("Automated articles require at least two source links.");
-    else if (sourceHosts.size < 2) errors.push("Automated articles require source links from at least two independent hosts.");
-  }
+  errors.push(...validateArticleSources({ sourcePolicy: input.sourcePolicy, requireMultipleSources: input.requireMultipleSources, sourceLinks }));
 
   const bodyImagesBudgetChecks = [...bodyImages.values, heroImage].filter(Boolean).filter((image) => image.sizeBytes > imageBudgetBytes);
   for (const image of bodyImagesBudgetChecks) errors.push(`Image ${image.path} exceeds the ${Math.round(imageBudgetBytes / 1024)} KB editorial budget.`);
@@ -906,14 +902,6 @@ function normalizeSourceLinks(input, existing, destination) {
     links.push({ label: clean(input.sourceName || existing?.sourceName || "Source"), url: clean(input.sourceUrl || existing?.sourceUrl), type: destination === "news" ? "news" : "official project site" });
   }
   return dedupe(links);
-}
-
-function hostForSourceLink(value) {
-  try {
-    return new URL(value).hostname.replace(/^www\./i, "").toLowerCase();
-  } catch {
-    return "";
-  }
 }
 
 function marketSourceType(value) {

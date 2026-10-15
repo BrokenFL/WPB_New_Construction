@@ -1,6 +1,22 @@
 export const minimumFinalImages = 2;
 export const minimumBodyImages = 1;
 
+export function validateArticleSources({ sourcePolicy, requireMultipleSources, sourceLinks = [] }) {
+  const needsTwo = sourcePolicy === "two-source" || requireMultipleSources === true;
+  if (!needsTwo && sourcePolicy !== "single-source") return [];
+  const hosts = sourceLinks.map((link) => {
+    try {
+      const url = new URL(link.url);
+      return /^https?:$/.test(url.protocol) ? url.hostname.replace(/^www\./i, "").toLowerCase() : "";
+    } catch {
+      return "";
+    }
+  }).filter(Boolean);
+  if (!needsTwo) return hosts.length ? [] : ["Single-source articles require at least one valid HTTP(S) source link."];
+  if (hosts.length < 2) return ["Automated articles require at least two source links."];
+  return new Set(hosts).size < 2 ? ["Automated articles require source links from at least two independent hosts."] : [];
+}
+
 export function projectedArticleImageOccurrences(imagePath, occurrences, existing) {
   const retainedPaths = new Set([
     existing?.image?.path,

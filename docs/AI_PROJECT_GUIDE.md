@@ -585,6 +585,19 @@ All existing clean/synchronized checkout, route, source verification, novelty, t
 
 #### Supported Article Package JSON shape
 
+**Content Scout source policy (Brooke, 2026-10-15):** One strong, opened source
+that supports the central event is sufficient. Use `sourcePolicy: "single-source"`
+and record the source in `sourceLinks` and `sourceUrl`. Accept direct official or
+business announcements and original reporting from an established publication;
+an accessible syndicated copy of that reporting is acceptable. Seek extra
+confirmation when useful, but do not hold a story solely for a second source or
+an official record when reliable reporting already establishes the event.
+Search snippets, unsupported claims and unresolved factual conflicts remain
+insufficient. Keep novelty, route fit, image, preview and release safeguards.
+Write a shorter focused report when the evidence supports less than 500 words;
+do not pad the story or invent facts to reach a length target. Explicit legacy
+`two-source` / `requireMultipleSources` packages retain their stricter validation.
+
 ```json
 {
   "destination": "news",

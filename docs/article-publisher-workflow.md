@@ -80,6 +80,19 @@ publisher does not call an image-generation API; if you want a new editorial
 image, generate it with the chat-native image tool first, then attach the
 result as `heroImage.file`, `heroImage.path`, or `heroImage.dataUrl`.
 
+## Content Scout sources
+
+Brooke's October 15, 2026 policy accepts one strong source supporting the
+central event: a direct official/business source or original reporting from an
+established publication (including an accessible syndicated copy). Open the
+source, verify the claims, and use `sourcePolicy: "single-source"` with at least
+one HTTP(S) `sourceLinks` entry and the main source in `sourceUrl`. Extra sources
+are optional; a missing second host or unavailable official record alone must
+not hold a supported story. Snippets, unresolved conflicts, unsupported claims
+and duplicate events still fail editorial review. Shorter reports are allowed
+when the evidence does not support 500 words. Explicit `two-source` or
+`requireMultipleSources: true` packages retain their stricter checks.
+
 ## Image placement rules
 
 - The **hero** image is separate from body images and renders at the top.
