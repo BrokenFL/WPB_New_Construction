@@ -74,6 +74,85 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "daily-focaccia-evernia-downtown-west-palm-2026-10-16",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "The Daily Focaccia brings a new daytime stop to Evernia",
+    "slug": "daily-focaccia-evernia-downtown-west-palm-2026-10-16",
+    "excerpt": "A new Italian focacceria marked its grand opening at 410 Evernia Street, adding a compact lunch-and-takeaway option just off the downtown core.",
+    "buyerThesis": "Most useful for buyers weighing whether downtown blocks just outside the traditional restaurant core have enough daily-use food options to make errands and office days easier on foot.",
+    "buyerTakeaway": "Most useful for buyers weighing whether downtown blocks just outside the traditional restaurant core have enough daily-use food options to make errands and office days easier on foot.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach",
+      "Evernia Street"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "urban-roast-opens-on-datura-street",
+      "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city"
+    ],
+    "image": {
+      "path": "/assets/editorial/daily-focaccia-evernia-downtown-west-palm-2026-10-16-hero.jpg",
+      "alt": "Conceptual editorial illustration of an unbranded neighborhood café on a palm-lined downtown street with focaccia in the foreground.",
+      "caption": "Conceptual editorial illustration of a new daytime food stop in downtown West Palm Beach.",
+      "credit": "AI-generated editorial illustration",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "Chamber of Commerce of the Palm Beaches",
+    "sourceLinks": [
+      {
+        "label": "Chamber of Commerce of the Palm Beaches: The Daily Focaccia grand-opening ribbon cutting",
+        "href": "https://business.palmbeaches.org/chamber-event-calendar/Details/the-daily-focaccia-grand-opening-ribbon-cutting-1942027?sourceTypeId=Hub",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-10-16",
+    "dateModified": "2026-10-16",
+    "sections": [
+      {
+        "heading": "A new stop on Evernia",
+        "body": "The Daily Focaccia marked its grand opening with an October 5 ribbon cutting at 410 Evernia Street, according to the Chamber of Commerce of the Palm Beaches. The new Italian focacceria is founded by Fernanda Bruna and chef Erjon Musaj, who previously served as executive chef at Bice Italian Restaurant in Palm Beach.\n\nThat is a modest opening by downtown standards, which is exactly why it is useful to notice. Evernia Street does not need another oversized announcement to feel more complete. It needs places that work on an ordinary office day, between appointments, or on the walk back to a garage."
+      },
+      {
+        "heading": "What is actually on the menu",
+        "body": "The Chamber describes a menu centered on fresh-baked focaccia, served on its own or made into sandwiches, alongside organic wines and craft beers. It is a deliberately narrow proposition: bread, a practical sandwich format, and a small beverage program rather than a sprawling all-night concept.\n\nThat focus gives the address a different role from the larger dining rooms that draw people downtown for reservations. A compact counter-format business can become part of the repeat rhythm of a block—something residents, nearby workers, and visitors can use without turning lunch into an event.\n\n[[image:inline-1]]",
+        "image": "/assets/editorial/daily-focaccia-evernia-downtown-west-palm-2026-10-16-body-1.jpg",
+        "imageAlt": "Conceptual editorial illustration of focaccia and plain takeaway bags at an unbranded café counter.",
+        "imageCaption": "Conceptual editorial illustration of the kind of casual daytime food stop the opening adds to Evernia Street.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Why the location matters",
+        "body": "The address is one block east of the city-owned Evernia Parking Garage and just outside the most obvious Clematis and Rosemary routes. That makes the opening a small test of how much daily activity can spread beyond downtown's headline corridors. The value is not a claim that one café remakes a neighborhood. It is that another ground-floor use gives people a reason to pause on a block they may otherwise only drive through.\n\nDowntown's strongest dining map has room for both destination restaurants and reliable, low-friction stops. The latter often make the bigger difference to the lived-in feel of a district because they support the in-between hours: a lunch pickup, an errand break, or a simple dinner on the way home."
+      },
+      {
+        "heading": "The lifestyle signal",
+        "body": "For buyers comparing downtown addresses, this is a small but legible signal. Street life becomes more useful when the food options are varied by format as well as by cuisine. A new focacceria does not change a building's floor plan, service, or price. It does add another everyday choice within the downtown grid.\n\nThe next test is straightforward: whether the shop establishes a steady repeat audience after the opening-week attention. If it does, Evernia gains another piece of the daily-use fabric that makes a downtown neighborhood feel easier to inhabit, not merely easier to visit."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "The Daily Focaccia brings a new daytime stop to Evernia",
+      "secondaryQueries": [],
+      "suggestedSlug": "daily-focaccia-evernia-downtown-west-palm-2026-10-16",
+      "titleTag": "The Daily Focaccia brings a new daytime stop to Evernia | Downtown Spotlight",
+      "metaDescription": "The Daily Focaccia's October 5 ribbon-cutting brings a new Italian focacceria and a useful daytime food stop to Evernia Street in downtown West Palm Beach."
+    }
+  },
+
+  {
     "id": "buyer-resale-vs-new-build-october-2026",
     "status": "published",
     "category": "Buyer Intelligence",

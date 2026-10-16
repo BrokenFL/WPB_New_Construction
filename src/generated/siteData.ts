@@ -7600,6 +7600,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/daily-focaccia-evernia-downtown-west-palm-2026-10-16/",
+    "title": "The Daily Focaccia brings a new daytime stop to Evernia | Downtown Spotlight",
+    "description": "The Daily Focaccia's October 5 ribbon-cutting brings a new Italian focacceria and a useful daytime food stop to Evernia Street in downtown West Palm Beach.",
+    "ogImage": "/assets/editorial/daily-focaccia-evernia-downtown-west-palm-2026-10-16-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/los-mochis-phillips-point-west-palm-beach-2027/",
     "title": "Los Mochis plans a Phillips Point restaurant for 2027 | Downtown Spotlight",
     "description": "Los Mochis plans a 2027 Phillips Point opening in West Palm Beach, with Japanese-Mexican dining and a reported 12-seat omakase counter.",
