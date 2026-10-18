@@ -150,6 +150,11 @@ Set `heroImage.showCaption: true` to display the supplied hero caption and
 credit on these article pages. Existing articles keep their current hero
 caption visibility unless this option is set.
 
+For detailed charts, add a site-local Markdown link to the published editorial
+image in the section body. Buyer article links to image files under
+`/assets/editorial/` open in a new tab so readers can zoom the full-size image
+without the site router treating it as an article route.
+
 ## QA / build steps
 
 - Stage and Publish run `npm run build` and `npm run qa:launch:no-write`.

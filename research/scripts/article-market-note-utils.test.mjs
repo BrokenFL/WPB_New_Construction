@@ -58,6 +58,13 @@ test("article paragraphs preserve local Word links and escape untrusted markup",
   assert.ok(!html.includes("href=\"https://example.com"));
 });
 
+test("full-size editorial chart links open the asset outside SPA routing", () => {
+  const html = renderMarketNoteBody("[View chart](/assets/editorial/buyer-chart.jpg) [Compare](/compare/) [unsafe](https://example.com/chart.jpg)");
+  assert.match(html, /<a href="\/assets\/editorial\/buyer-chart\.jpg" target="_blank" rel="noopener noreferrer">View chart<\/a>/);
+  assert.match(html, /<a href="\/compare\/">Compare<\/a>/);
+  assert.ok(!html.includes('href="https://example.com'));
+});
+
 const source = `const articleCta = "Ask for current availability.";
 
 export const marketNotes = [
