@@ -74,6 +74,117 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "west-palm-beach-luxury-condo-market-september-2026",
+    "status": "published",
+    "category": "Buyer Guides",
+    "title": "Beyond the Median: What West Palm Beach’s Luxury Condo Numbers Reveal",
+    "slug": "west-palm-beach-luxury-condo-market-september-2026",
+    "excerpt": "September’s citywide median tells only part of the story. Three charts help buyers read luxury sales, available inventory and contract timing before comparing individual residences.",
+    "buyerThesis": "Start with the price tier and the building before applying a market-wide headline to a luxury residence.",
+    "buyerTakeaway": "Compare recent closed sales, credible current alternatives, all-in ownership costs and timing for each residence on your shortlist.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-hero.jpg",
+      "alt": "Sotheby’s West Palm Beach condo series. Q3 2025 versus Q3 2026 closed sales: $1–3M, 12 versus 12; $3–5M, 2 versus 3; over $5M, 2 versus 3. Total 16 versus 18.",
+      "caption": "Q3 2025 and Q3 2026 luxury condo closings in Sotheby’s West Palm Beach series. Read the full-sized chart and scope notes below.",
+      "credit": "Chart: WPB New Construction. Data: Sotheby’s International Realty; BeachesMLS and Palm Beach Board of Realtors MLS.",
+      "showCaption": true,
+      "mode": "provided-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "Sotheby’s International Realty; Florida Realtors / MIAMI REALTORS / RWorld",
+    "sourceLinks": [
+      {
+        "label": "Sotheby’s West Palm Beach condos, Q3 2026 (updated October 6, 2026)",
+        "href": "https://marketupdates.sothebysrealty.com/marketupdate/palmbeach/westpalmbeachcondos",
+        "sourceType": "market report"
+      },
+      {
+        "label": "MIAMI REALTORS / RWorld September 2026 city report (West Palm Beach, page 18)",
+        "href": "https://rworld.com/s/South-Florida-Housing-Market-Report-September-2026.pdf",
+        "sourceType": "market report"
+      },
+      {
+        "label": "Palm Beach County townhouses and condos, September 2026 (released October 16, 2026)",
+        "href": "https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/2026/10/Palm-Beach-County_Townhouses-and-Condos_2026-09_Detail.pdf",
+        "sourceType": "market report"
+      },
+      {
+        "label": "Palm Beach County townhouses and condos, September 2025 (released October 23, 2025)",
+        "href": "https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/2025/10/Palm-Beach-County_Townhouses-and-Condos_2025-09_Detail.pdf",
+        "sourceType": "market report"
+      },
+      {
+        "label": "Florida Realtors market research glossary: median prices, inventory and contract timing",
+        "href": "https://www.floridarealtors.org/tools-research/stats-glossary",
+        "sourceType": "market report"
+      }
+    ],
+    "datePublished": "2026-10-18",
+    "dateModified": "2026-10-18",
+    "sections": [
+      {
+        "heading": "Start with the right comparison",
+        "body": "West Palm Beach’s September condo and townhome report offers two seemingly different signals: closed sales rose 4.9% from a year earlier, while the median sale price fell 7.0% to $330,000. Both figures describe the citywide market across price points. Neither establishes what a waterfront residence should cost. [Source: September city report, page 18](https://rworld.com/s/South-Florida-Housing-Market-Report-September-2026.pdf)\n\nFor a luxury buyer, the useful questions are more specific. How much activity occurred near your budget? How many competing homes were available? And what does a market statistic actually measure?\n\nThe charts below separate those questions, using one quarterly West Palm Beach condo series and a broader monthly Palm Beach County report. Read each within its own geography and time period."
+      },
+      {
+        "heading": "Luxury closings increased modestly",
+        "body": "In Sotheby’s West Palm Beach condo series, the three published price bands starting at $1 million recorded 18 closings in Q3 2026, compared with 16 in Q3 2025. The $1–3 million band held at 12 sales. The $3–5 million and over-$5 million bands each increased from two sales to three. [Source: Sotheby’s Q3 report](https://marketupdates.sothebysrealty.com/marketupdate/palmbeach/westpalmbeachcondos)\n\nAcross all price levels in that same series, sales rose from 106 to 145. Homes below $1 million accounted for 37 of the 39 additional closings, while the overall median fell from $340,000 to $325,000.\n\nThat combination is consistent with a change in the mix of homes sold. It cannot establish how much an individual luxury home gained or lost in value. A median describes the middle transaction in a particular group; the homes making up that group change. [Definition: Florida Realtors](https://www.floridarealtors.org/tools-research/stats-glossary)\n\nFor your shortlist, ask for recent closed comparables in the same building or a genuinely similar one. Floor, orientation, interior area, condition and outdoor space help explain the differences a market-wide median cannot capture.\n\n[View chart 1 at full size](/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-1.jpg)",
+        "image": "/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-1.jpg",
+        "imageAlt": "Sotheby’s West Palm Beach condo series. Q3 2025 versus Q3 2026 closed sales: $1–3M, 12 versus 12; $3–5M, 2 versus 3; over $5M, 2 versus 3. Total 16 versus 18.",
+        "imageCaption": "Chart 1. Quarterly luxury closings by published price band. Each of the two highest bands added one closing.",
+        "imageCredit": "Chart: WPB New Construction. Data: Sotheby’s International Realty; BeachesMLS and Palm Beach Board of Realtors MLS."
+      },
+      {
+        "heading": "Available choice varies by budget",
+        "body": "At September 30, Sotheby’s reported 33 active listings in the $1–3 million band, 26 in the $3–5 million band and 48 above $5 million. Its corresponding supply readings were 8.3, 26 and 48 months. [Source: Sotheby’s Q3 report](https://marketupdates.sothebysrealty.com/marketupdate/palmbeach/westpalmbeachcondos)\n\nThose supply figures are consistent with inventory divided by Q3’s average monthly sales. That formula is inferred from the displayed values, rather than explicitly published. With just three quarterly closings in each upper band, a few transactions can substantially change the reading.\n\nUse this as a prompt to inspect the alternatives carefully. A large inventory total may contain homes that do not fit your needs, and months of supply does not predict how long a particular residence will take to sell. The relevant competition is the set of homes you would seriously consider buying.\n\n[View chart 2 at full size](/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-2.jpg)",
+        "image": "/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-2.jpg",
+        "imageAlt": "September 30, 2026 active inventory is 33, 26, and 48 listings in the $1–3M, $3–5M, and over-$5M bands. Source-reported supply is 8.3, 26, and 48 months, respectively.",
+        "imageCaption": "Chart 2. Quarter-end active listings and reported months of supply, shown on separate scales. Supply is especially sensitive to small sales counts.",
+        "imageCredit": "Chart: WPB New Construction. Data: Sotheby’s International Realty; BeachesMLS and Palm Beach Board of Realtors MLS."
+      },
+      {
+        "heading": "Countywide, September contracts came together faster",
+        "body": "Palm Beach County’s official townhouse and condo report provides a separate view of the $1 million-or-more segment. Comparing September 2026 with September 2025:\n\nClosed sales increased from 60 to 64, up 6.7%.\n\nMonth-end active listings declined from 874 to 815, down 6.8%.\n\nMedian time to contract fell from 99 to 47 days, down 52.5%.\n\nSources: [September 2026 county report](https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/2026/10/Palm-Beach-County_Townhouses-and-Condos_2026-09_Detail.pdf) and [September 2025 county report](https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/2025/10/Palm-Beach-County_Townhouses-and-Condos_2025-09_Detail.pdf).\n\nThe timing definition matters: 47 days is the median interval between listing and contract for properties that closed in September. It does not describe every home still for sale, or the time from contract to closing. Sales and contract-time categories use the final sale price; active inventory is grouped by current asking price.\n\nThese countywide figures show more completed sales, fewer active listings and a shorter contract interval among September closings. They do not establish the pace in a specific West Palm Beach building.\n\n[View chart 3 at full size](/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-3.jpg)",
+        "image": "/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-body-3.jpg",
+        "imageAlt": "Palm Beach County townhouses and condos priced $1M or more. September 2025 versus September 2026: closed sales 60 versus 64; active listings 874 versus 815; median listing-to-contract time 99 versus 47 days.",
+        "imageCaption": "Chart 3. Countywide monthly activity, separate from the West Palm Beach quarterly series. Each measure uses its own scale.",
+        "imageCredit": "Chart: WPB New Construction. Data: Florida Realtors / MIAMI REALTORS / RWorld."
+      },
+      {
+        "heading": "Turn the charts into a better buying decision",
+        "body": "For a practical comparison, bring four questions to each residence:\n\n\n1. Which completed sales support the asking price? Compare like-for-like homes and separate closed transactions from current asking prices.\n\n2. What are the credible alternatives today? Confirm the exact residence, floor plan, view, parking and availability. A broad inventory count cannot do that work for you.\n\n3. What will ownership actually cost? Compare current association fees, taxes, insurance, reserves and any disclosed assessments, with appropriate professional review.\n\n4. Does the timing fit your plans? For a completed home, inspect what exists. For a development purchase, review current construction status, deposit schedule and contract terms with your advisers. Keep projected delivery separate from a confirmed occupancy plan.\n\nStart with the [building comparison](https://www.wpbnewconstruction.com/compare/) and the guide to [preconstruction versus completed condos](https://www.wpbnewconstruction.com/answers/preconstruction-vs-completed-new-construction-condos-west-palm-beach/). Then test the shortlist against current, residence-specific information."
+      },
+      {
+        "heading": "Sources and scope",
+        "body": "Data reviewed October 17, 2026. Sotheby’s uses BeachesMLS and Palm Beach Board of Realtors MLS, with data through September 30 and an October 6 update. Its precise geographic filters and price-band boundary inclusivity are not disclosed. County figures come from Florida Realtors MLS reports distributed by MIAMI REALTORS/RWorld. These datasets cover different places, property types and periods. None isolates new construction or provides a complete census of developer-direct inventory and contracts. The charts describe recorded activity, not individual property values or future returns."
+      }
+    ],
+    "ctaText": "Compare a focused shortlist, then request current residence-specific pricing, availability, fees and delivery guidance.",
+    "factCheckRequired": [
+      "Confirm current pricing, availability, fees, assessments and residence details before relying on a comparison.",
+      "Keep citywide September, source-defined quarterly condo and countywide September figures separate.",
+      "Review current construction status and purchase terms with appropriate advisers for a development purchase."
+    ],
+    "seo": {
+      "primaryQuery": "Beyond the Median: What West Palm Beach’s Luxury Condo Numbers Reveal",
+      "secondaryQueries": [],
+      "suggestedSlug": "west-palm-beach-luxury-condo-market-september-2026",
+      "titleTag": "West Palm Beach Luxury Condo Market | September 2026",
+      "metaDescription": "West Palm Beach luxury condo sales, inventory and contract timing in three charts, with practical context for buyers comparing resale and new construction."
+    }
+  },
+
+
+  {
     "id": "daily-focaccia-evernia-downtown-west-palm-2026-10-16",
     "status": "published",
     "category": "Downtown Spotlight",

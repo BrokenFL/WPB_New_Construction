@@ -7726,6 +7726,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/market-notes/west-palm-beach-luxury-condo-market-september-2026/",
+    "title": "Beyond the Median: What West Palm Beach’s Luxury Condo Numbers Reveal | Buyer Intelligence",
+    "description": "West Palm Beach luxury condo sales, inventory and contract timing in three charts, with practical context for buyers comparing resale and new construction.",
+    "ogImage": "/assets/editorial/west-palm-beach-luxury-condo-market-september-2026-hero.jpg"
+  },
+  {
     "path": "/market-notes/downtown-west-palm-resale-vs-new-build-october-2026/",
     "title": "Resale or new construction: which condo should you buy in West Palm Beach? | Buyer Intelligence",
     "description": "Compare a resale condo with a new-construction contract in West Palm Beach using current market evidence, ownership costs, deposits and move timing.",
