@@ -81,6 +81,90 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "west-palm-point-cra-reconsideration-2026-10-19",
+    "slug": "west-palm-point-cra-reconsideration-2026-10-19",
+    "title": "West Palm Point’s Extension Is Back Under Review",
+    "sourceName": "Palm Beach Post via AOL",
+    "sourceUrl": "https://www.aol.com/articles/west-palm-rethinks-extension-delayed-170719000.html",
+    "canonicalUrl": "https://www.aol.com/articles/west-palm-rethinks-extension-delayed-170719000.html",
+    "sourceTitle": "West Palm rethinks extension for delayed ‘tent site’ tower",
+    "publishedAt": "2026-10-19T13:18:45.116Z",
+    "sourcePublishedAt": "2026-10-14",
+    "sourcePublishedDate": "2026-10-14",
+    "eventDate": "2026-10-13",
+    "dateDiscovered": "2026-10-19",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-10-19T13:18:45.116Z",
+    "titleTag": "",
+    "metaDescription": "West Palm Beach’s CRA voted unanimously to reconsider the West Palm Point deadline extension, reopening a decision that had pushed the Tent Site project’s completion deadline to January 2029.",
+    "deck": "A unanimous October 13 vote reopens the deadline extension for downtown’s long-delayed Tent Site project. The earlier extension remains in place for now, but the next CRA action could add conditions or change course.",
+    "description": "West Palm Beach’s CRA voted unanimously to reconsider the West Palm Point deadline extension, reopening a decision that had pushed the Tent Site project’s completion deadline to January 2029.",
+    "summary": "The CRA has reopened its West Palm Point extension decision, creating a new checkpoint for the delayed downtown project.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach’s Community Redevelopment Agency has reopened the recent decision to give West Palm Point more time. On October 13, commissioners and Mayor Keith James voted unanimously to reconsider the deadline extension for the long-delayed office-and-retail project at Okeechobee Boulevard and South Dixie Highway.\n\nThat is a new development after the CRA’s earlier vote to extend the completion deadline from mid-2027 to January 2029. The reconsideration vote did not undo that extension. It put the decision back in play, with the possibility of a different result or additional conditions when the agency takes it up again."
+      },
+      {
+        "heading": "Why the earlier extension is now in question",
+        "body": "The prior amendment allowed another investment group, Lendlease, to make a reported $350 million investment in the project. It also followed years of delay at the city-owned site, where the CRA had previously told Cohen Brothers Realty that it was in violation of its lease.\n\nThe new vote reflects commissioners’ concern that the public commitment may have moved faster than their confidence in the developer’s ability to finish the project. The CRA did not set the date for its next reconsideration meeting, according to the Palm Beach Post’s October 14 report. That leaves the extension effective for now, but no longer settled."
+      },
+      {
+        "heading": "A new checkpoint, not a new project",
+        "body": "West Palm Point is not a newly proposed tower, and the October 13 action did not approve a redesigned building, a new financing package or a construction restart. It is a governance decision about the deadline and the terms surrounding a project already under construction.\n\nThat distinction matters around a gateway parcel that has spent years in limbo. The latest move changes the near-term question from whether the city would grant more time to what the city will require if it allows that extra time to stand.",
+        "image": "/assets/editorial/west-palm-point-cra-reconsideration-2026-10-19-body-1.jpg",
+        "imageAlt": "Conceptual illustration of blank timeline cards and an anonymous planning table.",
+        "imageCaption": "Conceptual editorial illustration of a development timeline returning to public review; it does not show a real site plan or a decided outcome.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next meaningful signal is a CRA agenda and the terms that commissioners actually consider. A decision to keep the extension, revise it or attach further safeguards would each carry a different implication for the site’s path toward completion.\n\nFor downtown observers and buyers tracking the Okeechobee corridor, this remains a watchlist event rather than evidence of a new delivery date. The October vote created a fresh public checkpoint; it did not establish a new one."
+      }
+    ],
+    "imageAlt": "Conceptual illustration of a civic meeting and a generic downtown construction timeline.",
+    "imageCaption": "Conceptual editorial illustration of public review around a delayed development timeline; it does not depict West Palm Point or a future vote outcome.",
+    "imageCredit": "AI-generated editorial illustration",
+    "whyItMatters": "The CRA’s reconsideration vote introduces a new public decision point for a visible downtown gateway project whose earlier deadline extension had appeared settled.",
+    "buyerContext": "This is a corridor and delivery-risk signal, not a change to available residences or pricing.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "Watch for the next CRA agenda, any revised deadline terms, financial safeguards, and a recorded decision on whether the extension remains in place.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "west-palm-point-tent-site-delay-2029-2026-09-25"
+    ],
+    "newsletterHeadline": "West Palm Point’s Extension Is Back Under Review",
+    "newsletterBlurb": "The CRA reopened its deadline-extension decision for the delayed Tent Site project, creating a new public checkpoint for a key downtown gateway parcel.",
+    "newsletterCta": "Read the Development Watch",
+    "query": "West Palm Beach developer land sale assemblage condo October 2026; West Palm Point October 13 CRA reconsideration",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/west-palm-point-cra-reconsideration-2026-10-19-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach Post via AOL: West Palm rethinks extension for delayed Tent Site tower",
+        "url": "https://www.aol.com/articles/west-palm-rethinks-extension-delayed-170719000.html",
+        "type": "independent local reporting"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "vanderbilt-west-palm-beach-campus-400-million-2026-10-08",
     "slug": "vanderbilt-west-palm-beach-campus-400-million-2026-10-08",
     "title": "Vanderbilt West Palm Beach Campus Reaches Reported $400 Million Fundraising Milestone",

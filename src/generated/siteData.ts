@@ -7330,6 +7330,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/west-palm-point-cra-reconsideration-2026-10-19/",
+    "title": "West Palm Point’s Extension Is Back Under Review | WPB Updates",
+    "description": "West Palm Beach’s CRA voted unanimously to reconsider the West Palm Point deadline extension, reopening a decision that had pushed the Tent Site project’s completion deadline to January 2029.",
+    "ogImage": "/assets/editorial/west-palm-point-cra-reconsideration-2026-10-19-hero.jpg"
+  },
+  {
     "path": "/updates/vanderbilt-west-palm-beach-campus-400-million-2026-10-08/",
     "title": "Vanderbilt West Palm Beach Campus Hits Reported $400M",
     "description": "Vanderbilt’s West Palm Beach campus reaches a reported $400M fundraising milestone. See the city proposal, leadership changes and what buyers should watch.",
