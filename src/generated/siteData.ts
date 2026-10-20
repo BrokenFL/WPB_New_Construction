@@ -7606,6 +7606,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/nora-hotel-pastis-opening-downtown-2026-10-20/",
+    "title": "The Nora Hotel and Pastis open, giving NORA a new anchor | Downtown Spotlight",
+    "description": "The Nora Hotel and Pastis opened October 19 in West Palm Beach's NORA District, adding a new hotel-and-dining anchor just north of downtown.",
+    "ogImage": "/assets/editorial/nora-hotel-pastis-opening-downtown-2026-10-20-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/daily-focaccia-evernia-downtown-west-palm-2026-10-16/",
     "title": "The Daily Focaccia brings a new daytime stop to Evernia | Downtown Spotlight",
     "description": "The Daily Focaccia's October 5 ribbon-cutting brings a new Italian focacceria and a useful daytime food stop to Evernia Street in downtown West Palm Beach.",

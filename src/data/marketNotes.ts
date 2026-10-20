@@ -74,6 +74,88 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "nora-hotel-pastis-opening-downtown-2026-10-20",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "The Nora Hotel and Pastis open, giving NORA a new anchor",
+    "slug": "nora-hotel-pastis-opening-downtown-2026-10-20",
+    "excerpt": "The hotel-and-brasserie opening moves NORA beyond a collection of shops and restaurants into a district with a new reason to stay, meet and return.",
+    "buyerThesis": "The opening gives NORA a hotel-and-dining anchor, making it easier to judge whether the district’s mix works for an owner’s actual routine.",
+    "buyerTakeaway": "Treat the opening as a new reason to visit NORA, then test the routes, parking, operating hours and surrounding construction against your own daily routine.",
+    "marketSignal": "A hotel and ground-floor restaurant opening adds overnight hospitality and dining capacity to an already active mixed-use district north of downtown.",
+    "bestFor": "Buyers comparing a NORA-adjacent lifestyle with more established downtown dining and hotel districts.",
+    "watchPoints": "Confirm restaurant reservations, rooftop availability, operating hours, parking and nearby construction directly; some venue details remain fluid.",
+    "buyerQuestions": "Would I use this district on an ordinary weekday? How does the route work from the residence I am considering? Which nearby phases are operating today, and which are still planned?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "NORA District",
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "NORA District",
+    "relatedArticleIds": [
+      "nora-house-turns-the-district-into-a-buyer-decision",
+      "daily-focaccia-evernia-downtown-west-palm-2026-10-16"
+    ],
+    "image": {
+      "path": "/assets/editorial/nora-hotel-pastis-opening-downtown-2026-10-20-hero.jpg",
+      "alt": "Conceptual painted illustration of an unbranded boutique-hotel entrance and restaurant window on a palm-lined street.",
+      "caption": "Conceptual editorial illustration of the hospitality activity a new hotel and brasserie can add to a downtown district.",
+      "credit": "AI-generated editorial illustration",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "NORA District",
+    "sourceLinks": [
+      {
+        "label": "NORA District: The Nora Hotel & Pastis Opening, October 19, 2026",
+        "href": "https://norawpb.com/happenings/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "NORA District listed The Nora Hotel and Pastis opening on Monday, October 19, putting a hotel and a destination restaurant into a part of West Palm Beach that has been assembling its street life piece by piece. The hotel is at 1135 North Railroad Avenue, and the district’s own hotel page places Pastis on the ground floor alongside a lobby bar, a rooftop restaurant and lounge, and a Sisley Spa.\n\nThat is a different kind of milestone from another shop opening in a converted warehouse. A hotel gives a district an all-day address: a place for an out-of-town guest, a meeting, a dinner reservation or a local evening that does not begin with a drive across town."
+      },
+      {
+        "heading": "A new reason to use the district",
+        "body": "NORA already had restaurants, retail and wellness tenants. The hotel changes the way those pieces can work together. A visitor can now stay in the district rather than simply pass through it; a resident can make an evening of dinner and a drink without treating the neighborhood as a one-stop errand; nearby businesses gain another stream of people with time between check-in, a meal and a plan for the next day.\n\nThe useful distinction is between a hospitality promise and a practical routine. The opening is real. How the hotel’s public spaces settle into daily use will take longer to see. The district’s current pages describe the rooftop as a separate destination, while the Pastis listing still shows hours as TBD, so readers should confirm reservations and operating hours directly before making plans.\n\n[[image:inline-1]]",
+        "image": "/assets/editorial/nora-hotel-pastis-opening-downtown-2026-10-20-body-1.jpg",
+        "imageAlt": "Conceptual illustrated café table with a blank reservations notebook, room key and coffee cup.",
+        "imageCaption": "Conceptual editorial illustration of the everyday planning that follows a new hotel-and-dining opening.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Why this is a NORA story, not just a hotel story",
+        "body": "NORA’s appeal has always rested on the idea that its buildings would add up to a neighborhood rather than a string of isolated destinations. A hotel makes that argument more tangible because it brings overnight guests, service, dining and a new set of reasons to be on North Railroad Avenue at different times of day.\n\nIt also draws a clearer line between the district and the older downtown restaurant map. Clematis and CityPlace remain their own ecosystems. NORA’s draw is a more compact, warehouse-to-hospitality setting just north of the core, with a hotel now woven into the mix."
+      },
+      {
+        "heading": "The lifestyle signal for downtown buyers",
+        "body": "For someone considering a nearby downtown address, this does not alter a residence’s price, floor plan or association budget. It does sharpen the lifestyle question. Is the point of the location to be close to a set of places you will actually use, or simply to be near a growing district on a map?\n\nVisit at the hours you would realistically keep. Check the walk from the residence you are considering, the parking and the active construction around the route. Then separate what is operating now from what remains promised. The Nora Hotel and Pastis add a meaningful new operating anchor; the buyer decision still belongs to the specific home and the everyday pattern it supports."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Confirm current restaurant reservations, hours and rooftop access directly before planning a visit.",
+      "Verify current residence pricing, availability, fees, construction status and delivery timing before making a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "The Nora Hotel and Pastis open in NORA District West Palm Beach",
+      "secondaryQueries": [
+        "NORA District hotel opening",
+        "Pastis West Palm Beach opening"
+      ],
+      "suggestedSlug": "nora-hotel-pastis-opening-downtown-2026-10-20",
+      "titleTag": "The Nora Hotel and Pastis Open in NORA District | WPB",
+      "metaDescription": "The Nora Hotel and Pastis opened October 19 in West Palm Beach's NORA District, adding a new hotel-and-dining anchor just north of downtown."
+    }
+  },
+
+  {
     "id": "west-palm-beach-luxury-condo-market-september-2026",
     "status": "published",
     "category": "Buyer Guides",
