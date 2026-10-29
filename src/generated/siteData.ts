@@ -7330,6 +7330,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/downtown-master-plan-first-reading-2026-10-29/",
+    "title": "West Palm’s Downtown Plan Clears Its First City Commission Vote | WPB Updates",
+    "description": "West Palm Beach approved its Downtown Master Plan amendment on first reading. Here is what changed, what remains unresolved and why the next hearings matter.",
+    "ogImage": "/assets/editorial/downtown-master-plan-first-reading-2026-10-29-hero.jpg"
+  },
+  {
     "path": "/updates/west-palm-point-cra-reconsideration-2026-10-19/",
     "title": "West Palm Point’s Extension Is Back Under Review | WPB Updates",
     "description": "West Palm Beach’s CRA voted unanimously to reconsider the West Palm Point deadline extension, reopening a decision that had pushed the Tent Site project’s completion deadline to January 2029.",

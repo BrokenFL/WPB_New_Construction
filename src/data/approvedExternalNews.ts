@@ -81,6 +81,95 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "downtown-master-plan-first-reading-2026-10-29",
+    "slug": "downtown-master-plan-first-reading-2026-10-29",
+    "title": "West Palm’s Downtown Plan Clears Its First City Commission Vote",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/102726-Mayor-CC-Approvals-and-Decisions",
+    "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/102726-Mayor-CC-Approvals-and-Decisions",
+    "sourceTitle": "Mayor, City Commission Approvals and Decisions for Mon., Oct. 26, 2026",
+    "publishedAt": "2026-10-29T13:24:31.154Z",
+    "sourcePublishedAt": "2026-10-27",
+    "sourcePublishedDate": "2026-10-27",
+    "eventDate": "2026-10-26",
+    "dateDiscovered": "2026-10-29",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-10-29T13:24:31.154Z",
+    "titleTag": "",
+    "metaDescription": "West Palm Beach approved its Downtown Master Plan amendment on first reading. Here is what changed, what remains unresolved and why the next hearings matter.",
+    "deck": "The City Commission approved the Downtown Master Plan amendment on first reading, moving a years-long rewrite into its next review phase while leaving the companion zoning rules and final adoption ahead.",
+    "description": "West Palm Beach approved its Downtown Master Plan amendment on first reading. Here is what changed, what remains unresolved and why the next hearings matter.",
+    "summary": "A first-reading City Commission vote advances West Palm Beach’s downtown planning rewrite, but it does not finalize the plan or approve a new tower.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach’s City Commission approved an ordinance on October 26 after its first public hearing for a proposed Downtown Master Plan amendment. The action covers the plan element itself and updates to the city’s future-land-use and coastal-high-hazard maps.\n\nThat is a material step beyond September’s Planning Board recommendation, which this desk previously covered. It is still not final adoption. The city’s own release describes a first-hearing approval, and the related downtown zoning rewrite was discussed separately rather than approved as part of this action.\n\nFor a downtown shaped by parcel rules as much as skyline images, that distinction is the story. The planning framework has moved forward; the rules that would implement it are still in process."
+      },
+      {
+        "heading": "The boundary change is concrete",
+        "body": "The Commission action expands the Downtown Master Plan area to three parcels generally located at 420 Okeechobee and 915 South Dixie Highway. That puts a visible gateway area at the edge of the existing downtown plan into the same long-range planning conversation.\n\nIt does not approve a new building for those addresses. It changes the planning boundary and the comprehensive-plan context a future proposal would face. A later project would still need its own public record, design review and any applicable approvals.\n\nThat is why buyers and nearby owners should separate the October vote from a construction announcement. A framework can shape future options without establishing a delivery date, a product type or a specific tower."
+      },
+      {
+        "heading": "What remains unresolved",
+        "body": "The companion amendments to Article IV of the city’s Downtown Master Plan zoning regulations were a discussion item at the October 26 meeting. The City Commission’s approval summary does not call those zoning changes adopted.\n\nThat leaves the practical rulebook incomplete. The master-plan amendment addresses the long-range structure for downtown; the zoning text is where many parcel-level development standards become operational. The two tracks are related, but they are not interchangeable.\n\nEarlier coverage established that the revised planning conversation had shifted growth questions away from the broad 25-story waterfront incentive that drew the most attention. The latest action is a new procedural milestone, not a basis to promise a particular height, density or outcome for a waterfront or gateway parcel.",
+        "image": "/assets/editorial/downtown-master-plan-first-reading-2026-10-29-body-1.jpg",
+        "imageAlt": "Conceptual ink-and-gouache illustration of a planning table with generic blocks, paths and public-space diagrams.",
+        "imageCaption": "Conceptual editorial illustration of a planning framework moving through review; it is not a site plan or approved project rendering.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Why this matters now",
+        "body": "The city describes the update as a 25-year vision for a downtown already carrying more than 9,000 residential units and more than 10.4 million square feet of nonresidential development. Its stated aims include public benefits, neighborhood character, public realm improvements, transportation and resiliency.\n\nThose are goals, not automatic results. The meaningful next signals will be the formal state-review path, the return of the comprehensive-plan amendment for final action, and the separate zoning decisions that translate policy into standards.\n\nFor anyone assessing downtown West Palm Beach, the useful takeaway is measured: October 26 changed the plan’s status. It did not settle every rule or approve every project that may someday use the framework."
+      }
+    ],
+    "imageAlt": "Conceptual watercolor illustration of a generic downtown boulevard, planning map and civic meeting dais.",
+    "imageCaption": "Conceptual editorial illustration of a downtown planning process; it does not depict a specific project or final development outcome.",
+    "imageCredit": "AI-generated editorial illustration",
+    "whyItMatters": "The first-reading vote advances the citywide framework that will shape future downtown proposals while preserving distinct future decisions on final adoption and zoning implementation.",
+    "buyerContext": "Treat this as a neighborhood-planning signal, not a change to availability, pricing or delivery timing for any residence.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "State review, a future final City Commission action on the comprehensive-plan amendment, and the companion downtown zoning amendments.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23"
+    ],
+    "newsletterHeadline": "West Palm’s Downtown Plan Clears Its First Commission Vote",
+    "newsletterBlurb": "The City Commission advanced the Downtown Master Plan amendment on first reading, but final adoption and zoning implementation remain ahead.",
+    "newsletterCta": "Read the Development Watch",
+    "query": "project-development: West Palm Beach City Commission October 26 2026 Downtown Master Plan first-reading approval; follow-up on 420 Okeechobee and 915 South Dixie planning-boundary change",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/downtown-master-plan-first-reading-2026-10-29-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach: October 26 City Commission approvals and decisions",
+        "url": "https://www.wpb.org/News-Folder/News-2026/102726-Mayor-CC-Approvals-and-Decisions",
+        "type": "official primary source"
+      },
+      {
+        "label": "Palm Beach Post reporting via AOL: West Palm OKs more downtown growth, rejects tall waterfront towers",
+        "url": "https://www.aol.com/articles/west-palm-oks-more-downtown-121713000.html",
+        "type": "local reporting"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-point-cra-reconsideration-2026-10-19",
     "slug": "west-palm-point-cra-reconsideration-2026-10-19",
     "title": "West Palm Point’s Extension Is Back Under Review",
