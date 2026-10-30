@@ -74,6 +74,85 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "Joe & The Juice plans a Rosemary Avenue café",
+    "slug": "joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30",
+    "excerpt": "A newly reported planned café at 206 S. Rosemary Ave. would add a juice, coffee and sandwich option to the downtown routine; no opening date has been announced.",
+    "buyerThesis": "Most useful for buyers judging whether a downtown address near Rosemary Avenue can support ordinary coffee, lunch and errand routines on foot.",
+    "buyerTakeaway": "This is a planned, not-open, café. It is a modest but relevant signal for buyers who value a downtown routine with more low-friction daytime stops.",
+    "marketSignal": "The planned café would add another everyday-format operator to the Rosemary Avenue retail mix rather than another special-occasion destination.",
+    "bestFor": "Buyers comparing a Rosemary Avenue or CityPlace-adjacent address with locations that require more driving for coffee, lunch and casual errands.",
+    "watchPoints": "No opening date has been announced. Confirm the business's opening status, hours and exact format before treating it as an operating neighborhood amenity.",
+    "buyerQuestions": "Would this address make the coffee, lunch and errand pattern you actually keep easier on foot? What operates nearby today, and what is still only planned?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach",
+      "Rosemary Avenue",
+      "CityPlace"
+    ],
+    "relatedCorridor": "downtown",
+    "relatedArticleIds": [
+      "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane"
+    ],
+    "image": {
+      "path": "/assets/editorial/joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30-hero.jpg",
+      "alt": "Conceptual editorial illustration of an unbranded palm-lined downtown retail street with an anonymous café frontage.",
+      "caption": "Conceptual editorial illustration of a future daytime café option in downtown West Palm Beach.",
+      "credit": "AI-generated editorial illustration",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "What Now Miami",
+    "sourceLinks": [
+      {
+        "label": "What Now Miami: Joe & The Juice Planning West Palm Beach Café",
+        "href": "https://whatnow.com/miami/restaurants/joe-the-juice-planning-west-palm-beach-cafe/",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "sections": [
+      {
+        "heading": "A planned daytime stop on Rosemary",
+        "body": "Joe & The Juice is planning a café at 206 S. Rosemary Ave. in downtown West Palm Beach, according to an October 27 report by What Now Miami. The report says the Danish chain is preparing a location centered on made-to-order juices, specialty coffee and toasted sandwiches. It does not give an opening date.\n\nThat distinction matters. This is a reported plan, not a new operating amenity. Still, the address puts the story squarely in the part of downtown where buyers often test whether a building supports a real daily rhythm or simply sits near an entertainment district."
+      },
+      {
+        "heading": "Why the format fits the corridor",
+        "body": "Rosemary Avenue has become a practical downtown spine because it connects residential, office, dining and retail activity in one walkable stretch. A juice-and-coffee format is different from the reservation-driven restaurants that make the district a night-out destination. It is built for the in-between moments: a coffee before a meeting, a sandwich after a workout, or a quick pickup on the way back to a garage.\n\nThe new café would not decide the case for any particular condo or rental. It would add to the choice set. For residents, that kind of everyday-use retail often matters more over time than a single headline restaurant because it is useful at the hours when the neighborhood is simply being lived in.\n\n[[image:inline-1]]",
+        "image": "/assets/editorial/joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30-body-1.jpg",
+        "imageAlt": "Conceptual editorial illustration of an unbranded cup, juice bottle, paper bag, map and keys on a café table.",
+        "imageCaption": "Conceptual editorial illustration of the small daytime choices that can make a downtown routine easier.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "What is actually confirmed",
+        "body": "The confirmed point is narrow: What Now Miami reports a planned Joe & The Juice café at 206 S. Rosemary Ave. based on state permit records. The same report describes the brand's menu categories and says no opening date has been announced. It does not establish construction timing, opening hours, the finished interior, or a final launch schedule.\n\nThat is enough for a forward-looking downtown note, but not enough to treat the café as active inventory in a buyer's neighborhood checklist. Anyone relying on the convenience of this location should separate places that are operating today from businesses that are still moving through their opening process."
+      },
+      {
+        "heading": "The lifestyle signal for buyers",
+        "body": "For buyers comparing downtown addresses, the useful question is not whether one café changes Rosemary Avenue. It is whether the corridor is becoming more capable of handling an ordinary week without a car. A coffee-and-juice stop is small infrastructure for that answer: it supports the short trips that turn a walkable map into a routine.\n\nThe next checkpoint is simple: watch for an official opening announcement and then test the route from the specific building under consideration at the times you would actually use it. Until then, Joe & The Juice belongs in the planned column—an encouraging but unpriced addition to the district's future daily-use mix."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Joe & The Juice plans a Rosemary Avenue café",
+      "secondaryQueries": [],
+      "suggestedSlug": "joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30",
+      "titleTag": "Joe & The Juice plans a Rosemary Avenue café | Downtown Spotlight",
+      "metaDescription": "Joe & The Juice is planning a café at 206 S. Rosemary Ave. in downtown West Palm Beach; no opening date has been announced."
+    }
+  },
+
+  {
     "id": "nora-hotel-pastis-opening-downtown-2026-10-20",
     "status": "published",
     "category": "Downtown Spotlight",

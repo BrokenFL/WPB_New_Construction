@@ -7612,6 +7612,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30/",
+    "title": "Joe & The Juice plans a Rosemary Avenue café | Downtown Spotlight",
+    "description": "Joe & The Juice is planning a café at 206 S. Rosemary Ave. in downtown West Palm Beach; no opening date has been announced.",
+    "ogImage": "/assets/editorial/joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/nora-hotel-pastis-opening-downtown-2026-10-20/",
     "title": "The Nora Hotel and Pastis open, giving NORA a new anchor | Downtown Spotlight",
     "description": "The Nora Hotel and Pastis opened October 19 in West Palm Beach's NORA District, adding a new hotel-and-dining anchor just north of downtown.",
