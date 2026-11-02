@@ -7750,6 +7750,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/market-notes/west-palm-beach-condo-flood-access-buyer-checklist/",
+    "title": "West Palm’s Winter Flood Advisory: What Condo Buyers Should Check Beyond the View | Buyer Intelligence",
+    "description": "What West Palm Beach condo buyers should ask about garage access, drainage maintenance and property records after the City’s October 30 flood advisory.",
+    "ogImage": "/assets/editorial/west-palm-beach-condo-flood-access-buyer-checklist-hero.jpg"
+  },
+  {
     "path": "/market-notes/west-palm-beach-luxury-condo-market-september-2026/",
     "title": "Beyond the Median: What West Palm Beach’s Luxury Condo Numbers Reveal | Buyer Intelligence",
     "description": "West Palm Beach luxury condo sales, inventory and contract timing in three charts, with practical context for buyers comparing resale and new construction.",

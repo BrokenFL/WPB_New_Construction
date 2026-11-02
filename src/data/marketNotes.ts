@@ -73,6 +73,106 @@ export type MarketNote = {
 };
 
 export const marketNotes = [
+  
+  {
+    "id": "west-palm-beach-condo-flood-access-buyer-checklist",
+    "status": "published",
+    "category": "Buyer Guides",
+    "title": "West Palm’s Winter Flood Advisory: What Condo Buyers Should Check Beyond the View",
+    "slug": "west-palm-beach-condo-flood-access-buyer-checklist",
+    "excerpt": "The City’s October 30 advisory makes drainage and everyday access timely questions for West Palm Beach condo buyers. Start with the garage, the surrounding streets and the association’s records—not assumptions based on the view.",
+    "buyerThesis": "A waterfront purchase deserves a documented review of the building’s drainage, garage entrance and surrounding access routes.",
+    "buyerTakeaway": "Request a documented explanation of a property’s drainage, garage access and maintenance responsibilities, then identify which answers still need verification.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/west-palm-beach-condo-flood-access-buyer-checklist-hero.jpg",
+      "alt": "AI-generated waterfront illustration with a palm-lined promenade, condominium towers and calm water",
+      "caption": "AI-generated waterfront illustration supplied by Brooke. Not documentation of current conditions or a particular property’s flood risk.",
+      "credit": "AI-generated editorial illustration supplied by Brooke Snader",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "City of West Palm Beach",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach: October 30, 2026 flood-preparedness advisory",
+        "href": "https://www.wpb.org/News-Folder/News-2026/103026-King-Tides",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "SFWMD: 2026 King Tide Season Forecast, published August 4, 2026",
+        "href": "https://www.sfwmd.gov/news-events/news/2026-king-tide-season-forecast",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "sections": [
+      {
+        "heading": "What the City’s advisory says—and what it does not",
+        "body": "In its October 30, 2026 advisory, the City of West Palm Beach warned of a potentially wetter-than-usual period from November 2026 through March 2027. It said prolonged or heavy rain, particularly alongside high tides, could contribute to localized flooding and slower drainage. The City also asked commercial property owners and HOA managers to inspect and clear private drainage systems and swales.\n\nThat is a preparedness message, not a finding that a particular condominium has flooded or is deficient. For a buyer, the useful response is to make access and drainage part of the property-specific conversation."
+      },
+      {
+        "heading": "Keep the forecast dates in perspective",
+        "body": "The South Florida Water Management District’s August 4 seasonal forecast lists remaining East Coast high-tide windows of October 22–November 12, November 22–29 and December 22–27, 2026. Predicted peaks vary by location, and actual conditions can differ from the seasonal forecast.\n\nThose windows are not a calendar of confirmed flooding. Consult the District’s current tidal outlooks and local advisories when planning visits; do not use a regional forecast to assign a flood-risk rating to a building."
+      },
+      {
+        "heading": "Start at the garage—not the balcony",
+        "body": "A high-floor residence and its everyday access are different parts of the purchase. On a tour, ask the developer or association to explain where vehicles enter, how rainwater is handled around the entrance and who maintains the relevant equipment.\n\nUseful questions include: Are there documented drainage inspections and maintenance records? If the building uses pumps or barriers, who operates and tests them? What is the procedure if a garage entrance must close? Ask for supporting records rather than treating a visible grate, raised threshold or marketing description as an engineering assessment.",
+        "image": "/assets/editorial/west-palm-beach-condo-flood-access-buyer-checklist-body-1.jpg",
+        "imageAlt": "AI-generated condominium garage illustration with a drainage grate crossing the driveway",
+        "imageCaption": "AI-generated illustration of a fictional garage entrance. A visible drain alone does not establish capacity or flood protection.",
+        "imageCredit": "AI-generated editorial illustration supplied by Brooke Snader"
+      },
+      {
+        "heading": "Trace the trip home",
+        "body": "Look beyond the property line. Ask which streets residents normally use, whether the association has documented prior access disruptions, and how residents are notified when conditions change. A pedestrian entrance, service entrance and garage ramp may raise different questions.\n\nFor a building still under construction, separate planned features from completed, inspected systems. Ask what access arrangements will be available at occupancy and which nearby public improvements remain outside the developer’s control. A proposed improvement is not an assurance that it will be finished when a residence closes.",
+        "image": "/assets/editorial/west-palm-beach-condo-flood-access-buyer-checklist-body-2.jpg",
+        "imageAlt": "Conceptual aerial illustration of a waterfront condominium and surrounding street connections",
+        "imageCaption": "Conceptual AI-generated illustration—not a flood or evacuation map. Lines do not identify verified safe routes.",
+        "imageCredit": "AI-generated editorial illustration supplied by Brooke Snader"
+      },
+      {
+        "heading": "Ask who owns the maintenance responsibility",
+        "body": "The City’s request to inspect private drainage makes responsibility a useful topic for association due diligence. Ask where public maintenance ends and private responsibility begins. Who checks drains and swales, how often, and where are service records kept?\n\nRequest the relevant maintenance plan, recent reports and any documented follow-up work. If a report identifies a concern, ask what was recommended, whether work was completed and what evidence supports that answer. A scheduled repair and a completed repair should not be described interchangeably."
+      },
+      {
+        "heading": "Build a property-specific document file",
+        "body": "Before relying on broad assurances, ask your transaction team which property records are available and relevant: seller or developer disclosures, association minutes and maintenance records, applicable flood-zone information, elevation documentation where available, and any engineering reports addressing the questions raised.\n\nBring insurance questions to a qualified insurance professional using the actual unit, building and policy documents. This guide does not determine a property’s flood zone, insurance coverage, premium or likely loss. Regional forecasts and illustrative images cannot answer those questions."
+      },
+      {
+        "heading": "The buyer takeaway",
+        "body": "Use the advisory to improve the questions you ask, not to label an entire waterfront corridor. The goal is a clear, documented account of how a particular property handles drainage, access and maintenance—and which answers still need verification.\n\nSources checked November 2, 2026. The City advisory was published October 30; SFWMD’s seasonal forecast was published August 4. Forecast periods are not completed events. All three images are illustrative and are not evidence of conditions at a named building."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Confirm current tidal outlooks, local advisories and property-specific drainage, access and maintenance records before relying on this guide for a purchase.",
+      "Use actual unit, building and policy documents for insurance questions; illustrations do not document a property or event."
+    ],
+    "seo": {
+      "primaryQuery": "West Palm Beach condo flood access buyer checklist",
+      "secondaryQueries": [
+        "West Palm Beach condo drainage questions",
+        "condo garage access due diligence",
+        "West Palm Beach king tide buyer guide"
+      ],
+      "suggestedSlug": "west-palm-beach-condo-flood-access-buyer-checklist",
+      "titleTag": "West Palm Beach Condo Flood & Access Buyer Checklist",
+      "metaDescription": "What West Palm Beach condo buyers should ask about garage access, drainage maintenance and property records after the City’s October 30 flood advisory."
+    }
+  },
+
+
   {
     "id": "joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30",
     "status": "published",
