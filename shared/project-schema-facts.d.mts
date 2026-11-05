@@ -1,3 +1,5 @@
+export function projectSchemaSubjectOf(baseUrl: string, route: string, projectId: string, projectType: string): Array<{ "@type": string; name: string; url: string }>;
+
 export function projectSchemaFactProperties(
   safeFields: { residenceCount?: string; status?: string; delivery?: string },
   structuredDetails?: Array<{ name: string; value: string }>,

@@ -1,6 +1,6 @@
 import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.mjs";
 import { projectPageHeading } from "../../shared/project-page-seo.mjs";
-import { projectSchemaFactProperties, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../../shared/project-schema-facts.mjs";
+import { projectSchemaFactProperties, projectSchemaSubjectOf, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../../shared/project-schema-facts.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
@@ -1636,7 +1636,7 @@ function projectSchema(project, payload) {
     image: presentation?.image ? `${baseUrl}${presentation.image}` : undefined,
     containedInPlace: { "@type": "City", name: projectLocality },
     ...projectSchemaFactProperties(safeFields, structuredDetails, authored?.schemaType || schemaTypeForProject(project.projectType)),
-    subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
+    subjectOf: projectSchemaSubjectOf(baseUrl, projectPath(project), project.projectId, project.projectType),
   };
 }
 

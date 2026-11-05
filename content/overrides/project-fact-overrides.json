@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10T17:38:06.374Z",
+  "updatedAt": "2026-11-05T23:27:37.094Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -310,12 +310,12 @@
         "schemaSafe": false
       },
       "deliveryTiming": {
-        "value": "Q1 2028 developer target; confirm current schedule",
+        "value": "Q2 2028 BH Group expected completion; confirm current schedule",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized full schema review",
-        "reviewedAt": "2026-10-09T02:03:11.226Z",
-        "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/ ; https://theresidenceswestpalmbeach.com/",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "BH Group currently expects Q2 2028 completion, checked November 5, 2026. This supersedes the older reviewed Q1 target as sponsor guidance; the source does not establish a contractual completion promise or the cause/date of a construction delay. Undated source: publication and target-change event dates unknown. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
         "schemaSafe": true
       },
       "status": {
@@ -339,39 +339,39 @@
     },
     "rosewood-residences-west-palm-beach": {
       "status": {
-        "value": "Pipeline / Reported Rosewood association unconfirmed",
+        "value": "Pipeline / Rosewood per BH Group; brand confirmation pending",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
-        "reviewedAt": "2026-10-10T13:09:48.202Z",
-        "note": "Municipal site approval/construction does not verify the reported Rosewood branded offering. Keep status out of schema. Checked October 10, 2026. Sources: https://relatedgroup.com/luxury-condominium/",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Preserve status schema hold. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/",
         "schemaSafe": false
       },
       "deliveryTiming": {
         "value": "Timing not released",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized source review",
-        "reviewedAt": "2026-10-08T22:48:37.892Z",
-        "note": "Preserve existing reviewed visible guidance while aligning stale Compare summaries. Agreement created by this edit is not independent claim evidence or schema approval. Fresh primary approval/brand/timing evidence remains unresolved; see docs/BUILDING_SCHEMA_REVIEW_2026_10_08.md.",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. No delivery target is established; preserve timing hold. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/",
         "schemaSafe": false
       },
       "residenceCount": {
-        "value": "90 in municipal program; branded offering unconfirmed",
+        "value": "90 condominiums per BH Group; current offering to confirm",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "City supports the 90-unit site program, not a freshly confirmed Rosewood condominium offering. Withhold numeric schema pending branded identity/plan link. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Retain the numeric schema hold: sponsor program description is not current completed or available inventory. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/",
         "schemaSafe": false
       },
       "name": {
-        "value": "2001 North Flagler (reported Rosewood association unconfirmed)",
+        "value": "2001 North Flagler (Rosewood Residences per BH Group)",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized October 10 corrections",
-        "reviewedAt": "2026-10-10T13:09:48.202Z",
-        "note": "Use site-first identity with explicitly unconfirmed reported Rosewood association. Related’s Rosewood portfolio entry is Hillsboro Beach, not evidence of a WPB branded offering. Checked October 10, 2026. Sources: https://relatedgroup.com/luxury-condominium/",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Retain a qualified site-first Place identity and stable route; the source does not independently confirm the brand. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/",
         "schemaSafe": true
       }
     },
@@ -587,27 +587,27 @@
         "value": "Request current delivery guidance",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "Existing 2029 was explicitly a secondary publisher estimate. No primary sponsor/municipal completion target was located. Sidewalk easement agenda/search result does not verify the tower approval or delivery. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. No delivery target is established; preserve timing hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf",
         "schemaSafe": false
       },
       "residenceCount": {
-        "value": "16 reported in proposal; primary plan to confirm",
+        "value": "16 multifamily units in June 25, 2026 pre-application; current program to confirm",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "Existing proposed count is not freshly established by an inspected sponsor plan/municipal decision. Preserve as reported and hold numeric schema. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-draft-city-commission-agendas/08-aug-2026-draft-cca/08_31_26_draft-city-commission-agenda.pdf",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. Preserve numeric schema hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf",
         "schemaSafe": false
       },
       "status": {
         "value": "Announced / Planning",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized full schema review",
-        "reviewedAt": "2026-10-09T02:03:11.226Z",
-        "note": "Held for evidence or scope uncertainty, not an additional approval requirement. Reviewed 2026-10-09. Sources: https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — source review under Brooke's November 5 maintenance instruction",
+        "reviewedAt": "2026-11-05T23:27:37.094Z",
+        "note": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. Retain planning status and schema hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf",
         "schemaSafe": false
       }
     },

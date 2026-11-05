@@ -3826,7 +3826,7 @@ export const projectFacts = [
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the buyer appointment is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
+    "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; confirm the current schedule.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1745 N Flagler Drive, West Palm Beach, FL 33407",
@@ -3836,7 +3836,7 @@ export const projectFacts = [
       "status": "Under Construction",
       "residences": "138",
       "stories": "27",
-      "completion": "Q1 2028 project sponsor target; confirm current schedule",
+      "completion": "Q2 2028 BH Group expected completion; confirm current schedule",
       "pricing": "From $3M (official project guidance); request current pricing",
       "team": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group; Arquitectonica; Rockwell Group",
       "amenities": "Pool deck, fitness and wellness center, spa, indoor/outdoor lounges, branded service positioning, exclusive beach club membership.",
@@ -3847,7 +3847,7 @@ export const projectFacts = [
         "Open-plan layouts"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-11-05"
     },
     "sources": [
       {
@@ -3864,6 +3864,9 @@ export const projectFacts = [
       },
       {
         "url": "https://theresidenceswestpalmbeach.com/amenities/"
+      },
+      {
+        "url": "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
       }
     ]
   },
@@ -4394,18 +4397,18 @@ export const projectFacts = [
   },
   {
     "projectId": "rosewood-residences-west-palm-beach",
-    "name": "2001 North Flagler (reported Rosewood association unconfirmed)",
+    "name": "2001 North Flagler (Rosewood Residences per BH Group)",
     "area": "North Flagler",
     "projectType": "condo-pipeline",
-    "summary": "The 2001 North Flagler site is a planning watch with a reported Rosewood association that remains unconfirmed. Its municipal 90-unit program does not establish a branded sales offering.",
+    "summary": "BH Group describes Rosewood Residences at 2001 N. Flagler Drive with 90 condominiums averaging approximately 3,300 sq ft. Independent brand confirmation and current offering, timing and construction stage remain to confirm.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "2001 N Flagler Drive, West Palm Beach, FL",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Pipeline / Reported Rosewood association unconfirmed",
-      "residences": "90 in municipal program; branded offering unconfirmed",
+      "status": "Pipeline / Rosewood per BH Group; brand confirmation pending",
+      "residences": "90 condominiums per BH Group; current offering to confirm",
       "stories": "27",
       "completion": "Timing not released",
       "pricing": "Not released",
@@ -4413,11 +4416,14 @@ export const projectFacts = [
       "amenities": "Reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck.",
       "residenceFeatures": [],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-10-10"
+      "effectiveDate": "2026-11-05"
     },
     "sources": [
       {
         "url": "https://relatedgroup.com/luxury-condominium/"
+      },
+      {
+        "url": "https://www.bhgroupmiami.com/projects/rosewood-residences/"
       }
     ]
   },
@@ -4551,7 +4557,7 @@ export const projectFacts = [
     "name": "201 Arkona Court",
     "area": "South Flagler",
     "projectType": "condo-pipeline",
-    "summary": "A proposed 16-residence full-floor condominium beside the Norton Museum, paired with a private cultural-club concept and tracked as an early planning-stage watch project.",
+    "summary": "Planning watch: the City’s June 25, 2026 pre-application agenda describes a 25-story mixed-use proposal with 16 multifamily units. Later sidewalk easements do not establish tower approval, permits or inventory.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
@@ -4559,8 +4565,8 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Announced / Planning",
-      "residences": "16 reported in proposal; primary plan to confirm",
-      "stories": "26 proposed; review open",
+      "residences": "16 multifamily units in June 25, 2026 pre-application; current program to confirm",
+      "stories": "25-story mixed-use proposal in June 25, 2026 pre-application; current plan to confirm",
       "completion": "Request current delivery guidance",
       "pricing": "Not publicly released",
       "team": "Easton Street Capital; 1789 Capital; SCB",
@@ -4572,7 +4578,7 @@ export const projectFacts = [
         "Terraces shown in concept materials"
       ],
       "neighborhoodContext": "Cultural Quarter / Norton Museum",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-11-05"
     },
     "sources": [
       {
@@ -4580,6 +4586,15 @@ export const projectFacts = [
       },
       {
         "url": "https://www.oftmw.com/firm/1789-capital/"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf"
+      },
+      {
+        "url": "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
       }
     ]
   },

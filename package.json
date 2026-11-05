@@ -113,7 +113,7 @@
     "test:floorplan-entities": "node --experimental-strip-types --test research/scripts/floorplan-entities.test.mjs",
     "test:project-seo-batch4": "node --test research/scripts/project-seo-batch4.test.mjs",
     "test:project-field-resolver": "node --experimental-strip-types --test research/scripts/project-field-resolver.test.mjs",
-    "test:building-reference": "node --test research/scripts/building-reference.test.mjs",
+    "test:building-reference": "node --test research/scripts/building-reference.test.mjs research/scripts/refresh-reviewed-building-facts.test.mjs",
     "test": "npm run test:integration && npm run test:deploy-preflight && npm run test:floorplan-entities && npm run test:residence-3d && npm run test:commercial && npm run test:building-master && npm run test:article-publisher && npm run test:project-field-resolver && npm run test:building-reference && npm run qa:launch:no-write && npm run qa:gatekeeper",
     "test:leads": "node research/scripts/test-leads-endpoint.mjs",
     "lint": "node research/scripts/lint-public-surface.mjs",
@@ -139,7 +139,9 @@
     "discovery:llms": "node --experimental-strip-types research/scripts/build-site-intelligence.mjs --llms-only",
     "discovery:floorplans": "node --experimental-strip-types research/scripts/build-site-intelligence.mjs --floorplan-discovery-only",
     "test:residence-3d": "node --experimental-strip-types --test research/scripts/residence-3d-manifest.test.mjs research/scripts/residence-model-assets.test.mjs",
-    "test:project-page-seo": "node --test research/scripts/project-page-seo.test.mjs"
+    "test:project-page-seo": "node --test research/scripts/project-page-seo.test.mjs",
+    "facts:refresh": "node research/scripts/refresh-reviewed-building-facts.mjs",
+    "facts:check": "node research/scripts/refresh-reviewed-building-facts.mjs --check"
   },
   "devDependencies": {
     "@gltf-transform/core": "^4.5.0",

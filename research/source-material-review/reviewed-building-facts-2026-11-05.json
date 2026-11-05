@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "purpose": "Review/change history, not a second project database or an application instruction",
+  "baseCommit": "d7be45a48f49cee655050c60a051ae64ebce2228",
+  "reviewedAt": "2026-11-05T23:35:36.611Z",
+  "sourceReviewBy": "Codex under Brooke’s November 5 routine-maintenance instruction; not a new personal review by Brooke",
+  "sources": [
+    {
+      "id": "ritz",
+      "url": "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+      "retrievedAt": "2026-11-05T23:24:18.138Z",
+      "sha256": "d5ba0b014b7b8fd01d46533ede56dffddec4a2050ed2029cb6d2908a7724c39c",
+      "eventDate": null,
+      "eventDateScope": "dated record where known",
+      "publicationDate": null,
+      "currentTarget": "Q2 2028 expected completion"
+    },
+    {
+      "id": "rosewood",
+      "url": "https://www.bhgroupmiami.com/projects/rosewood-residences/",
+      "retrievedAt": "2026-11-05T23:24:19.459Z",
+      "sha256": "10cec0a79dacf73f6528da9bb668c1e4d6759715ba90c796290a5ad697e3de9a",
+      "eventDate": null,
+      "eventDateScope": "dated record where known",
+      "publicationDate": null,
+      "currentTarget": null
+    },
+    {
+      "id": "preApplication",
+      "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf",
+      "retrievedAt": "2026-11-05T23:21:11.266Z",
+      "sha256": "124d99481a64d123d74e5aaf296751db909dcba1eb92ca5f80e28602d9154ca5",
+      "eventDate": "2026-06-25",
+      "eventDateScope": "agenda date, not an approval",
+      "publicationDate": null,
+      "currentTarget": null
+    },
+    {
+      "id": "easements",
+      "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf",
+      "retrievedAt": "2026-11-05T23:21:11.938Z",
+      "sha256": "d67dbee79a7022b12f8fbb6edae580163bb304bd43c44a1375814c80f3b20b17",
+      "eventDate": "2026-08-31",
+      "eventDateScope": "dated record where known",
+      "publicationDate": null,
+      "currentTarget": null
+    },
+    {
+      "id": "cityRecap",
+      "url": "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
+      "retrievedAt": "2026-11-05T23:21:54.758Z",
+      "publicationDate": "2026-09-01",
+      "eventDate": "2026-08-31",
+      "evidence": "Ordinary browser snapshot; text fetch returned 403; official recap confirms limited sidewalk easements."
+    }
+  ],
+  "changes": [
+    {
+      "project": "ritz-carlton-wpb",
+      "field": "deliveryTiming",
+      "beforeValue": "Q1 2028 developer target; confirm current schedule",
+      "afterValue": "Q2 2028 BH Group expected completion; confirm current schedule",
+      "beforeSchemaSafe": true,
+      "afterSchemaSafe": true,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "BH Group currently expects Q2 2028 completion, checked November 5, 2026. This supersedes the older reviewed Q1 target as sponsor guidance; the source does not establish a contractual completion promise or the cause/date of a construction delay. Undated source: publication and target-change event dates unknown. Sources: https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
+    },
+    {
+      "project": "rosewood-residences-west-palm-beach",
+      "field": "status",
+      "beforeValue": "Pipeline / Reported Rosewood association unconfirmed",
+      "afterValue": "Pipeline / Rosewood per BH Group; brand confirmation pending",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Preserve status schema hold. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/"
+    },
+    {
+      "project": "rosewood-residences-west-palm-beach",
+      "field": "deliveryTiming",
+      "beforeValue": "Timing not released",
+      "afterValue": "Timing not released",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. No delivery target is established; preserve timing hold. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/"
+    },
+    {
+      "project": "rosewood-residences-west-palm-beach",
+      "field": "residenceCount",
+      "beforeValue": "90 in municipal program; branded offering unconfirmed",
+      "afterValue": "90 condominiums per BH Group; current offering to confirm",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Retain the numeric schema hold: sponsor program description is not current completed or available inventory. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/"
+    },
+    {
+      "project": "rosewood-residences-west-palm-beach",
+      "field": "name",
+      "beforeValue": "2001 North Flagler (reported Rosewood association unconfirmed)",
+      "afterValue": "2001 North Flagler (Rosewood Residences per BH Group)",
+      "beforeSchemaSafe": true,
+      "afterSchemaSafe": true,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown. Retain a qualified site-first Place identity and stable route; the source does not independently confirm the brand. Sources: https://www.bhgroupmiami.com/projects/rosewood-residences/"
+    },
+    {
+      "project": "201-arkona-court",
+      "field": "deliveryTiming",
+      "beforeValue": "Request current delivery guidance",
+      "afterValue": "Request current delivery guidance",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. No delivery target is established; preserve timing hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
+    },
+    {
+      "project": "201-arkona-court",
+      "field": "residenceCount",
+      "beforeValue": "16 reported in proposal; primary plan to confirm",
+      "afterValue": "16 multifamily units in June 25, 2026 pre-application; current program to confirm",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. Preserve numeric schema hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
+    },
+    {
+      "project": "201-arkona-court",
+      "field": "status",
+      "beforeValue": "Announced / Planning",
+      "afterValue": "Announced / Planning",
+      "beforeSchemaSafe": false,
+      "afterSchemaSafe": false,
+      "reviewer": "Codex — source review under Brooke's November 5 maintenance instruction",
+      "reason": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved. Retain planning status and schema hold. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf ; https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions ; https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
+    }
+  ],
+  "unresolvedQueue": [
+    {
+      "project": "rosewood-residences-west-palm-beach",
+      "held": [
+        "Independent Rosewood brand confirmation",
+        "Offering documents, launch, inventory, price, construction and delivery",
+        "Numeric/physical schema omissions"
+      ]
+    },
+    {
+      "project": "201-arkona-court",
+      "held": [
+        "Current final plan/height and full tower approval",
+        "Permits, construction, sales and inventory",
+        "212-26 heading versus 212-16 paragraph discrepancy"
+      ]
+    },
+    {
+      "project": "ritz-carlton-wpb",
+      "held": [
+        "Contractual or unit-specific completion/availability",
+        "Existing address distinction and schema hold"
+      ]
+    }
+  ],
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

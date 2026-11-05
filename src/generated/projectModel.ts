@@ -239,7 +239,7 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "The Ritz-Carlton Residences, West Palm Beach",
       "status": "Under Construction",
-      "delivery": "Q1 2028 developer target; confirm current schedule",
+      "delivery": "Q2 2028 BH Group expected completion; confirm current schedule",
       "residences": "138",
       "price": "From $3M (official project guidance); request current pricing",
       "address": "1745 N Flagler Drive, West Palm Beach, FL 33407",
@@ -272,11 +272,12 @@ export const canonicalProjectModel = {
         "https://theresidenceswestpalmbeach.com/",
         "https://theresidenceswestpalmbeach.com/team/",
         "https://theresidenceswestpalmbeach.com/floorplans/",
-        "https://theresidenceswestpalmbeach.com/amenities/"
+        "https://theresidenceswestpalmbeach.com/amenities/",
+        "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
       ],
       "reviewedFields": {
         "status": "Under Construction",
-        "delivery": "Q1 2028 developer target; confirm current schedule",
+        "delivery": "Q2 2028 BH Group expected completion; confirm current schedule",
         "residences": "138",
         "price": "From $3M (official project guidance); request current pricing"
       },
@@ -293,7 +294,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 2028,
         "longitude": -80.05057,
         "latitude": 26.72848,
-        "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
+        "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; confirm the current schedule.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
@@ -1256,10 +1257,10 @@ export const canonicalProjectModel = {
       "corridorKey": "north-flagler",
       "corridor": "North Flagler",
       "publicationState": "published",
-      "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
-      "status": "Pipeline / Reported Rosewood association unconfirmed",
+      "displayName": "2001 North Flagler (Rosewood Residences per BH Group)",
+      "status": "Pipeline / Rosewood per BH Group; brand confirmation pending",
       "delivery": "Timing not released",
-      "residences": "90 in municipal program; branded offering unconfirmed",
+      "residences": "90 condominiums per BH Group; current offering to confirm",
       "price": "Not released",
       "address": "2001 N Flagler Drive, West Palm Beach, FL",
       "developmentStage": "filed_plans_watchlist",
@@ -1284,13 +1285,14 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
-        "https://relatedgroup.com/luxury-condominium/"
+        "https://relatedgroup.com/luxury-condominium/",
+        "https://www.bhgroupmiami.com/projects/rosewood-residences/"
       ],
       "reviewedFields": {
-        "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
-        "status": "Pipeline / Reported Rosewood association unconfirmed",
+        "displayName": "2001 North Flagler (Rosewood Residences per BH Group)",
+        "status": "Pipeline / Rosewood per BH Group; brand confirmation pending",
         "delivery": "Timing not released",
-        "residences": "90 in municipal program; branded offering unconfirmed"
+        "residences": "90 condominiums per BH Group; current offering to confirm"
       },
       "fieldSources": {
         "displayName": "reviewed_override",
@@ -1305,9 +1307,9 @@ export const canonicalProjectModel = {
         "deliveryYear": 2029,
         "longitude": -80.05005,
         "latitude": 26.73135,
-        "summary": "The 2001 North Flagler site is a planning watch with a reported Rosewood association that remains unconfirmed. Its municipal 90-unit program does not establish a branded sales offering.",
+        "summary": "BH Group describes Rosewood Residences at 2001 N. Flagler Drive with 90 condominiums averaging approximately 3,300 sq ft. Independent brand confirmation and current offering, timing and construction stage remain to confirm.",
         "floorplans": false,
-        "pageState": "Pipeline / Reported Rosewood association unconfirmed",
+        "pageState": "Pipeline / Rosewood per BH Group; brand confirmation pending",
         "image": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
         "heroImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
         "mobileImage": "/projects/rosewood/media/user-provided-rosewood-render-02.jpg",
@@ -1602,7 +1604,7 @@ export const canonicalProjectModel = {
       "displayName": "201 Arkona Court",
       "status": "Announced / Planning",
       "delivery": "Request current delivery guidance",
-      "residences": "16 reported in proposal; primary plan to confirm",
+      "residences": "16 multifamily units in June 25, 2026 pre-application; current program to confirm",
       "price": "Not publicly released",
       "address": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
       "developmentStage": "announced",
@@ -1623,7 +1625,8 @@ export const canonicalProjectModel = {
       "humanReviewRequired": true,
       "confidenceLevel": "high",
       "conflicts": [
-        "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; retain a review flag.",
+        "The June pre-application describes 25 stories; earlier secondary reports describe 26 stories and an aggregation 16 floors. These do not establish the current final plan.",
+        "The August agenda heading says Resolution 212-26 while its resolution paragraph says 212-16; discrepancy unresolved.",
         "Current reporting describes a 26-story proposal; one firm-profile aggregation displays 16 floors. Retain review flag."
       ],
       "schemaBlockedFields": [
@@ -1634,12 +1637,15 @@ export const canonicalProjectModel = {
       ],
       "sourceUrls": [
         "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
-        "https://www.oftmw.com/firm/1789-capital/"
+        "https://www.oftmw.com/firm/1789-capital/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf",
+        "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
+        "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
       ],
       "reviewedFields": {
         "status": "Announced / Planning",
         "delivery": "Request current delivery guidance",
-        "residences": "16 reported in proposal; primary plan to confirm"
+        "residences": "16 multifamily units in June 25, 2026 pre-application; current program to confirm"
       },
       "fieldSources": {
         "displayName": "canonical",
@@ -1654,7 +1660,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 2029,
         "longitude": -80.0517834,
         "latitude": 26.7002895,
-        "summary": "A proposed 16-residence full-floor condominium beside the Norton Museum, paired with a private cultural-club concept and tracked as an early planning-stage watch project.",
+        "summary": "Planning watch: the City’s June 25, 2026 pre-application agenda describes a 25-story mixed-use proposal with 16 multifamily units. Later sidewalk easements do not establish tower approval, permits or inventory.",
         "floorplans": false,
         "pageState": "Announced / Planning / Watchlist",
         "image": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",

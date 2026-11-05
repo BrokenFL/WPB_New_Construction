@@ -14,6 +14,22 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("November source review replaces stale reviewed guidance while preserving sponsor and proposal scope", () => {
+  assert.match(overrides["ritz-carlton-wpb"].deliveryTiming.value, /Q2 2028 BH Group expected completion.*confirm/);
+  assert.equal(safeProjects.find(p=>p.identity.slug==="ritz-carlton-wpb").safeFields.delivery, overrides["ritz-carlton-wpb"].deliveryTiming.value);
+  const rosewood=copies.find(p=>p.repoProjectId==="rosewood");
+  assert.match(rosewood.overview,/BH Group.*2001 N\. Flagler.*90.*3,300/);
+  assert.match(rosewood.overview,/independent confirmation from Rosewood.*sales launch.*inventory.*construction stage/);
+  const arkona=model.find(p=>p.publicSlug==="201-arkona-court");
+  assert.match(arkona.residences,/16 multifamily.*June 25, 2026 pre-application.*current program to confirm/);
+  assert.match(arkona.facts.stories,/25-story mixed-use proposal.*June 25, 2026/);
+  for (const slug of ["rosewood-residences-west-palm-beach","201-arkona-court"]) {
+    const safe=safeProjects.find(p=>p.identity.slug===slug).safeFields;
+    for(const field of ["status","delivery","residenceCount"]) assert.equal(safe[field],undefined);
+  }
+  assert.match(copies.find(p=>p.repoProjectId==="201-arkona-court").overview,/sidewalk.*not establish.*tower approval.*212-26.*212-16/);
+});
+
 test("operator leasing correction separates the residential address and program total from occupancy and availability", async () => {
   const sound = model.find(p => p.publicSlug === "the-sound-west-palm-beach");
   assert.match(sound.status, /Open \/ Leasing.*operator-reported/);
@@ -55,8 +71,8 @@ test("partial municipal decisions and conflicting design or brand records retain
   assert.match(apogee.facts.stories, /Sep 29, 2025.*current plan to confirm/);
   assert.match(apogee.facts.projectTeam.join(" "), /unresolved.*Sieger Suarez.*Arquitectonica/);
   const rosewood = model.find(p => p.publicSlug === "rosewood-residences-west-palm-beach");
-  assert.match(rosewood.displayName, /reported Rosewood association unconfirmed/);
-  assert.match(rows.find(r => r.project_id === rosewood.compareDatabaseId).display_name, /unconfirmed/);
+  assert.match(rosewood.displayName, /Rosewood Residences per BH Group/);
+  assert.match(rows.find(r => r.project_id === rosewood.compareDatabaseId).display_name, /per BH Group/);
   assert.equal(safeProjects.find(p => p.identity.slug === rosewood.publicSlug).safeFields.status, undefined);
 });
 
@@ -219,7 +235,7 @@ test("complete project schemas cannot revive unsupported descriptive details or 
     for (const p of entity.additionalProperty || []) assert.ok(allowed.has(p.name), `${project.publicSlug}: unreviewed detail ${p.name}`);
     if (project.publicSlug === "fern-and-gardenia-related-ross-fern-street") assert.doesNotMatch(JSON.stringify(graph), /194|486|4,343|316 feet|55 million/);
     if (project.publicSlug === "maison-dor") assert.doesNotMatch(JSON.stringify(graph), /late.2028/i);
-    if (project.publicSlug === "rosewood-residences-west-palm-beach") {assert.equal(entity["@type"], "Place");assert.match(entity.name, /unconfirmed/);}
+    if (project.publicSlug === "rosewood-residences-west-palm-beach") {assert.equal(entity["@type"], "Place");assert.match(entity.name, /per BH Group/);}
     if (project.publicSlug === "3031-s-ocean-palm-beach") assert.equal(entity.numberOfAccommodationUnits, undefined);
   }
 });

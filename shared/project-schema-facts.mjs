@@ -1,5 +1,12 @@
 // Guidance remains qualified text. Only an unambiguous total residence count
 // becomes a QuantitativeValue; it never describes available inventory.
+export function projectSchemaSubjectOf(baseUrl, route, projectId, projectType) {
+  return [
+    { "@type": "WebPage", name: projectType === "rental" ? "Leasing Resources" : "Buyer Resources", url: `${baseUrl}${route}#project-resources-${projectId}` },
+    { "@type": "WebPage", name: "How We Verify", url: `${baseUrl}/methodology/` },
+  ];
+}
+
 export function projectSchemaFactProperties(safeFields, structuredDetails = [], schemaType = "ApartmentComplex") {
   const count = String(safeFields.residenceCount || "").trim();
   const isApartmentComplex = [schemaType].flat().includes("ApartmentComplex");

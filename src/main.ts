@@ -1,6 +1,6 @@
 import { renderRevenueBuyerResearch } from "../shared/revenue-buyer-research.mjs";
 import { projectPageHeading, projectPageSeo } from "../shared/project-page-seo.mjs";
-import { projectSchemaFactProperties, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../shared/project-schema-facts.mjs";
+import { projectSchemaFactProperties, projectSchemaSubjectOf, floorplanSchemaDescription, auditedFaqItems, nonemptySchemaNodes } from "../shared/project-schema-facts.mjs";
 import "./style.css";
 import {
   answerEngineFaq,
@@ -1019,9 +1019,9 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "Branded residences",
     title: "Branded Residences in West Palm Beach",
     question: "Which branded residences are coming to West Palm Beach?",
-    description: "Compare marketed West Palm Beach branded residences and the 2001 North Flagler site’s unconfirmed reported Rosewood association.",
+    description: "Compare marketed West Palm Beach branded residences and the 2001 North Flagler site’s BH Group-described Rosewood project, with independent brand confirmation pending.",
     bluf:
-      "Four marketed branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), plus the 2001 North Flagler site (reported Rosewood association unconfirmed; municipal 90-unit program). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
+      "Four marketed branded residence projects are in play: The Ritz-Carlton Residences (138 residences, under construction, Q2 2028 BH Group target), Mr. C Residences (146 residences, under construction), Banyan Tree Residences (88 residences, sales open), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), plus the 2001 North Flagler site (Rosewood Residences per BH Group; independent brand confirmation pending; municipal 90-unit program). Brand buyers should compare service structure, delivery certainty, and corridor before falling for the name.",
     explanation:
       "A brand on the building is a service and positioning promise, not a guarantee of delivery timing or resale performance. Compare each project's construction status, residence count, published pricing guidance, corridor, and what the brand actually operates — then verify fees, availability, and contract terms in current documents.",
     projectIds: ["ritz-carlton-wpb", "rosewood-residences-west-palm-beach", "mandarin-oriental", "mr-c", "banyan-tree"],
@@ -1033,7 +1033,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     faqs: [
       { question: "Do branded residences cost more than non-branded new condos?", answer: "They often carry a premium tied to the service program and positioning, but the premium varies by project and market cycle. Compare published guidance per project and verify against current availability rather than assuming a brand markup." },
-      { question: "Which branded project will deliver first?", answer: "The Ritz-Carlton Residences and Mr. C Residences are under construction; Mandarin Oriental is earlier stage, and the 2001 North Flagler site’s reported Rosewood association remains unconfirmed. Confirm live construction schedules — timelines move and press dates go stale." },
+      { question: "Which branded project will deliver first?", answer: "The Ritz-Carlton Residences and Mr. C Residences are under construction; Mandarin Oriental is earlier stage, and the 2001 North Flagler site’s Rosewood project is described by BH Group; independent brand confirmation remains pending. Confirm live construction schedules — timelines move and press dates go stale." },
       { question: "Is the brand the same as the developer?", answer: "Not always. The brand typically licenses its name and operating standards while a separate developer builds. Verify who develops, who operates, and what the brand agreement covers." },
     ],
     sourceNotes: ["Project status, scale, and pricing guidance come from the existing WPB New Construction source catalog.", "Delivery timing and pricing are verification items — confirm against current project materials."],
@@ -1043,11 +1043,11 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "North Flagler compare",
     title: "North Flagler New Condos Compared",
     question: "How do North Flagler's new condos compare?",
-    description: "Compare North Flagler condos and the 2001 North Flagler site, whose reported Rosewood association remains unconfirmed.",
+    description: "Compare North Flagler condos and the 2001 North Flagler site, whose Rosewood project is described by BH Group; independent brand confirmation remains pending.",
     bluf:
-      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, 2028 estimate), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and the 2001 North Flagler site (90 in the municipal program; reported Rosewood association unconfirmed). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
+      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, Q2 2028 BH Group target), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and the 2001 North Flagler site (90 in the municipal program; Rosewood Residences per BH Group; independent brand confirmation pending). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
     explanation:
-      "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and Mandarin Oriental’s earlier-stage branded pipeline and the 2001 North Flagler site, whose reported Rosewood association is unconfirmed. Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
+      "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and Mandarin Oriental’s earlier-stage branded pipeline and the 2001 North Flagler site, whose Rosewood project is described by BH Group; independent brand confirmation remains pending. Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
     projectIds: ["olara", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb", "mandarin-oriental", "rosewood-residences-west-palm-beach"],
     corridorKeys: ["north-flagler"],
     tableRows: [
@@ -1983,14 +1983,14 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
   },
   rosewood: {
     kicker: "North Flagler Planning Watch",
-    title: "2001 North Flagler (reported Rosewood association unconfirmed)",
+    title: "2001 North Flagler (Rosewood Residences per BH Group)",
     intro:
-      "The 2001 North Flagler site is tracked as a planning watch with a reported Rosewood association that remains unconfirmed. Municipal site approval does not establish a branded offering; confirm the current program, affiliation and residence terms.",
+      "The 2001 North Flagler site is tracked as a planning watch that BH Group explicitly describes as Rosewood Residences. Independent Rosewood brand confirmation, current offering, construction stage and residence terms remain to confirm.",
     image: rosewoodRenderHero,
-    imageAlt: "Concept rendering associated with the 2001 North Flagler site; reported Rosewood association unconfirmed.",
+    imageAlt: "Concept rendering associated with the 2001 North Flagler site; Rosewood Residences per BH Group; independent brand confirmation pending.",
     stage: "Proposed / pending approvals",
     locationCopy:
-      "The proposed site sits at 2001 North Flagler Drive, immediately within the active North Flagler waterfront pipeline near Olara, Shorecrest, and The Ritz-Carlton Residences. Treat this as early planning intelligence until city approvals and official sales materials are released.",
+      "BH Group identifies the Rosewood project at 2001 North Flagler Drive near Olara, Shorecrest and The Ritz-Carlton Residences. Its sponsor-described program remains separate from independent brand confirmation, current sales materials and construction stage.",
     facts: [
       { label: "Address", value: "2001 N Flagler Dr" },
       { label: "Status", value: "Proposed / pending approvals" },
@@ -2004,13 +2004,13 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     team: [
       { role: "Developer", name: "Related Group + BH Group", note: "Reported development team for the proposal." },
-      { role: "Brand", name: "Reported Rosewood association unconfirmed", note: "Confirm affiliation and any branded service program." },
+      { role: "Brand", name: "Rosewood Residences per BH Group; independent brand confirmation pending", note: "Confirm affiliation and any branded service program." },
       { role: "Architect", name: "Arquitectonica", note: "Reported architect for the planning-stage proposal." },
       { role: "Advisor", name: advisorProfile.brokerage, note: "Use buyer-side guidance before relying on early-stage public reporting." },
     ],
     highlights: [
       { label: "Planning Signal", value: "27 stories", note: "Current public materials support a proposed 27-story tower." },
-      { label: "Supply Watch", value: "90 residences", note: "The municipal program is separate from the unconfirmed reported Rosewood association." },
+      { label: "Supply Watch", value: "90 residences", note: "BH Group describes 90 condominiums at this site; independent brand confirmation and current offering remain to confirm." },
       { label: "Unknowns", value: "Pricing / timing", note: "No official public pricing, floorplans, completion date, or sales launch was found." },
     ],
     gallery: [
@@ -2018,14 +2018,14 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
         src: rosewoodRenderHero,
         mobileSrc: rosewoodRenderVertical,
         kicker: "Project Rendering",
-        title: "2001 North Flagler (reported Rosewood association unconfirmed)",
-        alt: "Concept rendering associated with the 2001 North Flagler site; reported Rosewood association unconfirmed.",
+        title: "2001 North Flagler (Rosewood Residences per BH Group)",
+        alt: "Concept rendering associated with the 2001 North Flagler site; Rosewood Residences per BH Group; independent brand confirmation pending.",
       },
       {
         src: rosewoodRenderVertical,
         kicker: "Project Rendering",
-        title: "2001 North Flagler concept (reported Rosewood association unconfirmed)",
-        alt: "Concept evening rendering associated with 2001 North Flagler; reported Rosewood association unconfirmed.",
+        title: "2001 North Flagler concept (Rosewood Residences per BH Group; independent brand confirmation pending)",
+        alt: "Concept evening rendering associated with 2001 North Flagler; Rosewood Residences per BH Group; independent brand confirmation pending.",
       },
     ],
     documents: [
@@ -5244,18 +5244,7 @@ function buildProjectSchema(project: FeaturedProject) {
       name: projectLocality,
     },
     ...projectSchemaFactProperties(schemaFacts.safeFields, structuredDetails, schemaAuthoredCopy(project.id)?.schemaType || schemaTypeForProject(project)),
-    subjectOf: [
-      {
-        "@type": "WebPage",
-        name: project.projectType === "rental" ? "Leasing Resources" : "Buyer Resources",
-        url: `${siteMeta.baseUrl}${projectPath(project)}#project-resources-${project.id}`,
-      },
-      {
-        "@type": "WebPage",
-        name: "How We Verify",
-        url: `${siteMeta.baseUrl}/methodology/`,
-      },
-    ],
+    subjectOf: projectSchemaSubjectOf(siteMeta.baseUrl, projectPath(project), project.id, project.projectType),
   };
 }
 
@@ -6887,7 +6876,7 @@ function imageSourceName(src: string) {
   if (src.includes("/ritz-carlton-wpb/")) return "The Ritz-Carlton Residences WPB";
   if (src.includes("/mandarin-oriental/")) return "Mandarin Oriental Residences WPB";
   if (src.includes("/shorecrest/")) return "Shorecrest";
-  if (src.includes("/rosewood/")) return "2001 North Flagler (reported Rosewood association unconfirmed)";
+  if (src.includes("/rosewood/")) return "2001 North Flagler (Rosewood Residences per BH Group)";
   if (src.includes("/mr-c/")) return "Mr. C Residences WPB";
   if (src.includes("/alba-palm-beach/")) return "Alba Palm Beach";
   if (src.includes("/nora-house/")) return "NORA House";
@@ -10222,7 +10211,7 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
           "Indoor amenities reported",
           "Fifth-floor pool reported",
           "Parking count reported",
-          "Reported Rosewood association unconfirmed",
+          "Rosewood Residences per BH Group; independent brand confirmation pending",
           "Approval status pending",
           "Media rights pending",
         ]
@@ -10885,7 +10874,7 @@ function salesOfficeLabel(project: FeaturedProject) {
 
 function salesOfficeFilterValue(project: FeaturedProject) {
   const status = project.status.toLowerCase();
-  if (/conditions to confirm/.test(status)) return "sales-office-unconfirmed";
+  if (/conditions to confirm|brand confirmation pending/.test(status)) return "sales-office-unconfirmed";
   if (/completed|delivered|resale/.test(status)) return "resales";
   const explicitlySelling = /sales launched|sales office open|active sales|buyer appointment/.test(status);
   if (!explicitlySelling && /planning|pipeline|proposed|announced|watchlist|emerging/.test(status)) {
@@ -10895,7 +10884,9 @@ function salesOfficeFilterValue(project: FeaturedProject) {
 }
 
 function getResidenceSortValue(project: FeaturedProject) {
-  const numeric = Number.parseInt(project.residences.replace(/\D/g, ""), 10);
+  // Qualified guidance may contain an agenda date or a second historical
+  // number. Sorting must not concatenate those into an invented unit count.
+  const numeric = Number.parseInt(project.residences.match(/\d[\d,]*/)?.[0].replaceAll(",", "") ?? "", 10);
   return Number.isFinite(numeric) ? numeric : 0;
 }
 

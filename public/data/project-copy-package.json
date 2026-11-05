@@ -894,7 +894,7 @@
       "template": "editorial-showcase",
       "heroEyebrow": "North Flagler",
       "heroBlurb": "Ritz-Carlton Service Meets North Flagler Waterfront Living",
-      "intro": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
+      "intro": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; this is sponsor guidance, so confirm the current schedule and residence-specific terms.",
       "heroTags": [
         {
           "label": "Status",
@@ -1056,7 +1056,7 @@
     },
     "heroHeadline": "Ritz-Carlton Service Meets North Flagler Waterfront Living",
     "heroSubheadline": "The Ritz-Carlton Residences, West Palm Beach brings branded waterfront living to North Flagler, pairing east-facing Intracoastal and ocean views with refined residences, private terraces, Ritz-Carlton service, valet, concierge, wellness amenities, curated art, and quick access to Palm Beach, Worth Avenue, downtown dining, culture, and the marina district. It is built for buyers who want service, views, and a true lock-and-leave luxury lifestyle.",
-    "overview": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
+    "overview": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; this is sponsor guidance, so confirm the current schedule and residence-specific terms.",
     "quickFacts": [
       {
         "label": "Address",
@@ -1092,7 +1092,7 @@
       },
       {
         "label": "Delivery",
-        "value": "Q1 2028 developer target; confirm current schedule"
+        "value": "Q2 2028 BH Group expected completion; confirm current schedule"
       },
       {
         "label": "Size Range",
@@ -1138,7 +1138,7 @@
       "Residences: 138",
       "Floors: 27",
       "Price Range: From $3M (official project guidance); request current pricing",
-      "Delivery: Q1 2028 developer target; confirm current schedule",
+      "Delivery: Q2 2028 BH Group expected completion; confirm current schedule",
       "Bedrooms: 2-4"
     ],
     "amenityNarrative": "Amenities include pool deck, fitness and wellness center, spa, indoor / outdoor lounges, branded service positioning, concierge, valet, and exclusive beach club membership.",
@@ -1150,7 +1150,7 @@
       "https://theresidenceswestpalmbeach.com/",
       "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
     ],
-    "lastCopyResearchDate": "2026-10-09"
+    "lastCopyResearchDate": "2026-11-05"
   },
   {
     "slug": "the-berkeley-palm-beach",
@@ -3732,10 +3732,10 @@
     "slug": "rosewood-residences-west-palm-beach",
     "repoProjectId": "rosewood",
     "schemaType": "Place",
-    "schemaEntityName": "2001 North Flagler site (reported Rosewood association unconfirmed)",
-    "heroHeadline": "2001 North Flagler: Reported Rosewood Association Unconfirmed",
-    "heroSubheadline": "The 2001 North Flagler site is a planning watch with a reported Rosewood association that remains unconfirmed. Its municipal 90-unit program does not establish a branded sales offering.",
-    "overview": "Rosewood Residences West Palm Beach is tracked as a reported branded condominium proposal on North Flagler. The municipal site program at 2001 N Flagler differs from the public pipeline treatment; brand affiliation, construction status and the current offering require primary confirmation.",
+    "schemaEntityName": "2001 North Flagler site (Rosewood Residences per BH Group)",
+    "heroHeadline": "2001 North Flagler (Rosewood Residences per BH Group)",
+    "heroSubheadline": "BH Group identifies Rosewood Residences at 2001 N. Flagler Drive in West Palm Beach and describes 90 condominiums averaging approximately 3,300 square feet. This is a sponsor description, checked November 5, 2026; independent confirmation from Rosewood, offering documents, sales launch, pricing, inventory and construction stage remain to confirm.",
+    "overview": "BH Group identifies Rosewood Residences at 2001 N. Flagler Drive in West Palm Beach and describes 90 condominiums averaging approximately 3,300 square feet. This is a sponsor description, checked November 5, 2026; independent confirmation from Rosewood, offering documents, sales launch, pricing, inventory and construction stage remain to confirm.",
     "quickFacts": [
       {
         "label": "Address",
@@ -3743,7 +3743,7 @@
       },
       {
         "label": "Status",
-        "value": "Pipeline / Reported Rosewood association unconfirmed"
+        "value": "Pipeline / Rosewood per BH Group; brand confirmation pending"
       },
       {
         "label": "Developer",
@@ -3755,11 +3755,11 @@
       },
       {
         "label": "Brand",
-        "value": "Reported Rosewood association unconfirmed"
+        "value": "Rosewood Residences per BH Group; independent brand confirmation pending"
       },
       {
         "label": "Residences",
-        "value": "90 in municipal program; branded offering unconfirmed"
+        "value": "90 condominiums per BH Group; current offering to confirm"
       },
       {
         "label": "Floors",
@@ -3779,20 +3779,20 @@
       },
       {
         "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "value": "Approximately 3,300 sq ft average per BH Group; individual layouts to confirm"
       },
       {
         "label": "Bedrooms",
         "value": "Not yet publicly confirmed."
       }
     ],
-    "residences": "Residence-level details remain limited. Available materials support 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
-    "amenities": "Reported site plans describe indoor amenities and a pool deck. The Rosewood association and any branded service program remain unconfirmed; request current site and offering documents.",
+    "residences": "BH Group describes 90 condominiums averaging approximately 3,300 square feet. An average is not a residence-specific floor plan or size range; confirm layouts, bedroom mix, terraces, finishes and the current offering.",
+    "amenities": "BH Group describes amenities and private services without establishing a final service program. Confirm the operating documents, Rosewood brand involvement, amenities and any fees before comparing services.",
     "location": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
-    "localTake": "Keep this as a planning watch while the reported brand affiliation, site program, construction status and buyer materials are confirmed.",
-    "seoTitle": "Reported Rosewood Proposal | West Palm Beach Project Watch",
-    "metaDescription": "Review the reported Rosewood proposal in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
-    "badge": "Pipeline / Reported Rosewood association unconfirmed",
+    "localTake": "BH Group now explicitly links the Rosewood project to this site. Keep independent brand confirmation, construction stage and current offering terms separate from that sponsor description.",
+    "seoTitle": "2001 North Flagler, West Palm Beach | Rosewood per BH Group",
+    "metaDescription": "BH Group describes Rosewood Residences at 2001 North Flagler. Review sponsor guidance, independent brand confirmation and current offering questions.",
+    "badge": "Pipeline / Rosewood per BH Group; brand confirmation pending",
     "tags": [
       "north-flagler",
       "waterfront",
@@ -3804,9 +3804,9 @@
       "filed-plans",
       "human-review-required"
     ],
-    "introHeadline": "2001 North Flagler: Reported Rosewood Association Unconfirmed",
-    "introDek": "Rosewood Residences West Palm Beach is tracked as a reported branded condominium proposal on North Flagler. The municipal site program at 2001 N Flagler differs from the public pipeline treatment; brand affiliation, construction status and the current offering require primary confirmation.",
-    "brookeTake": "Keep this as a planning watch while the reported brand affiliation, site program, construction status and buyer materials are confirmed.",
+    "introHeadline": "2001 North Flagler (Rosewood Residences per BH Group)",
+    "introDek": "BH Group identifies Rosewood Residences at 2001 N. Flagler Drive in West Palm Beach and describes 90 condominiums averaging approximately 3,300 square feet. This is a sponsor description, checked November 5, 2026; independent confirmation from Rosewood, offering documents, sales launch, pricing, inventory and construction stage remain to confirm.",
+    "brookeTake": "BH Group now explicitly links the Rosewood project to this site. Keep independent brand confirmation, construction stage and current offering terms separate from that sponsor description.",
     "bestFor": [
       "Buyers monitoring the reported brand association",
       "North Flagler waterfront pipeline shoppers",
@@ -3814,23 +3814,24 @@
       "Buyers monitoring future service-led luxury inventory"
     ],
     "signatureFeatures": [
-      "Brand: Reported Rosewood association unconfirmed",
-      "Residences: 90 in municipal program; branded offering unconfirmed",
+      "Brand: Rosewood Residences per BH Group; independent brand confirmation pending",
+      "Residences: 90 condominiums per BH Group; current offering to confirm",
       "Floors: 27",
       "Parking: 185 parking spaces reported in filed plans",
       "Price Range: Not yet publicly confirmed.",
       "Delivery: Not yet publicly confirmed.",
       "Bedrooms: Not yet publicly confirmed."
     ],
-    "amenityNarrative": "Reported site plans describe indoor amenities and a pool deck. The Rosewood association and any branded service program remain unconfirmed; request current site and offering documents.",
-    "residenceNarrative": "Residence-level details remain limited. Available materials support 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
+    "amenityNarrative": "BH Group describes amenities and private services without establishing a final service program. Confirm the operating documents, Rosewood brand involvement, amenities and any fees before comparing services.",
+    "residenceNarrative": "BH Group describes 90 condominiums averaging approximately 3,300 square feet. An average is not a residence-specific floor plan or size range; confirm layouts, bedroom mix, terraces, finishes and the current offering.",
     "locationNarrative": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
-    "projectTeamNarrative": "Reported site team: Related Group / BH Group and Arquitectonica. Reported Rosewood association unconfirmed; municipal site records do not establish a branded offering.",
+    "projectTeamNarrative": "BH Group publicly describes the Rosewood project at 2001 N. Flagler. Related Group and Arquitectonica appear in prior site records; confirm current roles and independent Rosewood brand involvement.",
     "sourceUrls": [
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
-      "https://relatedgroup.com/luxury-condominium/"
+      "https://relatedgroup.com/luxury-condominium/",
+      "https://www.bhgroupmiami.com/projects/rosewood-residences/"
     ],
-    "lastCopyResearchDate": "2026-10-10"
+    "lastCopyResearchDate": "2026-11-05"
   },
   {
     "slug": "forte-on-flagler",
@@ -4950,7 +4951,7 @@
         "label": "Arkona Court Arrival",
         "alt": "Concept rendering of the formal residential arrival proposed for 201 Arkona Court"
       },
-      "intro": "201 Arkona Court in West Palm Beach proposes a rare full-floor residential format beside the Norton Museum, pairing approximately 16 homes with a private art and cultural-club concept. It is still a planning-stage watch, so final approvals, height, layouts, pricing, timing, and operating terms remain ahead.",
+      "intro": "The City’s June 25, 2026 pre-application agenda (PRE-APP-26060039) describes a proposed 25-story mixed-use building with 16 multifamily units and commercial uses at 201 Arkona Court. This dated application description is not tower approval or current inventory. The City’s September 1 recap of August 31 decisions reports sidewalk development-space easements at 201/203 Arkona; these do not establish a tower approval, building permit, construction or sales launch. Resolution 212-26 in the agenda heading versus 212-16 in its paragraph remains an unresolved discrepancy.",
       "heroTags": [
         {
           "label": "Status",
@@ -4969,7 +4970,7 @@
         {
           "icon": "residence",
           "label": "Residences",
-          "value": "16 reported in proposal; primary plan to confirm"
+          "value": "16 multifamily units in June 25, 2026 pre-application; current program to confirm"
         },
         {
           "icon": "stories",
@@ -5017,8 +5018,8 @@
       ]
     },
     "heroHeadline": "Full-Floor Privacy Beside the Norton",
-    "heroSubheadline": "A proposed 16-residence condominium and private cultural-club concept in West Palm Beach's cultural quarter.",
-    "overview": "201 Arkona Court in West Palm Beach is an early planning-stage proposal for approximately 16 full-floor residences beside the Norton Museum. Easton Street Capital and 1789 Capital are associated with the project, with SCB named as architect. Current reporting describes a 26-story proposal, while one aggregation displays 16 floors; the discrepancy remains open for review.",
+    "heroSubheadline": "Planning watch: the City’s June 25, 2026 pre-application agenda describes a 25-story mixed-use proposal with 16 multifamily units.",
+    "overview": "The City’s June 25, 2026 pre-application agenda (PRE-APP-26060039) describes a proposed 25-story mixed-use building with 16 multifamily units and commercial uses at 201 Arkona Court. This dated application description is not tower approval or current inventory. The City’s September 1 recap of August 31 decisions reports sidewalk development-space easements at 201/203 Arkona; these do not establish a tower approval, building permit, construction or sales launch. Resolution 212-26 in the agenda heading versus 212-16 in its paragraph remains an unresolved discrepancy.",
     "quickFacts": [
       {
         "label": "Address",
@@ -5030,11 +5031,11 @@
       },
       {
         "label": "Residences",
-        "value": "16 reported in proposal; primary plan to confirm"
+        "value": "16 multifamily units in June 25, 2026 pre-application; current program to confirm"
       },
       {
         "label": "Floors",
-        "value": "26 proposed; review open"
+        "value": "25-story mixed-use proposal in June 25, 2026 pre-application; current plan to confirm"
       },
       {
         "label": "Residence Format",
@@ -5083,16 +5084,18 @@
       "Norton Museum location"
     ],
     "amenityNarrative": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported. Final access, dues, service, staffing, and operating terms are not yet public.",
-    "residenceNarrative": "Approximately 16 full-floor residences are planned, with reported sizes around 5,000 to more than 6,000 square feet. Final floor plans, bedroom counts, finishes, terraces, elevator access, parking, and storage require future project materials.",
+    "residenceNarrative": "The June 25, 2026 City pre-application agenda describes 16 multifamily units in a mixed-use proposal. Full-floor layouts and the cultural-club concept remain reported ideas requiring current plans and operating documents.",
     "locationNarrative": "201 Arkona Court sits beside the Norton Museum in West Palm Beach's cultural quarter, close to South Dixie, Flamingo Park, South Flagler, downtown, and the Palm Beach bridges.",
     "projectTeamNarrative": "Developers: Easton Street Capital and 1789 Capital. Architecture: SCB. Sales, interiors, landscape architecture, and construction team have not been publicly announced.",
     "sourceUrls": [
       "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
       "https://www.oftmw.com/firm/1789-capital/",
       "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
-      "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-draft-city-commission-agendas/08-aug-2026-draft-cca/08_31_26_draft-city-commission-agenda.pdf"
+      "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-draft-city-commission-agendas/08-aug-2026-draft-cca/08_31_26_draft-city-commission-agenda.pdf",
+      "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf",
+      "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
     ],
-    "lastCopyResearchDate": "2026-10-09"
+    "lastCopyResearchDate": "2026-11-05"
   },
   {
     "slug": "2085-north-flagler",
@@ -5217,7 +5220,7 @@
     ],
     "residences": "Planning reporting describes 281 condominiums across two towers, with residences of approximately 1,065 to 4,510 square feet and an average around 1,762 square feet. Final unit mix, floor plans, bedroom counts, finishes, parking allocations, storage, and policies have not been released.",
     "amenities": "Third- and ninth-floor amenity areas, a pool deck, rooftop amenities, and a shared waterfront platform have been reported. The complete amenity, service, wellness, marina, and association program requires confirmation.",
-    "location": "The site is at 2085 North Flagler Drive on the Intracoastal, across from Currie Park and adjacent to the 2001 North Flagler site (reported Rosewood association unconfirmed), with access to Northwood and the broader North Flagler corridor.",
+    "location": "The site is at 2085 North Flagler Drive on the Intracoastal, across from Currie Park and adjacent to the 2001 North Flagler site (Rosewood Residences per BH Group; independent brand confirmation pending), with access to Northwood and the broader North Flagler corridor.",
     "localTake": "This is a true watch page, not an active-sales profile. The waterfront and Currie Park position matter, but buyers should wait for developer-confirmed plans, approvals, architecture, unit mix, pricing, delivery, and offering documents before comparing it as available inventory.",
     "seoTitle": "2085 North Flagler West Palm Beach | Project Watch",
     "metaDescription": "Review 2085 North Flagler in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
@@ -5246,7 +5249,7 @@
     ],
     "amenityNarrative": "Planning reporting references shared waterfront amenities, third- and ninth-floor amenity areas, a pool deck, and rooftop space. Final access, services, staffing, marina rights, fees, and association structure are not public.",
     "residenceNarrative": "The reported plan includes 281 condominiums across two towers, with approximate sizes from 1,065 to 4,510 square feet. Final unit mix, plans, finishes, parking, storage, policies, and pricing require future project materials.",
-    "locationNarrative": "2085 North Flagler sits directly on the Intracoastal across from Currie Park, beside the 2001 North Flagler site (reported Rosewood association unconfirmed) and close to Northwood and the developing North Flagler waterfront cluster.",
+    "locationNarrative": "2085 North Flagler sits directly on the Intracoastal across from Currie Park, beside the 2001 North Flagler site (Rosewood Residences per BH Group; independent brand confirmation pending) and close to Northwood and the developing North Flagler waterfront cluster.",
     "projectTeamNarrative": "Developers: Terra and BH Group. A final architect, interiors team, landscape architect, sales team, and construction team have not been publicly confirmed.",
     "sourceUrls": [
       "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",

@@ -57,6 +57,8 @@ The resolver returns a merged object with:
 
 ## Source Priority
 
+For incremental maintenance under Brooke's November 5 instruction, the existing building/schema release owner follows [Reviewed building-fact releases](REVIEWED_BUILDING_FACT_RELEASE.md). It reopens evidence, updates stale winning reviewed entries with explicit Codex/source provenance, preserves pinned decisions and schema holds, regenerates via `npm run facts:refresh`, and completes exact-SHA deployment/live readback. This does not disable P2 manual precedence or blanket-enable unattended fact writes; historical articles remain snapshots.
+
 - **Public identity fields** (name, slug, corridor, route): manual override > public project layer > source catalog > compare data
 - **Buyer-facing facts** (status, delivery, address, residenceCount, price, bedrooms, etc.): manual override > compare database > source catalog > public project layer
 - **Schema output**: only emits a field when it is conflict-free AND explicitly marked `schemaSafe: true` in the override, OR when the resolver finds no conflict

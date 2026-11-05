@@ -11,14 +11,23 @@ const [model, siteData] = await Promise.all([
   fs.readFile(siteDataPath, "utf8"),
 ]);
 
-const exportPattern = /export const projectFacts = ([\s\S]*?) as const;\n\nexport const prerenderRoutes/;
+// Other generated exports may sit between projectFacts and prerenderRoutes.
+// Match this JSON export alone; requiring adjacency can consume several exports.
+const exportPattern = /^export const projectFacts = ([\s\S]*?) as const;\r?\n/m;
 const match = siteData.match(exportPattern);
 if (!match) throw new Error("Could not find the projectFacts export in src/generated/siteData.ts");
 
 const existingFacts = JSON.parse(match[1]);
 const existingById = new Map(existingFacts.map((project) => [project.projectId, project]));
+const scopeArg = process.argv.slice(2).find(arg => arg.startsWith("--projects="));
+const scope = scopeArg ? new Set(scopeArg.slice("--projects=".length).split(",").filter(Boolean)) : null;
+if (scope && (!scope.size || [...scope].some(id => !model.projects.some(project => project.publicSlug === id)))) throw new Error("Unknown or empty project scope");
 const projectFacts = model.projects.map((project) => {
   const existing = existingById.get(project.publicSlug);
+  if (scope && !scope.has(project.publicSlug)) {
+    if (!existing) throw new Error(`Unreviewed project missing from existing projection: ${project.publicSlug}`);
+    return existing;
+  }
   return {
     projectId: project.publicSlug,
     name: project.displayName,
@@ -46,7 +55,7 @@ const projectFacts = model.projects.map((project) => {
   };
 });
 
-const replacement = `export const projectFacts = ${JSON.stringify(projectFacts, null, 2)} as const;\n\nexport const prerenderRoutes`;
+const replacement = `export const projectFacts = ${JSON.stringify(projectFacts, null, 2)} as const;\n`;
 // A callback keeps dollar-prefixed price strings literal; replacement strings
 // otherwise interpret values such as "$1M" as capture-group substitutions.
 await fs.writeFile(siteDataPath, siteData.replace(exportPattern, () => replacement));

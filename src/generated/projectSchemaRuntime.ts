@@ -70,7 +70,7 @@ export const generatedProjectSchemaFacts = [
       "url": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/",
       "corridor": "North Flagler",
       "status": "Under Construction",
-      "delivery": "Q1 2028 developer target; confirm current schedule",
+      "delivery": "Q2 2028 BH Group expected completion; confirm current schedule",
       "residenceCount": "138"
     }
   },
@@ -292,12 +292,12 @@ export const generatedProjectSchemaFacts = [
     "identity": {
       "slug": "rosewood-residences-west-palm-beach",
       "route": "/projects/rosewood-residences-west-palm-beach/",
-      "displayName": "2001 North Flagler (reported Rosewood association unconfirmed)",
+      "displayName": "2001 North Flagler (Rosewood Residences per BH Group)",
       "corridor": "North Flagler",
       "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/"
     },
     "safeFields": {
-      "name": "2001 North Flagler (reported Rosewood association unconfirmed)",
+      "name": "2001 North Flagler (Rosewood Residences per BH Group)",
       "route": "/projects/rosewood-residences-west-palm-beach/",
       "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
       "corridor": "North Flagler"

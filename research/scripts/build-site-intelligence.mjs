@@ -1429,6 +1429,11 @@ function approvedRevenueFloorplanProjects(projects) {
 }
 
 async function main() {
+  if (process.argv.includes("--project-copy-only")) {
+    await fs.writeFile(publicProjectCopyPackagePath, `${JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2)}\n`);
+    console.log(JSON.stringify({ mode: "project-copy-only", outputs: ["public/data/project-copy-package.json"] }));
+    return;
+  }
   if (process.argv.includes("--floorplan-discovery-only")) {
     const siteDataPath = path.join(generatedRoot, "siteData.ts");
     let siteData = await fs.readFile(siteDataPath, "utf8");

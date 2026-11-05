@@ -328,7 +328,7 @@
       "construction_team": [],
       "price_display": "Request current pricing",
       "maintenance_display": "",
-      "delivery_display": "2028 estimate; confirm current schedule",
+      "delivery_display": "Q2 2028 BH Group expected completion; confirm current schedule",
       "size_range_display": "Approx. 1,532–3,331 interior sq. ft.",
       "bedroom_range_display": "2–4 bedrooms",
       "parking_summary": "",
@@ -361,7 +361,8 @@
         "https://theresidenceswestpalmbeach.com/",
         "https://theresidenceswestpalmbeach.com/team/",
         "https://theresidenceswestpalmbeach.com/floorplans/",
-        "https://theresidenceswestpalmbeach.com/amenities/"
+        "https://theresidenceswestpalmbeach.com/amenities/",
+        "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/"
       ],
       "human_review_required": true,
       "confidence_level": "medium-high",
@@ -375,7 +376,8 @@
       "development_stage": "under_construction",
       "public_address": "1745 N Flagler Drive, West Palm Beach, FL 33407",
       "neighborhood": "North Flagler waterfront",
-      "sales_gallery_address": "340 Royal Poinciana Way, M302, Palm Beach, FL 33480"
+      "sales_gallery_address": "340 Royal Poinciana Way, M302, Palm Beach, FL 33480",
+      "fact_revision_date": "2026-11-05"
     },
     {
       "include_on_site": true,
@@ -1364,7 +1366,7 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "",
+      "municipal_or_legal_note": "BH Group explicitly identifies Rosewood Residences at 2001 N. Flagler Drive, describing 90 condominiums averaging 3,300 sq ft. Sponsor description checked November 5, 2026; independent Rosewood brand confirmation, offering documents, inventory, pricing, launch and construction stage remain unconfirmed. Undated source: event/publication dates unknown.",
       "public_residence_count": 90,
       "municipal_residence_count": null,
       "floor_count_display": 27,
@@ -1387,7 +1389,7 @@
       "price_display": "",
       "maintenance_display": "",
       "delivery_display": "",
-      "size_range_display": "",
+      "size_range_display": "Approximately 3,300 sq ft average per BH Group; individual layouts to confirm",
       "bedroom_range_display": "",
       "parking_summary": "185 parking spaces reported in filed plans.",
       "ev_summary": "",
@@ -1401,25 +1403,26 @@
         "North Flagler waterfront pipeline shoppers"
       ],
       "tradeoffs": [
-        "Filed-plan stage; sales launch, pricing, unit mix, and final amenities remain to be verified"
+        "BH Group describes the Rosewood project at this address; independent brand confirmation, sales launch, pricing, delivery, unit mix and construction stage remain to confirm."
       ],
       "key_conflicts": [],
       "source_urls": [
-        "https://relatedgroup.com/luxury-condominium/"
+        "https://relatedgroup.com/luxury-condominium/",
+        "https://www.bhgroupmiami.com/projects/rosewood-residences/"
       ],
       "human_review_required": true,
       "confidence_level": "medium",
       "import_recommendation": "Add as pipeline/watchlist branded-residence record; mark human review required until official sales materials are public.",
       "project_id": "rosewood-residences-west-palm-beach",
       "slug": "rosewood-residences-west-palm-beach",
-      "display_name": "2001 North Flagler (reported Rosewood association unconfirmed)",
+      "display_name": "2001 North Flagler (Rosewood Residences per BH Group)",
       "site_group": "pipeline_watchlist",
       "page_type": "pipeline_building_page",
-      "status_badge": "Pipeline / Reported Rosewood association unconfirmed",
+      "status_badge": "Pipeline / Rosewood per BH Group; brand confirmation pending",
       "development_stage": "filed_plans_watchlist",
       "public_address": "2001 N Flagler Drive, West Palm Beach, FL",
       "neighborhood": "North Flagler waterfront",
-      "fact_revision_date": "2026-10-10"
+      "fact_revision_date": "2026-11-05"
     },
     {
       "include_on_site": true,
@@ -1632,10 +1635,10 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; the floor count remains under review.",
+      "municipal_or_legal_note": "City June 25, 2026 pre-application agenda page 2 describes PRE-APP-26060039, a proposed 25-story mixed-use building with 16 multifamily units and commercial uses. This is historical proposal evidence, not current inventory or tower approval. The September 1 city recap of August 31 decisions and August 31 pass/fail agenda concern sidewalk development-space easements at 201/203 Arkona, not a building permit, construction or sales launch. Agenda heading 212-26 versus paragraph 212-16 remains unresolved.",
       "public_residence_count": 16,
       "municipal_residence_count": null,
-      "floor_count_display": "26 proposed; review open",
+      "floor_count_display": "25-story mixed-use proposal in June 25, 2026 pre-application; current plan to confirm",
       "municipal_floor_count": null,
       "tower_count": 1,
       "developer": [
@@ -1652,7 +1655,7 @@
       "construction_team": [],
       "price_display": "Not publicly released",
       "maintenance_display": "Not publicly confirmed",
-      "delivery_display": "2029 estimate",
+      "delivery_display": "Request current delivery guidance",
       "size_range_display": "Approximately 5,000–6,000+ square feet reported",
       "bedroom_range_display": "Not publicly confirmed",
       "parking_summary": "Not publicly confirmed",
@@ -1675,11 +1678,15 @@
         "The proposal is early-stage; approvals, height, club economics, pricing, fees, parking, policies, and delivery remain subject to verification"
       ],
       "key_conflicts": [
-        "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; retain a review flag."
+        "The June pre-application describes 25 stories; earlier secondary reports describe 26 stories and an aggregation 16 floors. These do not establish the current final plan.",
+        "The August agenda heading says Resolution 212-26 while its resolution paragraph says 212-16; discrepancy unresolved."
       ],
       "source_urls": [
         "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
-        "https://www.oftmw.com/firm/1789-capital/"
+        "https://www.oftmw.com/firm/1789-capital/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-june-25th-2026.pdf",
+        "https://www.wpb.org/News-Folder/News-2026/090126-Mayor-CC-Approvals-and-Decisions",
+        "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
       ],
       "human_review_required": true,
       "confidence_level": "high",
@@ -1693,7 +1700,8 @@
       "development_stage": "announced",
       "public_address": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
       "neighborhood": "Cultural Quarter / Norton Museum",
-      "missing_or_unconfirmed": "Final approvals, floor count, sales launch, pricing, final delivery, floor plans, parking, maintenance, policies, and operating structure"
+      "missing_or_unconfirmed": "Final approvals, floor count, sales launch, pricing, final delivery, floor plans, parking, maintenance, policies, and operating structure",
+      "fact_revision_date": "2026-11-05"
     },
     {
       "include_on_site": true,
