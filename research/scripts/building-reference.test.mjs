@@ -21,6 +21,10 @@ test("Olara starting guidance is sponsor-advertised $2M without promoting a pric
   assert.doesNotMatch(JSON.stringify([copy.overview,copy.quickFacts,copy.showcase]),/\$1\.7M/);
   assert.match(copy.showcase.residenceCollections[0].price,/From \$2M.*verify current availability/);
   assert.equal(safeProjects.find(p=>p.identity.slug==="olara").safeFields.price,undefined);
+  const costAnswer=(await readJson("public/data/answer-engine-faq.json")).find(item=>item.id==="what-will-it-cost");
+  assert.match(costAnswer.answer,/Olara.*sponsor.*\$2M.*current availability.*residence-specific terms/);
+  assert.doesNotMatch(costAnswer.answer,/\$1\.7M/);
+  assert.doesNotMatch(await fs.readFile("dist/answers/index.html","utf8"),/Olara from roughly \$1\.7M/);
   const html=await fs.readFile(`dist${project.publicRoute}index.html`,"utf8");
   const entity=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m=>JSON.parse(m[1])["@graph"]||[]).find(n=>n["@id"]?.endsWith("#project"));
   assert.doesNotMatch(JSON.stringify(entity),/"(?:price|offers|availability|numberOfAvailableAccommodationUnits)"|\$2M/);
