@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "purpose": "Bounded source/change record, not a project database",
+  "baseCommit": "ad3d28b6d3f594277ea1655c8f51987c95b82745",
+  "source": {
+    "url": "https://www.olarawestpalmbeach.com/",
+    "checkedAt": "2026-11-06T13:56:37.559Z",
+    "sha256": "7f0784cbbfe77523215ecc30caed8936c7c340e2aae0e7f51c634274d22fa1de",
+    "statement": "2-4+ Bedroom Waterfront Residences Priced from $2 Million",
+    "effectiveDate": null,
+    "publicationDate": null
+  },
+  "reviewer": "Codex — source review under Brooke’s standing building-fact maintenance instruction",
+  "change": {
+    "project": "olara",
+    "field": "priceDisplay",
+    "previousManualValue": null,
+    "previousWinningValue": "From $1.7M (developer-published; verify current availability)",
+    "value": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
+    "schemaSafe": false,
+    "interpretation": "Current sponsor-advertised starting guidance; no effective/change date or available unit established"
+  },
+  "preserved": [
+    "275-condominium offering scope and broader count uncertainty",
+    "Existing status and delivery statements",
+    "Unit-specific fees, deposits, terms and availability",
+    "Project identity/URL and all other projects",
+    "Historical articles and source snapshots"
+  ],
+  "unresolved": [
+    "Pricing effective/change date",
+    "Current residence-specific price and availability"
+  ],
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

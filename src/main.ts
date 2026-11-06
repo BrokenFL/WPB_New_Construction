@@ -1045,7 +1045,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     question: "How do North Flagler's new condos compare?",
     description: "Compare North Flagler condos and the 2001 North Flagler site, whose Rosewood project is described by BH Group; independent brand confirmation remains pending.",
     bluf:
-      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $1.7M developer-published), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, Q2 2028 BH Group target), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and the 2001 North Flagler site (90 in the municipal program; Rosewood Residences per BH Group; independent brand confirmation pending). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
+      "North Flagler holds the deepest new-condo bench in West Palm Beach: Olara (275 residences, under construction, 2028, from $2M sponsor-advertised; verify current availability), Shorecrest (about 100 residences, under construction), Alba Palm Beach (55 residences, completed, confirm residence-specific occupancy, from just under $3M guidance), The Ritz-Carlton Residences (138 residences, under construction, Q2 2028 BH Group target), Mandarin Oriental Residences (87 residences; see its qualified pricing and delivery guidance), and the 2001 North Flagler site (90 in the municipal program; Rosewood Residences per BH Group; independent brand confirmation pending). Start with timing — completed, under construction, or pipeline — then compare scale and pricing guidance.",
     explanation:
       "North Flagler buyers get the most choice and the most homework. The corridor mixes a completed boutique building (Alba), large under-construction programs (Olara, Ritz-Carlton, Shorecrest), and Mandarin Oriental’s earlier-stage branded pipeline and the 2001 North Flagler site, whose Rosewood project is described by BH Group; independent brand confirmation remains pending. Compare delivery certainty first, then residence scale, published pricing guidance, waterfront exposure, and service model — and verify availability, fees, and floorplan depth per project.",
     projectIds: ["olara", "shorecrest", "alba-palm-beach", "ritz-carlton-wpb", "mandarin-oriental", "rosewood-residences-west-palm-beach"],
@@ -1091,24 +1091,24 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     shortLabel: "Affordable",
     title: "Most Affordable New Condos in West Palm Beach",
     question: "What are the most affordable new construction condos in West Palm Beach?",
-    description: "Where sub-$2M new construction actually exists in West Palm Beach — honest price-band guidance and what to verify.",
+    description: "Compare advertised new-condo starting guidance in West Palm Beach and verify residence-specific pricing and availability before relying on a budget threshold.",
     bluf:
-      "True sub-$2M new construction is thin in West Palm Beach. The honest anchor is Olara (from $1.7M developer-published, 275 residences, under construction, 2028). NORA House starts from the low $2Ms and The Berkeley is reported from $2M to over $10M — everything else in the catalog is request-current-pricing or higher. Treat every figure as a starting point to verify against live availability.",
+      "Olara's sponsor currently advertises starting prices from $2M; this does not establish a sub-$2M residence. NORA House starts from the low $2Ms and The Berkeley is reported from $2M to over $10M. For a budget under $2M, request current residence-specific pricing and released availability rather than treating an advertised starting figure as a purchasable home.",
     explanation:
       "Most West Palm Beach new-construction inventory sits above $2M, and many projects publish no starting price at all. Compare developer-published guidance where it exists, ask for the current released price list rather than press figures, and confirm which residence lines the starting price actually applies to — entry pricing often reflects a limited set of plans.",
     projectIds: ["olara", "nora-house", "berkeley", "mr-c", "banyan-tree"],
     corridorKeys: ["north-flagler", "downtown"],
     tableRows: [
-      { label: "Sub-$2M anchor", bestUse: "Buyers who need a genuine under-$2M starting point.", links: ["/projects/olara/"], verify: "Confirm the $1.7M figure against current availability and which plans it applies to." },
+      { label: "Olara advertised guidance", bestUse: "Buyers comparing a sponsor-advertised starting point of $2M.", links: ["/projects/olara/"], verify: "The current $2M starting guidance does not establish a sub-$2M option or an available unit; confirm residence-specific pricing and availability." },
       { label: "Low-$2M lane", bestUse: "Buyers who can stretch just past $2M for downtown positioning.", links: ["/projects/nora-house/", "/projects/berkeley/"], verify: "Confirm NORA House's low-$2Ms guidance and Berkeley's reported $2M entry against live price lists." },
       { label: "Request-pricing projects", bestUse: "Buyers comparing newer programs where pricing is released selectively.", links: ["/projects/mr-c/", "/projects/banyan-tree/"], verify: "Request the current released price list — no starting guidance is published for these." },
     ],
     faqs: [
-      { question: "Are there new condos under $2M in West Palm Beach?", answer: "Olara's developer-published starting price of $1.7M is the clearest sub-$2M anchor, subject to current availability. Beyond that, the new-construction market is thin under $2M — most projects start higher or publish no pricing." },
+      { question: "Are there new condos under $2M in West Palm Beach?", answer: "Olara's sponsor currently advertises starting prices from $2M, which does not substantiate a sub-$2M residence. Ask for current released pricing and availability for the specific residence before treating any project as an under-$2M option." },
       { question: "Why do so many projects say 'request current pricing'?", answer: "Developers release pricing in phases and adjust with sales velocity. A public starting figure goes stale fast, so the catalog treats pricing as a verification item rather than printing unconfirmed numbers." },
       { question: "Do starting prices reflect typical residences?", answer: "Not always. Entry pricing often applies to a limited set of plans, lower floors, or less premium exposures. Ask which specific residences the starting price covers." },
     ],
-    sourceNotes: ["Pricing guidance comes from the existing WPB New Construction source catalog.", "All prices are verification items — confirm against current released price lists and availability."],
+    sourceNotes: ["Olara sponsor homepage checked November 6, 2026 advertises starting prices from $2 million; no effective date or price-change announcement is supplied. https://www.olarawestpalmbeach.com/", "Other pricing guidance retains its existing source/review scope. All prices are verification items — confirm against current released price lists and availability."],
   },
   {
     slug: "west-palm-beach-new-condo-delivery-timeline",
@@ -1143,7 +1143,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     bluf:
       "This site tracks West Palm Beach new-construction inventory only — it holds no Fort Lauderdale project data, so it cannot rank the two markets head to head. Use this page as a decision framework: commute and daily routine, waterfront character, price band, and brand depth differ by market, and both sides need independent verification before a buyer commits.",
     explanation:
-      "Cross-market comparisons fail when one side's data is missing, so this page stays honest about its limit. West Palm Beach's new-construction story is concentrated: a North Flagler waterfront corridor, a downtown district lane, and South Flagler privacy positioning, with project-published Olara guidance from $1.7M and South Flagler House Signature residences advertised from $7.98M. Compare that against independently verified Fort Lauderdale figures on the same dimensions — price per square foot, fees, delivery timing, and waterfront access — rather than marketing claims from either side.",
+      "Cross-market comparisons fail when one side's data is missing, so this page stays honest about its limit. West Palm Beach's new-construction story is concentrated: a North Flagler waterfront corridor, a downtown district lane, and South Flagler privacy positioning, with sponsor-advertised Olara guidance from $2M, subject to current availability, and South Flagler House Signature residences advertised from $7.98M. Compare that against independently verified Fort Lauderdale figures on the same dimensions — price per square foot, fees, delivery timing, and waterfront access — rather than marketing claims from either side.",
     projectIds: ["olara", "maison-dor", "nora-house", "alba-palm-beach"],
     corridorKeys: ["north-flagler", "downtown", "south-flagler"],
     tableRows: [
@@ -1226,7 +1226,7 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     ],
     faqs: [
       { question: "Which is larger, Olara or Shorecrest?", answer: "Olara's March 2026 brochure describes 275 condominium residences. Related Ross's April 3, 2026 announcement describes 98 at Shorecrest. Published project counts are not available-unit counts." },
-      { question: "Which has the lower starting price?", answer: "Olara's published guidance starts at $1.7M. Request current residence-specific Shorecrest pricing and released availability before comparing the two projects." },
+      { question: "Which has the lower starting price?", answer: "Olara's sponsor currently advertises starting prices from $2M, subject to current availability and residence-specific terms. Request current Shorecrest pricing and released availability to compare like residences." },
       { question: "Do Olara and Shorecrest have the same completion target?", answer: "The dated materials differ: Related Ross anticipated Shorecrest completion in 2027 in April 2026; Olara's March 2026 brochure scheduled completion for 2028. Neither is a guaranteed closing date. Request a current construction and contractual timing update." },
     ],
     sourceNotes: ["Scale, status, delivery, and pricing guidance come from the existing WPB New Construction source catalog.", "Pricing and timing are verification items — confirm against current project materials."],

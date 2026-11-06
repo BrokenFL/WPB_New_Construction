@@ -2,6 +2,42 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-11-06T13:58:36.403Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "olara",
+        "field": "priceDisplay",
+        "priorManualValue": null,
+        "priorWinningValue": "From $1.7M (developer-published; verify current availability)",
+        "value": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
+        "schemaSafe": false,
+        "sourceUrls": [
+          "https://www.olarawestpalmbeach.com/"
+        ],
+        "note": "Sponsor homepage rendered and inspected November 6, 2026: “2-4+ Bedroom Waterfront Residences Priced from $2 Million.” This corrects carried-forward $1.7M guidance. The source supplies no pricing effective date or price-change announcement; do not describe an increase as occurring today. Starting marketing guidance does not establish an available unit, transaction price, inventory or firm Offer. Keep 275-condominium offering scope, broader-count uncertainty, fees, deposits and terms unchanged. Source: https://www.olarawestpalmbeach.com/",
+        "reviewer": "Codex under standing building-fact maintenance authorization"
+      }
+    },
+    {
+      "at": "2026-11-06T13:58:36.403Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "olara",
+        "fields": [
+          "canonical price",
+          "Compare pricing",
+          "profile/residence card",
+          "shared related-card summary",
+          "current answer surfaces"
+        ],
+        "sourceUrls": [
+          "https://www.olarawestpalmbeach.com/"
+        ],
+        "note": "Sponsor homepage rendered and inspected November 6, 2026: “2-4+ Bedroom Waterfront Residences Priced from $2 Million.” This corrects carried-forward $1.7M guidance. The source supplies no pricing effective date or price-change announcement; do not describe an increase as occurring today. Starting marketing guidance does not establish an available unit, transaction price, inventory or firm Offer. Keep 275-condominium offering scope, broader-count uncertainty, fees, deposits and terms unchanged. Source: https://www.olarawestpalmbeach.com/",
+        "record": "docs/OLARA_PRICE_REVIEW_2026_11_06.md"
+      }
+    },
+    {
       "at": "2026-11-05T23:27:37.094Z",
       "action": "project-fact-override",
       "detail": {

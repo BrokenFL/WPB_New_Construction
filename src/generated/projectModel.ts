@@ -92,7 +92,7 @@ export const canonicalProjectModel = {
       "status": "Under Construction",
       "delivery": "2028 scheduled completion (official brochure); confirm current schedule",
       "residences": "275 condominium residences (project offering)",
-      "price": "From $1.7M (developer-published; verify current availability)",
+      "price": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
       "address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
@@ -122,19 +122,21 @@ export const canonicalProjectModel = {
         "https://www.olarawestpalmbeach.com/residences/",
         "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm",
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
-        "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+        "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "https://www.olarawestpalmbeach.com/"
       ],
       "reviewedFields": {
         "status": "Under Construction",
         "delivery": "2028 scheduled completion (official brochure); confirm current schedule",
-        "residences": "275 condominium residences (project offering)"
+        "residences": "275 condominium residences (project offering)",
+        "price": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms"
       },
       "fieldSources": {
         "displayName": "canonical",
         "status": "reviewed_override",
         "delivery": "reviewed_override",
         "residences": "reviewed_override",
-        "price": "canonical",
+        "price": "reviewed_override",
         "address": "canonical"
       },
       "presentation": {
@@ -142,7 +144,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 2028,
         "longitude": -80.0501,
         "latitude": 26.7307,
-        "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The developer publishes starting pricing of $1.7M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
+        "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The project sponsor advertises starting pricing of $2M and a buyer appointment at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",

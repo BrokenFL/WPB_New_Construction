@@ -136,7 +136,7 @@
       "brand_partner": [],
       "sales_team": [],
       "construction_team": [],
-      "price_display": "From $1.7M (developer-published; verify current availability)",
+      "price_display": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
       "maintenance_display": "$1.75/sf",
       "delivery_display": "2028",
       "size_range_display": "1,477–4,097 sq. ft.",
@@ -181,7 +181,8 @@
         "https://www.olarawestpalmbeach.com/residences/",
         "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm",
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
-        "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+        "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+        "https://www.olarawestpalmbeach.com/"
       ],
       "human_review_required": true,
       "confidence_level": "high",
@@ -195,7 +196,8 @@
       "development_stage": "under_construction",
       "public_address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
       "neighborhood": "North Flagler waterfront",
-      "sales_gallery_address": "300 Butler Street, West Palm Beach, FL 33407"
+      "sales_gallery_address": "300 Butler Street, West Palm Beach, FL 33407",
+      "fact_revision_date": "2026-11-06"
     },
     {
       "include_on_site": true,

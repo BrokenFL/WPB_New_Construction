@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T23:27:37.094Z",
+  "updatedAt": "2026-11-06T13:58:36.403Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -297,6 +297,15 @@
         "reviewedAt": "2026-10-09T02:03:11.226Z",
         "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://www.olarawestpalmbeach.com/downloads/ ; https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
         "schemaSafe": true
+      },
+      "priceDisplay": {
+        "value": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex — source review under Brooke’s standing building-fact maintenance instruction",
+        "reviewedAt": "2026-11-06T13:58:36.403Z",
+        "note": "Sponsor homepage rendered and inspected November 6, 2026: “2-4+ Bedroom Waterfront Residences Priced from $2 Million.” This corrects carried-forward $1.7M guidance. The source supplies no pricing effective date or price-change announcement; do not describe an increase as occurring today. Starting marketing guidance does not establish an available unit, transaction price, inventory or firm Offer. Keep 275-condominium offering scope, broader-count uncertainty, fees, deposits and terms unchanged. Source: https://www.olarawestpalmbeach.com/",
+        "schemaSafe": false
       }
     },
     "ritz-carlton-wpb": {

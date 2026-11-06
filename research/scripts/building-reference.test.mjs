@@ -14,6 +14,19 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("Olara starting guidance is sponsor-advertised $2M without promoting a price Offer", async () => {
+  const project=model.find(p=>p.publicSlug==="olara"),copy=copies.find(p=>p.repoProjectId==="olara");
+  assert.match(project.price,/From \$2M.*sponsor-advertised.*verify current availability.*residence-specific terms/);
+  assert.equal(project.price,overrides.olara.priceDisplay.value);assert.equal(overrides.olara.priceDisplay.schemaSafe,false);
+  assert.doesNotMatch(JSON.stringify([copy.overview,copy.quickFacts,copy.showcase]),/\$1\.7M/);
+  assert.match(copy.showcase.residenceCollections[0].price,/From \$2M.*verify current availability/);
+  assert.equal(safeProjects.find(p=>p.identity.slug==="olara").safeFields.price,undefined);
+  const html=await fs.readFile(`dist${project.publicRoute}index.html`,"utf8");
+  const entity=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m=>JSON.parse(m[1])["@graph"]||[]).find(n=>n["@id"]?.endsWith("#project"));
+  assert.doesNotMatch(JSON.stringify(entity),/"(?:price|offers|availability|numberOfAvailableAccommodationUnits)"|\$2M/);
+  assert.match(JSON.stringify(entity),/275 condominium residences \(project offering\)/);
+});
+
 test("November source review replaces stale reviewed guidance while preserving sponsor and proposal scope", () => {
   assert.match(overrides["ritz-carlton-wpb"].deliveryTiming.value, /Q2 2028 BH Group expected completion.*confirm/);
   assert.equal(safeProjects.find(p=>p.identity.slug==="ritz-carlton-wpb").safeFields.delivery, overrides["ritz-carlton-wpb"].deliveryTiming.value);

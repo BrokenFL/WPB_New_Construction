@@ -321,7 +321,7 @@
     "repoProjectId": "olara",
     "heroHeadline": "Waterfront Resort Living on North Flagler",
     "heroSubheadline": "Olara pairs a private marina, José Andrés waterfront dining, sweeping views, and 80,000 square feet of amenities with a full-scale North Flagler resort lifestyle.",
-    "overview": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The developer publishes starting pricing of $1.7M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
+    "overview": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The sponsor advertises starting pricing of $2M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
     "quickFacts": [
       {
         "label": "Address",
@@ -349,7 +349,7 @@
       },
       {
         "label": "Price Range",
-        "value": "From $1.7M (developer-published; verify current availability)"
+        "value": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms"
       },
       {
         "label": "Delivery",
@@ -378,7 +378,7 @@
       "Pricing and availability are subject to change.",
       "Pet policy still needs final verification."
     ],
-    "confidenceNote": "Sales path and selected public facts checked against the official project website on 2026-09-23. This was a scoped agent research pass, not a blanket verification of all project details.",
+    "confidenceNote": "Sales path and selected public facts checked against the official project website on 2026-09-23. This was a scoped agent research pass, not a blanket verification of all project details. November 6 pricing-only review: current sponsor-advertised guidance starts at $2M; effective/change date and current availability are unconfirmed. Other facts retain their existing review scope.",
     "seoTitle": "Olara West Palm Beach | Prices, Floor Plans & Condos",
     "metaDescription": "Review Olara West Palm Beach in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
     "badge": "Under Construction",
@@ -394,7 +394,7 @@
       "new-construction"
     ],
     "introHeadline": "Waterfront Resort Living on North Flagler",
-    "introDek": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The developer publishes starting pricing of $1.7M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
+    "introDek": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The sponsor advertises starting pricing of $2M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
     "brookeTake": "Olara is the North Flagler choice for buyers who want the building to function as a waterfront resort: marina access, dining, guest suites, work spaces, and a broad wellness program. The comparison with smaller neighbors is about how much of that infrastructure you will use versus the feel of a 275-residence building. Study line orientation and terrace depth before choosing a plan.",
     "bestFor": [
       "Amenity-driven buyers",
@@ -406,7 +406,7 @@
     "signatureFeatures": [
       "Residences: 275 condominium residences (project offering)",
       "Floors: 26",
-      "Price Range: From $1.7M (developer-published; verify current availability)",
+      "Price Range: From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
       "Delivery: 2028 scheduled completion (official brochure); confirm current schedule",
       "Bedrooms: 2-4"
     ],
@@ -421,7 +421,8 @@
       "Pricing and availability are subject to change.",
       "Pet policy still needs final verification.",
       "2026-10-08 source review: Official downloads page links March-2026 filename brochure https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf, checked 2026-10-08, stating under construction and scheduled completion in 2028. Filename date is not a claimed publication day. Scheduled timing is not a guaranteed closing date.",
-      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md."
+      "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
+      "Sponsor homepage rendered and inspected November 6, 2026: “2-4+ Bedroom Waterfront Residences Priced from $2 Million.” This corrects carried-forward $1.7M guidance. The source supplies no pricing effective date or price-change announcement; do not describe an increase as occurring today. Starting marketing guidance does not establish an available unit, transaction price, inventory or firm Offer. Keep 275-condominium offering scope, broader-count uncertainty, fees, deposits and terms unchanged. Source: https://www.olarawestpalmbeach.com/"
     ],
     "sourceUrls": [
       "https://www.olarawestpalmbeach.com/residences/",
@@ -433,7 +434,7 @@
       "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"
     ],
-    "lastCopyResearchDate": "2026-10-09",
+    "lastCopyResearchDate": "2026-11-06",
     "copyConfidence": "high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -445,7 +446,7 @@
         "label": "Waterfront Exterior",
         "alt": "Olara West Palm Beach twin-tower waterfront exterior rendering on North Flagler Drive"
       },
-      "intro": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The developer publishes starting pricing of $1.7M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
+      "intro": "Olara in West Palm Beach combines a North Flagler waterfront setting with marina access and a broad amenity program. The sponsor advertises starting pricing of $2M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
       "heroTags": [
         {
           "label": "Status",
@@ -470,7 +471,7 @@
           "title": "Residence Collection",
           "beds": "2-4 bedrooms",
           "size": "1,477-4,097 sq ft",
-          "price": "From $1.7M",
+          "price": "From $2M; verify current availability",
           "thumbnail": "/assets/projects/olara/floorplans/showcase/olara-residence-plan-a-thumbnail-v01.png"
         },
         {

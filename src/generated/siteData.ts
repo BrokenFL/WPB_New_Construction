@@ -3721,7 +3721,7 @@ export const projectFacts = [
     "name": "Olara West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The project sponsor publishes starting pricing of $1.7M and a buyer appointment at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
+    "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The project sponsor advertises starting pricing of $2M and a buyer appointment at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1919 N Flagler Drive, West Palm Beach, FL 33407",
@@ -3732,7 +3732,7 @@ export const projectFacts = [
       "residences": "275 condominium residences (project offering)",
       "stories": "26",
       "completion": "2028 scheduled completion (official brochure); confirm current schedule",
-      "pricing": "From $1.7M (project sponsor-published; verify current availability)",
+      "pricing": "From $2M (sponsor-advertised starting guidance); verify current availability and residence-specific terms",
       "team": "Savanna; Arquitectonica; Gabellini Sheppard",
       "amenities": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
       "residenceFeatures": [
@@ -3753,7 +3753,7 @@ export const projectFacts = [
         "Duravit toilets"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-11-06"
     },
     "sources": [
       {
@@ -3767,6 +3767,9 @@ export const projectFacts = [
       },
       {
         "url": "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+      },
+      {
+        "url": "https://www.olarawestpalmbeach.com/"
       }
     ]
   },
