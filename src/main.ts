@@ -2385,7 +2385,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       "Placed in the NORA district north of downtown, this profile should stay grounded in walkability and future-supply positioning until final legal address, release timing, and offering details are fully confirmed.",
     facts: [
       { label: "Address", value: "NORA district", note: "Exact legal address needs confirmation." },
-      { label: "Residences", value: "117", note: "Newer sales-launch reporting; earlier planning references vary." },
+      { label: "Residences", value: "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122", note: "Staff recommendation and conflicting applicant materials do not establish a final approved program." },
       { label: "Bedrooms", value: "2-3" },
       { label: "Delivery", value: "2028 modeled" },
       { label: "Status", value: "Planning" },

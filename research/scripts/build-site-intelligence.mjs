@@ -395,11 +395,21 @@ const answerBlocks = [
     shortLabel: "Stories + units",
     question: "How many stories and residences does each major project have?",
     answer:
-      "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
+      "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories with 117 units in the November 2026 City staff report, while the applicant attachment lists 122; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
     concept: "Project facts",
     relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house"],
     sources: ["official project sites", "Florida YIMBY", "The Real Deal", "World Red Eye", "project-source-catalog"],
     sourceCitations: [
+      {
+        label: "City November 2026 DAC packet",
+        href: "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
+        note: "Staff report pp. 26–28: 117 units and 11 stories; applicant attachment p. 62: 122 condos; parking table p. 63: 117. Staff recommendation before a hearing, with no final approved count established.",
+        sourceType: "official municipal staff packet",
+        dateAccessed: "2026-11-07",
+        supportsClaim: "Qualified NORA House count guidance",
+        claimText: "City staff describe 117 units and 11 stories; the applicant attachment retains a conflicting 122-condominium description.",
+        confidence: "high",
+      },
       {
         label: "Ritz-Carlton WPB construction report",
         href: "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",

@@ -388,7 +388,7 @@ export const canonicalProjectModel = {
       "displayName": "Nora House",
       "status": "Sales Open / Preconstruction",
       "delivery": "Request current delivery guidance",
-      "residences": "117 marketed residences; municipal plan lists 122",
+      "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
       "price": "From the low $2Ms (developer-published; verify current availability)",
       "address": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
       "developmentStage": "active_sales_preconstruction",
@@ -412,7 +412,11 @@ export const canonicalProjectModel = {
       "confidenceLevel": "high",
       "conflicts": [
         "955 N Railroad Avenue, Suite B is explicitly a sales gallery, not proof of the residence address. Earlier site references differ; confirm building address.",
-        "Older 2029 delivery reporting is historical guidance; request a current construction schedule."
+        "Older 2029 delivery reporting is historical guidance; request a current construction schedule.",
+        "November 2026 DAC staff report uses 117 units; applicant attachment p. 62 says 122 condominiums, but its parking table p. 63 uses 117. Current approved program remains unresolved.",
+        "The packet cover dated November 6 lists a November 10, 2026 hearing at 9 AM; embedded agenda p. 5 says November 11. No rescheduling is inferred.",
+        "Staff describe 339,762 gross square feet; applicant attachment describes 339,559 square feet counted toward FAR. Different source scopes and area definitions are retained.",
+        "Staff recommendations and proposed conditions are not proof of committee approval, permits, construction commencement, an executed HCD agreement or compliance."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
@@ -420,10 +424,11 @@ export const canonicalProjectModel = {
         "https://norahouse.com/",
         "https://norahouse.com/amenities/",
         "https://norahouse.com/team/",
-        "https://norahouse.com/features-finishes/"
+        "https://norahouse.com/features-finishes/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf"
       ],
       "reviewedFields": {
-        "residences": "117 marketed residences; municipal plan lists 122",
+        "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
         "address": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)"
       },
       "fieldSources": {

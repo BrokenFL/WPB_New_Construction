@@ -14,6 +14,29 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("NORA DAC staff recommendation keeps conflicting program counts and approval fields qualified", async () => {
+  const project = model.find(p => p.publicSlug === "nora-house");
+  const copy = copies.find(p => p.repoProjectId === "nora-house");
+  assert.match(project.residences, /117 marketed residences.*City staff report: 117.*applicant attachment: 122/);
+  assert.equal(project.residences, overrides["nora-house"].residenceCount.value);
+  assert.equal(project.residences, rows.find(p => p.project_id === "nora-house-wpb").residence_count);
+  assert.equal(overrides["nora-house"].residenceCount.schemaSafe, false);
+  assert.match(copy.overview, /staff recommend special-review approval with conditions and approval of four variances/);
+  assert.match(copy.overview, /not evidence of committee approval, building permits or construction commencement/);
+  assert.match(copy.brookeTake, /November 10, 2026 hearing at 9 AM.*agenda says November 11/);
+  assert.match(copy.brookeTake, /does not establish an executed agreement or compliance/);
+  const safe = safeProjects.find(p => p.identity.slug === "nora-house").safeFields;
+  for (const field of ["residenceCount", "status", "delivery", "address"]) assert.equal(safe[field], undefined);
+  const html = await fs.readFile("dist/projects/nora-house/index.html", "utf8");
+  assert.match(html, /City staff report: 117; applicant attachment: 122/);
+  const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
+  const entity = graph.find(n => n["@id"]?.endsWith("#project"));
+  assert.equal(entity.numberOfAccommodationUnits, undefined);
+  assert.doesNotMatch(JSON.stringify(entity), /"(?:offers|availability|completionDate|numberOfAvailableAccommodationUnits)"|Development status|Delivery guidance/);
+  const faq = (await readJson("public/data/answer-engine-faq.json")).find(item => item.id === "stories-and-residence-counts");
+  assert.match(faq.answer, /NORA House.*117 units in the November 2026 City staff report.*applicant attachment lists 122/);
+});
+
 test("Olara starting guidance is sponsor-advertised $2M without promoting a price Offer", async () => {
   const project=model.find(p=>p.publicSlug==="olara"),copy=copies.find(p=>p.repoProjectId==="olara");
   assert.match(project.price,/From \$2M.*sponsor-advertised.*verify current availability.*residence-specific terms/);

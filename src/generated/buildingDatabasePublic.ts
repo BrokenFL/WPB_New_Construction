@@ -598,7 +598,7 @@ export const publicBuildingDatabaseItems: PublicBuildingDatabaseItem[] = [
     "corridor": "Downtown",
     "development_stage": "Sales Open / Preconstruction",
     "status_badge": "Sales Open / Preconstruction",
-    "residence_count": "117 marketed residences; municipal plan lists 122",
+    "residence_count": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
     "tower_count": "1",
     "floor_count": "11",
     "building_type": "New-construction luxury condominium in a mixed-use urban district",

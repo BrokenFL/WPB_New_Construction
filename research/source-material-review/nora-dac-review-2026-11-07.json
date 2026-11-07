@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "purpose": "Bounded reviewed source/change record, not a project database",
+  "baseCommit": "49e485415370e7265deef549d4797a8be96d8145",
+  "source": {
+    "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
+    "checkedAt": "2026-11-07T13:53:07.418879+00:00",
+    "sha256": "11e7b5bec5f7164ccf6df038fd16865cfdc05576c08271c839b51ba2fd3dc6bf",
+    "pages": 86,
+    "coverDate": "2026-11-06",
+    "hearingDateConflict": [
+      "2026-11-10 09:00 per PDF page 2 cover",
+      "2026-11-11 per PDF page 5 agenda"
+    ],
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "",
+      "author": "Jasmine Hodgson",
+      "subject": "",
+      "keywords": "",
+      "creator": "Adobe Acrobat (64-bit) 26.3.22075",
+      "producer": "Adobe Acrobat (64-bit) 26.3.22075",
+      "creationDate": "D:20261106174808-05'00'",
+      "modDate": "D:20261106174808-05'00'",
+      "trapped": "",
+      "encryption": null
+    }
+  },
+  "reviewedAt": "2026-11-07T13:56:47.398Z",
+  "reviewer": "Codex under standing building-fact maintenance authorization",
+  "project": "nora-house",
+  "case": "FSPR 25-03 / DMP-000330-2025 at 1105 N Dixie Highway",
+  "priorCountGuidance": "117 marketed residences; municipal plan lists 122",
+  "countGuidance": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
+  "schemaSafe": false,
+  "staffProposal": {
+    "pdfPages": [
+      26,
+      28
+    ],
+    "dwellingUnits": 117,
+    "stories": 11,
+    "heightFeet": 125,
+    "grossSquareFeet": 339762,
+    "parkingSpaces": 313,
+    "scope": "Staff description of a proposed program, not inventory or proof of approval"
+  },
+  "applicantAttachment": {
+    "pdfPage": 62,
+    "condominiums": 122,
+    "areaCountedTowardFAR": 339559,
+    "parkingTablePdfPage": 63,
+    "parkingTableResidentialUnits": 117,
+    "scope": "Conflicting applicant text; FAR area not equated to staff gross area"
+  },
+  "staffRecommendation": {
+    "pdfPages": [
+      26,
+      27
+    ],
+    "specialReview": "Approval with conditions recommended",
+    "variances": "Approval of four variances recommended",
+    "outcome": "No committee decision, permit issuance or construction commencement established by this source"
+  },
+  "housingRequirement": {
+    "pdfPage": 29,
+    "statement": "Staff say an HCD agreement identifying the concurrent off-site income-restricted project is required before building permits",
+    "executedAgreementOrComplianceEstablished": false
+  },
+  "conditions": {
+    "pdfPages": [
+      26,
+      27
+    ],
+    "scope": "Proposed traffic, parking, sidewalk and occupancy conditions; adoption or satisfaction not established"
+  },
+  "unresolved": [
+    "117/122 program conflict",
+    "November 10/11 hearing-date conflict; no rescheduling inferred",
+    "Staff gross area vs applicant FAR area definitions",
+    "Committee outcome, permits and construction commencement",
+    "Executed HCD agreement and compliance",
+    "Prior fee, deposit, policy and timing holds"
+  ],
+  "preserved": [
+    "Pricing",
+    "Existing sales/preconstruction status",
+    "Delivery and fee holds",
+    "Project identities/routes",
+    "Other projects",
+    "Historical articles and source snapshots"
+  ],
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

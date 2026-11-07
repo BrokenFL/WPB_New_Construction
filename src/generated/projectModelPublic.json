@@ -435,10 +435,10 @@
       "projectType": "condo-active-sales",
       "status": "Sales Open / Preconstruction",
       "delivery": "Request current delivery guidance",
-      "residences": "117 marketed residences; municipal plan lists 122",
+      "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
       "price": "From the low $2Ms (developer-published; verify current availability)",
       "reviewedFields": {
-        "residences": "117 marketed residences; municipal plan lists 122",
+        "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
         "address": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)"
       },
       "facts": {
@@ -446,7 +446,7 @@
         "salesGalleryAddress": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
         "mailingAddress": "",
         "planningParcelAddress": "",
-        "canonicalResidenceCount": "117 marketed residences; municipal plan lists 122",
+        "canonicalResidenceCount": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Request current delivery guidance",
         "priorDeliveryGuidance": [],
@@ -474,7 +474,7 @@
           "Large terraces"
         ],
         "neighborhoodContext": "Nora District",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-11-07",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
@@ -489,7 +489,8 @@
         "https://norahouse.com/",
         "https://norahouse.com/amenities/",
         "https://norahouse.com/team/",
-        "https://norahouse.com/features-finishes/"
+        "https://norahouse.com/features-finishes/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf"
       ],
       "lookupAliases": [
         "nora-house",

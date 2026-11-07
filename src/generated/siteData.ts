@@ -2146,7 +2146,7 @@ export const answerEngineFaq = [
     "id": "stories-and-residence-counts",
     "shortLabel": "Stories + units",
     "question": "How many stories and residences does each major project have?",
-    "answer": "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
+    "answer": "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories with 117 units in the November 2026 City staff report, while the applicant attachment lists 122; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
     "concept": "Project facts",
     "relatedProjectIds": [
       "olara",
@@ -2163,6 +2163,16 @@ export const answerEngineFaq = [
       "project review file"
     ],
     "sourceCitations": [
+      {
+        "label": "City November 2026 DAC packet",
+        "href": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
+        "note": "Staff report pp. 26–28: 117 units and 11 stories; applicant attachment p. 62: 122 condos; parking table p. 63: 117. Staff recommendation before a hearing, with no final approved count established.",
+        "sourceType": "official municipal staff packet",
+        "dateAccessed": "2026-11-07",
+        "supportsClaim": "Qualified NORA House count guidance",
+        "claimText": "City staff describe 117 units and 11 stories; the applicant attachment retains a conflicting 122-condominium description.",
+        "confidence": "high"
+      },
       {
         "label": "Ritz-Carlton WPB construction report",
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
@@ -3937,7 +3947,7 @@ export const projectFacts = [
     "name": "Nora House",
     "area": "Downtown",
     "projectType": "condo-active-sales",
-    "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a buyer appointment at 955 N Railroad Avenue, Suite B. The project sponsor advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
+    "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a sales gallery at 955 N Railroad Avenue, Suite B. The developer advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
@@ -3945,10 +3955,10 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Sales Open / Preconstruction",
-      "residences": "117 marketed residences; municipal plan lists 122",
+      "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
       "stories": "11",
       "completion": "Request current delivery guidance",
-      "pricing": "From the low $2Ms (project sponsor-published; verify current availability)",
+      "pricing": "From the low $2Ms (developer-published; verify current availability)",
       "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Connor & Gaskins",
       "amenities": "Rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot/cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, bocce.",
       "residenceFeatures": [
@@ -3966,7 +3976,7 @@ export const projectFacts = [
         "Large terraces"
       ],
       "neighborhoodContext": "Nora District",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-11-07"
     },
     "sources": [
       {
@@ -3980,6 +3990,9 @@ export const projectFacts = [
       },
       {
         "url": "https://norahouse.com/features-finishes/"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf"
       }
     ]
   },

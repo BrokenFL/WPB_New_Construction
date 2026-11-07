@@ -469,7 +469,7 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "Official site foregrounds 955 N Railroad Avenue sales gallery; building site recommended as 1105 N Dixie Highway.",
+      "municipal_or_legal_note": "Official site foregrounds 955 N Railroad Avenue sales gallery; building site recommended as 1105 N Dixie Highway. | November 7, 2026 source review of the City DAC packet: PDF pp. 26 and 28 describe 117 units at 1105 N Dixie Highway; applicant attachment p. 62 says 122 condominiums, while its parking table on p. 63 uses 117. This refines the prior marketing-versus-municipal qualifier without resolving the program conflict or establishing available inventory. Staff recommend special-review approval with conditions and approval of four variances (pp. 26–27); this does not establish committee approval, permits or construction commencement. The cover dated November 6 gives November 10 at 9 AM (p. 2), while the embedded agenda says November 11 (p. 5); preserve the discrepancy, do not infer rescheduling. Staff describe 339,762 gross sq ft, 11 stories, 125 feet and 313 parking spaces; the applicant describes 339,559 sq ft counted toward FAR. Preserve area definitions and source differences. Page 29 states an HCD agreement must identify the concurrent off-site income-restricted housing project before building permits; no executed agreement or compliance is established. Proposed traffic, parking, sidewalk and occupancy conditions are not adopted or satisfied conditions. Existing pricing, delivery, fee, deposit and policy guidance retains its prior review scope. Source: https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
       "public_residence_count": 117,
       "municipal_residence_count": null,
       "floor_count_display": 11,
@@ -532,13 +532,18 @@
       ],
       "key_conflicts": [
         "955 N Railroad Avenue, Suite B is explicitly a sales gallery, not proof of the residence address. Earlier site references differ; confirm building address.",
-        "Older 2029 delivery reporting is historical guidance; request a current construction schedule."
+        "Older 2029 delivery reporting is historical guidance; request a current construction schedule.",
+        "November 2026 DAC staff report uses 117 units; applicant attachment p. 62 says 122 condominiums, but its parking table p. 63 uses 117. Current approved program remains unresolved.",
+        "The packet cover dated November 6 lists a November 10, 2026 hearing at 9 AM; embedded agenda p. 5 says November 11. No rescheduling is inferred.",
+        "Staff describe 339,762 gross square feet; applicant attachment describes 339,559 square feet counted toward FAR. Different source scopes and area definitions are retained.",
+        "Staff recommendations and proposed conditions are not proof of committee approval, permits, construction commencement, an executed HCD agreement or compliance."
       ],
       "source_urls": [
         "https://norahouse.com/",
         "https://norahouse.com/amenities/",
         "https://norahouse.com/team/",
-        "https://norahouse.com/features-finishes/"
+        "https://norahouse.com/features-finishes/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf"
       ],
       "human_review_required": true,
       "confidence_level": "high",
@@ -552,7 +557,8 @@
       "development_stage": "active_sales_preconstruction",
       "public_address": "NORA District, West Palm Beach, FL 33401; confirm building address",
       "neighborhood": "Nora District",
-      "sales_gallery_address": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401"
+      "sales_gallery_address": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
+      "fact_revision_date": "2026-11-07"
     },
     {
       "include_on_site": true,

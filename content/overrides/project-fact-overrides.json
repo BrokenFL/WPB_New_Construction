@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T13:58:36.403Z",
+  "updatedAt": "2026-11-07T13:56:47.398Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -424,12 +424,12 @@
         "schemaSafe": false
       },
       "residenceCount": {
-        "value": "117 marketed residences; municipal plan lists 122",
+        "value": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
         "source": "manual_review",
         "preferredFrom": "custom",
-        "reviewedBy": "Codex — Brooke-authorized official-source review",
-        "reviewedAt": "2026-10-09T01:23:53.816Z",
-        "note": "Project architect Swedroe and contractor Connor+Gaskins say 117. City Nora East record at the same 1105 N Dixie address says 122. Program/plan revision is unresolved; withhold numeric total schema. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://swedroe.com/projects/nora-house/ ; https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0",
+        "reviewedBy": "Codex — source review under Brooke’s standing building-fact maintenance instruction",
+        "reviewedAt": "2026-11-07T13:56:47.398Z",
+        "note": "Project architect Swedroe and contractor Connor+Gaskins say 117. City Nora East record at the same 1105 N Dixie address says 122. Program/plan revision is unresolved; withhold numeric total schema. Retrieved 2026-10-09; an undated page or the city bulk-update timestamp is not a project event date. Sources: https://swedroe.com/projects/nora-house/ ; https://connorgaskins.com/connorgaskins-vertical-to-deliver-nora-house-elevating-luxury-living-in-west-palm-beach/ ; https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0 | November 7, 2026 source review of the City DAC packet: PDF pp. 26 and 28 describe 117 units at 1105 N Dixie Highway; applicant attachment p. 62 says 122 condominiums, while its parking table on p. 63 uses 117. This refines the prior marketing-versus-municipal qualifier without resolving the program conflict or establishing available inventory. Staff recommend special-review approval with conditions and approval of four variances (pp. 26–27); this does not establish committee approval, permits or construction commencement. The cover dated November 6 gives November 10 at 9 AM (p. 2), while the embedded agenda says November 11 (p. 5); preserve the discrepancy, do not infer rescheduling. Staff describe 339,762 gross sq ft, 11 stories, 125 feet and 313 parking spaces; the applicant describes 339,559 sq ft counted toward FAR. Preserve area definitions and source differences. Page 29 states an HCD agreement must identify the concurrent off-site income-restricted housing project before building permits; no executed agreement or compliance is established. Proposed traffic, parking, sidewalk and occupancy conditions are not adopted or satisfied conditions. Existing pricing, delivery, fee, deposit and policy guidance retains its prior review scope. Source: https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
         "schemaSafe": false
       }
     },
