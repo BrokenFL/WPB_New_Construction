@@ -2,6 +2,30 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-11-08T14:28:35.076Z",
+      "action": "project-copy-source-review",
+      "detail": {
+        "projectSlug": "rybovich-marina-redevelopment",
+        "fields": [
+          "dated historical financing context",
+          "canonical source provenance",
+          "profile introduction"
+        ],
+        "priorContext": "No $322M/Tyko financing note in the current canonical record or profile at base 882ac7e",
+        "sourceUrls": [
+          "https://commercialobserver.com/2026/08/tyko-integra-west-palm/",
+          "https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/"
+        ],
+        "sourcePublishedDate": "2026-08-31",
+        "eventOrClosingDate": null,
+        "note": "November 8, 2026 historical-context review: Historical financing context: Commercial Observer reported on August 31, 2026 that Tyko Capital provided a $322 million acquisition and construction loan for Integra’s Rybovich marina project, quoting Integra’s confirmation. Financing does not establish a residential sales launch, final project program, building permit or construction start. The report’s 15-acre transaction description does not replace the 19-acre concept shown here; current loan terms and site boundaries remain unverified. Cathy Cunningham’s article displays August 31, 2026 at 8:00 AM, with no timezone or exact closing date established here. November 8 is the retrieval/review date, not a financing event date. Traded’s same-day follow-on is secondary reporting, not independent financing documentation. Do not adopt the secondary tracker’s October 28 label as the event date. Preserve the existing 259-unit approved phase, unresolved City 291-unit scope, up-to-660 concept and every current manual fact/schema hold. Primary: https://commercialobserver.com/2026/08/tyko-integra-west-palm/ Follow-on: https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/",
+        "manualFactsChanged": false,
+        "schemaPermissionsChanged": false,
+        "reviewer": "Codex under standing building-fact maintenance authorization",
+        "record": "docs/RYBOVICH_FINANCING_CONTEXT_2026_11_08.md"
+      }
+    },
+    {
       "at": "2026-11-07T13:56:47.398Z",
       "action": "project-fact-override",
       "detail": {

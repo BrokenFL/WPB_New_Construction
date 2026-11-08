@@ -4410,7 +4410,7 @@ export const projectFacts = [
       "amenities": "Large-scale 19-acre marina redevelopment with waterfront condominium towers and marina context; detailed residential amenities not yet finalized publicly.",
       "residenceFeatures": [],
       "neighborhoodContext": "North Flagler / Rybovich waterfront",
-      "effectiveDate": "2026-10-10"
+      "effectiveDate": "2026-11-08"
     },
     "sources": [
       {
@@ -4418,6 +4418,12 @@ export const projectFacts = [
       },
       {
         "url": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://commercialobserver.com/2026/08/tyko-integra-west-palm/"
+      },
+      {
+        "url": "https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/"
       }
     ]
   },

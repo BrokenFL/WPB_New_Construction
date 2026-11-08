@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "purpose": "Bounded historical source/change record, not a project database",
+  "baseCommit": "882ac7ee4188485b40d78a64f551e8316111f189",
+  "project": "rybovich-marina-redevelopment",
+  "reviewedAt": "2026-11-08T14:28:35.076Z",
+  "reviewer": "Codex under standing building-fact maintenance authorization",
+  "alreadyRepresented": false,
+  "sources": [
+    {
+      "key": "commercial-observer",
+      "url": "https://commercialobserver.com/2026/08/tyko-integra-west-palm/",
+      "checkedAt": "2026-11-08T14:26:07.661Z",
+      "sha256": "0957978562e69c467d79c250e0392a06a0a508ac9e3d04de18b9cbe88b91bf57",
+      "author": "Cathy Cunningham",
+      "publicationDate": "2026-08-31",
+      "publisherDisplayedTime": "8:00 am",
+      "publisherDisplayedTimezone": null,
+      "eventOrClosingDate": null,
+      "role": "Original reporting with quoted Integra confirmation; no independent loan document reviewed",
+      "visibleIntegraConfirmation": true
+    },
+    {
+      "key": "traded",
+      "url": "https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/",
+      "checkedAt": "2026-11-08T14:27:18.062Z",
+      "publicationDate": "2026-08-31",
+      "role": "Same-day follow-on reporting; not independent financing documentation",
+      "access": "Opened in web reader; direct headless fetch returned HTTP 403; not used as primary evidence",
+      "sha256": null
+    }
+  ],
+  "publicNote": "Historical financing context: Commercial Observer reported on August 31, 2026 that Tyko Capital provided a $322 million acquisition and construction loan for Integra’s Rybovich marina project, quoting Integra’s confirmation. Financing does not establish a residential sales launch, final project program, building permit or construction start. The report’s 15-acre transaction description does not replace the 19-acre concept shown here; current loan terms and site boundaries remain unverified.",
+  "interpretation": "Historical financing reporting; no November 8 financing event or current loan terms established",
+  "reportedTransactionScope": {
+    "site": "Safe Harbor Rybovich at 4200 North Flagler Drive",
+    "acres": 15,
+    "scope": "Article transaction description; not a replacement for the existing 19-acre concept"
+  },
+  "eventOrClosingDate": null,
+  "schemaDisposition": "Keep project JSON-LD unchanged; no loan/finance field or promotion of count, status, delivery, address, price or availability",
+  "manualFactsChanged": false,
+  "preserved": [
+    "19-acre concept",
+    "259-unit approved phase in PBAs 4, 8, 9 and 10",
+    "Unresolved City 291-unit scope",
+    "Up-to-660-home concept and approval limits",
+    "All manual facts/schema holds",
+    "Current schedule, pricing, fee, policy and availability holds",
+    "Historical articles and other projects"
+  ],
+  "excludedTrackerDate": {
+    "label": "October 28",
+    "scope": "Secondary tracker label supplied by audit; not adopted as an event date. No additional tracker source was reviewed."
+  },
+  "unresolved": [
+    "Exact loan closing date and current loan terms",
+    "15-acre transaction boundaries versus 19-acre concept",
+    "Final project program and 259/291/660 approval scopes",
+    "Residential sales launch, building permits and construction commencement",
+    "Existing timing, price, fee and availability holds"
+  ],
+  "cloudEvidenceRoot": "/workspace/shared/wpb_morning_20261108 was not available locally; actual public sources were opened instead",
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

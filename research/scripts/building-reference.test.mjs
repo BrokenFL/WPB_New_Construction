@@ -14,6 +14,26 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("Rybovich financing stays dated reporting without changing project schema or approval scope", async () => {
+  const project = model.find(p => p.publicSlug === "rybovich-marina-redevelopment");
+  const copy = copies.find(p => p.repoProjectId === project.publicSlug);
+  assert.match(copy.overview, /Historical financing context: Commercial Observer reported on August 31, 2026.*Tyko Capital.*\$322 million acquisition and construction loan.*Integra.*quoting Integra’s confirmation/);
+  assert.match(copy.overview, /Financing does not establish a residential sales launch, final project program, building permit or construction start/);
+  assert.match(copy.overview, /15-acre transaction description does not replace the 19-acre concept.*current loan terms and site boundaries remain unverified/);
+  assert.equal(copy.showcase.intro, copy.overview);
+  assert.match(project.residences, /Up to 660 planned across four towers; phase counts to confirm/);
+  assert.equal(overrides[project.publicSlug].status.schemaSafe, false);
+  assert.equal(overrides[project.publicSlug].residenceCount.schemaSafe, false);
+  const safe = safeProjects.find(p => p.identity.slug === project.publicSlug).safeFields;
+  for (const field of ["residenceCount", "status", "delivery", "address"]) assert.equal(safe[field], undefined);
+  const html = await fs.readFile("dist/projects/rybovich-marina-redevelopment/index.html", "utf8");
+  assert.match(html, /Commercial Observer reported on August 31, 2026/);
+  assert.match(html, /\$322 million acquisition and construction loan/);
+  const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
+  const entity = graph.find(n => n["@id"]?.endsWith("#project"));
+  assert.doesNotMatch(JSON.stringify(entity), /322|Tyko|LoanOrCredit|FinancialProduct|"(?:numberOfAccommodationUnits|offers|availability|completionDate|numberOfAvailableAccommodationUnits)"|Development status|Delivery guidance/);
+});
+
 test("NORA DAC staff recommendation keeps conflicting program counts and approval fields qualified", async () => {
   const project = model.find(p => p.publicSlug === "nora-house");
   const copy = copies.find(p => p.repoProjectId === "nora-house");

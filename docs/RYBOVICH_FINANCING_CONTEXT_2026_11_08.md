@@ -1,0 +1,13 @@
+# Rybovich historical financing context, November 8 review
+
+Base: clean synchronized `main` at `882ac7ee4188485b40d78a64f551e8316111f189`. The current canonical record, source catalog and actual live profile lacked the financing note. A narrow addition is warranted through the [existing reviewed-fact procedure](REVIEWED_BUILDING_FACT_RELEASE.md).
+
+[Cathy Cunningham's Commercial Observer report](https://commercialobserver.com/2026/08/tyko-integra-west-palm/) displays August 31, 2026 at 8:00 AM. Its public body was read directly and includes Integra's confirmation of the financing. The displayed timezone and exact loan closing date are not established here. The [Traded follow-on](https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/) is secondary reporting, not independent loan documentation. November 8 is this review's date, not a financing event. The supplied tracker's October 28 label is not adopted.
+
+The dated profile note attributes the $322 million acquisition/construction financing to the August report. It retains the distinction between the report's 15-acre transaction description and the existing 19-acre concept. Boundaries and current loan terms remain unverified. Financing establishes no residential sales launch, final program, permit or construction milestone.
+
+The prior 259-unit approved phase, City 291-unit scope and broader up-to-660 concept remain qualified. All manual facts, status/count/address/delivery schema holds, project identity/URL, pricing, timing, fee/policy and availability guidance are preserved. No financial product, loan amount, Offer or new numeric project total is added to JSON-LD. Historical articles are untouched; no news article or schedule is created.
+
+Authored changes are limited to canonical provenance, the copy introduction, a source-review changelog entry, this handoff, a bounded source/change record and regression coverage. Run `npm run facts:refresh -- --projects=rybovich-marina-redevelopment`, then `npm run facts:check -- --projects=rybovich-marina-redevelopment`. No Compare row or FAQ financing claim exists to revise. Generated consumers are produced by that existing entry point.
+
+Private source bytes/hash, actual pre-release live baseline, QA and final release receipts are under `.runtime/rybovich-financing-2026-11-08/`. The tracked evidence record is `research/source-material-review/rybovich-financing-review-2026-11-08.json`. Cloud audit files were unavailable on this Mac; the public sources were inspected directly. Codebase-memory tools were unavailable; direct reads confirmed the current source/generator boundaries. Final commit, push, CI/deployment and live verification states are recorded separately in the release receipt.

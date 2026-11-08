@@ -1315,7 +1315,7 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program.",
+      "municipal_or_legal_note": "The city decision published November 12, 2025 confirms Commission approval on November 10 of a 259-unit Level III site plan for Permissible Building Areas 4, 8, 9 and 10. This does not confirm approval of the full 660-home concept or reconcile the city map’s 291-unit program. | November 8, 2026 historical-context review: Historical financing context: Commercial Observer reported on August 31, 2026 that Tyko Capital provided a $322 million acquisition and construction loan for Integra’s Rybovich marina project, quoting Integra’s confirmation. Financing does not establish a residential sales launch, final project program, building permit or construction start. The report’s 15-acre transaction description does not replace the 19-acre concept shown here; current loan terms and site boundaries remain unverified. Cathy Cunningham’s article displays August 31, 2026 at 8:00 AM, with no timezone or exact closing date established here. November 8 is the retrieval/review date, not a financing event date. Traded’s same-day follow-on is secondary reporting, not independent financing documentation. Do not adopt the secondary tracker’s October 28 label as the event date. Preserve the existing 259-unit approved phase, unresolved City 291-unit scope, up-to-660 concept and every current manual fact/schema hold. Primary: https://commercialobserver.com/2026/08/tyko-integra-west-palm/ Follow-on: https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/",
       "public_residence_count": "Up to 660 planned across four towers; phase counts to confirm",
       "municipal_residence_count": "259-unit Level III site plan approved November 10, 2025 for PBAs 4, 8, 9 and 10; city map 291-unit scope unresolved",
       "floor_count_display": "34 and 36 stories for initial two towers; future towers up to 445 ft reported",
@@ -1355,7 +1355,9 @@
       ],
       "source_urls": [
         "https://www.wpb.org/News-Folder/News-2025/111225-Mayor-CCCRA-Approvals-and-Decisions",
-        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "https://commercialobserver.com/2026/08/tyko-integra-west-palm/",
+        "https://traded.co/blog/tyko-capital-provides-322-million-loan-for-west-palm-beach-marina-project/"
       ],
       "human_review_required": true,
       "confidence_level": "medium",
@@ -1369,7 +1371,7 @@
       "development_stage": "planning_approved_watchlist",
       "public_address": "4000–4300 N Flagler Drive, West Palm Beach, FL",
       "neighborhood": "North Flagler / Rybovich waterfront",
-      "fact_revision_date": "2026-10-10"
+      "fact_revision_date": "2026-11-08"
     },
     {
       "include_on_site": true,
