@@ -32,7 +32,8 @@ concurrency:
 
 jobs:
   cycle:
-    runs-on: ubuntu-latest
+    # Locked Playwright 1.60 Chromium rejects Ubuntu 26.04; keep the verified OS.
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
       P2_DRY_RUN: ${{ vars.P2_DRY_RUN || '1' }}

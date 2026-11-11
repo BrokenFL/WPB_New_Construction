@@ -108,6 +108,14 @@ as fallback; the reliable wake path is a 15-minute Apps Script trigger calling
 `wakeIntelFastCycle()`, which sends only repository dispatch event
 `wpb-intel-scan`. See `docs/P2_FAST_MODE.md`.
 
+Fast Cycle, its checked-in template and the active Cloudflare deployment job
+pin `ubuntu-24.04`. The locked Playwright 1.60 Chromium installer rejects
+Ubuntu 26.04, which `ubuntu-latest` began selecting on November 10, 2026.
+Keep the OS pin until an OS/browser upgrade is explicitly tested. The
+`browser-runner-compatibility.yml` PR check uses read-only repository
+permissions, fixture tests and an actual Chromium install/launch without
+publication credentials. It does not execute the live cycle or deployment.
+
 `live-news-agent-task.yml` and `biweekly-content-agent-task.yml` remain
 disconnected issue producers. Retire their schedules only after Fast Mode has
 proved all four observable stages against the real Sheet:

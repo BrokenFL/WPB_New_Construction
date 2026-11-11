@@ -8,7 +8,8 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    # Share Fast Cycle's verified OS for the locked Playwright Chromium install.
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     env:
