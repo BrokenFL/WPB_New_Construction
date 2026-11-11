@@ -32,7 +32,7 @@ import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
 import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrides.json";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
-import { marketNotePath, marketNoteRouteBase, marketNoteForPath } from "./lib/marketNoteRouting.ts";
+import { marketNotePath, marketNoteRouteBase, marketNoteForPath, marketNoteAliasTarget } from "./lib/marketNoteRouting.ts";
 import { renderMarketNoteBody } from "./lib/marketNoteBody.ts";
 import { publishedDowntownSpotlights, renderDowntownSpotlightDesk } from "./lib/downtownSpotlight.ts";
 import { track } from "./lib/analytics";
@@ -4748,6 +4748,8 @@ function getCurrentRoute(): Route {
 }
 
 function canonicalAliasTarget(pathname: string) {
+  const marketNoteAlias = marketNoteAliasTarget(pathname);
+  if (marketNoteAlias) return marketNoteAlias;
   const articleAlias = pathname.match(/^\/(?:market-notes|blog|guidance)\/([^/]+)\/?$/);
   const answersArticle = articleAlias && marketNotes.find(note => note.status === "published" && note.slug === articleAlias[1] && marketNoteRouteBase(note) === "/answers/");
   if (answersArticle) return marketNotePath(answersArticle);

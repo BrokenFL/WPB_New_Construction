@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { marketNotePath, marketNoteForPath, validateBuyerRouteBase } from "../../src/lib/marketNoteRouting.ts";
+import { marketNotePath, marketNoteForPath, marketNoteAliasTarget, validateBuyerRouteBase } from "../../src/lib/marketNoteRouting.ts";
+import { readFileSync } from "node:fs";
 import { renderMarketNoteBody } from "../../src/lib/marketNoteBody.ts";
 import test from "node:test";
 import { readBuyerIntentAnswerPages, readTsArray, removeBuyerIntentAnswerPage, upsertTsArrayObject } from "./article-market-note-utils.mjs";
@@ -11,6 +12,28 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
 ];
 const trailingCode = "keep";
 `;
+
+test("the retired Fuku route redirects to the published article and stays out of discovery", () => {
+  const retired = "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/";
+  const canonical = "/downtown-spotlight/fuku-gives-cityplace-another-reason-to-linger-on-rosemary/";
+  const read = (file) => readFileSync(new URL(`../../${file}`, import.meta.url), "utf8");
+  const notes = readTsArray(read("src/data/marketNotes.ts"), "marketNotes");
+  assert.equal(marketNotePath(marketNoteForPath(notes, canonical)), canonical);
+  assert.equal(marketNoteForPath(notes, retired), undefined);
+  const redirects = read("public/_redirects").split("\n").map(line => line.trim().split(/\s+/));
+  for (const path of [retired, retired.slice(0, -1)]) {
+    assert.equal(marketNoteAliasTarget(path), canonical);
+    assert.ok(redirects.some(([from, to, status]) => from === path && to === canonical && status === "301"));
+  }
+  assert.equal(marketNoteAliasTarget(canonical), "");
+  assert.equal(marketNoteAliasTarget("/downtown-spotlight/unknown/"), "");
+  for (const file of ["src/generated/siteData.ts", "public/sitemap.xml", "public/llms.txt"]) {
+    const content = read(file);
+    assert.ok(!content.includes(retired), `${file} must omit the retired route`);
+    assert.ok(content.includes(canonical), `${file} must retain the article route`);
+  }
+  assert.ok(!read("research/scripts/build-site-intelligence.mjs").includes(retired.slice(1, -1).split("/")[1]), "the generator must not recreate the thin Fuku route");
+});
 
 test("refreshing a legacy Answers guide removes only its old record and FAQ", () => {
   const next = removeBuyerIntentAnswerPage(answerSource, "update");

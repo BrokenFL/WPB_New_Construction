@@ -7635,12 +7635,6 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
   },
   {
-    "path": "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/",
-    "title": "Fuku at CityPlace: easy downtown draw | Downtown Spotlight",
-    "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work and into the late shift.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
-  },
-  {
     "path": "/downtown-spotlight/nora-hotel-countdown/",
     "title": "The Nora Hotel's real opening date | Downtown Spotlight",
     "description": "NORA's first wave of tenants is open and the 201-key hotel is scheduled to welcome guests on Oct. 19 — North Railroad Avenue is moving from promise to calendar.",
