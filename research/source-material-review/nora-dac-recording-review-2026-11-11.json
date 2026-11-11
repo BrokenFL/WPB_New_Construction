@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "purpose": "Bounded source/change record for attributed NORA procedural context; not a project database or unqualified legal-outcome finding",
+  "project": "nora-house",
+  "baseCommit": "d8daae643b9a92e85455c40c176200c8f4147721",
+  "reviewedAt": "2026-11-11T22:27:41.209414+00:00",
+  "reviewer": "Codex under Brooke’s standing reviewed building-fact release authorization",
+  "sources": {
+    "recording": {
+      "url": "https://www.youtube.com/watch?v=_c-mP6I2_kA",
+      "publisher": "WPB-TV",
+      "title": "Downtown Action Committee Meeting | November 10, 2026",
+      "basis": "Visible YouTube auto-generated transcript; no independently reviewed audio or signed minutes",
+      "auditTranscriptObservedFrom": "2026-11-11T22:22:22Z",
+      "auditTranscriptObservedThrough": "2026-11-11T22:22:31Z",
+      "observationScope": "Coordinating audit fresh visible transcript capture; release owner independently reopened and read the visible transcript in the preceding read-only review",
+      "eventDate": "Unresolved November 10/11 discrepancy; not replaced with observation date"
+    },
+    "packet": {
+      "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
+      "sha256": "11e7b5bec5f7164ccf6df038fd16865cfdc05576c08271c839b51ba2fd3dc6bf",
+      "existingReview": "research/source-material-review/nora-dac-review-2026-11-07.json",
+      "retrievalScope": "Coordinating audit reported fresh HTTP 200 with this hash; release owner’s fresh request returned HTTP 403 and was not retried. Existing local copy hash matches.",
+      "identifierPages": [
+        5,
+        6,
+        12,
+        25
+      ],
+      "tdrScopePages": [
+        17,
+        18,
+        20,
+        21
+      ]
+    }
+  },
+  "sitePlan": {
+    "case": "25-03",
+    "application": "DMP-000330-2025",
+    "transcriptScope": "A motion to continue the site-plan case to December 9 carries; this does not establish site-plan approval",
+    "transcriptTimes": [
+      "1:34–2:04",
+      "2:58–3:06",
+      "11:33"
+    ],
+    "asrWarning": "Transcript renders 25-03 as 253; identifiers come from packet"
+  },
+  "tdr": {
+    "case": "26-09",
+    "application": "DMP-000567-2026",
+    "transcriptScope": "A separate approval motion carries; not proof of completed transfer or recordation",
+    "formalMotionTimes": [
+      "11:54–12:46",
+      "13:01–13:13"
+    ],
+    "recusalTime": "2:41",
+    "recusalScope": "One member recuses; identity not reliably established and no full-board unanimity asserted",
+    "packetSquareFeet": 334591,
+    "receivingProperties": [
+      "456 11th Street",
+      "1105 N Dixie Highway"
+    ],
+    "programScope": "Both receiving properties, The George and proposed NORA House; not a NORA House-only allocation"
+  },
+  "dateConflict": {
+    "november10": [
+      "Recording title",
+      "Packet staff report",
+      "Packet cover (dated November 6)"
+    ],
+    "november11": [
+      "Opening auto-generated transcript at 0:52",
+      "Embedded packet agenda page 5"
+    ],
+    "resolution": "Unresolved; no rescheduling inferred"
+  },
+  "preserved": [
+    "All reviewed manual facts and schema-safety holds",
+    "Sales/preconstruction status and qualified 117/122 residence guidance",
+    "HCD agreement/compliance and proposed-condition holds",
+    "Pricing, fees, deposits, delivery and availability holds",
+    "Project identity/routes, other buildings and historical evidence/articles"
+  ],
+  "unresolved": [
+    "Disputed meeting date",
+    "Independent audio review and signed minutes",
+    "Site-plan approval",
+    "Transfer completion/recordation and conditions",
+    "Permits/construction commencement",
+    "117/122 program and area-definition conflicts",
+    "HCD agreement and compliance",
+    "All prior pricing, fee and timing holds"
+  ],
+  "schemaChange": "None; preserve current project nodes and qualified omissions",
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

@@ -56,21 +56,34 @@ test("Rybovich financing stays dated reporting without changing project schema o
   assert.doesNotMatch(JSON.stringify(entity), /322|Tyko|LoanOrCredit|FinancialProduct|"(?:numberOfAccommodationUnits|offers|availability|completionDate|numberOfAvailableAccommodationUnits)"|Development status|Delivery guidance/);
 });
 
-test("NORA DAC staff recommendation keeps conflicting program counts and approval fields qualified", async () => {
+test("NORA DAC transcript context keeps the site-plan and TDR cases separate and schema held", async () => {
   const project = model.find(p => p.publicSlug === "nora-house");
   const copy = copies.find(p => p.repoProjectId === "nora-house");
   assert.match(project.residences, /117 marketed residences.*City staff report: 117.*applicant attachment: 122/);
   assert.equal(project.residences, overrides["nora-house"].residenceCount.value);
   assert.equal(project.residences, rows.find(p => p.project_id === "nora-house-wpb").residence_count);
   assert.equal(overrides["nora-house"].residenceCount.schemaSafe, false);
-  assert.match(copy.overview, /staff recommend special-review approval with conditions and approval of four variances/);
-  assert.match(copy.overview, /not evidence of committee approval, building permits or construction commencement/);
-  assert.match(copy.brookeTake, /November 10, 2026 hearing at 9 AM.*agenda says November 11/);
+  assert.match(copy.overview, /automatic transcript.*recording titled November 10, 2026/);
+  assert.match(copy.overview, /motion carried to continue.*site-plan review \(Case 25-03\) to December 9/);
+  assert.match(copy.overview, /separate motion.*TDR Case 26-09.*The George and proposed NORA House.*carried/);
+  assert.match(copy.overview, /does not establish NORA House site-plan approval, completed transfer or recordation, fulfilled conditions, building permits or construction commencement/);
+  assert.equal(copy.overview, copy.introDek);
+  assert.equal(copy.overview, copy.showcase.intro);
+  assert.match(copy.brookeTake, /recording title and staff report use November 10, 2026.*transcript and packet agenda say November 11.*date discrepancy remains unresolved/);
+  assert.match(copy.brookeTake, /no independent audio review or signed minutes were obtained/);
   assert.match(copy.brookeTake, /does not establish an executed agreement or compliance/);
+  assert.ok(copy.sourceNotes.some(note => /November 7.*staff.*recommend.*four variances/i.test(note)));
+  assert.ok(copy.sourceNotes.some(note => /One member recused.*334,591.*both receiving properties, 456 11th Street and 1105 N Dixie Highway/.test(note)));
+  assert.ok(copy.sourceNotes.some(note => /25-03 \(DMP-000330-2025\).*26-09 \(DMP-000567-2026/.test(note)));
+  assert.ok(copy.sourceUrls.includes("https://www.youtube.com/watch?v=_c-mP6I2_kA"));
+  assert.ok(project.sourceUrls.includes("https://www.youtube.com/watch?v=_c-mP6I2_kA"));
   const safe = safeProjects.find(p => p.identity.slug === "nora-house").safeFields;
   for (const field of ["residenceCount", "status", "delivery", "address"]) assert.equal(safe[field], undefined);
   const html = await fs.readFile("dist/projects/nora-house/index.html", "utf8");
   assert.match(html, /City staff report: 117; applicant attachment: 122/);
+  assert.match(html, /automatic transcript/);
+  assert.match(html, /TDR Case 26-09/);
+  assert.match(html, /date discrepancy remains unresolved/);
   const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
   const entity = graph.find(n => n["@id"]?.endsWith("#project"));
   assert.equal(entity.numberOfAccommodationUnits, undefined);

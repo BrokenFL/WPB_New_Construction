@@ -493,7 +493,8 @@ export const publicProjectModel = {
         "https://norahouse.com/amenities/",
         "https://norahouse.com/team/",
         "https://norahouse.com/features-finishes/",
-        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf"
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-action-committee/2026-agendas/final-packet-dac-11.10.26.pdf",
+        "https://www.youtube.com/watch?v=_c-mP6I2_kA"
       ],
       "lookupAliases": [
         "nora-house",
