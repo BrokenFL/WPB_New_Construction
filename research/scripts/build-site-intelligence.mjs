@@ -9,6 +9,7 @@ import { readTsArray } from "./article-market-note-utils.mjs";
 import { approved3DPlanEntities } from "../../src/lib/residence3DDiscovery.ts";
 import { publishedFloorplanEntities } from "../../src/lib/floorplanEntities.ts";
 import { addSitemapEntities } from "./prerender-floorplan-entities.mjs";
+import { marketNoteAliasTarget } from "../../src/lib/marketNoteRouting.ts";
 
 const execFileAsync = promisify(execFile);
 const workspace = process.cwd();
@@ -101,12 +102,6 @@ const downtownSpotlightRoutes = [
     title: "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
     description:
       "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
-  },
-  {
-    slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
-    title: "Fuku at CityPlace: easy downtown draw | Downtown Spotlight",
-    description:
-      "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work and into the late shift.",
   },
   {
     slug: "nora-hotel-countdown",
@@ -1449,6 +1444,32 @@ function approvedRevenueFloorplanProjects(projects) {
 }
 
 async function main() {
+  if (process.argv.includes("--route-aliases-only")) {
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    const siteData = await fs.readFile(siteDataPath, "utf8");
+    const routes = readTsArray(siteData, "prerenderRoutes");
+    if (!routes.length) throw new Error("Missing generated route inventory");
+    for (const route of routes) {
+      const target = marketNoteAliasTarget(route.path);
+      if (target && !routes.some(candidate => candidate.path === target)) throw new Error(`Missing alias destination: ${target}`);
+    }
+    const retained = routes.filter(route => !marketNoteAliasTarget(route.path));
+    const sitemapPath = path.join(workspace, "public/sitemap.xml");
+    const llmsPath = path.join(workspace, "public/llms.txt");
+    const sitemap = await fs.readFile(sitemapPath, "utf8");
+    const llms = await fs.readFile(llmsPath, "utf8");
+    // Preserve all unrelated metadata and lastmod dates during a route retirement.
+    await fs.writeFile(siteDataPath, siteData.replace(/^export const prerenderRoutes = [^]*? as const;/m,
+      () => `export const prerenderRoutes = ${JSON.stringify(retained, null, 2)} as const;`));
+    await fs.writeFile(sitemapPath, sitemap.replace(/  <url>[^]*?<\/url>\n/g, block => {
+      const canonical = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+      return canonical && marketNoteAliasTarget(new URL(canonical).pathname) ? "" : block;
+    }));
+    await fs.writeFile(llmsPath, llms.split("\n").filter(line => !marketNoteAliasTarget(line.split(": ").at(-1))).join("\n"));
+    console.log(JSON.stringify({ mode: "route-aliases-only", retiredRoutes: routes.length - retained.length,
+      outputs: ["src/generated/siteData.ts", "public/sitemap.xml", "public/llms.txt"] }));
+    return;
+  }
   if (process.argv.includes("--project-copy-only")) {
     await fs.writeFile(publicProjectCopyPackagePath, `${JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2)}\n`);
     console.log(JSON.stringify({ mode: "project-copy-only", outputs: ["public/data/project-copy-package.json"] }));

@@ -1,5 +1,13 @@
 type ArticleRoute = { slug: string; category?: string; routeBase?: string; status?: string };
 
+export function marketNoteAliasTarget(pathname: string) {
+  const path = pathname.replace(/\/$/, '') + '/';
+  if (path === '/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/') {
+    return '/downtown-spotlight/fuku-gives-cityplace-another-reason-to-linger-on-rosemary/';
+  }
+  return '';
+}
+
 export function marketNoteRouteBase(note: Pick<ArticleRoute, 'category' | 'routeBase'>) {
   if (note.routeBase === '/answers/') return '/answers/';
   return note.category === 'Downtown Spotlight' ? '/downtown-spotlight/' : '/market-notes/';

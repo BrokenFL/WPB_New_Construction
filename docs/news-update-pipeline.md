@@ -202,3 +202,15 @@ launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-news-issue-
 - Do not reuse source copy beyond short factual references.
 - Do not add images unless usage rights are clear.
 - Do not touch the live app entrypoint for editorial-only work unless the integration is scoped and conflict-free.
+
+## Retired article routes
+
+Keep the published `src/data/marketNotes.ts` article as the content authority when
+retiring an older discovery-only slug. Remove the stale route from
+`research/scripts/build-site-intelligence.mjs`, add the permanent redirect in
+`public/_redirects`, and add its client alias in `src/lib/marketNoteRouting.ts`.
+Run `node --experimental-strip-types research/scripts/build-site-intelligence.mjs --route-aliases-only`
+to remove known aliases from the generated route inventory, sitemap and crawler
+orientation without refreshing unrelated facts, metadata or lastmod dates. Check
+the destination article, redirects, prerendered HTML and client navigation before
+release; Google indexing changes require later Search Console readback.
