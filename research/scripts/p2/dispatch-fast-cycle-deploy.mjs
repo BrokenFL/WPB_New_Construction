@@ -18,7 +18,7 @@ export async function dispatchAfterContentPush({ triggerSha, token, readRemote =
   try {
     response = await request(endpoint, {
       method: "POST", redirect: "error", signal: AbortSignal.timeout(30_000),
-      headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${token}`,
+      headers: { Accept: "application/vnd.github+json", "Content-Type": "application/json", Authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28" },
       body: JSON.stringify({ ref: "main" }),
     });

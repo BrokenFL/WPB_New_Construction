@@ -56,6 +56,18 @@ build/launch/gatekeeper gates remain intact. The PR proof additionally verifies
 pinned Wrangler 4.93.0 and compiles the actual Pages Functions locally without
 Cloudflare credentials or API calls. It never invokes the live cycle or ship script.
 
+Static review of `deploy-cloudflare-pages-with-retry.mjs` confirms that ship uses
+Node filesystem/path/fetch APIs, npm for its existing preflight, and npx for
+pinned Wrangler diagnostics and Pages deployment. Git supplies revision metadata
+to Wrangler and the surrounding workflow. There is no additional gh, apt, sudo
+or host-only executable requirement. The image proof exercises Node/npm/git,
+all build/QA prerequisites and Wrangler's local Functions build. Actual shipping
+also requires the existing Cloudflare credentials/account authorization,
+production Maps bundle preflight and public/Cloudflare network access. These
+credentialed paths deliberately remain untested on this branch. Image pulling,
+GitHub and npm registry access are still required; this removes runtime Ubuntu
+package-mirror dependence, not every possible network failure.
+
 These operational changes are proposed only on the draft branch. PR events run
 credential-free fixture/build/browser checks; production workflows only respond
 to their existing main/scheduled events. This proof does not read/write a live

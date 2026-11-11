@@ -21,6 +21,7 @@ test("deployment dispatch: changed main uses the fixed workflow, main ref and jo
         assert.equal(url, "https://api.github.com/repos/BrokenFL/WPB_New_Construction/actions/workflows/deploy-cloudflare-pages.yml/dispatches");
         assert.equal(options.method, "POST");
         assert.equal(options.redirect, "error");
+        assert.equal(options.headers["Content-Type"], "application/json");
         assert.equal(options.headers.Authorization, "Bearer fixture-token");
         assert.equal(options.headers["X-GitHub-Api-Version"], "2022-11-28");
         assert.deepEqual(JSON.parse(options.body), { ref: "main" });
