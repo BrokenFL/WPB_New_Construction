@@ -734,10 +734,16 @@ test("narrow fact projection preserves dollar-prefixed price text literally", as
   assert.match(output, /export const prerenderRoutes = \[\] as const;/);
 });
 
-test("Fast Cycle workflow uses its job-scoped write token and explicitly dispatches deploy after a content push", async () => {
+test("Fast Cycle and deployment keep supported browser runners and the existing publication gates", async () => {
   const installed = await fs.readFile(".github/workflows/intel-fast-cycle.yml", "utf8");
   const template = await fs.readFile("tools/github-workflows/intel-fast-cycle.yml", "utf8");
+  const deploy = await fs.readFile(".github/workflows/deploy-cloudflare-pages.yml", "utf8");
   assert.equal(installed, template);
+  // ubuntu-latest rolled to 26.04, which the locked Playwright 1.60 rejects.
+  for (const workflow of [installed, deploy]) {
+    assert.match(workflow, /^\s+runs-on: ubuntu-24\.04\s*$/m);
+    assert.doesNotMatch(workflow, /^\s+runs-on: ubuntu-latest\s*$/m);
+  }
   assert.match(installed, /permissions:\n\s+contents: write\n\s+actions: write/);
   assert.match(installed, /token: \$\{\{ github\.token \}\}/);
   assert.match(installed, /npx playwright install --with-deps chromium/);
