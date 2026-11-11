@@ -37,8 +37,36 @@ try {
   await fs.mkdir(empty);
   const missing = spawnSync(process.execPath, ["research/scripts/check-ci-browser.mjs"],
     { cwd: root, env: { ...env, PLAYWRIGHT_BROWSERS_PATH: empty }, encoding: "utf8" });
-  assert.notEqual(missing.status, 0, "Missing bundled browser must fail closed");
-  console.log(JSON.stringify({ missingBrowserFailsClosed: true, restoredBrowserCache: false }));
+  assert.notEqual(missing.status, 0, "Invalid bundled-browser configuration must fail closed");
+  const missingExecutable = spawnSync(process.execPath, ["--input-type=module", "-e", `
+    import assert from 'node:assert/strict';
+    import { chromium } from 'playwright';
+    let browser;
+    try {
+      browser = await chromium.launch();
+      throw new Error('Unexpected browser launch from an empty directory');
+    } catch (error) {
+      assert.match(error.message, /Executable doesn't exist at/);
+      assert.ok(error.message.includes(process.env.PLAYWRIGHT_BROWSERS_PATH));
+      console.log('missing-executable-error-confirmed');
+    } finally { await browser?.close(); }
+  `], { cwd: root, env: { ...env, PLAYWRIGHT_BROWSERS_PATH: empty }, encoding: "utf8", timeout: 30_000 });
+  assert.equal(missingExecutable.status, 0, missingExecutable.stderr);
+  assert.match(missingExecutable.stdout, /missing-executable-error-confirmed/);
+  console.log(JSON.stringify({ invalidBrowserConfigurationRejected: true, missingExecutableErrorConfirmed: true,
+    restoredBrowserCache: false }));
+  // Exercise the CLI no-change contract with git present and gh absent. No API call.
+  const cliBin = path.join(temporary, "cli-tools");
+  await fs.mkdir(cliBin);
+  await fs.writeFile(path.join(cliBin, "git"), '#!/bin/sh\nprintf "' + 'a'.repeat(40) + '\\trefs/heads/main\\n"\n', { mode: 0o755 });
+  run(process.execPath, ["research/scripts/p2/dispatch-fast-cycle-deploy.mjs"], { env: { ...env,
+    PATH: cliBin, GITHUB_REPOSITORY: "BrokenFL/WPB_New_Construction", GITHUB_EVENT_NAME: "schedule",
+    GITHUB_SHA: "a".repeat(40) } });
+  run(process.execPath, ["--test", "research/scripts/p2/dispatch-fast-cycle-deploy.test.mjs"]);
+  // Compile the actual Cloudflare Functions locally; never invoke Pages deploy/API.
+  run("npx", ["--yes", "wrangler@4.93.0", "--version"], { env: { ...env, WRANGLER_SEND_METRICS: "false" } });
+  run("npx", ["--yes", "wrangler@4.93.0", "pages", "functions", "build", "functions",
+    "--outdir", path.join(temporary, "functions-build")], { env: { ...env, WRANGLER_SEND_METRICS: "false" } });
   run("npm", ["run", "test:p2:fast"]);
   run("npm", ["run", "test:p2:shadow"]);
   run("npm", ["run", "typecheck"]);
