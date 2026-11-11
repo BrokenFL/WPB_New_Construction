@@ -4547,7 +4547,7 @@ export const projectFacts = [
     "name": "Apogee Residences",
     "area": "North Flagler",
     "projectType": "condo-pipeline",
-    "summary": "A 39-residence waterfront proposal at 4906 North Flagler Drive, tracked as an approved watch project while sales, timing, and the final offering program remain unreleased.",
+    "summary": "A waterfront proposal at 4906 North Flagler Drive: 39 residences in the prior review versus 46 in the City map. The final offering program remains unresolved; sales and timing remain unreleased.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "4906 North Flagler Drive, West Palm Beach, FL 33407",

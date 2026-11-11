@@ -14,6 +14,28 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("Compare presentation retains Arkona's cultural-quarter scope and Apogee's unresolved count", async () => {
+  const apogee = model.find(p => p.publicSlug === "apogee-residences-wpb");
+  assert.match(apogee.presentation.summary, /39 residences in the prior review versus 46 in the City map/);
+  assert.match(apogee.presentation.summary, /final offering program remains unresolved/);
+  assert.equal(overrides[apogee.publicSlug].residenceCount.value, "39 in prior review; 46 in municipal map");
+  assert.equal(overrides[apogee.publicSlug].residenceCount.schemaSafe, false);
+  const compare = await fs.readFile("dist/compare/index.html", "utf8");
+  const row = slug => [...compare.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].find(m => m[1].includes(`/projects/${slug}/`))?.[1];
+  assert.match(row("201-arkona-court"), /Cultural-quarter planning watcher/);
+  assert.doesNotMatch(row("201-arkona-court"), /Waterfront buyer/);
+  assert.match(row(apogee.publicSlug), /39 residences in the prior review versus 46 in the City map/);
+  for (const slug of ["201-arkona-court", apogee.publicSlug]) {
+    const safe = safeProjects.find(p => p.identity.slug === slug).safeFields;
+    assert.equal(safe.residenceCount, undefined);
+    const html = await fs.readFile(`dist/projects/${slug}/index.html`, "utf8");
+    const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
+    const entity = graph.find(n => n["@id"]?.endsWith("#project"));
+    assert.equal(entity.numberOfAccommodationUnits, undefined);
+    assert.equal(entity.offers, undefined);
+  }
+});
+
 test("Rybovich financing stays dated reporting without changing project schema or approval scope", async () => {
   const project = model.find(p => p.publicSlug === "rybovich-marina-redevelopment");
   const copy = copies.find(p => p.repoProjectId === project.publicSlug);

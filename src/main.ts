@@ -6105,6 +6105,7 @@ function compareBuyerFit(project: FeaturedProject) {
     "mandarin-oriental": "Long-horizon branded service and future delivery.",
     "rybovich-marina-redevelopment": "Waterfront-district and marina pipeline context.",
     "rosewood-residences-west-palm-beach": "Early branded-residence pipeline monitoring.",
+    "201-arkona-court": "Cultural-quarter planning watcher",
   };
   if (projectSpecificFit[project.id]) return projectSpecificFit[project.id];
   if (project.floorplans) return "Floor-plan-first buyer";

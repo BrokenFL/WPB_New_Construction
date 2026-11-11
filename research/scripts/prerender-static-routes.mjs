@@ -1356,6 +1356,7 @@ function staticBuyerFit(project) {
     "mandarin-oriental": "Long-horizon branded-residence buyer",
     "rybovich-marina": "Waterfront-district pipeline watcher",
     "rosewood-residences-west-palm-beach": "Early branded-residence pipeline watcher",
+    "201-arkona-court": "Cultural-quarter planning watcher",
   };
   if (northFlaglerFits[project.projectId]) return northFlaglerFits[project.projectId];
   if (floorplanSignals(project)) return "Floor-plan-first buyer";
