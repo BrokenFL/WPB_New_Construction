@@ -73,6 +73,84 @@ export type MarketNote = {
 };
 
 export const marketNotes = [
+  {
+    "id": "212-bagel-co-clematis-morning-stop-2026-11-13",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "212 Bagel Co. gives Clematis an early-morning anchor",
+    "slug": "212-bagel-co-clematis-morning-stop-2026-11-13",
+    "excerpt": "212 Bagel Co. is now operating at 527 Clematis Street with online ordering and morning hours. The small opening matters less as a novelty than as another everyday reason to use a block that has long been defined by late-night plans.",
+    "buyerThesis": "A new early-hours operator on Clematis is a useful signal for buyers weighing how downtown works before the dinner-and-events window.",
+    "buyerTakeaway": "For a downtown buyer, the relevant change is the added morning routine: a short walk or errand can now include a practical breakfast stop on the 500 block.",
+    "marketSignal": "212 Bagel Co.'s official site lists 527 Clematis Street, online ordering, and hours beginning at 6 a.m. on weekdays and 7 a.m. on weekends.",
+    "bestFor": "People who value a downtown routine built around short, repeatable morning trips rather than destination dining alone.",
+    "watchPoints": "Confirm the exact operating pattern after the launch period, including order-ahead availability and how weekend traffic changes the block.",
+    "buyerQuestions": "Would this block fit the way you actually start a weekday? How does the walk from a prospective building feel before 8 a.m.? What other daily errands can be combined with it?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach",
+      "Clematis Street"
+    ],
+    "relatedCorridor": "Clematis Street",
+    "relatedArticleIds": [
+      "daily-focaccia-evernia-downtown-west-palm-2026-10-16"
+    ],
+    "image": {
+      "path": "/assets/editorial/212-bagel-co-clematis-morning-stop-2026-11-13-hero.jpg",
+      "alt": "Conceptual editorial illustration of a palm-lined downtown street with a warmly lit early-morning bakery storefront.",
+      "caption": "Conceptual illustration of an early-morning downtown routine; it does not depict 212 Bagel Co. or a specific storefront.",
+      "credit": "AI-generated editorial illustration",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "212 Bagel Co.",
+    "sourceLinks": [
+      {
+        "label": "212 Bagel Co. official site",
+        "href": "https://212bagelco.com/",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-11-13",
+    "dateModified": "2026-11-13",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "212 Bagel Co. is now presenting itself as an operating downtown business, not a future opening. Its official site lists 527 Clematis Street, West Palm Beach, regular hours beginning at 6 a.m. Monday through Friday and 7 a.m. on weekends, plus an online-ordering link. That is a modest change in the citywide scheme, but it is a concrete one: a food business with a morning schedule has joined a block better known for later plans.\n\nThe distinction matters. A “coming soon” window can widen a district’s future story; an address, hours and an order path describe a place people can incorporate into a routine now. The official site does not make a broader claim about the block, and neither should this report. It establishes the shop’s location and stated operating pattern.",
+        "image": "/assets/editorial/212-bagel-co-clematis-morning-stop-2026-11-13-body-1.jpg",
+        "imageAlt": "Conceptual editorial illustration of a walkable downtown morning route connecting a breakfast stop, errands, and the waterfront.",
+        "imageCaption": "Conceptual illustration of how a small morning stop can fit into a downtown routine; it does not depict a specific location.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Why the 500 block reads differently in the morning",
+        "body": "Clematis has plenty of reasons to visit after work: restaurants, bars, events and the waterfront nearby. Early hours are a different test. They ask whether an errand, a train trip, a dog walk or a workday start can happen without treating downtown as an evening destination. A bagel shop does not remake that equation by itself. It can, however, add a low-friction reason to stop on a block before the day’s larger destinations turn on.\n\nThat type of use is easy to overlook because it is not a tower announcement or a marquee dinner reservation. For residents, it is often more revealing. The places that become part of a neighborhood are the ones that fit between larger appointments."
+      },
+      {
+        "heading": "A small addition to the everyday map",
+        "body": "The shop’s stated weekday hours place it in the same early-day conversation as coffee, a quick breakfast and an order picked up on the way elsewhere. That does not promise a new retail district or a turnaround for every nearby storefront. It does offer a more specific signal: the 500 block has another use that is built around repeat visits rather than a single late-night occasion.\n\nDowntown West Palm Beach’s lifestyle map is increasingly made of those smaller overlaps. A resident deciding between buildings should separate headline amenities from the routes they would actually take on an ordinary Tuesday. The relevant question is not whether one bagel shop changes a purchase decision. It is whether the surrounding walk, timing and daily options make a prospective address easier to inhabit."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The first weeks will show whether the listed schedule becomes a dependable operating rhythm, particularly on weekends when downtown patterns can look very different. Buyers and renters who are considering the Clematis area should walk the route at the time they expect to use it, then test the practical details: shade, crossings, parking or drop-off friction, and the distance from home to the rest of the morning.\n\nThat is a more useful measure than treating every new restaurant as a market verdict. 212 Bagel Co. adds a verified early-hours option at 527 Clematis. The larger value of that change will be determined by how naturally it fits the routines already forming around it."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "212 Bagel Co. gives Clematis an early-morning anchor",
+      "secondaryQueries": [],
+      "suggestedSlug": "212-bagel-co-clematis-morning-stop-2026-11-13",
+      "titleTag": "212 Bagel Co. gives Clematis an early-morning anchor | Downtown Spotlight",
+      "metaDescription": "212 Bagel Co. is now operating at 527 Clematis Street with online ordering and early hours, adding a practical morning stop to downtown West Palm Beach."
+    }
+  },
+
   
   {
     "id": "west-palm-beach-condo-flood-access-buyer-checklist",

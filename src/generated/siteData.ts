@@ -3849,7 +3849,7 @@ export const projectFacts = [
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; confirm the current schedule.",
+    "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the buyer appointment is separately located at 340 Royal Poinciana Way, M302, on Palm Beach. BH Group currently expects completion in Q2 2028; confirm the current schedule.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1745 N Flagler Drive, West Palm Beach, FL 33407",
@@ -3947,7 +3947,7 @@ export const projectFacts = [
     "name": "Nora House",
     "area": "Downtown",
     "projectType": "condo-active-sales",
-    "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a sales gallery at 955 N Railroad Avenue, Suite B. The developer advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
+    "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a buyer appointment at 955 N Railroad Avenue, Suite B. The project sponsor advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1105 N. Dixie Highway, West Palm Beach, FL (contractor project address)",
@@ -3958,7 +3958,7 @@ export const projectFacts = [
       "residences": "117 marketed residences; November 2026 City staff report: 117; applicant attachment: 122",
       "stories": "11",
       "completion": "Request current delivery guidance",
-      "pricing": "From the low $2Ms (developer-published; verify current availability)",
+      "pricing": "From the low $2Ms (project sponsor-published; verify current availability)",
       "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Connor & Gaskins",
       "amenities": "Rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot/cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, bocce.",
       "residenceFeatures": [
@@ -7304,13 +7304,13 @@ export const prerenderRoutes = [
   {
     "path": "/answers/branded-residences-west-palm-beach/",
     "title": "Branded Residences in West Palm Beach | WPB Answers",
-    "description": "Compare marketed West Palm Beach branded residences and the 2001 North Flagler site’s unconfirmed reported Rosewood association.",
+    "description": "Compare marketed West Palm Beach branded residences and the 2001 North Flagler site’s BH Group-described Rosewood project, with independent brand confirmation pending.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
     "path": "/answers/north-flagler-new-condos-compared/",
     "title": "North Flagler New Condos Compared | WPB Answers",
-    "description": "Compare North Flagler condos and the 2001 North Flagler site, whose reported Rosewood association remains unconfirmed.",
+    "description": "Compare North Flagler condos and the 2001 North Flagler site, whose Rosewood project is described by BH Group; independent brand confirmation remains pending.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
@@ -7322,7 +7322,7 @@ export const prerenderRoutes = [
   {
     "path": "/answers/most-affordable-new-construction-condos-west-palm-beach/",
     "title": "Most Affordable New Condos in West Palm Beach | WPB Answers",
-    "description": "Where sub-$2M new construction actually exists in West Palm Beach — honest price-band guidance and what to verify.",
+    "description": "Compare advertised new-condo starting guidance in West Palm Beach and verify residence-specific pricing and availability before relying on a budget threshold.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
@@ -7654,6 +7654,12 @@ export const prerenderRoutes = [
     "title": "How NORA Could Reshape Downtown WPB | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
+  },
+  {
+    "path": "/downtown-spotlight/212-bagel-co-clematis-morning-stop-2026-11-13/",
+    "title": "212 Bagel Co. gives Clematis an early-morning anchor | Downtown Spotlight",
+    "description": "212 Bagel Co. is now operating at 527 Clematis Street with online ordering and early hours, adding a practical morning stop to downtown West Palm Beach.",
+    "ogImage": "/assets/editorial/212-bagel-co-clematis-morning-stop-2026-11-13-hero.jpg"
   },
   {
     "path": "/downtown-spotlight/joe-and-the-juice-plans-rosemary-avenue-cafe-2026-10-30/",
@@ -8053,8 +8059,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/rosewood-residences-west-palm-beach/",
-    "title": "Reported Rosewood Proposal | West Palm Beach Project Watch",
-    "description": "Review the reported Rosewood proposal in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
+    "title": "2001 North Flagler, West Palm Beach | Rosewood per BH Group",
+    "description": "BH Group describes Rosewood Residences at 2001 North Flagler. Review sponsor guidance, independent brand confirmation and current offering questions.",
     "ogImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"
   },
   {
