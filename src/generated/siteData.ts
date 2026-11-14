@@ -7380,6 +7380,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/alida-foundation-work-downtown-west-palm-2026-11-14/",
+    "title": "Alida Foundation Work Begins by Brightline | West Palm Beach",
+    "description": "Foundation work is underway at Alida Residences and its hotel component near the West Palm Beach Brightline station, marking the next phase after July’s groundbreaking.",
+    "ogImage": "/assets/editorial/alida-foundation-work-downtown-west-palm-2026-11-14-hero.jpg"
+  },
+  {
     "path": "/updates/downtown-master-plan-first-reading-2026-10-29/",
     "title": "West Palm’s Downtown Plan Clears Its First City Commission Vote | WPB Updates",
     "description": "West Palm Beach approved its Downtown Master Plan amendment on first reading. Here is what changed, what remains unresolved and why the next hearings matter.",
