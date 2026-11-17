@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "purpose": "Bounded dated agenda-context review; no adoption of proposed programs as confirmed project facts",
+  "baseCommit": "1f5a1af070e8fdc28f8cb8fbe3c67265923bdfe7",
+  "reviewedAt": "2026-11-16T15:15:43.647828+00:00",
+  "reviewer": "Codex under the established reviewed building-fact release authorization",
+  "source": {
+    "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-november-12-2026.pdf#page=2",
+    "agendaDate": "2026-11-12",
+    "publicationDate": "Not established",
+    "page": 2,
+    "retrievalScope": "Official six-page PDF independently opened through the web tool on November 16; page 2 text checked. Direct Mac download returned HTTP 403 and was not retried; no file hash is asserted.",
+    "documentScope": "PPRC case descriptions; not decisions or evidence that requests were approved"
+  },
+  "projects": [
+    {
+      "publicSlug": "2085-north-flagler",
+      "case": "PB 2041 / SP-26070093",
+      "agendaDescription": {
+        "towers": 2,
+        "proposedStoriesPerTower": 30,
+        "proposedMultifamilyUnits": 218,
+        "commercialLocation": "ground floor"
+      },
+      "scope": "Site-plan and special-review request with a waiver and variances at 2085 N Flagler Drive",
+      "historicalReporting": "281 condominiums / two 31-story towers; retained as historical reporting, not confirmed inventory",
+      "headlineFactsChanged": false
+    },
+    {
+      "publicSlug": "201-arkona-court",
+      "case": "PD-26070124",
+      "agendaDescription": {
+        "rezoning": "MF32 to RPD with waivers",
+        "proposedMultifamilyUnits": 16,
+        "restaurantSquareFeet": 2310
+      },
+      "omittedFromAgenda": [
+        "Height",
+        "Restaurant floor"
+      ],
+      "historicalScope": "June 25 pre-application describes 25 stories; not reaffirmed by the November agenda",
+      "headlineFactsChanged": false
+    }
+  ],
+  "preserved": [
+    "All manual overrides and schema-safety holds",
+    "Headline counts, height/stories and other quick facts",
+    "Pricing, delivery, status and availability holds",
+    "Arkona sidewalk-easement limitations and resolution discrepancy",
+    "Project identities and retired Currie Park Towers decision",
+    "All other buildings and historical articles"
+  ],
+  "unresolved": [
+    "Final approved program for both projects",
+    "2085 historical 281/31 versus November proposed 218/30 scope",
+    "Arkona current height and restaurant floor",
+    "Approvals, permits, construction, sales launch and inventory",
+    "All prior buyer-term and timing holds"
+  ],
+  "schemaChange": "None; compare full emitted graphs against pre-release live baselines",
+  "procedure": "docs/REVIEWED_BUILDING_FACT_RELEASE.md"
+}

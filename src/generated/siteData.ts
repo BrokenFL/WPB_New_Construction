@@ -4630,6 +4630,9 @@ export const projectFacts = [
       },
       {
         "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-08-aug-pfa/pf-08_31_26_city-commission-agenda.pdf"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-november-12-2026.pdf#page=2"
       }
     ]
   },
@@ -4667,6 +4670,9 @@ export const projectFacts = [
       },
       {
         "url": "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-november-12-2026.pdf#page=2"
       }
     ]
   },

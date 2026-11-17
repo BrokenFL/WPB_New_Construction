@@ -14,6 +14,34 @@ const safeProjects = (await readJson("src/generated/projectSchemaSafe.json")).pr
 const rows = parse(await fs.readFile("content/wpb_new_construction_building_database_cleaned.csv", "utf8"), { columns: true });
 const privateReference = /referenceFacts|dated-reference|Sep 21 reference|year unspecified|supplied reference|Brooke supplied a table|\$175M presold|85%\+ sold|16 of 27 floors|\$200M loan/i;
 
+test("November 12 agenda context stays dated without replacing headline facts or schema holds", async () => {
+  const flagler = copies.find(p => p.slug === "2085-north-flagler");
+  const arkona = copies.find(p => p.slug === "201-arkona-court");
+  assert.match(flagler.overview, /historical reported concept, not confirmed inventory/);
+  assert.match(flagler.overview, /November 12, 2026 PPRC agenda.*SP-26070093.*two proposed 30-story towers with 218 multifamily units and ground-floor commercial/);
+  assert.match(flagler.overview, /does not establish an approval, permit, construction or sales launch/);
+  assert.match(flagler.overview, /Currie Park Towers identity remains retired and merged/);
+  assert.equal(flagler.quickFacts.find(f => f.label === "Residences").value, "281 reported in proposal; primary plan to confirm");
+  assert.equal(flagler.quickFacts.find(f => f.label === "Floors").value, "31 planned in each tower");
+  assert.match(arkona.overview, /November 12, 2026 PPRC agenda.*PD-26070124.*rezoning request.*16 multifamily dwelling units and a 2,310-square-foot restaurant/);
+  assert.match(arkona.overview, /November agenda states no height and does not reaffirm.*historical June 25 agenda/);
+  assert.match(arkona.overview, /does not identify a restaurant floor/);
+  assert.match(arkona.overview, /not an approval, permit, construction or sales launch/);
+  assert.match(arkona.overview, /212-26.*212-16.*unresolved/);
+  for (const copy of [flagler, arkona]) {
+    assert.equal(copy.overview, copy.showcase.intro);
+    const project = model.find(p => p.publicSlug === copy.slug);
+    assert.equal(project.status, "Announced / Planning");
+    assert.equal(project.price, "Not publicly released");
+    const safe = safeProjects.find(p => p.identity.slug === copy.slug).safeFields;
+    for (const field of ["status", "delivery", "residenceCount"]) assert.equal(safe[field], undefined);
+    const html = await fs.readFile(`dist/projects/${copy.slug}/index.html`, "utf8");
+    assert.match(html, /November 12, 2026 PPRC agenda/);
+    const entity = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []).find(n => n["@id"]?.endsWith("#project"));
+    assert.doesNotMatch(JSON.stringify(entity), /218|2310|2,310|SP-26070093|PD-26070124|"(?:numberOfAccommodationUnits|offers|availability|completionDate)"|Development status|Delivery guidance/);
+  }
+});
+
 test("Compare presentation retains Arkona's cultural-quarter scope and Apogee's unresolved count", async () => {
   const apogee = model.find(p => p.publicSlug === "apogee-residences-wpb");
   assert.match(apogee.presentation.summary, /39 residences in the prior review versus 46 in the City map/);
