@@ -7380,6 +7380,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
   },
   {
+    "path": "/updates/unicorp-la-fontana-buyout-falls-through-2026-11-17/",
+    "title": "Unicorp’s La Fontana Buyout Falls Through | WPB Updates",
+    "description": "Unicorp’s proposed La Fontana buyout ended October 19. Here is what changed and what buyers should watch at 2800 North Flagler Drive.",
+    "ogImage": "/assets/editorial/unicorp-la-fontana-buyout-falls-through-2026-11-17-hero.jpg"
+  },
+  {
     "path": "/updates/alida-foundation-work-downtown-west-palm-2026-11-14/",
     "title": "Alida Foundation Work Begins by Brightline | West Palm Beach",
     "description": "Foundation work is underway at Alida Residences and its hotel component near the West Palm Beach Brightline station, marking the next phase after July’s groundbreaking.",
@@ -7460,7 +7466,7 @@ export const prerenderRoutes = [
   {
     "path": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
     "title": "Unicorp in $200M La Fontana Buyout | WPB Updates",
-    "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "description": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below.",
     "ogImage": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg"
   },
   {
@@ -7804,6 +7810,12 @@ export const prerenderRoutes = [
     "title": "Downtown WPB condo corridors explained | Buyer Intelligence",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1200x800.png"
+  },
+  {
+    "path": "/market-notes/palm-beach-county-condo-inventory-october-2026/",
+    "title": "Palm Beach County Condo Inventory Fell 14% in October | Buyer Intelligence",
+    "description": "Palm Beach County condo and townhome inventory fell 14% in October 2026 while closings rose just 0.5%. Here is what those numbers mean for buyers.",
+    "ogImage": "/assets/editorial/palm-beach-county-condo-inventory-october-2026-hero.jpg"
   },
   {
     "path": "/market-notes/west-palm-beach-condo-flood-access-buyer-checklist/",

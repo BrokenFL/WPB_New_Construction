@@ -81,6 +81,101 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "unicorp-la-fontana-buyout-falls-through-2026-11-17",
+    "slug": "unicorp-la-fontana-buyout-falls-through-2026-11-17",
+    "title": "Unicorp’s La Fontana Buyout Falls Through",
+    "sourceName": "Palm Beach Post / The Real Deal",
+    "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/10/20/west-palms-la-fontana-condo-sale-for-190-million-called-off/92347447007/",
+    "canonicalUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/10/20/west-palms-la-fontana-condo-sale-for-190-million-called-off/92347447007/",
+    "sourceTitle": "Unicorp’s La Fontana Buyout Falls Through",
+    "publishedAt": "2026-11-17T14:05:12.297Z",
+    "sourcePublishedAt": "2026-10-20",
+    "sourcePublishedDate": "2026-10-20",
+    "eventDate": "2026-10-19",
+    "dateDiscovered": "2026-11-17",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-11-17T14:05:12.297Z",
+    "titleTag": "",
+    "metaDescription": "Unicorp’s proposed La Fontana buyout ended October 19. Here is what changed and what buyers should watch at 2800 North Flagler Drive.",
+    "deck": "The proposed bulk purchase at 2800 North Flagler Drive ended October 19 after owners declined to extend the deadline. The previously reported 2027 closing is off the table for that deal.",
+    "description": "Unicorp’s proposed La Fontana buyout ended October 19. Here is what changed and what buyers should watch at 2800 North Flagler Drive.",
+    "summary": "The proposed bulk purchase at 2800 North Flagler Drive ended October 19 after owners declined to extend the deadline. The previously reported 2027 closing is off the table for that deal.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "Unicorp National Developments’ plan to buy out La Fontana, an existing waterfront co-op in West Palm Beach, has fallen through. The Palm Beach Post reported on October 20 that the agreement ended the day before, after owners declined to give the buyer more time. The Real Deal separately reported that Unicorp terminated the contract.\n\nThat changes the outlook we described in our September coverage. The 2027 date referred to the expected closing of that purchase. It was never a construction or delivery date, and it no longer applies."
+      },
+      {
+        "heading": "What the deal would have meant",
+        "body": "In August, Unicorp founder and CEO Chuck Whittall told the Palm Beach Post he envisioned a luxury hotel and new residences at the site. That was the developer’s concept, not an approved project. With the purchase agreement terminated, buyers should not count those proposed residences as future inventory.",
+        "image": "/assets/editorial/unicorp-la-fontana-buyout-falls-through-2026-11-17-body-1.jpg",
+        "imageAlt": "Black-and-white editorial composite depicting Unicorp CEO Chuck Whittall and La Fontana",
+        "imageCaption": "Unicorp founder and CEO Chuck Whittall and La Fontana, shown in an AI-assisted editorial composite. This is not a photograph of Whittall at the property.",
+        "imageCredit": "AI-assisted editorial composite"
+      },
+      {
+        "heading": "What buyers should watch now",
+        "body": "The next milestone would be a new purchase agreement, a recorded sale, or a public application that identifies what a developer actually proposes. As of November 17, we haven’t verified a replacement deal or an approved redevelopment at the site.\n\nIf you’re considering a residence at La Fontana today, evaluate the building as it stands. Ask for the current budget, recent board minutes, governing documents, and any available inspection or repair records. Find out which projects are planned, what has been funded, and whether any assessments are pending. A future buyout is too uncertain to count on when deciding what to pay today."
+      }
+    ],
+    "imageAlt": "La Fontana entrance and residential building with a red Rejected banner",
+    "imageCaption": "La Fontana at 2800 North Flagler Drive. Editorial illustration: the banner refers to the declined extension, not a city ruling.",
+    "imageCredit": "AI-assisted editorial illustration",
+    "whyItMatters": "",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "intel-story-26c1c72f59519b2e"
+    ],
+    "newsletterHeadline": "Unicorp’s La Fontana Buyout Falls Through",
+    "newsletterBlurb": "The proposed bulk purchase at 2800 North Flagler Drive ended October 19 after owners declined to extend the deadline. The previously reported 2027 closing is off the table for that deal.",
+    "newsletterCta": "Read the article",
+    "query": "Unicorp’s La Fontana Buyout Falls Through",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "corridorLabel": "North Flagler",
+    "imagePath": "/assets/editorial/unicorp-la-fontana-buyout-falls-through-2026-11-17-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach Post reported on October 20",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/10/20/west-palms-la-fontana-condo-sale-for-190-million-called-off/92347447007/",
+        "type": "news"
+      },
+      {
+        "label": "The Real Deal separately reported",
+        "url": "https://ccfj.net/CA26/condoSouthFLDirt.html",
+        "type": "news"
+      },
+      {
+        "label": "our September coverage",
+        "url": "https://www.wpbnewconstruction.com/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+        "type": "news"
+      },
+      {
+        "label": "told the Palm Beach Post",
+        "url": "https://bluewaterhealthyliving.com/news/national-news/florida/luxury-hotel-planned-more-proof-west-palms-a-wealth-spot-exclusive/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "alida-foundation-work-downtown-west-palm-2026-11-14",
     "slug": "alida-foundation-work-downtown-west-palm-2026-11-14",
     "title": "Alida Moves From Groundbreaking to Foundation Work by Brightline",
@@ -1457,38 +1552,44 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-09-15",
     "dateDiscovered": "2026-09-15",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-09-15T04:49:30.941Z",
-    "deck": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
-    "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
-    "summary": "Unicorp is under contract for the 140-unit La Fontana co-op on North Flagler at roughly $200 million, with a projected 2027 closing.",
+    "fetchedAt": "2026-11-17T14:08:00.584949Z",
+    "deck": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below.",
+    "description": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below.",
+    "summary": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below.",
     "bodySections": [
       {
-        "heading": "What happened",
+        "heading": "Correction and update · November 17, 2026",
+        "body": "The Palm Beach Post reported on October 20 that the proposed La Fontana purchase agreement ended October 19 after owners declined to extend the deadline. The Real Deal separately reported that Unicorp terminated the contract. The 2027 date in our original September coverage was an expected purchase closing, not a construction or delivery date, and it no longer applies to that agreement. Read “Unicorp’s La Fontana Buyout Falls Through” in the related coverage below. The original September reporting follows as a historical snapshot."
+      },
+      {
+        "heading": "Original September report: What happened",
         "body": "Chuck Whittall’s Unicorp is under contract to acquire La Fontana, a 140-unit waterfront co-op on North Flagler, for roughly $200 million. The property dates to 1961, and the reported transaction works out to about $1.4 million per residence on average.\n\nThe Real Deal reports that closing is projected for 2027. Those are the dependable elements of the update: the buyer, the approximately $200 million contract price, the 140-unit scale of the existing co-op and the projected closing horizon.",
         "image": "/assets/home/north-flagler-3-buildings-daytime-v01.jpg"
       },
       {
-        "heading": "Why it matters for buyers",
+        "heading": "Original September report: Why it matters for buyers",
         "body": "A transaction of this size matters on North Flagler because it involves an existing waterfront residential property rather than an undeveloped parcel. For buyers comparing the corridor, it is another sign that older waterfront sites are attracting major acquisition interest while new towers continue to reshape the area.\n\nThe important limit is what comes next. The verified record here does not establish a specific future residential brand, hospitality component or redevelopment program for the site. Until Unicorp or public planning records provide attributable details, buyers should treat the transaction as an acquisition story rather than a finished development announcement."
       },
       {
-        "heading": "What to watch",
+        "heading": "Original September report: What to watch",
         "body": "The projected 2027 closing is the next major transaction milestone. After that, the useful questions will be whether a redevelopment application is filed, what uses are proposed and how any future plan fits into the broader North Flagler pipeline.\n\nFor now, La Fontana is a significant waterfront property under contract at roughly $200 million. That alone makes it worth watching — without racing ahead of what has actually been announced."
       }
     ],
-    "whyItMatters": "A roughly $200 million contract for a 140-unit waterfront co-op is a significant North Flagler land and ownership event.",
-    "buyerContext": "Follow the transaction now; wait for attributable filings before assuming what will replace the existing property.",
-    "buyerTakeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
-    "marketSignal": "Major acquisition interest continues to focus on existing waterfront properties along North Flagler.",
+    "whyItMatters": "The proposed buyout ended October 19; the original September report is retained as historical coverage.",
+    "buyerContext": "Evaluate La Fontana as it stands; no replacement purchase agreement or approved redevelopment has been verified as of November 17.",
+    "buyerTakeaway": "The previously reported 2027 closing no longer applies to the terminated purchase agreement.",
+    "marketSignal": "The proposed acquisition did not proceed under that agreement.",
     "bestFor": "Buyers tracking how older North Flagler waterfront properties may transition over time.",
-    "watchPoints": "The projected 2027 closing and any later attributable redevelopment filing or public plan.",
+    "watchPoints": "A new purchase agreement, recorded sale, or attributable redevelopment application.",
     "buyerQuestions": "",
     "relatedBuildings": [],
     "relatedNeighborhoods": [],
     "relatedCorridor": "",
-    "relatedArticleIds": [],
-    "newsletterHeadline": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
-    "newsletterBlurb": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "relatedArticleIds": [
+      "unicorp-la-fontana-buyout-falls-through-2026-11-17"
+    ],
+    "newsletterHeadline": "La Fontana buyout update: agreement ended October 19",
+    "newsletterBlurb": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below.",
     "newsletterCta": "Read the article",
     "query": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
     "category": "development",
@@ -1512,11 +1613,27 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
         "label": "The Real Deal / Discover South Florida",
         "url": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
         "type": "news"
+      },
+      {
+        "label": "November 17 update: Unicorp’s La Fontana Buyout Falls Through",
+        "url": "https://www.wpbnewconstruction.com/updates/unicorp-la-fontana-buyout-falls-through-2026-11-17/",
+        "type": "news"
+      },
+      {
+        "label": "Palm Beach Post reported on October 20",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/10/20/west-palms-la-fontana-condo-sale-for-190-million-called-off/92347447007/",
+        "type": "news"
+      },
+      {
+        "label": "The Real Deal separately reported",
+        "url": "https://ccfj.net/CA26/condoSouthFLDirt.html",
+        "type": "news"
       }
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "metaDescription": "Update, November 17, 2026: the proposed La Fontana buyout ended October 19. The previously reported 2027 closing no longer applies to that deal. Original September coverage is preserved below."
   },
   {
     "id": "intel-story-544ca384b5f936f2",

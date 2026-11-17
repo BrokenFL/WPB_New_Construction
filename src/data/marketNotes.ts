@@ -74,6 +74,84 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "palm-beach-county-condo-inventory-october-2026",
+    "status": "published",
+    "category": "Buyer Intelligence",
+    "title": "Palm Beach County Condo Inventory Fell 14% in October",
+    "slug": "palm-beach-county-condo-inventory-october-2026",
+    "excerpt": "Countywide closings barely moved. A separate Palm Beach Board of Realtors report shows fewer listings too, but its jump in sales came from just four more closings.",
+    "buyerThesis": "Countywide closings barely moved. A separate Palm Beach Board of Realtors report shows fewer listings too, but its jump in sales came from just four more closings.",
+    "buyerTakeaway": "Start looking earlier if you have a narrow shortlist. Use building-level comps and actual alternatives to decide how much leverage you have.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/palm-beach-county-condo-inventory-october-2026-hero.jpg",
+      "alt": "Palm Beach County, October 2026 versus October 2025: 772 closings, up 0.5%; median sale price $300,000, down 4.8%; 6,139 active listings, down 14.0%.",
+      "caption": "Palm Beach County condos and townhomes. Source: Florida Realtors Monthly Market Detail, October 2026. Changes are year over year.",
+      "credit": "WPB New Construction; data: Florida Realtors, October 2026 Monthly Market Detail",
+      "showCaption": true,
+      "mode": "provided-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "Florida Realtors",
+    "sourceLinks": [
+      {
+        "label": "Florida Realtors: Palm Beach County October 2026 Monthly Market Detail",
+        "href": "https://files.flexmls.com/pbb/20261113150240774938000000.pdf",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Florida Realtors: Palm Beach Board of Realtors member activity October 2026 Monthly Market Detail",
+        "href": "https://files.flexmls.com/pbb/20261113150136049503000000.pdf",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-11-17",
+    "dateModified": "2026-11-17",
+    "sections": [
+      {
+        "heading": "The October picture",
+        "body": "Palm Beach County ended October with roughly 1,000 fewer condos and townhomes listed for sale than it had a year earlier. Yet buyers closed on only four more homes. That’s the most useful takeaway from the Florida Realtors October market report: buyers had fewer homes to choose from, but the number of completed sales barely changed."
+      },
+      {
+        "heading": "Fewer listings, nearly flat sales",
+        "body": "The county recorded 772 closings, up 0.5% from 768, and the median sale price fell 4.8% to $300,000. Active listings fell from 7,135 to 6,139. New listings also fell 8.6%, while new pending sales fell 14.1%. Fewer homes coming to market accompanied the drop in inventory; the report doesn’t show a surge in buyers going under contract.\n\nThe lower median describes the homes that sold. It doesn’t tell you what happened to the price of the same floor plan, view, or building. For an offer, recent comparable sales in the building are a better starting point than the countywide median."
+      },
+      {
+        "heading": "Palm Beach Board activity tells a different story",
+        "body": "The Palm Beach Board of Realtors report recorded 18 closings, up from 14, for a 28.6% increase. The median sale price fell 7.0% to $1,506,250, and active listings fell 20.5% to 244. The sales gain is real, but four additional closings can move the percentage sharply in a sample this small.",
+        "image": "/assets/editorial/palm-beach-county-condo-inventory-october-2026-body-1.jpg",
+        "imageAlt": "Palm Beach Board of Realtors member activity, October 2026 versus October 2025: 18 closings, up 28.6% from 14; median sale price $1,506,250, down 7.0%; 244 active listings, down 20.5%.",
+        "imageCaption": "Palm Beach Board of Realtors member activity is not limited to Palm Beach Island or any other defined geography. Source: Florida Realtors Monthly Market Detail, October 2026.",
+        "imageCredit": "WPB New Construction; data: Florida Realtors, October 2026 Monthly Market Detail"
+      },
+      {
+        "heading": "What to do before you make an offer",
+        "body": "Pull recent closings and current competition for the building, price range, and floor plan you actually want. Look at how long the closest alternatives have been listed, whether their asking prices changed, and what you’d pay in dues or known assessments. Lower inventory matters most when there are fewer homes you would genuinely buy.\n\nNeither report isolates West Palm Beach new construction. If a new tower is on your shortlist, ask for dated availability and written pricing and terms on a specific residence. Then compare it with a completed home you could buy today, using the [resale versus new construction guide](/market-notes/downtown-west-palm-resale-vs-new-build-october-2026/) to compare costs and timing."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Palm Beach County Condo Inventory Fell 14% in October",
+      "secondaryQueries": [],
+      "suggestedSlug": "palm-beach-county-condo-inventory-october-2026",
+      "titleTag": "Palm Beach County Condo Inventory Fell 14% in October | Buyer Intelligence",
+      "metaDescription": "Palm Beach County condo and townhome inventory fell 14% in October 2026 while closings rose just 0.5%. Here is what those numbers mean for buyers."
+    }
+  },
+
+  {
     "id": "212-bagel-co-clematis-morning-stop-2026-11-13",
     "status": "published",
     "category": "Downtown Spotlight",
