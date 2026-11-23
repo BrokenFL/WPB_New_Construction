@@ -74,6 +74,120 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "cityplace-movie-theater-proposed-515-fern-west-palm-beach",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "CityPlace Movie Theater Proposed for 515 Fern in West Palm Beach",
+    "slug": "cityplace-movie-theater-proposed-515-fern-west-palm-beach",
+    "excerpt": "Related Ross targets 2030 for a proposed downtown cinema, with eight auditoriums in the current concept. Reapproval and an operator selection remain ahead.",
+    "buyerThesis": "A proposed cinema adds a reason to watch downtown’s evening life. Judge today’s neighborhood on what is open, then track this proposal separately.",
+    "buyerTakeaway": "515 Fern is an office-building proposal with a cinema, not a new condominium or a promised amenity for a nearby residence.",
+    "marketSignal": "Related Ross is responding to demand for more downtown entertainment alongside its office plans.",
+    "bestFor": "Readers comparing downtown’s everyday walkability and evening options.",
+    "watchPoints": "Reapproval, operator selection, construction timing and any confirmed opening schedule. The cinema design and features remain unresolved.",
+    "buyerQuestions": "Which places are open today? What is the actual walk from the residence? Which neighborhood additions are still proposals?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach",
+      "CityPlace",
+      "Rosemary Avenue"
+    ],
+    "relatedCorridor": "downtown",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/cityplace-movie-theater-proposed-515-fern-west-palm-beach-hero.jpg",
+      "alt": "Editorial AI concept of a cinema entrance, visibly labeled AI CONCEPT — NOT A DEVELOPER RENDERING. This is not the proposed 515 Fern design.",
+      "caption": "Editorial AI concept for this article, not a developer rendering or a depiction of the future 515 Fern design. Architecture, signage and entrance location are illustrative.",
+      "credit": "WPB New Construction · AI-generated editorial concept",
+      "showCaption": true,
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "WFLX / WPTV — Joel Lopez interview, November 20, 2026",
+    "sourceLinks": [
+      {
+        "label": "WFLX / WPTV — Joel Lopez interview with Jordan Rathlev, November 20, 2026",
+        "href": "https://www.wflx.com/2026/11/20/related-ross-shares-new-details-cityplace-movie-theater/",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "WFLX — developer-confirmed redesign proposal, November 19, 2026",
+        "href": "https://www.wflx.com/2026/11/19/movie-theater-set-return-cityplace-downtown-west-palm-beach/",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Related Ross — older 515 Fern office scheme; background only",
+        "href": "https://www.relatedross.com/our-company/properties/515-fern",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "OpenStreetMap — existing street and sidewalk context",
+        "href": "https://www.openstreetmap.org/#map=17/26.7082/-80.0568",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Brightline — West Palm Beach station",
+        "href": "https://www.gobrightline.com/train-stations/fl/west-palm-beach",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "CityPlace — Wishing Tree",
+        "href": "https://www.cityplace.com/art/wishing-tree",
+        "sourceType": "official project site"
+      }
+    ],
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "sections": [
+      {
+        "heading": "A cinema returns to the conversation at 515 Fern",
+        "body": "Related Ross is proposing a movie theater within its planned 515 Fern office building near Brightline’s West Palm Beach station. In a November 20 WFLX/WPTV interview, executive vice president Jordan Rathlev described a concept with eight auditoriums and about 800 seats.\n\nThe proposal would put another evening destination in the downtown mix. It remains part of an office-building redesign, with the cinema being taken through reapproval."
+      },
+      {
+        "heading": "Targets 2030, with approvals still ahead",
+        "body": "Rathlev said Related Ross hopes to secure approvals by the end of 2027 and open in 2030. That is a developer target, not a confirmed opening date. The earlier building approval does not establish approval of this cinema redesign.\n\nNo theater operator had been chosen at the November 20 announcement. Seating technology, food service and other features were still being considered; the auditorium illustration below does not establish any of those details.",
+        "image": "/assets/editorial/cityplace-movie-theater-proposed-515-fern-west-palm-beach-body-1.jpg",
+        "imageAlt": "Editorial AI auditorium illustration with a visible INTERIOR NOT CONFIRMED label; seating, screen and finishes are illustrative.",
+        "imageCaption": "Editorial AI illustration, not a developer rendering or confirmed cinema interior. Seating, screen, finishes and features shown are illustrative, not a commitment for 515 Fern.",
+        "imageCredit": "WPB New Construction · AI-generated editorial illustration"
+      },
+      {
+        "heading": "An example walk from Brightline to CityPlace",
+        "body": "The map follows existing sidewalks from Brightline’s public entrance walk to the proposed site’s Evernia Street frontage, then west along Evernia and south on Rosemary Avenue toward CityPlace. The endpoint is the plaza-side curb by the Wishing Tree, rather than the tree itself.\n\nOn this example route, the first leg is approximately 330 feet and the second approximately 1,800 feet: about 0.40 mile in total, or an estimated 8–10 minutes on foot. This is not a claim for the shortest possible route. Stops are schematic, and crossing waits, walking pace and detours can change the trip.\n\nThe map does not identify a future cinema entrance or rely on a proposed connector. [Open the walking map at full size](/assets/editorial/cityplace-movie-theater-proposed-515-fern-west-palm-beach-body-2.jpg).",
+        "image": "/assets/editorial/cityplace-movie-theater-proposed-515-fern-west-palm-beach-body-2.jpg",
+        "imageAlt": "Example existing-sidewalk route: Brightline public entrance walk to 515 Fern’s Evernia frontage, about 330 feet, then via Evernia and South Rosemary to the CityPlace Wishing Tree plaza-side curb, about 1,800 feet. Total about 0.40 mile, 8–10 minutes. Schematic stops; no future entrance or connector.",
+        "imageCaption": "One example route measured along existing OpenStreetMap sidewalks: approximately 330 feet from Brightline’s public entrance walk to the proposed site’s Evernia frontage, then approximately 1,800 feet via Evernia and South Rosemary to the plaza-side curb by CityPlace’s Wishing Tree. About 0.40 mile / 8–10 minutes in total. Estimates and schematic stops; not necessarily the shortest route. No future cinema entrance or proposed connector is shown. Follow posted crossings and detours.",
+        "imageCredit": "WPB New Construction · Map data © OpenStreetMap contributors; destination references: Brightline and CityPlace"
+      },
+      {
+        "heading": "What matters for someone choosing a downtown address",
+        "body": "A neighborhood’s appeal often comes from ordinary evenings: an easy dinner, a walk, and somewhere to go afterward. A cinema could extend that routine beyond restaurants and shopping if the proposal moves forward. That is the lifestyle question to follow here.\n\nFor buyers, the practical distinction is between the neighborhood available now and the one described in development plans. Walk from the actual residence you are considering, look at the crossings and evening activity, and compare the places already operating. A nearby proposal should not be treated as an amenity included with a condo or assumed to open by your move-in date.\n\n515 Fern also needs to stay separate from residential inventory. This announcement offers no condo pricing or availability, and its cinema target does not set the delivery schedule for another building."
+      },
+      {
+        "heading": "The next checkpoints",
+        "body": "The next useful signals are a decision on the redesign, an announced operator and a confirmed construction and opening schedule. Related Ross’s older office webpage still describes a different, 25-story scheme and a planned connector; those details are background, not the basis of the current sidewalk map.\n\n[Explore the Downtown West Palm Beach corridor](/corridors/downtown-west-palm-beach/) to compare residential locations, or [ask us about a downtown shortlist](/inquire/)."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help you compare downtown West Palm Beach homes by the neighborhood that is open today and the proposals worth tracking.",
+    "factCheckRequired": [
+      "Recheck the cinema redesign’s approval status, selected operator and construction/opening schedule before relying on a target.",
+      "Walking estimates use the route illustrated, not a future entrance or connector. Verify current sidewalks, crossings and detours."
+    ],
+    "seo": {
+      "primaryQuery": "CityPlace movie theater 515 Fern West Palm Beach",
+      "secondaryQueries": [
+        "515 Fern cinema",
+        "CityPlace movie theater 2030",
+        "Brightline to CityPlace walk"
+      ],
+      "suggestedSlug": "cityplace-movie-theater-proposed-515-fern-west-palm-beach",
+      "titleTag": "CityPlace Movie Theater Proposed for 515 Fern in West Palm Beach",
+      "metaDescription": "Related Ross proposes a CityPlace cinema at 515 Fern in West Palm Beach, targeting 2030 subject to reapproval. See the concept and an example Brightline walk."
+    }
+  },
+
+  {
     "id": "palm-beach-county-condo-inventory-october-2026",
     "status": "published",
     "category": "Buyer Intelligence",

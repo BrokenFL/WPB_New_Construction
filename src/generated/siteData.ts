@@ -7674,6 +7674,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/cityplace-movie-theater-proposed-515-fern-west-palm-beach/",
+    "title": "CityPlace Movie Theater Proposed for 515 Fern in West Palm Beach | Downtown Spotlight",
+    "description": "Related Ross proposes a CityPlace cinema at 515 Fern in West Palm Beach, targeting 2030 subject to reapproval. See the concept and an example Brightline walk.",
+    "ogImage": "/assets/editorial/cityplace-movie-theater-proposed-515-fern-west-palm-beach-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/212-bagel-co-clematis-morning-stop-2026-11-13/",
     "title": "212 Bagel Co. gives Clematis an early-morning anchor | Downtown Spotlight",
     "description": "212 Bagel Co. is now operating at 527 Clematis Street with online ordering and early hours, adding a practical morning stop to downtown West Palm Beach.",
