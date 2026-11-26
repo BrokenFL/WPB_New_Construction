@@ -1,0 +1,57 @@
+{
+  "reviewedAt": "2026-11-26T13:57:55.849Z",
+  "sourceUrl": "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+  "sourceSha256": "cfff7eb7a646daa07a141a38c6c41622d8e5e349228898ede3aba15fb4537200",
+  "sourcePublicationDate": null,
+  "sourceEffectiveDate": null,
+  "scope": "Dated factual refresh of two current buyer comparison guides and the repeated Olara-guide Ritz hero caption. No project, directory, count, price, fee, status, address, inventory, image-byte or schema-safe authority changes.",
+  "sourceTarget": "Q2 2028 expected completion; sponsor guidance, not a guarantee",
+  "publicationDatesPreserved": [
+    {
+      "slug": "shorecrest-vs-ritz-carlton-west-palm-beach",
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-11-26"
+    },
+    {
+      "slug": "olara-vs-ritz-carlton-west-palm-beach",
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-11-26"
+    }
+  ],
+  "reason": "Carried-forward Q1 guide wording differs from the already-correct canonical Ritz profile. The November 26 source check is not an announcement of a new delay or an event date.",
+  "changedFields": [
+    "Shorecrest guide timing section",
+    "Olara guide opening section",
+    "Olara guide Ritz hero caption",
+    "both guide source labels and modification dates"
+  ],
+  "revisions": [
+    {
+      "slug": "shorecrest-vs-ritz-carlton-west-palm-beach",
+      "priorTiming": [
+        {
+          "heading": "Leave room in the calendar",
+          "body": "Related Ross's April 3, 2026 groundbreaking announcement anticipated Shorecrest's completion in 2027. Ritz-Carlton developer BH Group currently lists a first-quarter 2028 completion target. These are development schedules, so request an updated construction and closing timetable before arranging your move.\n\nNeither date establishes when a particular residence will be available. If you need to move by a fixed month, that conversation belongs near the beginning of your search."
+        }
+      ],
+      "priorCaption": null
+    },
+    {
+      "slug": "olara-vs-ritz-carlton-west-palm-beach",
+      "priorTiming": [
+        {
+          "heading": "Marina and wellness plans alongside branded residential service",
+          "body": "[Olara](https://www.wpbnewconstruction.com/projects/olara/) and [The Ritz-Carlton Residences, West Palm Beach](https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/) belong on the same shortlist if you want a new home along North Flagler Drive with water views, substantial amenities and help with the everyday details. The difference comes into focus when you consider what you want the building and its staff to take care of.\n\nAt Olara, the appeal is having a broad mix of fitness, dining and boating experiences close at hand. At The Ritz-Carlton Residences, the familiar hospitality brand and dedicated residential service are central to the offering. Both are planned for buyers looking ahead: Olara\u2019s March 2026 brochure lists completion in 2028, while developer BH Group currently targets the first quarter of 2028 for The Ritz-Carlton Residences. Those are development targets, so your own moving plans need some flexibility."
+        }
+      ],
+      "priorCaption": "The Ritz-Carlton Residences, West Palm Beach, artist's rendering. BH Group's first-quarter 2028 completion guidance is a developer target."
+    }
+  ],
+  "preserved": [
+    "canonical project facts and valid JSON-LD holds",
+    "original guide publication dates and canonical routes",
+    "all other guides, articles and building facts",
+    "all pending 2085, Edgeworth and 3031 work"
+  ],
+  "reviewedBy": "Codex \u2014 scoped sponsor-source verification under the standing building-audit instruction"
+}

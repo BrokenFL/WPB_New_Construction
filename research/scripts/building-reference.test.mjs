@@ -408,3 +408,28 @@ test("secondary presentation and Compare explanations retain the reviewed fact s
   assert.equal(copy("mandarin-oriental").showcase.heroTags.find(t => t.label === "Delivery").value, project("mandarin-oriental").delivery);
   assert.match(project("mandarin-oriental").delivery, /^2031 anticipated opening.*brand target/);
 });
+
+test("current Ritz comparison guides and captions match the reviewed sponsor timing target", async () => {
+  const { readTsArray } = await import("./article-market-note-utils.mjs");
+  const notes = readTsArray(await fs.readFile("src/data/marketNotes.ts", "utf8"), "marketNotes");
+  const target = model.find(p => p.publicSlug === "ritz-carlton-wpb").delivery.match(/Q[1-4] 20\d{2}/)?.[0];
+  assert.ok(target, "reviewed Ritz sponsor target is available");
+  for (const slug of ["shorecrest-vs-ritz-carlton-west-palm-beach", "olara-vs-ritz-carlton-west-palm-beach"]) {
+    const note = notes.find(n => n.slug === slug);
+    assert.equal(note.routeBase, "/answers/");
+    assert.equal(note.datePublished, "2026-10-06", "original publication date stays intact");
+    const guidance = note.sections.map(s => s.body).join("\n");
+    assert.ok(guidance.includes(target), `${slug}: current reviewed target`);
+    assert.doesNotMatch(guidance + note.image.caption, /first[- ]quarter(?: of)? 2028|\bQ1\s*2028\b/i);
+    assert.match(guidance, /sponsor target|development targets/);
+    if (slug.startsWith("olara")) assert.ok(note.image.caption.includes(target), "Ritz hero caption stays aligned");
+    const html = await fs.readFile(`dist/answers/${slug}/index.html`, "utf8");
+    assert.ok(html.includes(target), `${slug}: prerendered target`);
+    assert.doesNotMatch(html, /first[- ]quarter(?: of)? 2028|\bQ1\s*2028\b/i);
+    const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
+    const article = graph.find(n => n["@id"] === `https://www.wpbnewconstruction.com/answers/${slug}/#article`);
+    assert.equal(article.datePublished, note.datePublished);
+    assert.equal(article.dateModified, note.dateModified);
+    assert.equal(article.offers, undefined);
+  }
+});
