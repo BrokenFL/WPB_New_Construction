@@ -4008,7 +4008,7 @@
     "quickFacts": [
       {
         "label": "Address",
-        "value": "1309 S Flagler Drive, West Palm Beach, FL"
+        "value": "1333 S Flagler Drive, West Palm Beach, FL 33401"
       },
       {
         "label": "Status",
@@ -4053,7 +4053,7 @@
     ],
     "residences": "Available materials support luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
     "amenities": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
-    "location": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
+    "location": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects. The City’s November 19, 2024 Planning Board agenda (PB 1799D / PD-24060033, page 2) identifies the site at 1333 South Flagler Drive and names the development the 1309 South Flagler Drive Residential Planned Development (RPD). The July 11, 2024 PPRC agenda corroborates that distinction. Here, 1309 is a historical planning name/reference, not the residence address.",
     "localTake": "Forté is a delivered South Flagler benchmark for buyers comparing what they can inspect with future waterfront projects. Its marketed collection, private elevator foyers, and no more than two homes per floor put privacy and scale at the center. The decision turns on the actual residence, its exposure, association costs, and condition. The developer reports completion. Confirm whether current residence options are developer offerings or resales, along with residence-specific occupancy and terms; an inquiry form is not proof of available inventory.",
     "seoTitle": "Forté on Flagler West Palm Beach | Completed Waterfront Condos",
     "metaDescription": "Review Forté on Flagler in West Palm Beach: attributed project guidance, source notes and questions to confirm before comparing residences.",
@@ -4087,14 +4087,16 @@
     ],
     "amenityNarrative": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
     "residenceNarrative": "Available materials support luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
-    "locationNarrative": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
+    "locationNarrative": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects. The City’s November 19, 2024 Planning Board agenda (PB 1799D / PD-24060033, page 2) identifies the site at 1333 South Flagler Drive and names the development the 1309 South Flagler Drive Residential Planned Development (RPD). The July 11, 2024 PPRC agenda corroborates that distinction. Here, 1309 is a historical planning name/reference, not the residence address.",
     "projectTeamNarrative": "Developer: Two Roads Development; Alpha Blue Ventures Design: Arquitectonica; Jean-Louis Deniot interiors; EDSA landscape",
     "sourceUrls": [
+      "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf",
+      "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf",
       "https://tworoadsre.com/",
       "https://fortewpb.com/",
       "https://arquitectonica.com/architecture/project/forte-on-flagler/"
     ],
-    "lastCopyResearchDate": "2026-10-10"
+    "lastCopyResearchDate": "2026-11-27"
   },
   {
     "slug": "la-clara",

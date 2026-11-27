@@ -1109,7 +1109,7 @@
     {
       "include_on_site": true,
       "city": "West Palm Beach",
-      "municipal_or_legal_note": "Municipal approval referenced 42 residences and 24 stories; public/design sources describe 41 residences plus a full-floor penthouse and 25 stories.",
+      "municipal_or_legal_note": "Municipal approval referenced 42 residences and 24 stories; public/design sources describe 41 residences plus a full-floor penthouse and 25 stories. The City’s November 19, 2024 Planning Board agenda (PB 1799D / PD-24060033, page 2) identifies the site at 1333 South Flagler Drive and names the development the 1309 South Flagler Drive Residential Planned Development (RPD). The July 11, 2024 PPRC agenda corroborates that distinction. Here, 1309 is a historical planning name/reference, not the residence address.",
       "public_residence_count": 41,
       "municipal_residence_count": 42,
       "floor_count_display": 25,
@@ -1159,6 +1159,8 @@
         "25 public/design stories vs 24 municipal floors."
       ],
       "source_urls": [
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf",
         "https://tworoadsre.com/",
         "https://fortewpb.com/contact/",
         "https://fortewpb.com/",
@@ -1176,9 +1178,9 @@
       "page_type": "completed_comp_page",
       "status_badge": "Completed Comp",
       "development_stage": "completed_recent_comp",
-      "public_address": "1309 S Flagler Drive, West Palm Beach, FL",
+      "public_address": "1333 S Flagler Drive, West Palm Beach, FL 33401",
       "neighborhood": "South Flagler waterfront",
-      "fact_revision_date": "2026-10-10"
+      "fact_revision_date": "2026-11-27"
     },
     {
       "include_on_site": true,

@@ -780,6 +780,7 @@ function renderProjectRoute(route, payload, slug) {
       <section data-project-section="sources">
         <h2>Sources and review date</h2>
         <p>Public facts last reviewed ${publicText(project.lastReviewedDate || "recently")}.</p>
+        ${project.projectId === "forte-on-flagler" ? `<p>Address and historical planning-name distinction checked ${publicText(project.facts?.effectiveDate || "")}; other facts retain their field-specific review dates.</p>` : ""}
         ${sources.length ? `<p>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</p>` : ""}
       </section>
 
@@ -1499,7 +1500,10 @@ function isFloorplanSourceHref(href) {
 }
 
 function renderStaticSourceLink(href, projectId) {
-  if (isFloorplanSourceHref(href)) {
+  // This reviewed City agenda is address evidence, not a floorplan download.
+  const isForteAddressAgenda = projectId === "forte-on-flagler"
+    && href === "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf";
+  if (!isForteAddressAgenda && isFloorplanSourceHref(href)) {
     return `<a href="/floorplans/#floorplans-${escapeHtml(projectId)}" style="color: var(--bronze); text-decoration: none;">WPB floorplan library</a>`;
   }
   return `<a href="${safeHref(href)}" style="color: var(--bronze); text-decoration: none;">${publicText(sourceLabel(href))}</a>`;

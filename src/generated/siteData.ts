@@ -4282,18 +4282,18 @@ export const projectFacts = [
     "name": "Forté on Flagler",
     "area": "South Flagler",
     "projectType": "completed-comparable",
-    "summary": "A completed South Flagler luxury comp at 1309 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
+    "summary": "A completed South Flagler luxury comp at 1333 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "1309 S Flagler Drive, West Palm Beach, FL",
+      "projectAddress": "1333 S Flagler Drive, West Palm Beach, FL 33401",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Completed (project sponsor-confirmed)",
+      "status": "Completed (developer-confirmed)",
       "residences": "41 marketed residences; total to confirm",
       "stories": "25",
-      "completion": "Completed per project sponsor; confirm residence-specific occupancy",
-      "pricing": "Request current project sponsor and resale pricing",
+      "completion": "Completed per developer; confirm residence-specific occupancy",
+      "pricing": "Request current developer and resale pricing",
       "team": "Two Roads Development; Alpha Blue Ventures; Arquitectonica; Jean-Louis Deniot",
       "amenities": "Three levels of amenities including 75-ft lap pool with heated spa, outdoor dining/lounge, private dining for 24, great room, library, evening lounge, his/hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security/lobby attendant, valet, house cars, EV charging, concierge.",
       "residenceFeatures": [
@@ -4301,9 +4301,15 @@ export const projectFacts = [
         "Full-floor six-bedroom penthouse referenced"
       ],
       "neighborhoodContext": "South Flagler waterfront",
-      "effectiveDate": "2026-10-10"
+      "effectiveDate": "2026-11-27"
     },
     "sources": [
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf"
+      },
+      {
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf"
+      },
       {
         "url": "https://tworoadsre.com/"
       },

@@ -268,6 +268,15 @@
         "reviewedAt": "2026-10-09T02:03:11.226Z",
         "note": "Supported qualified official-source statement; existing explicit user authorization covers schema correction. Reviewed 2026-10-09. Sources: https://tworoadsre.com/",
         "schemaSafe": true
+      },
+      "address": {
+        "value": "1333 S Flagler Drive, West Palm Beach, FL 33401",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Codex under standing building-fact maintenance authorization",
+        "reviewedAt": "2026-11-27T14:03:53.946Z",
+        "note": "November 27, 2026 address-only review: The City’s November 19, 2024 Planning Board agenda (PB 1799D / PD-24060033, page 2) identifies the site at 1333 South Flagler Drive and names the development the 1309 South Flagler Drive Residential Planned Development (RPD). The July 11, 2024 PPRC agenda corroborates that distinction. Here, 1309 is a historical planning name/reference, not the residence address. The Two Roads 1217 contact address is not the residence. This review does not establish an address change date, approval outcome, recorded condominium legal description, current inventory, occupancy or fees. Preserve the existing address schema omission, marketed 41/total-to-confirm and all other reviewed fields. Sources: https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf ; https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf",
+        "schemaSafe": false
       }
     },
     "olara": {

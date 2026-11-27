@@ -1063,10 +1063,11 @@ export const publicProjectModel = {
         "status": "Completed (developer-confirmed)",
         "delivery": "Completed per developer; confirm residence-specific occupancy",
         "residences": "41 marketed residences; total to confirm",
-        "price": "Request current developer and resale pricing"
+        "price": "Request current developer and resale pricing",
+        "address": "1333 S Flagler Drive, West Palm Beach, FL 33401"
       },
       "facts": {
-        "projectAddress": "1309 S Flagler Drive, West Palm Beach, FL",
+        "projectAddress": "1333 S Flagler Drive, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
         "mailingAddress": "",
         "planningParcelAddress": "",
@@ -1087,7 +1088,7 @@ export const publicProjectModel = {
           "Full-floor six-bedroom penthouse referenced"
         ],
         "neighborhoodContext": "South Flagler waterfront",
-        "factEffectiveDate": "2026-10-10",
+        "factEffectiveDate": "2026-11-27",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
@@ -1095,10 +1096,12 @@ export const publicProjectModel = {
           "delivery": "reviewed_override",
           "residences": "reviewed_override",
           "price": "reviewed_override",
-          "address": "canonical"
+          "address": "reviewed_override"
         }
       },
       "sourceUrls": [
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf",
         "https://tworoadsre.com/",
         "https://fortewpb.com/contact/",
         "https://fortewpb.com/",
@@ -1117,7 +1120,7 @@ export const publicProjectModel = {
         "deliveryYear": 2024,
         "longitude": -80.0509,
         "latitude": 26.7019,
-        "summary": "A completed South Flagler luxury comp at 1309 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
+        "summary": "A completed South Flagler luxury comp at 1333 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
         "floorplans": true,
         "pageState": "Completed Luxury Comp",
         "image": "/projects/forte-on-flagler/media/card.jpg",

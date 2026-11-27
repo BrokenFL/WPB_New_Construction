@@ -1,0 +1,52 @@
+{
+  "projectSlug": "forte-on-flagler",
+  "reviewedAt": "2026-11-27T14:03:53.946Z",
+  "scope": "Current site address and historical RPD-name distinction only",
+  "before": "1309 S Flagler Drive, West Palm Beach, FL",
+  "after": "1333 S Flagler Drive, West Palm Beach, FL 33401",
+  "historicalPlanningName": "1309 South Flagler Drive Residential Planned Development (RPD)",
+  "claim": "The City’s November 19, 2024 Planning Board agenda (PB 1799D / PD-24060033, page 2) identifies the site at 1333 South Flagler Drive and names the development the 1309 South Flagler Drive Residential Planned Development (RPD). The July 11, 2024 PPRC agenda corroborates that distinction. Here, 1309 is a historical planning name/reference, not the residence address.",
+  "sources": [
+    {
+      "name": "pb-2024-11-19",
+      "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf",
+      "retrievedAt": "2026-11-27T14:02:11.379900+00:00",
+      "status": 200,
+      "sha256": "8fbea7200c5072edf8e0f4a04ff5a7b9433cfe8aeb9af6beb49aedae69ebc059"
+    },
+    {
+      "name": "pprc-2024-07-11",
+      "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf",
+      "retrievedAt": "2026-11-27T14:02:12.268132+00:00",
+      "status": 200,
+      "sha256": "14b15574dd54317c97dbc90921aaa228af08430e07df8ce177f85332d8e270cd"
+    }
+  ],
+  "agendaDates": [
+    "2024-11-19",
+    "2024-07-11"
+  ],
+  "case": "PB 1799D / PD-24060033",
+  "reviewDateIsNotAddressChangeDate": true,
+  "independentlyVerified": [
+    "Both downloaded City PDFs, page 2, text and Planning Board page rendering"
+  ],
+  "notIndependentlyVerified": [
+    "BeachesMLS B26038257 #2301; not needed for this City-supported address correction",
+    "Recorded condominium legal description or exact renumbering date"
+  ],
+  "preserved": [
+    "Coordinates -80.0509 / 26.7019",
+    "41 marketed residences; total to confirm",
+    "Completion/delivery, price, listing fees and other facts",
+    "Project identity and route",
+    "Existing address and residence-count schema omissions",
+    "Unrelated projects, historical articles and pending releases"
+  ],
+  "schemaSafe": false,
+  "unresolved": [
+    "Exact condominium total and municipal/marketing floor differences remain held",
+    "Residence-specific legal-unit details, availability, occupancy, fees and terms retain prior holds"
+  ],
+  "sourceAccessNote": "Web extraction returned HTTP 403 for the November agenda; both direct local official-PDF downloads returned HTTP 200, with hashes above."
+}

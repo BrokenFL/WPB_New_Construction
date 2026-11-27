@@ -9081,7 +9081,12 @@ function isFloorplanSourceHref(href: string) {
 }
 
 function renderProjectSourceLink(href: string, projectId?: string) {
-  if (isFloorplanSourceHref(href)) {
+  // These reviewed City agendas are address evidence, not floorplan downloads.
+  const forteAddressAgendaLabel = projectId === "forte-on-flagler" ? ({
+    "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf": "City Planning Board agenda — November 19, 2024",
+    "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf": "City PPRC agenda — July 11, 2024",
+  } as Record<string, string>)[href] : undefined;
+  if (!forteAddressAgendaLabel && isFloorplanSourceHref(href)) {
     return `
       <a class="document-card" href="${floorplanLibraryPath(projectId)}">
         <span>Floorplan Library</span>
@@ -9094,7 +9099,7 @@ function renderProjectSourceLink(href: string, projectId?: string) {
   return `
     <a class="document-card" href="${safeHref(href)}" target="_blank" rel="noopener noreferrer">
       <span>Reviewed Source</span>
-      <strong>${publicText(sourceLinkLabel(href))}</strong>
+      <strong>${publicText(forteAddressAgendaLabel || sourceLinkLabel(href))}</strong>
       <small>Use for fact orientation; verify current buyer terms before reliance.</small>
     </a>
   `;
@@ -9649,6 +9654,8 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       </section>
 
       ${renderProjectCorridorCta(project)}
+
+      ${project.id === "forte-on-flagler" && copyPackage?.sourceUrls?.length ? `<section class="berkeley-intro-section" data-project-section="sources" aria-label="Address sources and review date"><p class="berkeley-kicker">Address sources and review date</p><p>Address and historical planning-name distinction checked ${publicText(copyPackage.lastCopyResearchDate ?? "")}; other facts retain their field-specific review dates.</p><div class="brochure-download-list">${copyPackage.sourceUrls.filter((href) => href.startsWith("https://www.wpb.org/")).map((href) => renderProjectSourceLink(href, project.id)).join("")}</div></section>` : ""}
 
       ${teamFacts.length ? `<section class="berkeley-team-section" data-project-section="team" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
 

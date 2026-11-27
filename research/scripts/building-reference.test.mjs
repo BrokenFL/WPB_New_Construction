@@ -433,3 +433,35 @@ test("current Ritz comparison guides and captions match the reviewed sponsor tim
     assert.equal(article.offers, undefined);
   }
 });
+
+
+test("Forté separates its 1333 site from the historical 1309 RPD name without promoting schema", async () => {
+  const project = model.find(p => p.publicSlug === "forte-on-flagler");
+  const copy = copies.find(p => p.slug === project.publicSlug);
+  const address = "1333 S Flagler Drive, West Palm Beach, FL 33401";
+  assert.equal(project.reviewedFields.address, address);
+  assert.equal(project.facts.projectAddress, address);
+  assert.equal(copy.quickFacts.find(f => f.label === "Address").value, address);
+  assert.equal(rows.find(p => p.project_id === project.publicSlug).public_address, address);
+  assert.match(copy.location, /November 19, 2024 Planning Board agenda.*PB 1799D \/ PD-24060033/);
+  assert.match(copy.location, /1309 is a historical planning name\/reference, not the residence address/);
+  assert.match(project.presentation.summary, /at 1333 S Flagler Drive/);
+  assert.equal(project.presentation.longitude, -80.0509);
+  assert.equal(project.presentation.latitude, 26.7019);
+  assert.equal(project.residences, "41 marketed residences; total to confirm");
+  assert.equal(project.delivery, "Completed per developer; confirm residence-specific occupancy");
+  assert.equal(overrides[project.publicSlug].address.schemaSafe, false);
+  const safe = safeProjects.find(p => p.identity.slug === project.publicSlug);
+  assert.equal(safe.safeFields.address, undefined);
+  assert.equal(safe.safeFields.residenceCount, undefined);
+  assert.ok(safe.omittedFields.includes("address"));
+  const html = await fs.readFile(`dist${project.publicRoute}index.html`, "utf8");
+  assert.match(html, /Project address<\/dt>\s*<dd>1333 S Flagler Drive/);
+  assert.match(html, /1309 is a historical planning name\/reference/);
+  for (const suffix of ["planning-board/2024-pb-agendas/pb-agenda-2024.11.19.pdf", "plans-amp-plats-review-committee/2024-pprc-agendas/20240711-pprc-agenda_new.pdf"]) {
+    assert.ok(html.includes(`href="https://www.wpb.org/files/assets/city/v/1/development-services/documents/${suffix}"`), suffix);
+  }
+  const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] || []);
+  const entity = graph.find(n => n["@id"]?.endsWith("#project"));
+  for (const key of ["address", "numberOfAccommodationUnits", "offers", "availability"]) assert.equal(entity[key], undefined);
+});
