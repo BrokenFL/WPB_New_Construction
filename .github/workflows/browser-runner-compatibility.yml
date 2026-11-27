@@ -9,6 +9,8 @@ on:
       - '.github/workflows/deploy-cloudflare-pages.yml'
       - 'tools/github-workflows/intel-fast-cycle.yml'
       - 'research/scripts/p2/fast-mode.test.mjs'
+      - 'research/scripts/check-ci-browser.mjs'
+      - 'research/scripts/p2/dispatch-fast-cycle-deploy*'
       - 'package.json'
       - 'package-lock.json'
 
@@ -21,8 +23,11 @@ concurrency:
 
 jobs:
   chromium:
-    name: Chromium on Ubuntu 24.04
+    name: Bundled Chromium on Ubuntu 24.04
     runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble@sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948
+      options: --user 1001
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -37,24 +42,8 @@ jobs:
       # Fixture tests only: never invoke the live cycle, Sheet or publisher.
       - name: Verify workflow contracts and Fast Cycle fixtures
         run: npm run test:p2:fast
-      - name: Install locked Playwright Chromium and system dependencies
-        run: npx playwright install --with-deps chromium
-      - name: Launch Chromium without external services
-        run: |
-          node --input-type=module <<'NODE'
-          import assert from 'node:assert/strict';
-          import { chromium } from 'playwright';
-          const browser = await chromium.launch();
-          try {
-            const page = await browser.newPage();
-            await page.setContent('<title>Browser runner compatibility</title><p>Chromium ready</p>');
-            assert.equal(await page.title(), 'Browser runner compatibility');
-            assert.equal(await page.locator('p').innerText(), 'Chromium ready');
-            console.log(`Chromium ${browser.version()} launched successfully`);
-          } finally {
-            await browser.close();
-          }
-          NODE
+      - name: Verify locked bundled browser, fonts and tool compatibility
+        run: node research/scripts/check-ci-browser.mjs
       - name: Record tested revision and verify sources stayed unchanged
         run: |
           git rev-parse HEAD

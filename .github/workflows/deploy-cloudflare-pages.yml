@@ -8,8 +8,10 @@ on:
 
 jobs:
   build-and-deploy:
-    # Share Fast Cycle's verified OS for the locked Playwright Chromium install.
     runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble@sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948
+      options: --user 1001
     permissions:
       contents: read
     env:
@@ -27,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Verify bundled Playwright Chromium
+        run: node research/scripts/check-ci-browser.mjs
 
       - name: Build site
         env:

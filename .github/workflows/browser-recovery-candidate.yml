@@ -1,0 +1,54 @@
+name: Browser dependency recovery candidate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/browser-recovery-candidate.yml'
+      - '.github/workflows/browser-runner-compatibility.yml'
+      - '.github/workflows/intel-fast-cycle.yml'
+      - '.github/workflows/deploy-cloudflare-pages.yml'
+      - 'tools/github-workflows/intel-fast-cycle.yml'
+      - 'research/scripts/check-ci-browser.mjs'
+      - 'research/scripts/qa-browser-recovery.mjs'
+      - 'research/scripts/p2/dispatch-fast-cycle-deploy*'
+      - 'research/scripts/p2/fast-mode.test.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-recovery-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  clean-container:
+    name: Clean image, injected mirror failure, full QA
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble@sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948
+      options: --user 1001
+    timeout-minutes: 20
+    env:
+      P2_DRY_RUN: '1'
+      P2_SKIP_PUBLISH: '1'
+      WPB_MAP_QA_MODE: no-key
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Deliberately no dependency/browser/apt cache restoration.
+      - name: Install locked npm packages
+        run: npm ci
+      - name: Exercise failure injection, clean browser and all release QA
+        run: node research/scripts/qa-browser-recovery.mjs
+      - name: Record exact revision and source integrity
+        run: |
+          git rev-parse HEAD
+          git diff --exit-code

@@ -746,9 +746,27 @@ test("Fast Cycle and deployment keep supported browser runners and the existing 
   }
   assert.match(installed, /permissions:\n\s+contents: write\n\s+actions: write/);
   assert.match(installed, /token: \$\{\{ github\.token \}\}/);
-  assert.match(installed, /npx playwright install --with-deps chromium/);
+  const compatibility = await fs.readFile(".github/workflows/browser-runner-compatibility.yml", "utf8");
+  const candidate = await fs.readFile(".github/workflows/browser-recovery-candidate.yml", "utf8");
+  const lock = JSON.parse(await fs.readFile("package-lock.json", "utf8"));
+  const image = `mcr.microsoft.com/playwright:v${lock.packages["node_modules/playwright"].version}-noble@sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948`;
+  for (const workflow of [installed, deploy, compatibility, candidate]) {
+    assert.ok(workflow.includes(`image: ${image}`));
+    assert.match(workflow, /options: --user 1001/);
+    assert.match(workflow, /node-version: 22/);
+    assert.doesNotMatch(workflow, /--privileged|--cap-add|--security-opt|--dns|NODE_TLS_REJECT_UNAUTHORIZED/);
+  }
+  for (const workflow of [installed, deploy, compatibility]) {
+    assert.match(workflow, /node research\/scripts\/check-ci-browser\.mjs/);
+    assert.doesNotMatch(workflow, /playwright install|apt-get|sudo/);
+  }
+  assert.match(installed, /if: env\.P2_DRY_RUN == '0' && env\.P2_SKIP_PUBLISH == '0'/);
+  assert.match(deploy, /run: npm run build/);
+  assert.match(deploy, /run: npm run qa:launch/);
+  assert.match(deploy, /run: npm run qa:gatekeeper/);
+  assert.match(deploy, /run: npm run ship:live/);
   assert.match(installed, /WPB_MAP_QA_MODE: no-key/);
-  assert.match(installed, /gh workflow run deploy-cloudflare-pages\.yml --ref main/);
+  assert.match(installed, /run: node research\/scripts\/p2\/dispatch-fast-cycle-deploy\.mjs/);
   assert.doesNotMatch(installed, /P2_PUBLISH_PAT/);
 });
 
