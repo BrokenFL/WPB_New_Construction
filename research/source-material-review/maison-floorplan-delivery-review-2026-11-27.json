@@ -1,0 +1,33 @@
+{
+  "projectSlug": "maison-dor",
+  "reviewedAt": "2026-11-27T17:45:34.900986+00:00",
+  "scope": "Current Maison per-plan delivery context only; preserve existing canonical guidance and qualified status",
+  "source": {
+    "url": "https://livemaisondor.com/wp-content/uploads/2026/06/Maison-dOr-Condominium-Documents-07.01.26-Bookmarks.pdf",
+    "retrievedAt": "2026-11-27T17:42:53.424744+00:00",
+    "status": 200,
+    "sha256": "768ca5c739b42778aa9e0577f22fd605b045cdcd163e6b6fd08f83ca3e1572eb",
+    "pages": 347
+  },
+  "sourceLocation": "Section 1, Prospectus Text page 1 / PDF page 8",
+  "finding": "Completion estimate is set out in Section 7 of the applicable Purchase Agreement; prospectus describes it as an estimate, not a representation or warranty, and says actual completion may differ substantially. No primary public late-2028 target established.",
+  "priorEmittedValue": "Late 2028 (targeted; reported)",
+  "currentReviewedGuidance": "Request current delivery guidance",
+  "provenance": "Original cached layout metadata stays a historical input; existing discovery generator projects only current Maison delivery from the reviewed canonical model into served per-plan data. No new project database or publication workflow.",
+  "manualFactsChanged": false,
+  "schemaPermissionsChanged": false,
+  "schemaDeliveryRemainsOmitted": true,
+  "sourceEffectiveDate": null,
+  "reviewDateIsNotProjectEventDate": true,
+  "preserved": [
+    "Qualified Pre-Construction Sales status",
+    "All plan metrics, PDFs, slugs and identities",
+    "Maison address and municipal record, count, fees and amenities",
+    "Historical dated reporting",
+    "Other projects, pending releases, infrastructure, schedules and permissions"
+  ],
+  "unresolved": [
+    "Current completion estimate must be requested and checked against the applicable agreement; no new date is asserted",
+    "Separate Maison address and residential/commercial-unit reconciliation are out of scope"
+  ]
+}

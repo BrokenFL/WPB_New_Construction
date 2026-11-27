@@ -465,3 +465,29 @@ test("Forté separates its 1333 site from the historical 1309 RPD name without p
   const entity = graph.find(n => n["@id"]?.endsWith("#project"));
   for (const key of ["address", "numberOfAccommodationUnits", "offers", "availability"]) assert.equal(entity[key], undefined);
 });
+
+
+test("Maison per-plan delivery follows reviewed guidance without changing layout facts or schema", async () => {
+  const { readTsArray } = await import("./article-market-note-utils.mjs");
+  const cached = readTsArray(await fs.readFile("src/data/floorplanPlanPages.ts", "utf8"), "floorplanPlanPages");
+  const generated = readTsArray(await fs.readFile("src/generated/siteData.ts", "utf8"), "floorplanPlanPages");
+  const maison = model.find(p => p.publicSlug === "maison-dor");
+  assert.equal(maison.delivery, "Request current delivery guidance");
+  assert.equal(overrides[maison.publicSlug].deliveryTiming.schemaSafe, false);
+  const safe = safeProjects.find(p => p.identity.slug === maison.publicSlug).safeFields;
+  assert.equal(safe.delivery, undefined);
+  assert.equal(generated.length, cached.length);
+  assert.equal(generated.filter(p => p.projectId === maison.publicSlug).length, 10);
+  for (const page of generated) {
+    const source = cached.find(p => p.projectId === page.projectId && p.planSlug === page.planSlug);
+    assert.ok(source);
+    if (page.projectId !== maison.publicSlug) { assert.deepEqual(page, source); continue; }
+    assert.deepEqual(page, { ...source, delivery: maison.delivery });
+    const html = await fs.readFile(`dist/floorplans/maison-dor/${page.planSlug}/index.html`, "utf8");
+    assert.match(html, /currently pre-construction sales/);
+    assert.match(html, /Request current delivery guidance/);
+    assert.doesNotMatch(html, /late.2028|4Q.2028|Q4.2028/i);
+    const graphs = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+    assert.doesNotMatch(JSON.stringify(graphs), /2028|completionDate|Delivery guidance|"offers"|"availability"/);
+  }
+});

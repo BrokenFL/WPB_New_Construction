@@ -656,7 +656,7 @@ function renderFloorplanPlanRoute(route, payload, projectId, planSlug) {
       </section>
       <section>
         <h2>About this building</h2>
-        <p>${publicText(plan.planTitle)} is a released floor plan at <a href="${projectHref}">${publicText(plan.projectName)}</a>${plan.status && plan.status !== "Unknown" ? `, currently ${publicText(plan.status.toLowerCase())}` : ""}${plan.delivery && plan.delivery !== "Unknown" ? ` with delivery ${publicText(plan.delivery)}` : ""}. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${publicText(plan.projectName)} plan set</a> and the <a href="${corridorHref}">${publicText(corridorLabelForKey(corridorKey))} corridor</a>.</p>
+        <p>${publicText(plan.planTitle)} is a released floor plan at <a href="${projectHref}">${publicText(plan.projectName)}</a>${plan.status && plan.status !== "Unknown" ? `, currently ${publicText(plan.status.toLowerCase())}` : ""}${plan.projectId === "maison-dor" ? `. ${publicText(plan.delivery)}` : plan.delivery && plan.delivery !== "Unknown" ? ` with delivery ${publicText(plan.delivery)}` : ""}. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${publicText(plan.projectName)} plan set</a> and the <a href="${corridorHref}">${publicText(corridorLabelForKey(corridorKey))} corridor</a>.</p>
         <p><a href="/inquire/" data-per-plan-availability>Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
       </section>
       <section>

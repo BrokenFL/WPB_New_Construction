@@ -6507,6 +6507,7 @@ function renderFloorplanPlanDetail(plan: FloorplanPlanPage) {
       </section>
       <section>
         <h2>About this building</h2>
+        ${plan.projectId === "maison-dor" ? `<p>Project status: ${escapeHtml(plan.status)}. ${escapeHtml(plan.delivery)}.</p>` : ""}
         <p>${escapeHtml(plan.planTitle)} is a released floor plan at <a href="/projects/${escapeHtml(plan.projectId)}/">${escapeHtml(plan.projectName)}</a>. Compare it against the full <a href="/floorplans/#floorplans-${escapeHtml(plan.projectId)}">${escapeHtml(plan.projectName)} plan set</a>${corridorSection ? ` and the <a href="${escapeHtml(corridorHref)}">${escapeHtml(corridorLabel)} corridor</a>` : ""}.</p>
         <p><a href="/inquire/" data-per-plan-availability>Request current availability and pricing</a> for this plan, or <a href="/compare/">compare buildings</a> across corridors.</p>
       </section>

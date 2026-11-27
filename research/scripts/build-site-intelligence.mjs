@@ -128,7 +128,14 @@ const floorplanPlanPageRoutes = loadFloorplanPlanPageRoutes();
 function loadFloorplanPlanPageRoutes() {
   const dataPath = path.join(workspace, "src/data/floorplanPlanPages.ts");
   const source = fsSync.readFileSync(dataPath, "utf8");
-  return readTsArray(source, "floorplanPlanPages");
+  const pages = readTsArray(source, "floorplanPlanPages");
+  // Maison's layout records retain their original snapshot metadata. Current
+  // delivery copy must follow the reviewed canonical guidance, not that cache.
+  const maison = readPublicProjectModel().projects.find((project) => project.publicSlug === "maison-dor");
+  if (pages.some((page) => page.projectId === "maison-dor") && !maison?.delivery) {
+    throw new Error("Missing reviewed Maison d'Or delivery guidance");
+  }
+  return pages.map((page) => page.projectId === "maison-dor" ? { ...page, delivery: maison.delivery } : page);
 }
 
 function loadBuyerIntentAnswerRoutes() {
