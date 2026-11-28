@@ -1,0 +1,55 @@
+{
+  "projectSlug": "berkeley",
+  "canonicalId": "berkeley-palm-beach",
+  "reviewedAt": "2026-11-28T12:11:47.286688+00:00",
+  "scope": "Existing EDSA landscape credit restored in both static team displays; inspect aggregate bedrooms without changing correct values",
+  "sources": [
+    {
+      "url": "https://www.theberkeleypalmbeach.com/team/",
+      "verification": "Fresh rendered browser text identifies EDSA under Landscape Architect"
+    },
+    {
+      "url": "https://www.theberkeleypalmbeach.com/residences/",
+      "verification": "Fresh rendered browser text advertises 2 TO 5 BEDROOM luxury residences; no inventory inferred"
+    },
+    {
+      "url": "https://online.flippingbook.com/view/328083429/22/",
+      "verification": "Web extraction of page 22 corroborates Landscape Architecture: EDSA; canvas browser body did not expose searchable EDSA text"
+    }
+  ],
+  "privateEvidence": [
+    {
+      "file": "team-browser-evidence.log",
+      "sha256": "b6612626fd5d881be586ebe135b2cea744ea7e63d48d298126aac0c0cc11d3ce",
+      "kind": "private rendered-browser evidence log"
+    },
+    {
+      "file": "residences-browser-evidence.log",
+      "sha256": "eef60edd4eb358be344a023f489f0c4627f74cdb15e6f9b4eb3240d15ef2fdcc",
+      "kind": "private rendered-browser evidence log"
+    },
+    {
+      "file": "brochure-browser-evidence.log",
+      "sha256": "bd453e14d4ed84970ed68d84b2a8d51f318b8bc46aacdd316d883c2e43d80b67",
+      "kind": "private rendered-browser evidence log"
+    }
+  ],
+  "sourceAccessLimit": "Direct urllib requests returned HTTP 403 for sponsor pages and a closed connection for the brochure. Sponsor claims were verified in the rendered browser; brochure additionally corroborates in web extraction.",
+  "canonicalBefore": "landscape_architect already [EDSA]; public project-team projection omitted landscape architecture",
+  "correction": "Use that one existing canonical field once in both static project-team displays. Curated client team already includes EDSA and is unchanged.",
+  "bedroomDisposition": "The live profile emits 2-5, the selected Compare table emits 2- to 5-bedroom residences with a narrower typical-unit qualification, and the Downtown corridor says two- to five-bedroom residences. No conflicting 2–4 project-wide aggregate was found. The separate Estate Collection 2-4 and individual plan data remain unchanged.",
+  "schemaDisposition": "No existing landscape/team or aggregate-bedroom structured property requires an update; preserve the current approved schema fields/omissions.",
+  "manualOverridesChanged": false,
+  "datesChanged": false,
+  "eventOrAppointmentDate": null,
+  "preserved": [
+    "Aggregate square footage",
+    "Individual plan/collection data",
+    "Inventory, unit count, prices, project dates and fees",
+    "All other projects including OLIN",
+    "Workflows, schedules, Sheets and permissions",
+    "Existing pending source edits"
+  ],
+  "presentationPreservation": "Scoped regeneration exposed an older sales-gallery/buyer-appointment wording difference. Align the Berkeley presentation overlay to the exact existing public summary so regeneration preserves published copy. Both street addresses and their site/gallery distinction are unchanged; this is no address reconciliation.",
+  "reviewedBy": "Codex under standing building-fact maintenance authorization"
+}

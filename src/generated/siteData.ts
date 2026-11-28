@@ -3910,7 +3910,7 @@ export const projectFacts = [
       "stories": "25",
       "completion": "Confirm with sales team",
       "pricing": "$2M to over $10M (official project guidance); request current pricing",
-      "team": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors",
+      "team": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors; EDSA (landscape architecture)",
       "amenities": "Rooftop adult pool, family pool, private cabanas, fitness/yoga, spas, sauna, treatment rooms, private dining, chef’s kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre/event lawn, UPLIN Health concierge medical care.",
       "residenceFeatures": [
         "Snaidero Italian cabinetry",
@@ -3928,6 +3928,12 @@ export const projectFacts = [
       "effectiveDate": "2026-09-01"
     },
     "sources": [
+      {
+        "url": "https://www.theberkeleypalmbeach.com/team/"
+      },
+      {
+        "url": "https://online.flippingbook.com/view/328083429/22/"
+      },
       {
         "url": "https://www.theberkeleypalmbeach.com/"
       },

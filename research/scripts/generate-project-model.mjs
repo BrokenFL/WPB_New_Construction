@@ -210,6 +210,11 @@ const publicProjects = publishedProjects.map((project) => ({
       ...(canonicalById.get(project.canonicalId)?.developer ?? []),
       ...(canonicalById.get(project.canonicalId)?.architect ?? []),
       ...(canonicalById.get(project.canonicalId)?.interior_designer ?? []),
+      // Berkeley's verified landscape credit belongs in the same canonical team
+      // projection used by both static team displays. Keep other projects scoped out.
+      ...(project.publicSlug === "berkeley"
+        ? (canonicalById.get(project.canonicalId)?.landscape_architect ?? []).map((name) => `${name} (landscape architecture)`)
+        : []),
       ...(canonicalById.get(project.canonicalId)?.construction_team ?? []),
     ]),
     amenitySummary: canonicalById.get(project.canonicalId)?.amenity_summary ?? "",

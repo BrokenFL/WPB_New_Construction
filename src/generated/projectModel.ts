@@ -346,6 +346,8 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://www.theberkeleypalmbeach.com/team/",
+        "https://online.flippingbook.com/view/328083429/22/",
         "https://www.theberkeleypalmbeach.com/",
         "https://www.theberkeleypalmbeach.com/residences/",
         "https://www.theberkeleypalmbeach.com/amenities/",
@@ -369,7 +371,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 0,
         "longitude": -80.0642,
         "latitude": 26.7087,
-        "summary": "A Clear Lake condominium marketed at 550 S. Australian Avenue, with a separate sales gallery at 500 S. Australian Avenue, Suite 910. Compare the residence setting and downtown access.",
+        "summary": "A Clear Lake condominium marketed at 550 S. Australian Avenue, with a separate buyer appointment at 500 S. Australian Avenue, Suite 910. Compare the residence setting and downtown access.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/berkeley/media/card.jpg",

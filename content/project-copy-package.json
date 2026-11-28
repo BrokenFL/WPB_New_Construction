@@ -1335,9 +1335,12 @@
       "2026-09-23 verification: official site live at theberkeleypalmbeach.com; sales gallery 500 S. Australian Ave Suite 910, West Palm Beach, FL 33401; 561.220.0000; call to book a private appointment. Delivery not publicly confirmed; pricing reported at launch — request current figures.",
       "2026-10-08 official-source review: Official homepage https://www.theberkeleypalmbeach.com/ checked 2026-10-08 advertises two- to five-bedroom residences from $2M to over $10M. Published marketing guidance is not a specific purchasable residence Offer.",
       "2026-10-09 field-specific official-source audit. These summary fields distinguish marketing offerings, municipal programs and dated targets; unresolved totals/approval/identity remain held from schema. See docs/BUILDING_OFFICIAL_SOURCE_AUDIT_2026_10_09.md.",
-      "2026-10-09 copy alignment: the current official website labels 550 S. Australian Avenue as the Berkeley site and 500 S. Australian Avenue, Suite 910 as the sales gallery. Municipal Clearwater Park Road references have a different address scope and do not replace this qualified marketing-site display. https://www.theberkeleypalmbeach.com/"
+      "2026-10-09 copy alignment: the current official website labels 550 S. Australian Avenue as the Berkeley site and 500 S. Australian Avenue, Suite 910 as the sales gallery. Municipal Clearwater Park Road references have a different address scope and do not replace this qualified marketing-site display. https://www.theberkeleypalmbeach.com/",
+      "November 28, 2026 landscape-credit consistency review: the sponsor team page and brochure page 22 credit EDSA for landscape architecture. The canonical landscape field and curated team already held EDSA; restore its omission from the static shared team projection without appending duplicate credits. The current sponsor residences page advertises 2–5 bedrooms, already reflected in the profile aggregate. The separate Estate Collection 2–4 display is not the project-wide range and is unchanged. This is a credit/source reconciliation, not a new appointment or project event. Sources: https://www.theberkeleypalmbeach.com/team/ ; https://online.flippingbook.com/view/328083429/22/ ; https://www.theberkeleypalmbeach.com/residences/"
     ],
     "sourceUrls": [
+      "https://www.theberkeleypalmbeach.com/team/",
+      "https://online.flippingbook.com/view/328083429/22/",
       "https://theberkeleypalmbeach.com/",
       "https://www.theberkeleypalmbeach.com/",
       "https://services1.arcgis.com/RTiKiFNGzgAobBzy/arcgis/rest/services/Citywide_Projects_For_Dash_Board/FeatureServer/0"

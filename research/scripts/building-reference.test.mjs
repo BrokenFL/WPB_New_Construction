@@ -491,3 +491,23 @@ test("Maison per-plan delivery follows reviewed guidance without changing layout
     assert.doesNotMatch(JSON.stringify(graphs), /2028|completionDate|Delivery guidance|"offers"|"availability"/);
   }
 });
+
+
+test("Berkeley carries its canonical landscape credit once and retains the correct marketed bedroom range", async () => {
+  const project = model.find(p => p.publicSlug === "berkeley");
+  const copy = copies.find(p => p.repoProjectId === project.publicSlug);
+  assert.deepEqual(project.facts.projectTeam.filter(x => /EDSA/.test(x)), ["EDSA (landscape architecture)"]);
+  assert.equal(copy.showcase.projectTeam.filter(x => x.value === "EDSA").length, 1);
+  assert.equal(copy.quickFacts.find(x => x.label === "Bedrooms").value, "2-5");
+  assert.equal(copy.showcase.residenceCollections.find(x => x.title === "Estate Collection").beds, "2-4 bedrooms");
+  const html = await fs.readFile("dist/projects/berkeley/index.html", "utf8");
+  const facts = html.match(/<dt>Project team<\/dt><dd>([^]*?)<\/dd>/)?.[1];
+  const team = html.match(/<section data-project-section="team">([^]*?)<\/section>/)?.[1];
+  for (const value of [facts, team]) {
+    assert.ok(value);
+    assert.equal((value.match(/EDSA/g) || []).length, 1);
+    assert.match(value, /EDSA \(landscape architecture\)/);
+  }
+  const graphs = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  assert.doesNotMatch(JSON.stringify(graphs), /"offers"|"availability"|landscapeArchitect|numberOfBedrooms/);
+});
